@@ -5,7 +5,7 @@ Standalone Clang service for easier integration with various editors and IDEs
 
 
 ## About
-The goal of Clag is to provide independent, persistent service which allows you  
+The goal of Clad is to provide independent, persistent service which allows you  
 to build and store compilation database and which can be used for:
 
 * Syntax checking.
