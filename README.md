@@ -5,7 +5,7 @@ Standalone Clang service for easier integration with various editors and IDEs
 
 
 ## About
-The goal of Clag is to provide independent, persistent service which allows you
+The goal of Clag is to provide independent, persistent service which allows you  
 to build and store compilation database and which can be used for:
 
 * Syntax checking.
@@ -13,8 +13,8 @@ to build and store compilation database and which can be used for:
 * Finding references.
 * In future also dealing with refactorings.
 
-Some of the goals are quite similar to the ones which you can find here:
-http://clang-developers.42468.n3.nabble.com/RFC-A-proposal-for-a-Clang-based-service-architecture-td4024449.html
+Some of the goals are quite similar to the ones which you can find here:  
+http://clang-developers.42468.n3.nabble.com/RFC-A-proposal-for-a-Clang-based-service-architecture-td4024449.html  
 However, there are also some differences:
 
 * Clad is not going to provide any C API. If someone want to use C API he can already use libclang, 
