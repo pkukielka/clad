@@ -1,11 +1,11 @@
-Clad
+clang-serv
 ====
 
 Standalone Clang service for easier integration with various editors and IDEs
 
 
 ## About
-The goal of Clad is to provide independent, persistent service which allows you  
+The goal of clang-serv is to provide independent, persistent service which allows you  
 to build and store compilation database and which can be used for:
 
 * Syntax checking.
@@ -17,12 +17,10 @@ Some of the goals are quite similar to the ones which you can find here:
 http://clang-developers.42468.n3.nabble.com/RFC-A-proposal-for-a-Clang-based-service-architecture-td4024449.html  
 However, there are also some differences:
 
-* Clad is not going to provide any C API. If someone want to use C API he can already use libclang, 
-  I don't see any sense in duplicating libclang API.
-* Even if Clad will be standalone server which can communicate through sockets it's intended to use only on localhost.
+* Even if clang-serv will be standalone server which can communicate through sockets it's intended to use only on localhost.
   This can look like unnecessary limitation, but it's here for a purpose. Architecture of external service which can be 
   hosted remotely and used by multiple users would need to be totally different and probably much more complicated.
-* I'm not going to invent any special binary protocol or whatever. Clad will be based on Thrift, because it will be 
+* I'm not going to invent any special binary protocol or whatever. Clang-serv will be based on Thrift, because it will be 
   easier to implement and more versatile (clients for many languages for free). I'm aiming for 0 (zero) logic needed on
   the client side. Only the code provided by Thrift automatically. This leads to the next point.
 * There will be no .clangrc files. They would require additional logic for every possible client, and I can imagine situation where someone 
