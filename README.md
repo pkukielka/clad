@@ -5,13 +5,11 @@ Standalone Clang service for easier integration with various editors and IDEs
 
 
 ## About
-The goal of clang-serv is to provide independent, persistent service which allows you  
-to build and store compilation database and which can be used for:
+The goal of clang-serv is to provide platform independent, persistent service which:
 
-* Syntax checking.
-* Code completion.
-* Finding references.
-* In future also dealing with refactorings.
+* Provide API similar to libclang and can do everything which libclang can
+* Can be accessed easily from any programming language without need to writing C bindings
+* [Future] Provide useful refactoring tools
 
 Some of the goals are quite similar to the ones which you can find here:  
 http://clang-developers.42468.n3.nabble.com/RFC-A-proposal-for-a-Clang-based-service-architecture-td4024449.html  
