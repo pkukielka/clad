@@ -9,8 +9,6 @@ namespace * clang.thrift
  *      time_t          ->      t64
  */
 
-typedef i32 int
-
 typedef i32 u32
 
 typedef i64 u64
