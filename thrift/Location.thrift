@@ -24,7 +24,7 @@ include "TranslationUnit.thrift"
  */
 struct CXSourceLocation {
   1: list<Types.ResourceId> ptr_data,
-  2: Types.uint int_data
+  2: Types.u32 int_data
 }
 
 /**
@@ -35,16 +35,16 @@ struct CXSourceLocation {
  */
 struct CXSourceRange {
   1: list<Types.ResourceId> ptr_data,
-  2: Types.uint begin_int_data,
-  3: Types.uint end_int_data
+  2: Types.u32 begin_int_data,
+  3: Types.u32 end_int_data
 }
 
 struct CXSourcePosition {
   1: File.CXFile file,
   2: string filename,
-  3: Types.uint line,
-  4: Types.uint column,
-  5: Types.uint offset
+  3: Types.u32 line,
+  4: Types.u32 column,
+  5: Types.u32 offset
 }
 
 service Location {
@@ -61,22 +61,22 @@ service Location {
    * \returns non-zero if the source locations refer to the same location, zero
    * if they refer to different locations.
    */
-  Types.uint clang_equalLocations(1: CXSourceLocation loc1, 2: CXSourceLocation loc2),
+  Types.u32 clang_equalLocations(1: CXSourceLocation loc1, 2: CXSourceLocation loc2),
 
   /**
    * \brief Retrieves the source location associated with a given file/line/column
    * in a particular translation unit.
    */
   CXSourceLocation clang_getLocation(1: TranslationUnit.CXTranslationUnit tu, 2: File.CXFile file,
-                                     3: Types.uint line,
-                                     4: Types.uint column),
+                                     3: Types.u32 line,
+                                     4: Types.u32 column),
   /**
    * \brief Retrieves the source location associated with a given character offset
    * in a particular translation unit.
    */
   CXSourceLocation clang_getLocationForOffset(1: TranslationUnit.CXTranslationUnit tu, 
                                               2: File.CXFile file,
-                                              3: Types.uint offset),
+                                              3: Types.u32 offset),
 
   /**
    * \brief Retrieve a NULL (invalid) source range.
@@ -95,7 +95,7 @@ service Location {
    *
    * \returns non-zero if the ranges are the same, zero if they differ.
    */
-  Types.uint clang_equalRanges(1: CXSourceRange range1, 2: CXSourceRange range2),
+  Types.u32 clang_equalRanges(1: CXSourceRange range1, 2: CXSourceRange range2),
 
   /**
    * \brief Returns non-zero if \p range is null.

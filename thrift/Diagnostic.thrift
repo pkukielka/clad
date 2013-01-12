@@ -190,7 +190,7 @@ service Diagnostic {
   /**
    * \brief Determine the number of diagnostics in a CXDiagnosticSet.
    */
-  Types.uint clang_getNumDiagnosticsInSet(1: CXDiagnosticSet diags),
+  Types.u32 clang_getNumDiagnosticsInSet(1: CXDiagnosticSet diags),
 
   /**
    * \brief Retrieve a diagnostic associated with the given CXDiagnosticSet.
@@ -202,7 +202,7 @@ service Diagnostic {
    * via a call to \c clang_disposeDiagnostic().
    */
   CXDiagnostic clang_getDiagnosticInSet(1: CXDiagnosticSet diags,
-                                        2: Types.uint index),
+                                        2: Types.u32 index),
 
   /**
    * \brief Deserialize a set of diagnostics from a Clang diagnostics bitcode
@@ -233,7 +233,7 @@ service Diagnostic {
    * \brief Determine the number of diagnostics produced for the given
    * translation unit.
    */
-  Types.uint clang_getNumDiagnostics(1: TranslationUnit.CXTranslationUnit unit),
+  Types.u32 clang_getNumDiagnostics(1: TranslationUnit.CXTranslationUnit unit),
 
   /**
    * \brief Retrieve a diagnostic associated with the given translation unit.
@@ -245,7 +245,7 @@ service Diagnostic {
    * via a call to \c clang_disposeDiagnostic().
    */
   CXDiagnostic clang_getDiagnostic(1: TranslationUnit.CXTranslationUnit unit,
-                                   2: Types.uint index),
+                                   2: Types.u32 index),
 
   /**
    * \brief Retrieve the complete set of diagnostics associated with a
@@ -276,7 +276,7 @@ service Diagnostic {
    * \returns A new string containing for formatted diagnostic.
    */
   string clang_formatDiagnostic(1: CXDiagnostic diagnostic,
-                                  2: Types.uint options),
+                                  2: Types.u32 options),
 
   /**
    * \brief Retrieve the set of display options most similar to the
@@ -285,7 +285,7 @@ service Diagnostic {
    * \returns A set of display options suitable for use with \c
    * clang_displayDiagnostic().
    */
-  Types.uint clang_defaultDiagnosticDisplayOptions(),
+  Types.u32 clang_defaultDiagnosticDisplayOptions(),
 
   /**
    * \brief Determine the severity of the given diagnostic.
@@ -326,7 +326,7 @@ service Diagnostic {
    * \returns The number of the category that contains this diagnostic, or zero
    * if this diagnostic is uncategorized.
    */
-  Types.uint clang_getDiagnosticCategory(1: CXDiagnostic diagnostic),
+  Types.u32 clang_getDiagnosticCategory(1: CXDiagnostic diagnostic),
 
   /**
    * \brief Retrieve the name of a particular diagnostic category.  This
@@ -338,7 +338,7 @@ service Diagnostic {
    *
    * \returns The name of the given diagnostic category.
    */
-  string clang_getDiagnosticCategoryName(1: Types.uint category),
+  string clang_getDiagnosticCategoryName(1: Types.u32 category),
 
   /**
    * \brief Retrieve the diagnostic category text for a given diagnostic.
@@ -351,7 +351,7 @@ service Diagnostic {
    * \brief Determine the number of source ranges associated with the given
    * diagnostic.
    */
-  Types.uint clang_getDiagnosticNumRanges(1: CXDiagnostic diagnostic),
+  Types.u32 clang_getDiagnosticNumRanges(1: CXDiagnostic diagnostic),
 
   /**
    * \brief Retrieve a source range associated with the diagnostic.
@@ -367,13 +367,13 @@ service Diagnostic {
    * \returns the requested source range.
    */
    Location.CXSourceRange clang_getDiagnosticRange(1: CXDiagnostic diagnostic,
-                                         2: Types.uint range),
+                                         2: Types.u32 range),
 
   /**
    * \brief Determine the number of fix-it hints associated with the
    * given diagnostic.
    */
-  Types.uint clang_getDiagnosticNumFixIts(1: CXDiagnostic diagnostic),
+  Types.u32 clang_getDiagnosticNumFixIts(1: CXDiagnostic diagnostic),
 
   /**
    * \brief Retrieve the replacement information for a given fix-it.
@@ -395,5 +395,5 @@ service Diagnostic {
    * \returns Structure containing replacement range and text
    */
   CXDiagnosticFixIt clang_getDiagnosticFixIt(1: CXDiagnostic Diagnostic,
-                                             2: Types.uint FixIt)
+                                             2: Types.u32 FixIt)
 }

@@ -39,7 +39,7 @@ struct CXUnsavedFile {
   /**
    * \brief The length of the unsaved contents of this buffer.
    */
-  3: Types.uint Length
+  3: Types.u32 Length
 }
 
 
@@ -235,7 +235,7 @@ struct CXTUResourceUsageEntry {
   1: CXTUResourceUsageKind kind,
   /* \brief Amount of resources used. 
       The units will depend on the resource kind. */
-  2: Types.ulong amount
+  2: Types.u64 amount
 }
 
 /**
@@ -314,7 +314,7 @@ service TranslationUnit {
    * preamble) geared toward improving the performance of these routines. The
    * set of optimizations enabled may change from one version to the next.
    */
-  Types.uint clang_defaultEditingTranslationUnitOptions(),
+  Types.u32 clang_defaultEditingTranslationUnitOptions(),
     
   /**
    * \brief Parse the given source file and the translation unit corresponding
@@ -356,7 +356,7 @@ service TranslationUnit {
                                                2: string source_filename,
                                                3: list<string> command_line_args,
                                                4: list<CXUnsavedFile> unsaved_files,
-                                               5: Types.uint options),
+                                               5: Types.u32 options),
 
   /**
    * \brief Returns the set of flags that is suitable for saving a translation
@@ -367,7 +367,7 @@ service TranslationUnit {
    * set contains an unspecified set of options that save translation units with
    * the most commonly-requested data.
    */
-  Types.uint clang_defaultSaveOptions(1: CXTranslationUnit unit),
+  Types.u32 clang_defaultSaveOptions(1: CXTranslationUnit unit),
 
   /**
    * \brief Saves a translation unit into a serialized representation of
@@ -393,8 +393,8 @@ service TranslationUnit {
    * saved successfully, while a non-zero value indicates that a problem occurred.
    */
   CXSaveError clang_saveTranslationUnit(1: CXTranslationUnit unit,
-                                      2: string filename,
-                                      3: Types.uint options),
+                                       2: string filename,
+                                       3: Types.u32 options),
   /**
    * \brief Destroy the specified CXTranslationUnit object.
    */
@@ -410,7 +410,7 @@ service TranslationUnit {
    * of reparsing. The set of optimizations enabled may change from one version 
    * to the next.
    */
-  Types.uint clang_defaultReparseOptions(1: CXTranslationUnit unit),
+  Types.u32 clang_defaultReparseOptions(1: CXTranslationUnit unit),
 
   /**
    * \brief Reparse the source files that produced this translation unit.
@@ -449,7 +449,7 @@ service TranslationUnit {
    */
   Types.int clang_reparseTranslationUnit(1: CXTranslationUnit unit,
                                          2: list<CXUnsavedFile> unsaved_files,
-                                         3: Types.uint options),
+                                         3: Types.u32 options),
 
   /**
     * \brief Returns the human-readable string that represents the name 
