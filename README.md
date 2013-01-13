@@ -1,29 +1,37 @@
 Clad
 ====
-
+  
 Standalone Clang service for easier integration with various editors and IDEs
-
-
+  
 ## About
-The goal of Clad is to provide platform independent, persistent service which:
+The goal of Clad is to provide platform independent, persistent service which provides API very similar to libclang C API, but can be accessed easily from any programming language without need to write C bindings.  
+This should significantly simplify process of building stateless commandline utilities based on Clang (state is moved to service instead, you don't need to reparse all files every time you run your tool) as well as testing Clang using other languages, even exotic ones.  
+  
+## Building the server
+To build Clad you need to have:
+- Clang 3.2 
+- CMake 2.6
+- Thrift
+  
+You don't need to have full Clang installation but CMake must be able to find libclang 3.2 headers and library. Thrift compiler is needed only if you want to change thrift files or generate client API.  
+Building Clad is pretty straightforward:
+```
+git clone https://github.com/pkukielka/clad.git  
+cd clad && mkdir build && cd build  
+cmake ..  
+make  
+```
 
-* Provide API similar to libclang and can do everything which libclang can
-* Can be accessed easily from any programming language without need to writing C bindings
-* [Future] Provide useful refactoring tools
+## Client API
+Clients APIs are not part of the Clad distribution because of two reasons:
+- there is ~14 languages supported, a it too many to manage them easily (you can find full list inside Thrift documentation: http://thrift.apache.org/docs/features/)
+- it's very easy to generate all the files:
+```
+cd clad/build
+thrift -r --gen java thrift/Clang.thrift
+```
 
-Some of the goals are quite similar to the ones which you can find here:  
-http://clang-developers.42468.n3.nabble.com/RFC-A-proposal-for-a-Clang-based-service-architecture-td4024449.html  
-However, there are also some differences:
-
-* Even if Clad will be standalone server which can communicate through sockets it's intended to use only on localhost.
-  This can look like unnecessary limitation, but it's here for a purpose. Architecture of external service which can be 
-  hosted remotely and used by multiple users would need to be totally different and probably much more complicated.
-* I'm not going to invent any special binary protocol or whatever. Clad will be based on Thrift, because it will be 
-  easier to implement and more versatile (clients for many languages for free). I'm aiming for 0 (zero) logic needed on
-  the client side. Only the code provided by Thrift automatically. This leads to the next point.
-* There will be no .clangrc files. They would require additional logic for every possible client, and I can imagine situation where someone 
-  want to implement this in other way. Whole administration of the service will be possible through RPC API.
-  Well, except starting the service, this will be responsibility of the editor.
-
-Whole idea is still young and there is high chance that something will change in the meantime.
-All adjustments will be made after minimum viable prototype will be ready.
+This will generate full API for java. To see list of all available generators open terminal and type:
+```
+thrift -help
+```
