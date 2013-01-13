@@ -6,12 +6,12 @@
  */
 #include "Diagnostic_constants.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 const DiagnosticConstants g_Diagnostic_constants;
 
 DiagnosticConstants::DiagnosticConstants() {
 }
 
-}} // namespace
+} // namespace
 

@@ -6,9 +6,9 @@
  */
 #include "Clang.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
-uint32_t Clang_clang_createIndex_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createIndex_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -56,9 +56,9 @@ uint32_t Clang_clang_createIndex_args::read(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t Clang_clang_createIndex_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createIndex_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_createIndex_args");
+  xfer += oprot->writeStructBegin("Clang_createIndex_args");
 
   xfer += oprot->writeFieldBegin("excludeDeclarationsFromPCH", ::apache::thrift::protocol::T_I32, 1);
   xfer += oprot->writeI32(this->excludeDeclarationsFromPCH);
@@ -73,9 +73,9 @@ uint32_t Clang_clang_createIndex_args::write(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_createIndex_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createIndex_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_createIndex_pargs");
+  xfer += oprot->writeStructBegin("Clang_createIndex_pargs");
 
   xfer += oprot->writeFieldBegin("excludeDeclarationsFromPCH", ::apache::thrift::protocol::T_I32, 1);
   xfer += oprot->writeI32((*(this->excludeDeclarationsFromPCH)));
@@ -90,7 +90,7 @@ uint32_t Clang_clang_createIndex_pargs::write(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_createIndex_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createIndex_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -130,11 +130,11 @@ uint32_t Clang_clang_createIndex_result::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_createIndex_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createIndex_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_createIndex_result");
+  xfer += oprot->writeStructBegin("Clang_createIndex_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -146,7 +146,7 @@ uint32_t Clang_clang_createIndex_result::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_createIndex_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createIndex_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -186,7 +186,7 @@ uint32_t Clang_clang_createIndex_presult::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_disposeIndex_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeIndex_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -226,9 +226,9 @@ uint32_t Clang_clang_disposeIndex_args::read(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_disposeIndex_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeIndex_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeIndex_args");
+  xfer += oprot->writeStructBegin("Clang_disposeIndex_args");
 
   xfer += oprot->writeFieldBegin("index", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->index);
@@ -239,9 +239,9 @@ uint32_t Clang_clang_disposeIndex_args::write(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_disposeIndex_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeIndex_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeIndex_pargs");
+  xfer += oprot->writeStructBegin("Clang_disposeIndex_pargs");
 
   xfer += oprot->writeFieldBegin("index", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->index)));
@@ -252,7 +252,7 @@ uint32_t Clang_clang_disposeIndex_pargs::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_disposeIndex_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeIndex_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -279,18 +279,18 @@ uint32_t Clang_clang_disposeIndex_result::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_disposeIndex_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeIndex_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_disposeIndex_result");
+  xfer += oprot->writeStructBegin("Clang_disposeIndex_result");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_disposeIndex_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeIndex_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -317,7 +317,7 @@ uint32_t Clang_clang_disposeIndex_presult::read(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_setGlobalOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_CXIndex_setGlobalOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -349,7 +349,7 @@ uint32_t Clang_clang_CXIndex_setGlobalOptions_args::read(::apache::thrift::proto
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast0;
           xfer += iprot->readI32(ecast0);
-          this->options = ( ::clang::thrift::CXGlobalOptFlags::type)ecast0;
+          this->options = ( ::clad::CXGlobalOptFlags::type)ecast0;
           this->__isset.options = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -367,9 +367,9 @@ uint32_t Clang_clang_CXIndex_setGlobalOptions_args::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_setGlobalOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_CXIndex_setGlobalOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_CXIndex_setGlobalOptions_args");
+  xfer += oprot->writeStructBegin("Clang_CXIndex_setGlobalOptions_args");
 
   xfer += oprot->writeFieldBegin("index", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->index);
@@ -384,9 +384,9 @@ uint32_t Clang_clang_CXIndex_setGlobalOptions_args::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_setGlobalOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_CXIndex_setGlobalOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_CXIndex_setGlobalOptions_pargs");
+  xfer += oprot->writeStructBegin("Clang_CXIndex_setGlobalOptions_pargs");
 
   xfer += oprot->writeFieldBegin("index", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->index)));
@@ -401,7 +401,7 @@ uint32_t Clang_clang_CXIndex_setGlobalOptions_pargs::write(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_setGlobalOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_CXIndex_setGlobalOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -428,18 +428,18 @@ uint32_t Clang_clang_CXIndex_setGlobalOptions_result::read(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_setGlobalOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_CXIndex_setGlobalOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_CXIndex_setGlobalOptions_result");
+  xfer += oprot->writeStructBegin("Clang_CXIndex_setGlobalOptions_result");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_setGlobalOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_CXIndex_setGlobalOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -466,7 +466,7 @@ uint32_t Clang_clang_CXIndex_setGlobalOptions_presult::read(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_getGlobalOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_CXIndex_getGlobalOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -506,9 +506,9 @@ uint32_t Clang_clang_CXIndex_getGlobalOptions_args::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_getGlobalOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_CXIndex_getGlobalOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_CXIndex_getGlobalOptions_args");
+  xfer += oprot->writeStructBegin("Clang_CXIndex_getGlobalOptions_args");
 
   xfer += oprot->writeFieldBegin("index", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->index);
@@ -519,9 +519,9 @@ uint32_t Clang_clang_CXIndex_getGlobalOptions_args::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_getGlobalOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_CXIndex_getGlobalOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_CXIndex_getGlobalOptions_pargs");
+  xfer += oprot->writeStructBegin("Clang_CXIndex_getGlobalOptions_pargs");
 
   xfer += oprot->writeFieldBegin("index", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->index)));
@@ -532,7 +532,7 @@ uint32_t Clang_clang_CXIndex_getGlobalOptions_pargs::write(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_getGlobalOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_CXIndex_getGlobalOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -556,7 +556,7 @@ uint32_t Clang_clang_CXIndex_getGlobalOptions_result::read(::apache::thrift::pro
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast1;
           xfer += iprot->readI32(ecast1);
-          this->success = ( ::clang::thrift::CXGlobalOptFlags::type)ecast1;
+          this->success = ( ::clad::CXGlobalOptFlags::type)ecast1;
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -574,11 +574,11 @@ uint32_t Clang_clang_CXIndex_getGlobalOptions_result::read(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_getGlobalOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_CXIndex_getGlobalOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_CXIndex_getGlobalOptions_result");
+  xfer += oprot->writeStructBegin("Clang_CXIndex_getGlobalOptions_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -590,7 +590,7 @@ uint32_t Clang_clang_CXIndex_getGlobalOptions_result::write(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_CXIndex_getGlobalOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_CXIndex_getGlobalOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -614,7 +614,7 @@ uint32_t Clang_clang_CXIndex_getGlobalOptions_presult::read(::apache::thrift::pr
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast2;
           xfer += iprot->readI32(ecast2);
-          (*(this->success)) = ( ::clang::thrift::CXGlobalOptFlags::type)ecast2;
+          (*(this->success)) = ( ::clad::CXGlobalOptFlags::type)ecast2;
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -632,7 +632,7 @@ uint32_t Clang_clang_CXIndex_getGlobalOptions_presult::read(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getTranslationUnitSpelling_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getTranslationUnitSpelling_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -672,9 +672,9 @@ uint32_t Clang_clang_getTranslationUnitSpelling_args::read(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_getTranslationUnitSpelling_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getTranslationUnitSpelling_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getTranslationUnitSpelling_args");
+  xfer += oprot->writeStructBegin("Clang_getTranslationUnitSpelling_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -685,9 +685,9 @@ uint32_t Clang_clang_getTranslationUnitSpelling_args::write(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getTranslationUnitSpelling_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getTranslationUnitSpelling_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getTranslationUnitSpelling_pargs");
+  xfer += oprot->writeStructBegin("Clang_getTranslationUnitSpelling_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -698,7 +698,7 @@ uint32_t Clang_clang_getTranslationUnitSpelling_pargs::write(::apache::thrift::p
   return xfer;
 }
 
-uint32_t Clang_clang_getTranslationUnitSpelling_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getTranslationUnitSpelling_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -738,11 +738,11 @@ uint32_t Clang_clang_getTranslationUnitSpelling_result::read(::apache::thrift::p
   return xfer;
 }
 
-uint32_t Clang_clang_getTranslationUnitSpelling_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getTranslationUnitSpelling_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getTranslationUnitSpelling_result");
+  xfer += oprot->writeStructBegin("Clang_getTranslationUnitSpelling_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
@@ -754,7 +754,7 @@ uint32_t Clang_clang_getTranslationUnitSpelling_result::write(::apache::thrift::
   return xfer;
 }
 
-uint32_t Clang_clang_getTranslationUnitSpelling_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getTranslationUnitSpelling_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -794,7 +794,7 @@ uint32_t Clang_clang_getTranslationUnitSpelling_presult::read(::apache::thrift::
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnitFromSourceFile_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createTranslationUnitFromSourceFile_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -833,19 +833,19 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_args::read(::apache::th
       case 3:
         if (ftype == ::apache::thrift::protocol::T_LIST) {
           {
-            this->clang_command_line_args.clear();
+            this->command_line_args.clear();
             uint32_t _size3;
             ::apache::thrift::protocol::TType _etype6;
             xfer += iprot->readListBegin(_etype6, _size3);
-            this->clang_command_line_args.resize(_size3);
+            this->command_line_args.resize(_size3);
             uint32_t _i7;
             for (_i7 = 0; _i7 < _size3; ++_i7)
             {
-              xfer += iprot->readString(this->clang_command_line_args[_i7]);
+              xfer += iprot->readString(this->command_line_args[_i7]);
             }
             xfer += iprot->readListEnd();
           }
-          this->__isset.clang_command_line_args = true;
+          this->__isset.command_line_args = true;
         } else {
           xfer += iprot->skip(ftype);
         }
@@ -882,9 +882,9 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_args::read(::apache::th
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnitFromSourceFile_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createTranslationUnitFromSourceFile_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_createTranslationUnitFromSourceFile_args");
+  xfer += oprot->writeStructBegin("Clang_createTranslationUnitFromSourceFile_args");
 
   xfer += oprot->writeFieldBegin("idx", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->idx);
@@ -894,11 +894,11 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_args::write(::apache::t
   xfer += oprot->writeString(this->source_filename);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("clang_command_line_args", ::apache::thrift::protocol::T_LIST, 3);
+  xfer += oprot->writeFieldBegin("command_line_args", ::apache::thrift::protocol::T_LIST, 3);
   {
-    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRING, static_cast<uint32_t>(this->clang_command_line_args.size()));
+    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRING, static_cast<uint32_t>(this->command_line_args.size()));
     std::vector<std::string> ::const_iterator _iter13;
-    for (_iter13 = this->clang_command_line_args.begin(); _iter13 != this->clang_command_line_args.end(); ++_iter13)
+    for (_iter13 = this->command_line_args.begin(); _iter13 != this->command_line_args.end(); ++_iter13)
     {
       xfer += oprot->writeString((*_iter13));
     }
@@ -909,7 +909,7 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_args::write(::apache::t
   xfer += oprot->writeFieldBegin("unsaved_files", ::apache::thrift::protocol::T_LIST, 4);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>(this->unsaved_files.size()));
-    std::vector< ::clang::thrift::CXUnsavedFile> ::const_iterator _iter14;
+    std::vector< ::clad::CXUnsavedFile> ::const_iterator _iter14;
     for (_iter14 = this->unsaved_files.begin(); _iter14 != this->unsaved_files.end(); ++_iter14)
     {
       xfer += (*_iter14).write(oprot);
@@ -923,9 +923,9 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_args::write(::apache::t
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnitFromSourceFile_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createTranslationUnitFromSourceFile_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_createTranslationUnitFromSourceFile_pargs");
+  xfer += oprot->writeStructBegin("Clang_createTranslationUnitFromSourceFile_pargs");
 
   xfer += oprot->writeFieldBegin("idx", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->idx)));
@@ -935,11 +935,11 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_pargs::write(::apache::
   xfer += oprot->writeString((*(this->source_filename)));
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("clang_command_line_args", ::apache::thrift::protocol::T_LIST, 3);
+  xfer += oprot->writeFieldBegin("command_line_args", ::apache::thrift::protocol::T_LIST, 3);
   {
-    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRING, static_cast<uint32_t>((*(this->clang_command_line_args)).size()));
+    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRING, static_cast<uint32_t>((*(this->command_line_args)).size()));
     std::vector<std::string> ::const_iterator _iter15;
-    for (_iter15 = (*(this->clang_command_line_args)).begin(); _iter15 != (*(this->clang_command_line_args)).end(); ++_iter15)
+    for (_iter15 = (*(this->command_line_args)).begin(); _iter15 != (*(this->command_line_args)).end(); ++_iter15)
     {
       xfer += oprot->writeString((*_iter15));
     }
@@ -950,7 +950,7 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_pargs::write(::apache::
   xfer += oprot->writeFieldBegin("unsaved_files", ::apache::thrift::protocol::T_LIST, 4);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>((*(this->unsaved_files)).size()));
-    std::vector< ::clang::thrift::CXUnsavedFile> ::const_iterator _iter16;
+    std::vector< ::clad::CXUnsavedFile> ::const_iterator _iter16;
     for (_iter16 = (*(this->unsaved_files)).begin(); _iter16 != (*(this->unsaved_files)).end(); ++_iter16)
     {
       xfer += (*_iter16).write(oprot);
@@ -964,7 +964,7 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_pargs::write(::apache::
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnitFromSourceFile_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createTranslationUnitFromSourceFile_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1004,11 +1004,11 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_result::read(::apache::
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnitFromSourceFile_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createTranslationUnitFromSourceFile_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_createTranslationUnitFromSourceFile_result");
+  xfer += oprot->writeStructBegin("Clang_createTranslationUnitFromSourceFile_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -1020,7 +1020,7 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_result::write(::apache:
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnitFromSourceFile_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createTranslationUnitFromSourceFile_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1060,7 +1060,7 @@ uint32_t Clang_clang_createTranslationUnitFromSourceFile_presult::read(::apache:
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1108,9 +1108,9 @@ uint32_t Clang_clang_createTranslationUnit_args::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_createTranslationUnit_args");
+  xfer += oprot->writeStructBegin("Clang_createTranslationUnit_args");
 
   xfer += oprot->writeFieldBegin("idx", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->idx);
@@ -1125,9 +1125,9 @@ uint32_t Clang_clang_createTranslationUnit_args::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_createTranslationUnit_pargs");
+  xfer += oprot->writeStructBegin("Clang_createTranslationUnit_pargs");
 
   xfer += oprot->writeFieldBegin("idx", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->idx)));
@@ -1142,7 +1142,7 @@ uint32_t Clang_clang_createTranslationUnit_pargs::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1182,11 +1182,11 @@ uint32_t Clang_clang_createTranslationUnit_result::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_createTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_createTranslationUnit_result");
+  xfer += oprot->writeStructBegin("Clang_createTranslationUnit_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -1198,7 +1198,7 @@ uint32_t Clang_clang_createTranslationUnit_result::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_createTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_createTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1238,7 +1238,7 @@ uint32_t Clang_clang_createTranslationUnit_presult::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_defaultEditingTranslationUnitOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultEditingTranslationUnitOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1265,25 +1265,25 @@ uint32_t Clang_clang_defaultEditingTranslationUnitOptions_args::read(::apache::t
   return xfer;
 }
 
-uint32_t Clang_clang_defaultEditingTranslationUnitOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultEditingTranslationUnitOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_defaultEditingTranslationUnitOptions_args");
+  xfer += oprot->writeStructBegin("Clang_defaultEditingTranslationUnitOptions_args");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_defaultEditingTranslationUnitOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultEditingTranslationUnitOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_defaultEditingTranslationUnitOptions_pargs");
+  xfer += oprot->writeStructBegin("Clang_defaultEditingTranslationUnitOptions_pargs");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_defaultEditingTranslationUnitOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultEditingTranslationUnitOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1323,11 +1323,11 @@ uint32_t Clang_clang_defaultEditingTranslationUnitOptions_result::read(::apache:
   return xfer;
 }
 
-uint32_t Clang_clang_defaultEditingTranslationUnitOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultEditingTranslationUnitOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_defaultEditingTranslationUnitOptions_result");
+  xfer += oprot->writeStructBegin("Clang_defaultEditingTranslationUnitOptions_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -1339,7 +1339,7 @@ uint32_t Clang_clang_defaultEditingTranslationUnitOptions_result::write(::apache
   return xfer;
 }
 
-uint32_t Clang_clang_defaultEditingTranslationUnitOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultEditingTranslationUnitOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1379,7 +1379,7 @@ uint32_t Clang_clang_defaultEditingTranslationUnitOptions_presult::read(::apache
   return xfer;
 }
 
-uint32_t Clang_clang_parseTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_parseTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1475,9 +1475,9 @@ uint32_t Clang_clang_parseTranslationUnit_args::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_parseTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_parseTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_parseTranslationUnit_args");
+  xfer += oprot->writeStructBegin("Clang_parseTranslationUnit_args");
 
   xfer += oprot->writeFieldBegin("idx", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->idx);
@@ -1502,7 +1502,7 @@ uint32_t Clang_clang_parseTranslationUnit_args::write(::apache::thrift::protocol
   xfer += oprot->writeFieldBegin("unsaved_files", ::apache::thrift::protocol::T_LIST, 4);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>(this->unsaved_files.size()));
-    std::vector< ::clang::thrift::CXUnsavedFile> ::const_iterator _iter28;
+    std::vector< ::clad::CXUnsavedFile> ::const_iterator _iter28;
     for (_iter28 = this->unsaved_files.begin(); _iter28 != this->unsaved_files.end(); ++_iter28)
     {
       xfer += (*_iter28).write(oprot);
@@ -1520,9 +1520,9 @@ uint32_t Clang_clang_parseTranslationUnit_args::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_parseTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_parseTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_parseTranslationUnit_pargs");
+  xfer += oprot->writeStructBegin("Clang_parseTranslationUnit_pargs");
 
   xfer += oprot->writeFieldBegin("idx", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->idx)));
@@ -1547,7 +1547,7 @@ uint32_t Clang_clang_parseTranslationUnit_pargs::write(::apache::thrift::protoco
   xfer += oprot->writeFieldBegin("unsaved_files", ::apache::thrift::protocol::T_LIST, 4);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>((*(this->unsaved_files)).size()));
-    std::vector< ::clang::thrift::CXUnsavedFile> ::const_iterator _iter30;
+    std::vector< ::clad::CXUnsavedFile> ::const_iterator _iter30;
     for (_iter30 = (*(this->unsaved_files)).begin(); _iter30 != (*(this->unsaved_files)).end(); ++_iter30)
     {
       xfer += (*_iter30).write(oprot);
@@ -1565,7 +1565,7 @@ uint32_t Clang_clang_parseTranslationUnit_pargs::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_parseTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_parseTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1605,11 +1605,11 @@ uint32_t Clang_clang_parseTranslationUnit_result::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_parseTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_parseTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_parseTranslationUnit_result");
+  xfer += oprot->writeStructBegin("Clang_parseTranslationUnit_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -1621,7 +1621,7 @@ uint32_t Clang_clang_parseTranslationUnit_result::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_parseTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_parseTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1661,7 +1661,7 @@ uint32_t Clang_clang_parseTranslationUnit_presult::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_defaultSaveOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultSaveOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1701,9 +1701,9 @@ uint32_t Clang_clang_defaultSaveOptions_args::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_defaultSaveOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultSaveOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_defaultSaveOptions_args");
+  xfer += oprot->writeStructBegin("Clang_defaultSaveOptions_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -1714,9 +1714,9 @@ uint32_t Clang_clang_defaultSaveOptions_args::write(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_defaultSaveOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultSaveOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_defaultSaveOptions_pargs");
+  xfer += oprot->writeStructBegin("Clang_defaultSaveOptions_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -1727,7 +1727,7 @@ uint32_t Clang_clang_defaultSaveOptions_pargs::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_defaultSaveOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultSaveOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1767,11 +1767,11 @@ uint32_t Clang_clang_defaultSaveOptions_result::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_defaultSaveOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultSaveOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_defaultSaveOptions_result");
+  xfer += oprot->writeStructBegin("Clang_defaultSaveOptions_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -1783,7 +1783,7 @@ uint32_t Clang_clang_defaultSaveOptions_result::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_defaultSaveOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultSaveOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1823,7 +1823,7 @@ uint32_t Clang_clang_defaultSaveOptions_presult::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_saveTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_saveTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1879,9 +1879,9 @@ uint32_t Clang_clang_saveTranslationUnit_args::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_saveTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_saveTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_saveTranslationUnit_args");
+  xfer += oprot->writeStructBegin("Clang_saveTranslationUnit_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -1900,9 +1900,9 @@ uint32_t Clang_clang_saveTranslationUnit_args::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_saveTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_saveTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_saveTranslationUnit_pargs");
+  xfer += oprot->writeStructBegin("Clang_saveTranslationUnit_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -1921,7 +1921,7 @@ uint32_t Clang_clang_saveTranslationUnit_pargs::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_saveTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_saveTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -1945,7 +1945,7 @@ uint32_t Clang_clang_saveTranslationUnit_result::read(::apache::thrift::protocol
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast31;
           xfer += iprot->readI32(ecast31);
-          this->success = ( ::clang::thrift::CXSaveError::type)ecast31;
+          this->success = ( ::clad::CXSaveError::type)ecast31;
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -1963,11 +1963,11 @@ uint32_t Clang_clang_saveTranslationUnit_result::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_saveTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_saveTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_saveTranslationUnit_result");
+  xfer += oprot->writeStructBegin("Clang_saveTranslationUnit_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -1979,7 +1979,7 @@ uint32_t Clang_clang_saveTranslationUnit_result::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_saveTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_saveTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2003,7 +2003,7 @@ uint32_t Clang_clang_saveTranslationUnit_presult::read(::apache::thrift::protoco
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast32;
           xfer += iprot->readI32(ecast32);
-          (*(this->success)) = ( ::clang::thrift::CXSaveError::type)ecast32;
+          (*(this->success)) = ( ::clad::CXSaveError::type)ecast32;
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -2021,7 +2021,7 @@ uint32_t Clang_clang_saveTranslationUnit_presult::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_disposeTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2061,9 +2061,9 @@ uint32_t Clang_clang_disposeTranslationUnit_args::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_disposeTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeTranslationUnit_args");
+  xfer += oprot->writeStructBegin("Clang_disposeTranslationUnit_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -2074,9 +2074,9 @@ uint32_t Clang_clang_disposeTranslationUnit_args::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_disposeTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeTranslationUnit_pargs");
+  xfer += oprot->writeStructBegin("Clang_disposeTranslationUnit_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -2087,7 +2087,7 @@ uint32_t Clang_clang_disposeTranslationUnit_pargs::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_disposeTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2114,18 +2114,18 @@ uint32_t Clang_clang_disposeTranslationUnit_result::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_disposeTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_disposeTranslationUnit_result");
+  xfer += oprot->writeStructBegin("Clang_disposeTranslationUnit_result");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_disposeTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2152,7 +2152,7 @@ uint32_t Clang_clang_disposeTranslationUnit_presult::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_defaultReparseOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultReparseOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2192,9 +2192,9 @@ uint32_t Clang_clang_defaultReparseOptions_args::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_defaultReparseOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultReparseOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_defaultReparseOptions_args");
+  xfer += oprot->writeStructBegin("Clang_defaultReparseOptions_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -2205,9 +2205,9 @@ uint32_t Clang_clang_defaultReparseOptions_args::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_defaultReparseOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultReparseOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_defaultReparseOptions_pargs");
+  xfer += oprot->writeStructBegin("Clang_defaultReparseOptions_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -2218,7 +2218,7 @@ uint32_t Clang_clang_defaultReparseOptions_pargs::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_defaultReparseOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultReparseOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2258,11 +2258,11 @@ uint32_t Clang_clang_defaultReparseOptions_result::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_defaultReparseOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultReparseOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_defaultReparseOptions_result");
+  xfer += oprot->writeStructBegin("Clang_defaultReparseOptions_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -2274,7 +2274,7 @@ uint32_t Clang_clang_defaultReparseOptions_result::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_defaultReparseOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultReparseOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2314,7 +2314,7 @@ uint32_t Clang_clang_defaultReparseOptions_presult::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_reparseTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_reparseTranslationUnit_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2382,9 +2382,9 @@ uint32_t Clang_clang_reparseTranslationUnit_args::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_reparseTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_reparseTranslationUnit_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_reparseTranslationUnit_args");
+  xfer += oprot->writeStructBegin("Clang_reparseTranslationUnit_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -2393,7 +2393,7 @@ uint32_t Clang_clang_reparseTranslationUnit_args::write(::apache::thrift::protoc
   xfer += oprot->writeFieldBegin("unsaved_files", ::apache::thrift::protocol::T_LIST, 2);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>(this->unsaved_files.size()));
-    std::vector< ::clang::thrift::CXUnsavedFile> ::const_iterator _iter38;
+    std::vector< ::clad::CXUnsavedFile> ::const_iterator _iter38;
     for (_iter38 = this->unsaved_files.begin(); _iter38 != this->unsaved_files.end(); ++_iter38)
     {
       xfer += (*_iter38).write(oprot);
@@ -2411,9 +2411,9 @@ uint32_t Clang_clang_reparseTranslationUnit_args::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_reparseTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_reparseTranslationUnit_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_reparseTranslationUnit_pargs");
+  xfer += oprot->writeStructBegin("Clang_reparseTranslationUnit_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -2422,7 +2422,7 @@ uint32_t Clang_clang_reparseTranslationUnit_pargs::write(::apache::thrift::proto
   xfer += oprot->writeFieldBegin("unsaved_files", ::apache::thrift::protocol::T_LIST, 2);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>((*(this->unsaved_files)).size()));
-    std::vector< ::clang::thrift::CXUnsavedFile> ::const_iterator _iter39;
+    std::vector< ::clad::CXUnsavedFile> ::const_iterator _iter39;
     for (_iter39 = (*(this->unsaved_files)).begin(); _iter39 != (*(this->unsaved_files)).end(); ++_iter39)
     {
       xfer += (*_iter39).write(oprot);
@@ -2440,7 +2440,7 @@ uint32_t Clang_clang_reparseTranslationUnit_pargs::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_reparseTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_reparseTranslationUnit_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2480,11 +2480,11 @@ uint32_t Clang_clang_reparseTranslationUnit_result::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_reparseTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_reparseTranslationUnit_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_reparseTranslationUnit_result");
+  xfer += oprot->writeStructBegin("Clang_reparseTranslationUnit_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -2496,7 +2496,7 @@ uint32_t Clang_clang_reparseTranslationUnit_result::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_reparseTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_reparseTranslationUnit_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2536,7 +2536,7 @@ uint32_t Clang_clang_reparseTranslationUnit_presult::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getTUResourceUsageName_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getTUResourceUsageName_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2560,7 +2560,7 @@ uint32_t Clang_clang_getTUResourceUsageName_args::read(::apache::thrift::protoco
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast40;
           xfer += iprot->readI32(ecast40);
-          this->kind = ( ::clang::thrift::CXTUResourceUsageKind::type)ecast40;
+          this->kind = ( ::clad::CXTUResourceUsageKind::type)ecast40;
           this->__isset.kind = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -2578,9 +2578,9 @@ uint32_t Clang_clang_getTUResourceUsageName_args::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getTUResourceUsageName_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getTUResourceUsageName_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getTUResourceUsageName_args");
+  xfer += oprot->writeStructBegin("Clang_getTUResourceUsageName_args");
 
   xfer += oprot->writeFieldBegin("kind", ::apache::thrift::protocol::T_I32, 1);
   xfer += oprot->writeI32((int32_t)this->kind);
@@ -2591,9 +2591,9 @@ uint32_t Clang_clang_getTUResourceUsageName_args::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getTUResourceUsageName_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getTUResourceUsageName_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getTUResourceUsageName_pargs");
+  xfer += oprot->writeStructBegin("Clang_getTUResourceUsageName_pargs");
 
   xfer += oprot->writeFieldBegin("kind", ::apache::thrift::protocol::T_I32, 1);
   xfer += oprot->writeI32((int32_t)(*(this->kind)));
@@ -2604,7 +2604,7 @@ uint32_t Clang_clang_getTUResourceUsageName_pargs::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getTUResourceUsageName_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getTUResourceUsageName_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2644,11 +2644,11 @@ uint32_t Clang_clang_getTUResourceUsageName_result::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getTUResourceUsageName_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getTUResourceUsageName_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getTUResourceUsageName_result");
+  xfer += oprot->writeStructBegin("Clang_getTUResourceUsageName_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
@@ -2660,7 +2660,7 @@ uint32_t Clang_clang_getTUResourceUsageName_result::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getTUResourceUsageName_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getTUResourceUsageName_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2700,7 +2700,7 @@ uint32_t Clang_clang_getTUResourceUsageName_presult::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getCXTUResourceUsage_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getCXTUResourceUsage_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2740,9 +2740,9 @@ uint32_t Clang_clang_getCXTUResourceUsage_args::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getCXTUResourceUsage_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getCXTUResourceUsage_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getCXTUResourceUsage_args");
+  xfer += oprot->writeStructBegin("Clang_getCXTUResourceUsage_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -2753,9 +2753,9 @@ uint32_t Clang_clang_getCXTUResourceUsage_args::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getCXTUResourceUsage_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getCXTUResourceUsage_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getCXTUResourceUsage_pargs");
+  xfer += oprot->writeStructBegin("Clang_getCXTUResourceUsage_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -2766,7 +2766,7 @@ uint32_t Clang_clang_getCXTUResourceUsage_pargs::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getCXTUResourceUsage_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getCXTUResourceUsage_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2806,11 +2806,11 @@ uint32_t Clang_clang_getCXTUResourceUsage_result::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getCXTUResourceUsage_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getCXTUResourceUsage_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getCXTUResourceUsage_result");
+  xfer += oprot->writeStructBegin("Clang_getCXTUResourceUsage_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -2822,7 +2822,7 @@ uint32_t Clang_clang_getCXTUResourceUsage_result::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getCXTUResourceUsage_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getCXTUResourceUsage_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2862,7 +2862,7 @@ uint32_t Clang_clang_getCXTUResourceUsage_presult::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_disposeCXTUResourceUsage_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeCXTUResourceUsage_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2902,9 +2902,9 @@ uint32_t Clang_clang_disposeCXTUResourceUsage_args::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_disposeCXTUResourceUsage_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeCXTUResourceUsage_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeCXTUResourceUsage_args");
+  xfer += oprot->writeStructBegin("Clang_disposeCXTUResourceUsage_args");
 
   xfer += oprot->writeFieldBegin("usage", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->usage.write(oprot);
@@ -2915,9 +2915,9 @@ uint32_t Clang_clang_disposeCXTUResourceUsage_args::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_disposeCXTUResourceUsage_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeCXTUResourceUsage_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeCXTUResourceUsage_pargs");
+  xfer += oprot->writeStructBegin("Clang_disposeCXTUResourceUsage_pargs");
 
   xfer += oprot->writeFieldBegin("usage", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->usage)).write(oprot);
@@ -2928,7 +2928,7 @@ uint32_t Clang_clang_disposeCXTUResourceUsage_pargs::write(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_disposeCXTUResourceUsage_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeCXTUResourceUsage_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2955,18 +2955,18 @@ uint32_t Clang_clang_disposeCXTUResourceUsage_result::read(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_disposeCXTUResourceUsage_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeCXTUResourceUsage_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_disposeCXTUResourceUsage_result");
+  xfer += oprot->writeStructBegin("Clang_disposeCXTUResourceUsage_result");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_disposeCXTUResourceUsage_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeCXTUResourceUsage_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -2993,7 +2993,7 @@ uint32_t Clang_clang_disposeCXTUResourceUsage_presult::read(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getFileName_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFileName_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3033,9 +3033,9 @@ uint32_t Clang_clang_getFileName_args::read(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t Clang_clang_getFileName_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFileName_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getFileName_args");
+  xfer += oprot->writeStructBegin("Clang_getFileName_args");
 
   xfer += oprot->writeFieldBegin("file", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->file);
@@ -3046,9 +3046,9 @@ uint32_t Clang_clang_getFileName_args::write(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_getFileName_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFileName_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getFileName_pargs");
+  xfer += oprot->writeStructBegin("Clang_getFileName_pargs");
 
   xfer += oprot->writeFieldBegin("file", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->file)));
@@ -3059,7 +3059,7 @@ uint32_t Clang_clang_getFileName_pargs::write(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getFileName_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFileName_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3099,11 +3099,11 @@ uint32_t Clang_clang_getFileName_result::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getFileName_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFileName_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getFileName_result");
+  xfer += oprot->writeStructBegin("Clang_getFileName_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
@@ -3115,7 +3115,7 @@ uint32_t Clang_clang_getFileName_result::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getFileName_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFileName_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3155,7 +3155,7 @@ uint32_t Clang_clang_getFileName_presult::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getFileTime_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFileTime_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3195,9 +3195,9 @@ uint32_t Clang_clang_getFileTime_args::read(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t Clang_clang_getFileTime_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFileTime_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getFileTime_args");
+  xfer += oprot->writeStructBegin("Clang_getFileTime_args");
 
   xfer += oprot->writeFieldBegin("file", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->file);
@@ -3208,9 +3208,9 @@ uint32_t Clang_clang_getFileTime_args::write(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_getFileTime_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFileTime_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getFileTime_pargs");
+  xfer += oprot->writeStructBegin("Clang_getFileTime_pargs");
 
   xfer += oprot->writeFieldBegin("file", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->file)));
@@ -3221,7 +3221,7 @@ uint32_t Clang_clang_getFileTime_pargs::write(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getFileTime_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFileTime_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3261,11 +3261,11 @@ uint32_t Clang_clang_getFileTime_result::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getFileTime_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFileTime_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getFileTime_result");
+  xfer += oprot->writeStructBegin("Clang_getFileTime_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -3277,7 +3277,7 @@ uint32_t Clang_clang_getFileTime_result::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getFileTime_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFileTime_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3317,7 +3317,7 @@ uint32_t Clang_clang_getFileTime_presult::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_isFileMultipleIncludeGuarded_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_isFileMultipleIncludeGuarded_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3365,9 +3365,9 @@ uint32_t Clang_clang_isFileMultipleIncludeGuarded_args::read(::apache::thrift::p
   return xfer;
 }
 
-uint32_t Clang_clang_isFileMultipleIncludeGuarded_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_isFileMultipleIncludeGuarded_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_isFileMultipleIncludeGuarded_args");
+  xfer += oprot->writeStructBegin("Clang_isFileMultipleIncludeGuarded_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -3382,9 +3382,9 @@ uint32_t Clang_clang_isFileMultipleIncludeGuarded_args::write(::apache::thrift::
   return xfer;
 }
 
-uint32_t Clang_clang_isFileMultipleIncludeGuarded_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_isFileMultipleIncludeGuarded_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_isFileMultipleIncludeGuarded_pargs");
+  xfer += oprot->writeStructBegin("Clang_isFileMultipleIncludeGuarded_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -3399,7 +3399,7 @@ uint32_t Clang_clang_isFileMultipleIncludeGuarded_pargs::write(::apache::thrift:
   return xfer;
 }
 
-uint32_t Clang_clang_isFileMultipleIncludeGuarded_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_isFileMultipleIncludeGuarded_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3439,11 +3439,11 @@ uint32_t Clang_clang_isFileMultipleIncludeGuarded_result::read(::apache::thrift:
   return xfer;
 }
 
-uint32_t Clang_clang_isFileMultipleIncludeGuarded_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_isFileMultipleIncludeGuarded_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_isFileMultipleIncludeGuarded_result");
+  xfer += oprot->writeStructBegin("Clang_isFileMultipleIncludeGuarded_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -3455,7 +3455,7 @@ uint32_t Clang_clang_isFileMultipleIncludeGuarded_result::write(::apache::thrift
   return xfer;
 }
 
-uint32_t Clang_clang_isFileMultipleIncludeGuarded_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_isFileMultipleIncludeGuarded_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3495,7 +3495,7 @@ uint32_t Clang_clang_isFileMultipleIncludeGuarded_presult::read(::apache::thrift
   return xfer;
 }
 
-uint32_t Clang_clang_getFile_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFile_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3543,9 +3543,9 @@ uint32_t Clang_clang_getFile_args::read(::apache::thrift::protocol::TProtocol* i
   return xfer;
 }
 
-uint32_t Clang_clang_getFile_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFile_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getFile_args");
+  xfer += oprot->writeStructBegin("Clang_getFile_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -3560,9 +3560,9 @@ uint32_t Clang_clang_getFile_args::write(::apache::thrift::protocol::TProtocol* 
   return xfer;
 }
 
-uint32_t Clang_clang_getFile_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFile_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getFile_pargs");
+  xfer += oprot->writeStructBegin("Clang_getFile_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -3577,7 +3577,7 @@ uint32_t Clang_clang_getFile_pargs::write(::apache::thrift::protocol::TProtocol*
   return xfer;
 }
 
-uint32_t Clang_clang_getFile_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFile_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3617,11 +3617,11 @@ uint32_t Clang_clang_getFile_result::read(::apache::thrift::protocol::TProtocol*
   return xfer;
 }
 
-uint32_t Clang_clang_getFile_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getFile_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getFile_result");
+  xfer += oprot->writeStructBegin("Clang_getFile_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -3633,7 +3633,7 @@ uint32_t Clang_clang_getFile_result::write(::apache::thrift::protocol::TProtocol
   return xfer;
 }
 
-uint32_t Clang_clang_getFile_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getFile_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3673,7 +3673,7 @@ uint32_t Clang_clang_getFile_presult::read(::apache::thrift::protocol::TProtocol
   return xfer;
 }
 
-uint32_t Clang_clang_getNullLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNullLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3700,25 +3700,25 @@ uint32_t Clang_clang_getNullLocation_args::read(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_getNullLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNullLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getNullLocation_args");
+  xfer += oprot->writeStructBegin("Clang_getNullLocation_args");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_getNullLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNullLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getNullLocation_pargs");
+  xfer += oprot->writeStructBegin("Clang_getNullLocation_pargs");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_getNullLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNullLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3758,11 +3758,11 @@ uint32_t Clang_clang_getNullLocation_result::read(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t Clang_clang_getNullLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNullLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getNullLocation_result");
+  xfer += oprot->writeStructBegin("Clang_getNullLocation_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -3774,7 +3774,7 @@ uint32_t Clang_clang_getNullLocation_result::write(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_getNullLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNullLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3814,7 +3814,7 @@ uint32_t Clang_clang_getNullLocation_presult::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_equalLocations_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_equalLocations_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3862,9 +3862,9 @@ uint32_t Clang_clang_equalLocations_args::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_equalLocations_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_equalLocations_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_equalLocations_args");
+  xfer += oprot->writeStructBegin("Clang_equalLocations_args");
 
   xfer += oprot->writeFieldBegin("loc1", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->loc1.write(oprot);
@@ -3879,9 +3879,9 @@ uint32_t Clang_clang_equalLocations_args::write(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_equalLocations_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_equalLocations_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_equalLocations_pargs");
+  xfer += oprot->writeStructBegin("Clang_equalLocations_pargs");
 
   xfer += oprot->writeFieldBegin("loc1", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->loc1)).write(oprot);
@@ -3896,7 +3896,7 @@ uint32_t Clang_clang_equalLocations_pargs::write(::apache::thrift::protocol::TPr
   return xfer;
 }
 
-uint32_t Clang_clang_equalLocations_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_equalLocations_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3936,11 +3936,11 @@ uint32_t Clang_clang_equalLocations_result::read(::apache::thrift::protocol::TPr
   return xfer;
 }
 
-uint32_t Clang_clang_equalLocations_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_equalLocations_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_equalLocations_result");
+  xfer += oprot->writeStructBegin("Clang_equalLocations_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -3952,7 +3952,7 @@ uint32_t Clang_clang_equalLocations_result::write(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t Clang_clang_equalLocations_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_equalLocations_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -3992,7 +3992,7 @@ uint32_t Clang_clang_equalLocations_presult::read(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t Clang_clang_getLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4056,9 +4056,9 @@ uint32_t Clang_clang_getLocation_args::read(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t Clang_clang_getLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getLocation_args");
+  xfer += oprot->writeStructBegin("Clang_getLocation_args");
 
   xfer += oprot->writeFieldBegin("tu", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->tu);
@@ -4081,9 +4081,9 @@ uint32_t Clang_clang_getLocation_args::write(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_getLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getLocation_pargs");
+  xfer += oprot->writeStructBegin("Clang_getLocation_pargs");
 
   xfer += oprot->writeFieldBegin("tu", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->tu)));
@@ -4106,7 +4106,7 @@ uint32_t Clang_clang_getLocation_pargs::write(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4146,11 +4146,11 @@ uint32_t Clang_clang_getLocation_result::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getLocation_result");
+  xfer += oprot->writeStructBegin("Clang_getLocation_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -4162,7 +4162,7 @@ uint32_t Clang_clang_getLocation_result::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4202,7 +4202,7 @@ uint32_t Clang_clang_getLocation_presult::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getLocationForOffset_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getLocationForOffset_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4258,9 +4258,9 @@ uint32_t Clang_clang_getLocationForOffset_args::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getLocationForOffset_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getLocationForOffset_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getLocationForOffset_args");
+  xfer += oprot->writeStructBegin("Clang_getLocationForOffset_args");
 
   xfer += oprot->writeFieldBegin("tu", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->tu);
@@ -4279,9 +4279,9 @@ uint32_t Clang_clang_getLocationForOffset_args::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getLocationForOffset_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getLocationForOffset_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getLocationForOffset_pargs");
+  xfer += oprot->writeStructBegin("Clang_getLocationForOffset_pargs");
 
   xfer += oprot->writeFieldBegin("tu", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->tu)));
@@ -4300,7 +4300,7 @@ uint32_t Clang_clang_getLocationForOffset_pargs::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getLocationForOffset_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getLocationForOffset_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4340,11 +4340,11 @@ uint32_t Clang_clang_getLocationForOffset_result::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getLocationForOffset_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getLocationForOffset_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getLocationForOffset_result");
+  xfer += oprot->writeStructBegin("Clang_getLocationForOffset_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -4356,7 +4356,7 @@ uint32_t Clang_clang_getLocationForOffset_result::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getLocationForOffset_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getLocationForOffset_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4396,7 +4396,7 @@ uint32_t Clang_clang_getLocationForOffset_presult::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getNullRange_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNullRange_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4423,25 +4423,25 @@ uint32_t Clang_clang_getNullRange_args::read(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_getNullRange_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNullRange_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getNullRange_args");
+  xfer += oprot->writeStructBegin("Clang_getNullRange_args");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_getNullRange_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNullRange_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getNullRange_pargs");
+  xfer += oprot->writeStructBegin("Clang_getNullRange_pargs");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_getNullRange_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNullRange_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4481,11 +4481,11 @@ uint32_t Clang_clang_getNullRange_result::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getNullRange_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNullRange_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getNullRange_result");
+  xfer += oprot->writeStructBegin("Clang_getNullRange_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -4497,7 +4497,7 @@ uint32_t Clang_clang_getNullRange_result::write(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_getNullRange_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNullRange_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4537,7 +4537,7 @@ uint32_t Clang_clang_getNullRange_presult::read(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_getRange_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRange_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4585,9 +4585,9 @@ uint32_t Clang_clang_getRange_args::read(::apache::thrift::protocol::TProtocol* 
   return xfer;
 }
 
-uint32_t Clang_clang_getRange_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRange_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getRange_args");
+  xfer += oprot->writeStructBegin("Clang_getRange_args");
 
   xfer += oprot->writeFieldBegin("sourceBegin", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->sourceBegin.write(oprot);
@@ -4602,9 +4602,9 @@ uint32_t Clang_clang_getRange_args::write(::apache::thrift::protocol::TProtocol*
   return xfer;
 }
 
-uint32_t Clang_clang_getRange_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRange_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getRange_pargs");
+  xfer += oprot->writeStructBegin("Clang_getRange_pargs");
 
   xfer += oprot->writeFieldBegin("sourceBegin", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->sourceBegin)).write(oprot);
@@ -4619,7 +4619,7 @@ uint32_t Clang_clang_getRange_pargs::write(::apache::thrift::protocol::TProtocol
   return xfer;
 }
 
-uint32_t Clang_clang_getRange_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRange_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4659,11 +4659,11 @@ uint32_t Clang_clang_getRange_result::read(::apache::thrift::protocol::TProtocol
   return xfer;
 }
 
-uint32_t Clang_clang_getRange_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRange_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getRange_result");
+  xfer += oprot->writeStructBegin("Clang_getRange_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -4675,7 +4675,7 @@ uint32_t Clang_clang_getRange_result::write(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t Clang_clang_getRange_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRange_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4715,7 +4715,7 @@ uint32_t Clang_clang_getRange_presult::read(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t Clang_clang_equalRanges_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_equalRanges_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4763,9 +4763,9 @@ uint32_t Clang_clang_equalRanges_args::read(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t Clang_clang_equalRanges_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_equalRanges_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_equalRanges_args");
+  xfer += oprot->writeStructBegin("Clang_equalRanges_args");
 
   xfer += oprot->writeFieldBegin("range1", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->range1.write(oprot);
@@ -4780,9 +4780,9 @@ uint32_t Clang_clang_equalRanges_args::write(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_equalRanges_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_equalRanges_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_equalRanges_pargs");
+  xfer += oprot->writeStructBegin("Clang_equalRanges_pargs");
 
   xfer += oprot->writeFieldBegin("range1", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->range1)).write(oprot);
@@ -4797,7 +4797,7 @@ uint32_t Clang_clang_equalRanges_pargs::write(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_equalRanges_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_equalRanges_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4837,11 +4837,11 @@ uint32_t Clang_clang_equalRanges_result::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_equalRanges_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_equalRanges_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_equalRanges_result");
+  xfer += oprot->writeStructBegin("Clang_equalRanges_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -4853,7 +4853,7 @@ uint32_t Clang_clang_equalRanges_result::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_equalRanges_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_equalRanges_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4893,7 +4893,7 @@ uint32_t Clang_clang_equalRanges_presult::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_Range_isNull_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_Range_isNull_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4933,9 +4933,9 @@ uint32_t Clang_clang_Range_isNull_args::read(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_Range_isNull_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_Range_isNull_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_Range_isNull_args");
+  xfer += oprot->writeStructBegin("Clang_Range_isNull_args");
 
   xfer += oprot->writeFieldBegin("range", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->range.write(oprot);
@@ -4946,9 +4946,9 @@ uint32_t Clang_clang_Range_isNull_args::write(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_Range_isNull_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_Range_isNull_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_Range_isNull_pargs");
+  xfer += oprot->writeStructBegin("Clang_Range_isNull_pargs");
 
   xfer += oprot->writeFieldBegin("range", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->range)).write(oprot);
@@ -4959,7 +4959,7 @@ uint32_t Clang_clang_Range_isNull_pargs::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_Range_isNull_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_Range_isNull_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -4999,11 +4999,11 @@ uint32_t Clang_clang_Range_isNull_result::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_Range_isNull_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_Range_isNull_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_Range_isNull_result");
+  xfer += oprot->writeStructBegin("Clang_Range_isNull_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -5015,7 +5015,7 @@ uint32_t Clang_clang_Range_isNull_result::write(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_Range_isNull_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_Range_isNull_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5055,7 +5055,7 @@ uint32_t Clang_clang_Range_isNull_presult::read(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_getExpansionLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getExpansionLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5095,9 +5095,9 @@ uint32_t Clang_clang_getExpansionLocation_args::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getExpansionLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getExpansionLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getExpansionLocation_args");
+  xfer += oprot->writeStructBegin("Clang_getExpansionLocation_args");
 
   xfer += oprot->writeFieldBegin("location", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->location.write(oprot);
@@ -5108,9 +5108,9 @@ uint32_t Clang_clang_getExpansionLocation_args::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getExpansionLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getExpansionLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getExpansionLocation_pargs");
+  xfer += oprot->writeStructBegin("Clang_getExpansionLocation_pargs");
 
   xfer += oprot->writeFieldBegin("location", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->location)).write(oprot);
@@ -5121,7 +5121,7 @@ uint32_t Clang_clang_getExpansionLocation_pargs::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getExpansionLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getExpansionLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5161,11 +5161,11 @@ uint32_t Clang_clang_getExpansionLocation_result::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getExpansionLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getExpansionLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getExpansionLocation_result");
+  xfer += oprot->writeStructBegin("Clang_getExpansionLocation_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -5177,7 +5177,7 @@ uint32_t Clang_clang_getExpansionLocation_result::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getExpansionLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getExpansionLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5217,7 +5217,7 @@ uint32_t Clang_clang_getExpansionLocation_presult::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getPresumedLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getPresumedLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5257,9 +5257,9 @@ uint32_t Clang_clang_getPresumedLocation_args::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getPresumedLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getPresumedLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getPresumedLocation_args");
+  xfer += oprot->writeStructBegin("Clang_getPresumedLocation_args");
 
   xfer += oprot->writeFieldBegin("location", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->location.write(oprot);
@@ -5270,9 +5270,9 @@ uint32_t Clang_clang_getPresumedLocation_args::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getPresumedLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getPresumedLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getPresumedLocation_pargs");
+  xfer += oprot->writeStructBegin("Clang_getPresumedLocation_pargs");
 
   xfer += oprot->writeFieldBegin("location", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->location)).write(oprot);
@@ -5283,7 +5283,7 @@ uint32_t Clang_clang_getPresumedLocation_pargs::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getPresumedLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getPresumedLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5323,11 +5323,11 @@ uint32_t Clang_clang_getPresumedLocation_result::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getPresumedLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getPresumedLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getPresumedLocation_result");
+  xfer += oprot->writeStructBegin("Clang_getPresumedLocation_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -5339,7 +5339,7 @@ uint32_t Clang_clang_getPresumedLocation_result::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getPresumedLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getPresumedLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5379,7 +5379,7 @@ uint32_t Clang_clang_getPresumedLocation_presult::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getInstantiationLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getInstantiationLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5419,9 +5419,9 @@ uint32_t Clang_clang_getInstantiationLocation_args::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getInstantiationLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getInstantiationLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getInstantiationLocation_args");
+  xfer += oprot->writeStructBegin("Clang_getInstantiationLocation_args");
 
   xfer += oprot->writeFieldBegin("location", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->location.write(oprot);
@@ -5432,9 +5432,9 @@ uint32_t Clang_clang_getInstantiationLocation_args::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getInstantiationLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getInstantiationLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getInstantiationLocation_pargs");
+  xfer += oprot->writeStructBegin("Clang_getInstantiationLocation_pargs");
 
   xfer += oprot->writeFieldBegin("location", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->location)).write(oprot);
@@ -5445,7 +5445,7 @@ uint32_t Clang_clang_getInstantiationLocation_pargs::write(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_getInstantiationLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getInstantiationLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5485,11 +5485,11 @@ uint32_t Clang_clang_getInstantiationLocation_result::read(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_getInstantiationLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getInstantiationLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getInstantiationLocation_result");
+  xfer += oprot->writeStructBegin("Clang_getInstantiationLocation_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -5501,7 +5501,7 @@ uint32_t Clang_clang_getInstantiationLocation_result::write(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getInstantiationLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getInstantiationLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5541,7 +5541,7 @@ uint32_t Clang_clang_getInstantiationLocation_presult::read(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getSpellingLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getSpellingLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5581,9 +5581,9 @@ uint32_t Clang_clang_getSpellingLocation_args::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getSpellingLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getSpellingLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getSpellingLocation_args");
+  xfer += oprot->writeStructBegin("Clang_getSpellingLocation_args");
 
   xfer += oprot->writeFieldBegin("location", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->location.write(oprot);
@@ -5594,9 +5594,9 @@ uint32_t Clang_clang_getSpellingLocation_args::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getSpellingLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getSpellingLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getSpellingLocation_pargs");
+  xfer += oprot->writeStructBegin("Clang_getSpellingLocation_pargs");
 
   xfer += oprot->writeFieldBegin("location", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->location)).write(oprot);
@@ -5607,7 +5607,7 @@ uint32_t Clang_clang_getSpellingLocation_pargs::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getSpellingLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getSpellingLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5647,11 +5647,11 @@ uint32_t Clang_clang_getSpellingLocation_result::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getSpellingLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getSpellingLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getSpellingLocation_result");
+  xfer += oprot->writeStructBegin("Clang_getSpellingLocation_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -5663,7 +5663,7 @@ uint32_t Clang_clang_getSpellingLocation_result::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getSpellingLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getSpellingLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5703,7 +5703,7 @@ uint32_t Clang_clang_getSpellingLocation_presult::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeStart_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRangeStart_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5743,9 +5743,9 @@ uint32_t Clang_clang_getRangeStart_args::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeStart_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRangeStart_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getRangeStart_args");
+  xfer += oprot->writeStructBegin("Clang_getRangeStart_args");
 
   xfer += oprot->writeFieldBegin("range", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->range.write(oprot);
@@ -5756,9 +5756,9 @@ uint32_t Clang_clang_getRangeStart_args::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeStart_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRangeStart_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getRangeStart_pargs");
+  xfer += oprot->writeStructBegin("Clang_getRangeStart_pargs");
 
   xfer += oprot->writeFieldBegin("range", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->range)).write(oprot);
@@ -5769,7 +5769,7 @@ uint32_t Clang_clang_getRangeStart_pargs::write(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeStart_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRangeStart_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5809,11 +5809,11 @@ uint32_t Clang_clang_getRangeStart_result::read(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeStart_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRangeStart_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getRangeStart_result");
+  xfer += oprot->writeStructBegin("Clang_getRangeStart_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -5825,7 +5825,7 @@ uint32_t Clang_clang_getRangeStart_result::write(::apache::thrift::protocol::TPr
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeStart_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRangeStart_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5865,7 +5865,7 @@ uint32_t Clang_clang_getRangeStart_presult::read(::apache::thrift::protocol::TPr
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeEnd_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRangeEnd_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5905,9 +5905,9 @@ uint32_t Clang_clang_getRangeEnd_args::read(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeEnd_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRangeEnd_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getRangeEnd_args");
+  xfer += oprot->writeStructBegin("Clang_getRangeEnd_args");
 
   xfer += oprot->writeFieldBegin("range", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->range.write(oprot);
@@ -5918,9 +5918,9 @@ uint32_t Clang_clang_getRangeEnd_args::write(::apache::thrift::protocol::TProtoc
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeEnd_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRangeEnd_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getRangeEnd_pargs");
+  xfer += oprot->writeStructBegin("Clang_getRangeEnd_pargs");
 
   xfer += oprot->writeFieldBegin("range", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += (*(this->range)).write(oprot);
@@ -5931,7 +5931,7 @@ uint32_t Clang_clang_getRangeEnd_pargs::write(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeEnd_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRangeEnd_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -5971,11 +5971,11 @@ uint32_t Clang_clang_getRangeEnd_result::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeEnd_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getRangeEnd_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getRangeEnd_result");
+  xfer += oprot->writeStructBegin("Clang_getRangeEnd_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -5987,7 +5987,7 @@ uint32_t Clang_clang_getRangeEnd_result::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getRangeEnd_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getRangeEnd_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6027,7 +6027,7 @@ uint32_t Clang_clang_getRangeEnd_presult::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnosticsInSet_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNumDiagnosticsInSet_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6067,9 +6067,9 @@ uint32_t Clang_clang_getNumDiagnosticsInSet_args::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnosticsInSet_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNumDiagnosticsInSet_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getNumDiagnosticsInSet_args");
+  xfer += oprot->writeStructBegin("Clang_getNumDiagnosticsInSet_args");
 
   xfer += oprot->writeFieldBegin("diags", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diags);
@@ -6080,9 +6080,9 @@ uint32_t Clang_clang_getNumDiagnosticsInSet_args::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnosticsInSet_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNumDiagnosticsInSet_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getNumDiagnosticsInSet_pargs");
+  xfer += oprot->writeStructBegin("Clang_getNumDiagnosticsInSet_pargs");
 
   xfer += oprot->writeFieldBegin("diags", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diags)));
@@ -6093,7 +6093,7 @@ uint32_t Clang_clang_getNumDiagnosticsInSet_pargs::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnosticsInSet_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNumDiagnosticsInSet_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6133,11 +6133,11 @@ uint32_t Clang_clang_getNumDiagnosticsInSet_result::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnosticsInSet_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNumDiagnosticsInSet_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getNumDiagnosticsInSet_result");
+  xfer += oprot->writeStructBegin("Clang_getNumDiagnosticsInSet_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -6149,7 +6149,7 @@ uint32_t Clang_clang_getNumDiagnosticsInSet_result::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnosticsInSet_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNumDiagnosticsInSet_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6189,7 +6189,7 @@ uint32_t Clang_clang_getNumDiagnosticsInSet_presult::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticInSet_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticInSet_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6237,9 +6237,9 @@ uint32_t Clang_clang_getDiagnosticInSet_args::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticInSet_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticInSet_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticInSet_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticInSet_args");
 
   xfer += oprot->writeFieldBegin("diags", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diags);
@@ -6254,9 +6254,9 @@ uint32_t Clang_clang_getDiagnosticInSet_args::write(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticInSet_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticInSet_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticInSet_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticInSet_pargs");
 
   xfer += oprot->writeFieldBegin("diags", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diags)));
@@ -6271,7 +6271,7 @@ uint32_t Clang_clang_getDiagnosticInSet_pargs::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticInSet_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticInSet_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6311,11 +6311,11 @@ uint32_t Clang_clang_getDiagnosticInSet_result::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticInSet_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticInSet_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticInSet_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticInSet_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -6327,7 +6327,7 @@ uint32_t Clang_clang_getDiagnosticInSet_result::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticInSet_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticInSet_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6367,7 +6367,7 @@ uint32_t Clang_clang_getDiagnosticInSet_presult::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_loadDiagnostics_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_loadDiagnostics_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6407,9 +6407,9 @@ uint32_t Clang_clang_loadDiagnostics_args::read(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_loadDiagnostics_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_loadDiagnostics_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_loadDiagnostics_args");
+  xfer += oprot->writeStructBegin("Clang_loadDiagnostics_args");
 
   xfer += oprot->writeFieldBegin("filename", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeString(this->filename);
@@ -6420,9 +6420,9 @@ uint32_t Clang_clang_loadDiagnostics_args::write(::apache::thrift::protocol::TPr
   return xfer;
 }
 
-uint32_t Clang_clang_loadDiagnostics_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_loadDiagnostics_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_loadDiagnostics_pargs");
+  xfer += oprot->writeStructBegin("Clang_loadDiagnostics_pargs");
 
   xfer += oprot->writeFieldBegin("filename", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeString((*(this->filename)));
@@ -6433,7 +6433,7 @@ uint32_t Clang_clang_loadDiagnostics_pargs::write(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t Clang_clang_loadDiagnostics_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_loadDiagnostics_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6481,11 +6481,11 @@ uint32_t Clang_clang_loadDiagnostics_result::read(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t Clang_clang_loadDiagnostics_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_loadDiagnostics_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_loadDiagnostics_result");
+  xfer += oprot->writeStructBegin("Clang_loadDiagnostics_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -6501,7 +6501,7 @@ uint32_t Clang_clang_loadDiagnostics_result::write(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_loadDiagnostics_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_loadDiagnostics_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6549,7 +6549,7 @@ uint32_t Clang_clang_loadDiagnostics_presult::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnosticSet_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeDiagnosticSet_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6589,9 +6589,9 @@ uint32_t Clang_clang_disposeDiagnosticSet_args::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnosticSet_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeDiagnosticSet_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeDiagnosticSet_args");
+  xfer += oprot->writeStructBegin("Clang_disposeDiagnosticSet_args");
 
   xfer += oprot->writeFieldBegin("diagnosticSet", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnosticSet);
@@ -6602,9 +6602,9 @@ uint32_t Clang_clang_disposeDiagnosticSet_args::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnosticSet_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeDiagnosticSet_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeDiagnosticSet_pargs");
+  xfer += oprot->writeStructBegin("Clang_disposeDiagnosticSet_pargs");
 
   xfer += oprot->writeFieldBegin("diagnosticSet", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnosticSet)));
@@ -6615,7 +6615,7 @@ uint32_t Clang_clang_disposeDiagnosticSet_pargs::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnosticSet_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeDiagnosticSet_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6642,18 +6642,18 @@ uint32_t Clang_clang_disposeDiagnosticSet_result::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnosticSet_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeDiagnosticSet_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_disposeDiagnosticSet_result");
+  xfer += oprot->writeStructBegin("Clang_disposeDiagnosticSet_result");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnosticSet_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeDiagnosticSet_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6680,7 +6680,7 @@ uint32_t Clang_clang_disposeDiagnosticSet_presult::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getChildDiagnostics_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getChildDiagnostics_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6720,9 +6720,9 @@ uint32_t Clang_clang_getChildDiagnostics_args::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getChildDiagnostics_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getChildDiagnostics_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getChildDiagnostics_args");
+  xfer += oprot->writeStructBegin("Clang_getChildDiagnostics_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -6733,9 +6733,9 @@ uint32_t Clang_clang_getChildDiagnostics_args::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getChildDiagnostics_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getChildDiagnostics_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getChildDiagnostics_pargs");
+  xfer += oprot->writeStructBegin("Clang_getChildDiagnostics_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -6746,7 +6746,7 @@ uint32_t Clang_clang_getChildDiagnostics_pargs::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getChildDiagnostics_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getChildDiagnostics_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6786,11 +6786,11 @@ uint32_t Clang_clang_getChildDiagnostics_result::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getChildDiagnostics_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getChildDiagnostics_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getChildDiagnostics_result");
+  xfer += oprot->writeStructBegin("Clang_getChildDiagnostics_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -6802,7 +6802,7 @@ uint32_t Clang_clang_getChildDiagnostics_result::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getChildDiagnostics_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getChildDiagnostics_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6842,7 +6842,7 @@ uint32_t Clang_clang_getChildDiagnostics_presult::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnostics_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNumDiagnostics_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6882,9 +6882,9 @@ uint32_t Clang_clang_getNumDiagnostics_args::read(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnostics_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNumDiagnostics_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getNumDiagnostics_args");
+  xfer += oprot->writeStructBegin("Clang_getNumDiagnostics_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -6895,9 +6895,9 @@ uint32_t Clang_clang_getNumDiagnostics_args::write(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnostics_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNumDiagnostics_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getNumDiagnostics_pargs");
+  xfer += oprot->writeStructBegin("Clang_getNumDiagnostics_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -6908,7 +6908,7 @@ uint32_t Clang_clang_getNumDiagnostics_pargs::write(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnostics_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNumDiagnostics_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -6948,11 +6948,11 @@ uint32_t Clang_clang_getNumDiagnostics_result::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnostics_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getNumDiagnostics_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getNumDiagnostics_result");
+  xfer += oprot->writeStructBegin("Clang_getNumDiagnostics_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -6964,7 +6964,7 @@ uint32_t Clang_clang_getNumDiagnostics_result::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getNumDiagnostics_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getNumDiagnostics_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7004,7 +7004,7 @@ uint32_t Clang_clang_getNumDiagnostics_presult::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnostic_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnostic_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7052,9 +7052,9 @@ uint32_t Clang_clang_getDiagnostic_args::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnostic_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnostic_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnostic_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnostic_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -7069,9 +7069,9 @@ uint32_t Clang_clang_getDiagnostic_args::write(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnostic_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnostic_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnostic_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnostic_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -7086,7 +7086,7 @@ uint32_t Clang_clang_getDiagnostic_pargs::write(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnostic_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnostic_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7126,11 +7126,11 @@ uint32_t Clang_clang_getDiagnostic_result::read(::apache::thrift::protocol::TPro
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnostic_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnostic_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnostic_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnostic_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -7142,7 +7142,7 @@ uint32_t Clang_clang_getDiagnostic_result::write(::apache::thrift::protocol::TPr
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnostic_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnostic_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7182,7 +7182,7 @@ uint32_t Clang_clang_getDiagnostic_presult::read(::apache::thrift::protocol::TPr
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSetFromTU_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSetFromTU_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7222,9 +7222,9 @@ uint32_t Clang_clang_getDiagnosticSetFromTU_args::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSetFromTU_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSetFromTU_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSetFromTU_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSetFromTU_args");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->unit);
@@ -7235,9 +7235,9 @@ uint32_t Clang_clang_getDiagnosticSetFromTU_args::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSetFromTU_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSetFromTU_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSetFromTU_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSetFromTU_pargs");
 
   xfer += oprot->writeFieldBegin("unit", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->unit)));
@@ -7248,7 +7248,7 @@ uint32_t Clang_clang_getDiagnosticSetFromTU_pargs::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSetFromTU_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSetFromTU_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7288,11 +7288,11 @@ uint32_t Clang_clang_getDiagnosticSetFromTU_result::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSetFromTU_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSetFromTU_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSetFromTU_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSetFromTU_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I64, 0);
@@ -7304,7 +7304,7 @@ uint32_t Clang_clang_getDiagnosticSetFromTU_result::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSetFromTU_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSetFromTU_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7344,7 +7344,7 @@ uint32_t Clang_clang_getDiagnosticSetFromTU_presult::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnostic_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeDiagnostic_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7384,9 +7384,9 @@ uint32_t Clang_clang_disposeDiagnostic_args::read(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnostic_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeDiagnostic_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeDiagnostic_args");
+  xfer += oprot->writeStructBegin("Clang_disposeDiagnostic_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -7397,9 +7397,9 @@ uint32_t Clang_clang_disposeDiagnostic_args::write(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnostic_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeDiagnostic_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_disposeDiagnostic_pargs");
+  xfer += oprot->writeStructBegin("Clang_disposeDiagnostic_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -7410,7 +7410,7 @@ uint32_t Clang_clang_disposeDiagnostic_pargs::write(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnostic_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeDiagnostic_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7437,18 +7437,18 @@ uint32_t Clang_clang_disposeDiagnostic_result::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnostic_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_disposeDiagnostic_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_disposeDiagnostic_result");
+  xfer += oprot->writeStructBegin("Clang_disposeDiagnostic_result");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_disposeDiagnostic_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_disposeDiagnostic_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7475,7 +7475,7 @@ uint32_t Clang_clang_disposeDiagnostic_presult::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_formatDiagnostic_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_formatDiagnostic_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7523,9 +7523,9 @@ uint32_t Clang_clang_formatDiagnostic_args::read(::apache::thrift::protocol::TPr
   return xfer;
 }
 
-uint32_t Clang_clang_formatDiagnostic_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_formatDiagnostic_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_formatDiagnostic_args");
+  xfer += oprot->writeStructBegin("Clang_formatDiagnostic_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -7540,9 +7540,9 @@ uint32_t Clang_clang_formatDiagnostic_args::write(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t Clang_clang_formatDiagnostic_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_formatDiagnostic_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_formatDiagnostic_pargs");
+  xfer += oprot->writeStructBegin("Clang_formatDiagnostic_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -7557,7 +7557,7 @@ uint32_t Clang_clang_formatDiagnostic_pargs::write(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_formatDiagnostic_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_formatDiagnostic_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7597,11 +7597,11 @@ uint32_t Clang_clang_formatDiagnostic_result::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_formatDiagnostic_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_formatDiagnostic_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_formatDiagnostic_result");
+  xfer += oprot->writeStructBegin("Clang_formatDiagnostic_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
@@ -7613,7 +7613,7 @@ uint32_t Clang_clang_formatDiagnostic_result::write(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_formatDiagnostic_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_formatDiagnostic_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7653,7 +7653,7 @@ uint32_t Clang_clang_formatDiagnostic_presult::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_defaultDiagnosticDisplayOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultDiagnosticDisplayOptions_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7680,25 +7680,25 @@ uint32_t Clang_clang_defaultDiagnosticDisplayOptions_args::read(::apache::thrift
   return xfer;
 }
 
-uint32_t Clang_clang_defaultDiagnosticDisplayOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultDiagnosticDisplayOptions_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_defaultDiagnosticDisplayOptions_args");
+  xfer += oprot->writeStructBegin("Clang_defaultDiagnosticDisplayOptions_args");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_defaultDiagnosticDisplayOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultDiagnosticDisplayOptions_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_defaultDiagnosticDisplayOptions_pargs");
+  xfer += oprot->writeStructBegin("Clang_defaultDiagnosticDisplayOptions_pargs");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
 }
 
-uint32_t Clang_clang_defaultDiagnosticDisplayOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultDiagnosticDisplayOptions_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7738,11 +7738,11 @@ uint32_t Clang_clang_defaultDiagnosticDisplayOptions_result::read(::apache::thri
   return xfer;
 }
 
-uint32_t Clang_clang_defaultDiagnosticDisplayOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_defaultDiagnosticDisplayOptions_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_defaultDiagnosticDisplayOptions_result");
+  xfer += oprot->writeStructBegin("Clang_defaultDiagnosticDisplayOptions_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -7754,7 +7754,7 @@ uint32_t Clang_clang_defaultDiagnosticDisplayOptions_result::write(::apache::thr
   return xfer;
 }
 
-uint32_t Clang_clang_defaultDiagnosticDisplayOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_defaultDiagnosticDisplayOptions_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7794,7 +7794,7 @@ uint32_t Clang_clang_defaultDiagnosticDisplayOptions_presult::read(::apache::thr
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSeverity_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSeverity_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7834,9 +7834,9 @@ uint32_t Clang_clang_getDiagnosticSeverity_args::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSeverity_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSeverity_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSeverity_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSeverity_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -7847,9 +7847,9 @@ uint32_t Clang_clang_getDiagnosticSeverity_args::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSeverity_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSeverity_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSeverity_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSeverity_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -7860,7 +7860,7 @@ uint32_t Clang_clang_getDiagnosticSeverity_pargs::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSeverity_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSeverity_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7884,7 +7884,7 @@ uint32_t Clang_clang_getDiagnosticSeverity_result::read(::apache::thrift::protoc
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast41;
           xfer += iprot->readI32(ecast41);
-          this->success = ( ::clang::thrift::CXDiagnosticSeverity::type)ecast41;
+          this->success = ( ::clad::CXDiagnosticSeverity::type)ecast41;
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -7902,11 +7902,11 @@ uint32_t Clang_clang_getDiagnosticSeverity_result::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSeverity_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSeverity_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSeverity_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSeverity_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -7918,7 +7918,7 @@ uint32_t Clang_clang_getDiagnosticSeverity_result::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSeverity_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSeverity_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -7942,7 +7942,7 @@ uint32_t Clang_clang_getDiagnosticSeverity_presult::read(::apache::thrift::proto
         if (ftype == ::apache::thrift::protocol::T_I32) {
           int32_t ecast42;
           xfer += iprot->readI32(ecast42);
-          (*(this->success)) = ( ::clang::thrift::CXDiagnosticSeverity::type)ecast42;
+          (*(this->success)) = ( ::clad::CXDiagnosticSeverity::type)ecast42;
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -7960,7 +7960,7 @@ uint32_t Clang_clang_getDiagnosticSeverity_presult::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticLocation_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8000,9 +8000,9 @@ uint32_t Clang_clang_getDiagnosticLocation_args::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticLocation_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticLocation_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticLocation_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -8013,9 +8013,9 @@ uint32_t Clang_clang_getDiagnosticLocation_args::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticLocation_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticLocation_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticLocation_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -8026,7 +8026,7 @@ uint32_t Clang_clang_getDiagnosticLocation_pargs::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticLocation_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8066,11 +8066,11 @@ uint32_t Clang_clang_getDiagnosticLocation_result::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticLocation_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticLocation_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticLocation_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -8082,7 +8082,7 @@ uint32_t Clang_clang_getDiagnosticLocation_result::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticLocation_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8122,7 +8122,7 @@ uint32_t Clang_clang_getDiagnosticLocation_presult::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSpelling_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSpelling_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8162,9 +8162,9 @@ uint32_t Clang_clang_getDiagnosticSpelling_args::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSpelling_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSpelling_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSpelling_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSpelling_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -8175,9 +8175,9 @@ uint32_t Clang_clang_getDiagnosticSpelling_args::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSpelling_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSpelling_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSpelling_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSpelling_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -8188,7 +8188,7 @@ uint32_t Clang_clang_getDiagnosticSpelling_pargs::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSpelling_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSpelling_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8228,11 +8228,11 @@ uint32_t Clang_clang_getDiagnosticSpelling_result::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSpelling_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticSpelling_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticSpelling_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticSpelling_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
@@ -8244,7 +8244,7 @@ uint32_t Clang_clang_getDiagnosticSpelling_result::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticSpelling_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticSpelling_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8284,7 +8284,7 @@ uint32_t Clang_clang_getDiagnosticSpelling_presult::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticOption_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticOption_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8324,9 +8324,9 @@ uint32_t Clang_clang_getDiagnosticOption_args::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticOption_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticOption_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticOption_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticOption_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -8337,9 +8337,9 @@ uint32_t Clang_clang_getDiagnosticOption_args::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticOption_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticOption_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticOption_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticOption_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -8350,7 +8350,7 @@ uint32_t Clang_clang_getDiagnosticOption_pargs::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticOption_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticOption_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8390,11 +8390,11 @@ uint32_t Clang_clang_getDiagnosticOption_result::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticOption_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticOption_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticOption_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticOption_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -8406,7 +8406,7 @@ uint32_t Clang_clang_getDiagnosticOption_result::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticOption_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticOption_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8446,7 +8446,7 @@ uint32_t Clang_clang_getDiagnosticOption_presult::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategory_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategory_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8486,9 +8486,9 @@ uint32_t Clang_clang_getDiagnosticCategory_args::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategory_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategory_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategory_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategory_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -8499,9 +8499,9 @@ uint32_t Clang_clang_getDiagnosticCategory_args::write(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategory_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategory_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategory_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategory_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -8512,7 +8512,7 @@ uint32_t Clang_clang_getDiagnosticCategory_pargs::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategory_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategory_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8552,11 +8552,11 @@ uint32_t Clang_clang_getDiagnosticCategory_result::read(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategory_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategory_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategory_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategory_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -8568,7 +8568,7 @@ uint32_t Clang_clang_getDiagnosticCategory_result::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategory_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategory_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8608,7 +8608,7 @@ uint32_t Clang_clang_getDiagnosticCategory_presult::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryName_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategoryName_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8648,9 +8648,9 @@ uint32_t Clang_clang_getDiagnosticCategoryName_args::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryName_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategoryName_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategoryName_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategoryName_args");
 
   xfer += oprot->writeFieldBegin("category", ::apache::thrift::protocol::T_I32, 1);
   xfer += oprot->writeI32(this->category);
@@ -8661,9 +8661,9 @@ uint32_t Clang_clang_getDiagnosticCategoryName_args::write(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryName_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategoryName_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategoryName_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategoryName_pargs");
 
   xfer += oprot->writeFieldBegin("category", ::apache::thrift::protocol::T_I32, 1);
   xfer += oprot->writeI32((*(this->category)));
@@ -8674,7 +8674,7 @@ uint32_t Clang_clang_getDiagnosticCategoryName_pargs::write(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryName_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategoryName_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8714,11 +8714,11 @@ uint32_t Clang_clang_getDiagnosticCategoryName_result::read(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryName_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategoryName_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategoryName_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategoryName_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
@@ -8730,7 +8730,7 @@ uint32_t Clang_clang_getDiagnosticCategoryName_result::write(::apache::thrift::p
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryName_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategoryName_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8770,7 +8770,7 @@ uint32_t Clang_clang_getDiagnosticCategoryName_presult::read(::apache::thrift::p
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryText_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategoryText_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8810,9 +8810,9 @@ uint32_t Clang_clang_getDiagnosticCategoryText_args::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryText_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategoryText_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategoryText_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategoryText_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -8823,9 +8823,9 @@ uint32_t Clang_clang_getDiagnosticCategoryText_args::write(::apache::thrift::pro
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryText_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategoryText_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategoryText_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategoryText_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -8836,7 +8836,7 @@ uint32_t Clang_clang_getDiagnosticCategoryText_pargs::write(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryText_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategoryText_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8876,11 +8876,11 @@ uint32_t Clang_clang_getDiagnosticCategoryText_result::read(::apache::thrift::pr
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryText_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticCategoryText_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticCategoryText_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticCategoryText_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
@@ -8892,7 +8892,7 @@ uint32_t Clang_clang_getDiagnosticCategoryText_result::write(::apache::thrift::p
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticCategoryText_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticCategoryText_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8932,7 +8932,7 @@ uint32_t Clang_clang_getDiagnosticCategoryText_presult::read(::apache::thrift::p
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumRanges_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticNumRanges_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -8972,9 +8972,9 @@ uint32_t Clang_clang_getDiagnosticNumRanges_args::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumRanges_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticNumRanges_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticNumRanges_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticNumRanges_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -8985,9 +8985,9 @@ uint32_t Clang_clang_getDiagnosticNumRanges_args::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumRanges_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticNumRanges_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticNumRanges_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticNumRanges_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -8998,7 +8998,7 @@ uint32_t Clang_clang_getDiagnosticNumRanges_pargs::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumRanges_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticNumRanges_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9038,11 +9038,11 @@ uint32_t Clang_clang_getDiagnosticNumRanges_result::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumRanges_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticNumRanges_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticNumRanges_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticNumRanges_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -9054,7 +9054,7 @@ uint32_t Clang_clang_getDiagnosticNumRanges_result::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumRanges_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticNumRanges_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9094,7 +9094,7 @@ uint32_t Clang_clang_getDiagnosticNumRanges_presult::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticRange_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticRange_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9142,9 +9142,9 @@ uint32_t Clang_clang_getDiagnosticRange_args::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticRange_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticRange_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticRange_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticRange_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -9159,9 +9159,9 @@ uint32_t Clang_clang_getDiagnosticRange_args::write(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticRange_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticRange_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticRange_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticRange_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -9176,7 +9176,7 @@ uint32_t Clang_clang_getDiagnosticRange_pargs::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticRange_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticRange_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9216,11 +9216,11 @@ uint32_t Clang_clang_getDiagnosticRange_result::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticRange_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticRange_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticRange_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticRange_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -9232,7 +9232,7 @@ uint32_t Clang_clang_getDiagnosticRange_result::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticRange_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticRange_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9272,7 +9272,7 @@ uint32_t Clang_clang_getDiagnosticRange_presult::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumFixIts_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticNumFixIts_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9312,9 +9312,9 @@ uint32_t Clang_clang_getDiagnosticNumFixIts_args::read(::apache::thrift::protoco
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumFixIts_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticNumFixIts_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticNumFixIts_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticNumFixIts_args");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->diagnostic);
@@ -9325,9 +9325,9 @@ uint32_t Clang_clang_getDiagnosticNumFixIts_args::write(::apache::thrift::protoc
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumFixIts_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticNumFixIts_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticNumFixIts_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticNumFixIts_pargs");
 
   xfer += oprot->writeFieldBegin("diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->diagnostic)));
@@ -9338,7 +9338,7 @@ uint32_t Clang_clang_getDiagnosticNumFixIts_pargs::write(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumFixIts_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticNumFixIts_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9378,11 +9378,11 @@ uint32_t Clang_clang_getDiagnosticNumFixIts_result::read(::apache::thrift::proto
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumFixIts_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticNumFixIts_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticNumFixIts_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticNumFixIts_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_I32, 0);
@@ -9394,7 +9394,7 @@ uint32_t Clang_clang_getDiagnosticNumFixIts_result::write(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticNumFixIts_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticNumFixIts_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9434,7 +9434,7 @@ uint32_t Clang_clang_getDiagnosticNumFixIts_presult::read(::apache::thrift::prot
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticFixIt_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticFixIt_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9482,9 +9482,9 @@ uint32_t Clang_clang_getDiagnosticFixIt_args::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticFixIt_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticFixIt_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticFixIt_args");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticFixIt_args");
 
   xfer += oprot->writeFieldBegin("Diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->Diagnostic);
@@ -9499,9 +9499,9 @@ uint32_t Clang_clang_getDiagnosticFixIt_args::write(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticFixIt_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticFixIt_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticFixIt_pargs");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticFixIt_pargs");
 
   xfer += oprot->writeFieldBegin("Diagnostic", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->Diagnostic)));
@@ -9516,7 +9516,7 @@ uint32_t Clang_clang_getDiagnosticFixIt_pargs::write(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticFixIt_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticFixIt_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9556,11 +9556,11 @@ uint32_t Clang_clang_getDiagnosticFixIt_result::read(::apache::thrift::protocol:
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticFixIt_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t Clang_getDiagnosticFixIt_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("Clang_clang_getDiagnosticFixIt_result");
+  xfer += oprot->writeStructBegin("Clang_getDiagnosticFixIt_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
@@ -9572,7 +9572,7 @@ uint32_t Clang_clang_getDiagnosticFixIt_result::write(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t Clang_clang_getDiagnosticFixIt_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t Clang_getDiagnosticFixIt_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   uint32_t xfer = 0;
   std::string fname;
@@ -9612,18 +9612,18 @@ uint32_t Clang_clang_getDiagnosticFixIt_presult::read(::apache::thrift::protocol
   return xfer;
 }
 
- ::clang::thrift::CXIndex ClangClient::clang_createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics)
+ ::clad::CXIndex ClangClient::createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics)
 {
-  send_clang_createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
-  return recv_clang_createIndex();
+  send_createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
+  return recv_createIndex();
 }
 
-void ClangClient::send_clang_createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics)
+void ClangClient::send_createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_createIndex", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("createIndex", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_createIndex_pargs args;
+  Clang_createIndex_pargs args;
   args.excludeDeclarationsFromPCH = &excludeDeclarationsFromPCH;
   args.displayDiagnostics = &displayDiagnostics;
   args.write(oprot_);
@@ -9633,7 +9633,7 @@ void ClangClient::send_clang_createIndex(const int32_t excludeDeclarationsFromPC
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXIndex ClangClient::recv_clang_createIndex()
+ ::clad::CXIndex ClangClient::recv_createIndex()
 {
 
   int32_t rseqid = 0;
@@ -9653,13 +9653,13 @@ void ClangClient::send_clang_createIndex(const int32_t excludeDeclarationsFromPC
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_createIndex") != 0) {
+  if (fname.compare("createIndex") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXIndex _return;
-  Clang_clang_createIndex_presult result;
+   ::clad::CXIndex _return;
+  Clang_createIndex_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -9668,21 +9668,21 @@ void ClangClient::send_clang_createIndex(const int32_t excludeDeclarationsFromPC
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_createIndex failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "createIndex failed: unknown result");
 }
 
-void ClangClient::clang_disposeIndex(const  ::clang::thrift::CXIndex index)
+void ClangClient::disposeIndex(const  ::clad::CXIndex index)
 {
-  send_clang_disposeIndex(index);
-  recv_clang_disposeIndex();
+  send_disposeIndex(index);
+  recv_disposeIndex();
 }
 
-void ClangClient::send_clang_disposeIndex(const  ::clang::thrift::CXIndex index)
+void ClangClient::send_disposeIndex(const  ::clad::CXIndex index)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_disposeIndex", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("disposeIndex", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_disposeIndex_pargs args;
+  Clang_disposeIndex_pargs args;
   args.index = &index;
   args.write(oprot_);
 
@@ -9691,7 +9691,7 @@ void ClangClient::send_clang_disposeIndex(const  ::clang::thrift::CXIndex index)
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_disposeIndex()
+void ClangClient::recv_disposeIndex()
 {
 
   int32_t rseqid = 0;
@@ -9711,12 +9711,12 @@ void ClangClient::recv_clang_disposeIndex()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_disposeIndex") != 0) {
+  if (fname.compare("disposeIndex") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_disposeIndex_presult result;
+  Clang_disposeIndex_presult result;
   result.read(iprot_);
   iprot_->readMessageEnd();
   iprot_->getTransport()->readEnd();
@@ -9724,18 +9724,18 @@ void ClangClient::recv_clang_disposeIndex()
   return;
 }
 
-void ClangClient::clang_CXIndex_setGlobalOptions(const  ::clang::thrift::CXIndex index, const  ::clang::thrift::CXGlobalOptFlags::type options)
+void ClangClient::CXIndex_setGlobalOptions(const  ::clad::CXIndex index, const  ::clad::CXGlobalOptFlags::type options)
 {
-  send_clang_CXIndex_setGlobalOptions(index, options);
-  recv_clang_CXIndex_setGlobalOptions();
+  send_CXIndex_setGlobalOptions(index, options);
+  recv_CXIndex_setGlobalOptions();
 }
 
-void ClangClient::send_clang_CXIndex_setGlobalOptions(const  ::clang::thrift::CXIndex index, const  ::clang::thrift::CXGlobalOptFlags::type options)
+void ClangClient::send_CXIndex_setGlobalOptions(const  ::clad::CXIndex index, const  ::clad::CXGlobalOptFlags::type options)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_CXIndex_setGlobalOptions", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("CXIndex_setGlobalOptions", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_CXIndex_setGlobalOptions_pargs args;
+  Clang_CXIndex_setGlobalOptions_pargs args;
   args.index = &index;
   args.options = &options;
   args.write(oprot_);
@@ -9745,7 +9745,7 @@ void ClangClient::send_clang_CXIndex_setGlobalOptions(const  ::clang::thrift::CX
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_CXIndex_setGlobalOptions()
+void ClangClient::recv_CXIndex_setGlobalOptions()
 {
 
   int32_t rseqid = 0;
@@ -9765,12 +9765,12 @@ void ClangClient::recv_clang_CXIndex_setGlobalOptions()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_CXIndex_setGlobalOptions") != 0) {
+  if (fname.compare("CXIndex_setGlobalOptions") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_CXIndex_setGlobalOptions_presult result;
+  Clang_CXIndex_setGlobalOptions_presult result;
   result.read(iprot_);
   iprot_->readMessageEnd();
   iprot_->getTransport()->readEnd();
@@ -9778,18 +9778,18 @@ void ClangClient::recv_clang_CXIndex_setGlobalOptions()
   return;
 }
 
- ::clang::thrift::CXGlobalOptFlags::type ClangClient::clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CXIndex index)
+ ::clad::CXGlobalOptFlags::type ClangClient::CXIndex_getGlobalOptions(const  ::clad::CXIndex index)
 {
-  send_clang_CXIndex_getGlobalOptions(index);
-  return recv_clang_CXIndex_getGlobalOptions();
+  send_CXIndex_getGlobalOptions(index);
+  return recv_CXIndex_getGlobalOptions();
 }
 
-void ClangClient::send_clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CXIndex index)
+void ClangClient::send_CXIndex_getGlobalOptions(const  ::clad::CXIndex index)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_CXIndex_getGlobalOptions", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("CXIndex_getGlobalOptions", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_CXIndex_getGlobalOptions_pargs args;
+  Clang_CXIndex_getGlobalOptions_pargs args;
   args.index = &index;
   args.write(oprot_);
 
@@ -9798,7 +9798,7 @@ void ClangClient::send_clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CX
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXGlobalOptFlags::type ClangClient::recv_clang_CXIndex_getGlobalOptions()
+ ::clad::CXGlobalOptFlags::type ClangClient::recv_CXIndex_getGlobalOptions()
 {
 
   int32_t rseqid = 0;
@@ -9818,13 +9818,13 @@ void ClangClient::send_clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CX
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_CXIndex_getGlobalOptions") != 0) {
+  if (fname.compare("CXIndex_getGlobalOptions") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXGlobalOptFlags::type _return;
-  Clang_clang_CXIndex_getGlobalOptions_presult result;
+   ::clad::CXGlobalOptFlags::type _return;
+  Clang_CXIndex_getGlobalOptions_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -9833,21 +9833,21 @@ void ClangClient::send_clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CX
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_CXIndex_getGlobalOptions failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "CXIndex_getGlobalOptions failed: unknown result");
 }
 
-void ClangClient::clang_getTranslationUnitSpelling(std::string& _return, const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::getTranslationUnitSpelling(std::string& _return, const  ::clad::CXTranslationUnit unit)
 {
-  send_clang_getTranslationUnitSpelling(unit);
-  recv_clang_getTranslationUnitSpelling(_return);
+  send_getTranslationUnitSpelling(unit);
+  recv_getTranslationUnitSpelling(_return);
 }
 
-void ClangClient::send_clang_getTranslationUnitSpelling(const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::send_getTranslationUnitSpelling(const  ::clad::CXTranslationUnit unit)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getTranslationUnitSpelling", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getTranslationUnitSpelling", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getTranslationUnitSpelling_pargs args;
+  Clang_getTranslationUnitSpelling_pargs args;
   args.unit = &unit;
   args.write(oprot_);
 
@@ -9856,7 +9856,7 @@ void ClangClient::send_clang_getTranslationUnitSpelling(const  ::clang::thrift::
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getTranslationUnitSpelling(std::string& _return)
+void ClangClient::recv_getTranslationUnitSpelling(std::string& _return)
 {
 
   int32_t rseqid = 0;
@@ -9876,12 +9876,12 @@ void ClangClient::recv_clang_getTranslationUnitSpelling(std::string& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getTranslationUnitSpelling") != 0) {
+  if (fname.compare("getTranslationUnitSpelling") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getTranslationUnitSpelling_presult result;
+  Clang_getTranslationUnitSpelling_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -9891,24 +9891,24 @@ void ClangClient::recv_clang_getTranslationUnitSpelling(std::string& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getTranslationUnitSpelling failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getTranslationUnitSpelling failed: unknown result");
 }
 
- ::clang::thrift::CXTranslationUnit ClangClient::clang_createTranslationUnitFromSourceFile(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & clang_command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files)
+ ::clad::CXTranslationUnit ClangClient::createTranslationUnitFromSourceFile(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files)
 {
-  send_clang_createTranslationUnitFromSourceFile(idx, source_filename, clang_command_line_args, unsaved_files);
-  return recv_clang_createTranslationUnitFromSourceFile();
+  send_createTranslationUnitFromSourceFile(idx, source_filename, command_line_args, unsaved_files);
+  return recv_createTranslationUnitFromSourceFile();
 }
 
-void ClangClient::send_clang_createTranslationUnitFromSourceFile(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & clang_command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files)
+void ClangClient::send_createTranslationUnitFromSourceFile(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_createTranslationUnitFromSourceFile", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("createTranslationUnitFromSourceFile", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_createTranslationUnitFromSourceFile_pargs args;
+  Clang_createTranslationUnitFromSourceFile_pargs args;
   args.idx = &idx;
   args.source_filename = &source_filename;
-  args.clang_command_line_args = &clang_command_line_args;
+  args.command_line_args = &command_line_args;
   args.unsaved_files = &unsaved_files;
   args.write(oprot_);
 
@@ -9917,7 +9917,7 @@ void ClangClient::send_clang_createTranslationUnitFromSourceFile(const  ::clang:
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXTranslationUnit ClangClient::recv_clang_createTranslationUnitFromSourceFile()
+ ::clad::CXTranslationUnit ClangClient::recv_createTranslationUnitFromSourceFile()
 {
 
   int32_t rseqid = 0;
@@ -9937,13 +9937,13 @@ void ClangClient::send_clang_createTranslationUnitFromSourceFile(const  ::clang:
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_createTranslationUnitFromSourceFile") != 0) {
+  if (fname.compare("createTranslationUnitFromSourceFile") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXTranslationUnit _return;
-  Clang_clang_createTranslationUnitFromSourceFile_presult result;
+   ::clad::CXTranslationUnit _return;
+  Clang_createTranslationUnitFromSourceFile_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -9952,21 +9952,21 @@ void ClangClient::send_clang_createTranslationUnitFromSourceFile(const  ::clang:
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_createTranslationUnitFromSourceFile failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "createTranslationUnitFromSourceFile failed: unknown result");
 }
 
- ::clang::thrift::CXTranslationUnit ClangClient::clang_createTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& ast_filename)
+ ::clad::CXTranslationUnit ClangClient::createTranslationUnit(const  ::clad::CXIndex idx, const std::string& ast_filename)
 {
-  send_clang_createTranslationUnit(idx, ast_filename);
-  return recv_clang_createTranslationUnit();
+  send_createTranslationUnit(idx, ast_filename);
+  return recv_createTranslationUnit();
 }
 
-void ClangClient::send_clang_createTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& ast_filename)
+void ClangClient::send_createTranslationUnit(const  ::clad::CXIndex idx, const std::string& ast_filename)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_createTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("createTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_createTranslationUnit_pargs args;
+  Clang_createTranslationUnit_pargs args;
   args.idx = &idx;
   args.ast_filename = &ast_filename;
   args.write(oprot_);
@@ -9976,7 +9976,7 @@ void ClangClient::send_clang_createTranslationUnit(const  ::clang::thrift::CXInd
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXTranslationUnit ClangClient::recv_clang_createTranslationUnit()
+ ::clad::CXTranslationUnit ClangClient::recv_createTranslationUnit()
 {
 
   int32_t rseqid = 0;
@@ -9996,13 +9996,13 @@ void ClangClient::send_clang_createTranslationUnit(const  ::clang::thrift::CXInd
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_createTranslationUnit") != 0) {
+  if (fname.compare("createTranslationUnit") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXTranslationUnit _return;
-  Clang_clang_createTranslationUnit_presult result;
+   ::clad::CXTranslationUnit _return;
+  Clang_createTranslationUnit_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10011,21 +10011,21 @@ void ClangClient::send_clang_createTranslationUnit(const  ::clang::thrift::CXInd
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_createTranslationUnit failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "createTranslationUnit failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_defaultEditingTranslationUnitOptions()
+ ::clad::u32 ClangClient::defaultEditingTranslationUnitOptions()
 {
-  send_clang_defaultEditingTranslationUnitOptions();
-  return recv_clang_defaultEditingTranslationUnitOptions();
+  send_defaultEditingTranslationUnitOptions();
+  return recv_defaultEditingTranslationUnitOptions();
 }
 
-void ClangClient::send_clang_defaultEditingTranslationUnitOptions()
+void ClangClient::send_defaultEditingTranslationUnitOptions()
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_defaultEditingTranslationUnitOptions", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("defaultEditingTranslationUnitOptions", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_defaultEditingTranslationUnitOptions_pargs args;
+  Clang_defaultEditingTranslationUnitOptions_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -10033,7 +10033,7 @@ void ClangClient::send_clang_defaultEditingTranslationUnitOptions()
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_defaultEditingTranslationUnitOptions()
+ ::clad::u32 ClangClient::recv_defaultEditingTranslationUnitOptions()
 {
 
   int32_t rseqid = 0;
@@ -10053,13 +10053,13 @@ void ClangClient::send_clang_defaultEditingTranslationUnitOptions()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_defaultEditingTranslationUnitOptions") != 0) {
+  if (fname.compare("defaultEditingTranslationUnitOptions") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_defaultEditingTranslationUnitOptions_presult result;
+   ::clad::u32 _return;
+  Clang_defaultEditingTranslationUnitOptions_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10068,21 +10068,21 @@ void ClangClient::send_clang_defaultEditingTranslationUnitOptions()
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_defaultEditingTranslationUnitOptions failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "defaultEditingTranslationUnitOptions failed: unknown result");
 }
 
- ::clang::thrift::CXTranslationUnit ClangClient::clang_parseTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options)
+ ::clad::CXTranslationUnit ClangClient::parseTranslationUnit(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options)
 {
-  send_clang_parseTranslationUnit(idx, source_filename, command_line_args, unsaved_files, options);
-  return recv_clang_parseTranslationUnit();
+  send_parseTranslationUnit(idx, source_filename, command_line_args, unsaved_files, options);
+  return recv_parseTranslationUnit();
 }
 
-void ClangClient::send_clang_parseTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options)
+void ClangClient::send_parseTranslationUnit(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_parseTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("parseTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_parseTranslationUnit_pargs args;
+  Clang_parseTranslationUnit_pargs args;
   args.idx = &idx;
   args.source_filename = &source_filename;
   args.command_line_args = &command_line_args;
@@ -10095,7 +10095,7 @@ void ClangClient::send_clang_parseTranslationUnit(const  ::clang::thrift::CXInde
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXTranslationUnit ClangClient::recv_clang_parseTranslationUnit()
+ ::clad::CXTranslationUnit ClangClient::recv_parseTranslationUnit()
 {
 
   int32_t rseqid = 0;
@@ -10115,13 +10115,13 @@ void ClangClient::send_clang_parseTranslationUnit(const  ::clang::thrift::CXInde
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_parseTranslationUnit") != 0) {
+  if (fname.compare("parseTranslationUnit") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXTranslationUnit _return;
-  Clang_clang_parseTranslationUnit_presult result;
+   ::clad::CXTranslationUnit _return;
+  Clang_parseTranslationUnit_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10130,21 +10130,21 @@ void ClangClient::send_clang_parseTranslationUnit(const  ::clang::thrift::CXInde
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_parseTranslationUnit failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "parseTranslationUnit failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_defaultSaveOptions(const  ::clang::thrift::CXTranslationUnit unit)
+ ::clad::u32 ClangClient::defaultSaveOptions(const  ::clad::CXTranslationUnit unit)
 {
-  send_clang_defaultSaveOptions(unit);
-  return recv_clang_defaultSaveOptions();
+  send_defaultSaveOptions(unit);
+  return recv_defaultSaveOptions();
 }
 
-void ClangClient::send_clang_defaultSaveOptions(const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::send_defaultSaveOptions(const  ::clad::CXTranslationUnit unit)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_defaultSaveOptions", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("defaultSaveOptions", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_defaultSaveOptions_pargs args;
+  Clang_defaultSaveOptions_pargs args;
   args.unit = &unit;
   args.write(oprot_);
 
@@ -10153,7 +10153,7 @@ void ClangClient::send_clang_defaultSaveOptions(const  ::clang::thrift::CXTransl
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_defaultSaveOptions()
+ ::clad::u32 ClangClient::recv_defaultSaveOptions()
 {
 
   int32_t rseqid = 0;
@@ -10173,13 +10173,13 @@ void ClangClient::send_clang_defaultSaveOptions(const  ::clang::thrift::CXTransl
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_defaultSaveOptions") != 0) {
+  if (fname.compare("defaultSaveOptions") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_defaultSaveOptions_presult result;
+   ::clad::u32 _return;
+  Clang_defaultSaveOptions_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10188,21 +10188,21 @@ void ClangClient::send_clang_defaultSaveOptions(const  ::clang::thrift::CXTransl
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_defaultSaveOptions failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "defaultSaveOptions failed: unknown result");
 }
 
- ::clang::thrift::CXSaveError::type ClangClient::clang_saveTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename, const  ::clang::thrift::u32 options)
+ ::clad::CXSaveError::type ClangClient::saveTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::string& filename, const  ::clad::u32 options)
 {
-  send_clang_saveTranslationUnit(unit, filename, options);
-  return recv_clang_saveTranslationUnit();
+  send_saveTranslationUnit(unit, filename, options);
+  return recv_saveTranslationUnit();
 }
 
-void ClangClient::send_clang_saveTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename, const  ::clang::thrift::u32 options)
+void ClangClient::send_saveTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::string& filename, const  ::clad::u32 options)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_saveTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("saveTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_saveTranslationUnit_pargs args;
+  Clang_saveTranslationUnit_pargs args;
   args.unit = &unit;
   args.filename = &filename;
   args.options = &options;
@@ -10213,7 +10213,7 @@ void ClangClient::send_clang_saveTranslationUnit(const  ::clang::thrift::CXTrans
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXSaveError::type ClangClient::recv_clang_saveTranslationUnit()
+ ::clad::CXSaveError::type ClangClient::recv_saveTranslationUnit()
 {
 
   int32_t rseqid = 0;
@@ -10233,13 +10233,13 @@ void ClangClient::send_clang_saveTranslationUnit(const  ::clang::thrift::CXTrans
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_saveTranslationUnit") != 0) {
+  if (fname.compare("saveTranslationUnit") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXSaveError::type _return;
-  Clang_clang_saveTranslationUnit_presult result;
+   ::clad::CXSaveError::type _return;
+  Clang_saveTranslationUnit_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10248,21 +10248,21 @@ void ClangClient::send_clang_saveTranslationUnit(const  ::clang::thrift::CXTrans
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_saveTranslationUnit failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "saveTranslationUnit failed: unknown result");
 }
 
-void ClangClient::clang_disposeTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::disposeTranslationUnit(const  ::clad::CXTranslationUnit unit)
 {
-  send_clang_disposeTranslationUnit(unit);
-  recv_clang_disposeTranslationUnit();
+  send_disposeTranslationUnit(unit);
+  recv_disposeTranslationUnit();
 }
 
-void ClangClient::send_clang_disposeTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::send_disposeTranslationUnit(const  ::clad::CXTranslationUnit unit)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_disposeTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("disposeTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_disposeTranslationUnit_pargs args;
+  Clang_disposeTranslationUnit_pargs args;
   args.unit = &unit;
   args.write(oprot_);
 
@@ -10271,7 +10271,7 @@ void ClangClient::send_clang_disposeTranslationUnit(const  ::clang::thrift::CXTr
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_disposeTranslationUnit()
+void ClangClient::recv_disposeTranslationUnit()
 {
 
   int32_t rseqid = 0;
@@ -10291,12 +10291,12 @@ void ClangClient::recv_clang_disposeTranslationUnit()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_disposeTranslationUnit") != 0) {
+  if (fname.compare("disposeTranslationUnit") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_disposeTranslationUnit_presult result;
+  Clang_disposeTranslationUnit_presult result;
   result.read(iprot_);
   iprot_->readMessageEnd();
   iprot_->getTransport()->readEnd();
@@ -10304,18 +10304,18 @@ void ClangClient::recv_clang_disposeTranslationUnit()
   return;
 }
 
- ::clang::thrift::u32 ClangClient::clang_defaultReparseOptions(const  ::clang::thrift::CXTranslationUnit unit)
+ ::clad::u32 ClangClient::defaultReparseOptions(const  ::clad::CXTranslationUnit unit)
 {
-  send_clang_defaultReparseOptions(unit);
-  return recv_clang_defaultReparseOptions();
+  send_defaultReparseOptions(unit);
+  return recv_defaultReparseOptions();
 }
 
-void ClangClient::send_clang_defaultReparseOptions(const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::send_defaultReparseOptions(const  ::clad::CXTranslationUnit unit)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_defaultReparseOptions", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("defaultReparseOptions", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_defaultReparseOptions_pargs args;
+  Clang_defaultReparseOptions_pargs args;
   args.unit = &unit;
   args.write(oprot_);
 
@@ -10324,7 +10324,7 @@ void ClangClient::send_clang_defaultReparseOptions(const  ::clang::thrift::CXTra
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_defaultReparseOptions()
+ ::clad::u32 ClangClient::recv_defaultReparseOptions()
 {
 
   int32_t rseqid = 0;
@@ -10344,13 +10344,13 @@ void ClangClient::send_clang_defaultReparseOptions(const  ::clang::thrift::CXTra
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_defaultReparseOptions") != 0) {
+  if (fname.compare("defaultReparseOptions") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_defaultReparseOptions_presult result;
+   ::clad::u32 _return;
+  Clang_defaultReparseOptions_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10359,21 +10359,21 @@ void ClangClient::send_clang_defaultReparseOptions(const  ::clang::thrift::CXTra
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_defaultReparseOptions failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "defaultReparseOptions failed: unknown result");
 }
 
-int32_t ClangClient::clang_reparseTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options)
+int32_t ClangClient::reparseTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options)
 {
-  send_clang_reparseTranslationUnit(unit, unsaved_files, options);
-  return recv_clang_reparseTranslationUnit();
+  send_reparseTranslationUnit(unit, unsaved_files, options);
+  return recv_reparseTranslationUnit();
 }
 
-void ClangClient::send_clang_reparseTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options)
+void ClangClient::send_reparseTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_reparseTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("reparseTranslationUnit", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_reparseTranslationUnit_pargs args;
+  Clang_reparseTranslationUnit_pargs args;
   args.unit = &unit;
   args.unsaved_files = &unsaved_files;
   args.options = &options;
@@ -10384,7 +10384,7 @@ void ClangClient::send_clang_reparseTranslationUnit(const  ::clang::thrift::CXTr
   oprot_->getTransport()->flush();
 }
 
-int32_t ClangClient::recv_clang_reparseTranslationUnit()
+int32_t ClangClient::recv_reparseTranslationUnit()
 {
 
   int32_t rseqid = 0;
@@ -10404,13 +10404,13 @@ int32_t ClangClient::recv_clang_reparseTranslationUnit()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_reparseTranslationUnit") != 0) {
+  if (fname.compare("reparseTranslationUnit") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
   int32_t _return;
-  Clang_clang_reparseTranslationUnit_presult result;
+  Clang_reparseTranslationUnit_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10419,21 +10419,21 @@ int32_t ClangClient::recv_clang_reparseTranslationUnit()
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_reparseTranslationUnit failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "reparseTranslationUnit failed: unknown result");
 }
 
-void ClangClient::clang_getTUResourceUsageName(std::string& _return, const  ::clang::thrift::CXTUResourceUsageKind::type kind)
+void ClangClient::getTUResourceUsageName(std::string& _return, const  ::clad::CXTUResourceUsageKind::type kind)
 {
-  send_clang_getTUResourceUsageName(kind);
-  recv_clang_getTUResourceUsageName(_return);
+  send_getTUResourceUsageName(kind);
+  recv_getTUResourceUsageName(_return);
 }
 
-void ClangClient::send_clang_getTUResourceUsageName(const  ::clang::thrift::CXTUResourceUsageKind::type kind)
+void ClangClient::send_getTUResourceUsageName(const  ::clad::CXTUResourceUsageKind::type kind)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getTUResourceUsageName", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getTUResourceUsageName", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getTUResourceUsageName_pargs args;
+  Clang_getTUResourceUsageName_pargs args;
   args.kind = &kind;
   args.write(oprot_);
 
@@ -10442,7 +10442,7 @@ void ClangClient::send_clang_getTUResourceUsageName(const  ::clang::thrift::CXTU
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getTUResourceUsageName(std::string& _return)
+void ClangClient::recv_getTUResourceUsageName(std::string& _return)
 {
 
   int32_t rseqid = 0;
@@ -10462,12 +10462,12 @@ void ClangClient::recv_clang_getTUResourceUsageName(std::string& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getTUResourceUsageName") != 0) {
+  if (fname.compare("getTUResourceUsageName") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getTUResourceUsageName_presult result;
+  Clang_getTUResourceUsageName_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10477,21 +10477,21 @@ void ClangClient::recv_clang_getTUResourceUsageName(std::string& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getTUResourceUsageName failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getTUResourceUsageName failed: unknown result");
 }
 
-void ClangClient::clang_getCXTUResourceUsage( ::clang::thrift::CXTUResourceUsage& _return, const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return, const  ::clad::CXTranslationUnit unit)
 {
-  send_clang_getCXTUResourceUsage(unit);
-  recv_clang_getCXTUResourceUsage(_return);
+  send_getCXTUResourceUsage(unit);
+  recv_getCXTUResourceUsage(_return);
 }
 
-void ClangClient::send_clang_getCXTUResourceUsage(const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::send_getCXTUResourceUsage(const  ::clad::CXTranslationUnit unit)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getCXTUResourceUsage", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getCXTUResourceUsage", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getCXTUResourceUsage_pargs args;
+  Clang_getCXTUResourceUsage_pargs args;
   args.unit = &unit;
   args.write(oprot_);
 
@@ -10500,7 +10500,7 @@ void ClangClient::send_clang_getCXTUResourceUsage(const  ::clang::thrift::CXTran
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getCXTUResourceUsage( ::clang::thrift::CXTUResourceUsage& _return)
+void ClangClient::recv_getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return)
 {
 
   int32_t rseqid = 0;
@@ -10520,12 +10520,12 @@ void ClangClient::recv_clang_getCXTUResourceUsage( ::clang::thrift::CXTUResource
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getCXTUResourceUsage") != 0) {
+  if (fname.compare("getCXTUResourceUsage") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getCXTUResourceUsage_presult result;
+  Clang_getCXTUResourceUsage_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10535,21 +10535,21 @@ void ClangClient::recv_clang_getCXTUResourceUsage( ::clang::thrift::CXTUResource
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getCXTUResourceUsage failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getCXTUResourceUsage failed: unknown result");
 }
 
-void ClangClient::clang_disposeCXTUResourceUsage(const  ::clang::thrift::CXTUResourceUsage& usage)
+void ClangClient::disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage)
 {
-  send_clang_disposeCXTUResourceUsage(usage);
-  recv_clang_disposeCXTUResourceUsage();
+  send_disposeCXTUResourceUsage(usage);
+  recv_disposeCXTUResourceUsage();
 }
 
-void ClangClient::send_clang_disposeCXTUResourceUsage(const  ::clang::thrift::CXTUResourceUsage& usage)
+void ClangClient::send_disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_disposeCXTUResourceUsage", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("disposeCXTUResourceUsage", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_disposeCXTUResourceUsage_pargs args;
+  Clang_disposeCXTUResourceUsage_pargs args;
   args.usage = &usage;
   args.write(oprot_);
 
@@ -10558,7 +10558,7 @@ void ClangClient::send_clang_disposeCXTUResourceUsage(const  ::clang::thrift::CX
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_disposeCXTUResourceUsage()
+void ClangClient::recv_disposeCXTUResourceUsage()
 {
 
   int32_t rseqid = 0;
@@ -10578,12 +10578,12 @@ void ClangClient::recv_clang_disposeCXTUResourceUsage()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_disposeCXTUResourceUsage") != 0) {
+  if (fname.compare("disposeCXTUResourceUsage") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_disposeCXTUResourceUsage_presult result;
+  Clang_disposeCXTUResourceUsage_presult result;
   result.read(iprot_);
   iprot_->readMessageEnd();
   iprot_->getTransport()->readEnd();
@@ -10591,18 +10591,18 @@ void ClangClient::recv_clang_disposeCXTUResourceUsage()
   return;
 }
 
-void ClangClient::clang_getFileName(std::string& _return, const  ::clang::thrift::CXFile file)
+void ClangClient::getFileName(std::string& _return, const  ::clad::CXFile file)
 {
-  send_clang_getFileName(file);
-  recv_clang_getFileName(_return);
+  send_getFileName(file);
+  recv_getFileName(_return);
 }
 
-void ClangClient::send_clang_getFileName(const  ::clang::thrift::CXFile file)
+void ClangClient::send_getFileName(const  ::clad::CXFile file)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getFileName", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getFileName", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getFileName_pargs args;
+  Clang_getFileName_pargs args;
   args.file = &file;
   args.write(oprot_);
 
@@ -10611,7 +10611,7 @@ void ClangClient::send_clang_getFileName(const  ::clang::thrift::CXFile file)
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getFileName(std::string& _return)
+void ClangClient::recv_getFileName(std::string& _return)
 {
 
   int32_t rseqid = 0;
@@ -10631,12 +10631,12 @@ void ClangClient::recv_clang_getFileName(std::string& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getFileName") != 0) {
+  if (fname.compare("getFileName") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getFileName_presult result;
+  Clang_getFileName_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10646,21 +10646,21 @@ void ClangClient::recv_clang_getFileName(std::string& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getFileName failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getFileName failed: unknown result");
 }
 
- ::clang::thrift::t64 ClangClient::clang_getFileTime(const  ::clang::thrift::CXFile file)
+ ::clad::t64 ClangClient::getFileTime(const  ::clad::CXFile file)
 {
-  send_clang_getFileTime(file);
-  return recv_clang_getFileTime();
+  send_getFileTime(file);
+  return recv_getFileTime();
 }
 
-void ClangClient::send_clang_getFileTime(const  ::clang::thrift::CXFile file)
+void ClangClient::send_getFileTime(const  ::clad::CXFile file)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getFileTime", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getFileTime", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getFileTime_pargs args;
+  Clang_getFileTime_pargs args;
   args.file = &file;
   args.write(oprot_);
 
@@ -10669,7 +10669,7 @@ void ClangClient::send_clang_getFileTime(const  ::clang::thrift::CXFile file)
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::t64 ClangClient::recv_clang_getFileTime()
+ ::clad::t64 ClangClient::recv_getFileTime()
 {
 
   int32_t rseqid = 0;
@@ -10689,13 +10689,13 @@ void ClangClient::send_clang_getFileTime(const  ::clang::thrift::CXFile file)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getFileTime") != 0) {
+  if (fname.compare("getFileTime") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::t64 _return;
-  Clang_clang_getFileTime_presult result;
+   ::clad::t64 _return;
+  Clang_getFileTime_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10704,21 +10704,21 @@ void ClangClient::send_clang_getFileTime(const  ::clang::thrift::CXFile file)
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getFileTime failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getFileTime failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_isFileMultipleIncludeGuarded(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::CXFile file)
+ ::clad::u32 ClangClient::isFileMultipleIncludeGuarded(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file)
 {
-  send_clang_isFileMultipleIncludeGuarded(unit, file);
-  return recv_clang_isFileMultipleIncludeGuarded();
+  send_isFileMultipleIncludeGuarded(unit, file);
+  return recv_isFileMultipleIncludeGuarded();
 }
 
-void ClangClient::send_clang_isFileMultipleIncludeGuarded(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::CXFile file)
+void ClangClient::send_isFileMultipleIncludeGuarded(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_isFileMultipleIncludeGuarded", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("isFileMultipleIncludeGuarded", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_isFileMultipleIncludeGuarded_pargs args;
+  Clang_isFileMultipleIncludeGuarded_pargs args;
   args.unit = &unit;
   args.file = &file;
   args.write(oprot_);
@@ -10728,7 +10728,7 @@ void ClangClient::send_clang_isFileMultipleIncludeGuarded(const  ::clang::thrift
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_isFileMultipleIncludeGuarded()
+ ::clad::u32 ClangClient::recv_isFileMultipleIncludeGuarded()
 {
 
   int32_t rseqid = 0;
@@ -10748,13 +10748,13 @@ void ClangClient::send_clang_isFileMultipleIncludeGuarded(const  ::clang::thrift
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_isFileMultipleIncludeGuarded") != 0) {
+  if (fname.compare("isFileMultipleIncludeGuarded") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_isFileMultipleIncludeGuarded_presult result;
+   ::clad::u32 _return;
+  Clang_isFileMultipleIncludeGuarded_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10763,21 +10763,21 @@ void ClangClient::send_clang_isFileMultipleIncludeGuarded(const  ::clang::thrift
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_isFileMultipleIncludeGuarded failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "isFileMultipleIncludeGuarded failed: unknown result");
 }
 
- ::clang::thrift::CXFile ClangClient::clang_getFile(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename)
+ ::clad::CXFile ClangClient::getFile(const  ::clad::CXTranslationUnit unit, const std::string& filename)
 {
-  send_clang_getFile(unit, filename);
-  return recv_clang_getFile();
+  send_getFile(unit, filename);
+  return recv_getFile();
 }
 
-void ClangClient::send_clang_getFile(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename)
+void ClangClient::send_getFile(const  ::clad::CXTranslationUnit unit, const std::string& filename)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getFile", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getFile", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getFile_pargs args;
+  Clang_getFile_pargs args;
   args.unit = &unit;
   args.filename = &filename;
   args.write(oprot_);
@@ -10787,7 +10787,7 @@ void ClangClient::send_clang_getFile(const  ::clang::thrift::CXTranslationUnit u
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXFile ClangClient::recv_clang_getFile()
+ ::clad::CXFile ClangClient::recv_getFile()
 {
 
   int32_t rseqid = 0;
@@ -10807,13 +10807,13 @@ void ClangClient::send_clang_getFile(const  ::clang::thrift::CXTranslationUnit u
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getFile") != 0) {
+  if (fname.compare("getFile") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXFile _return;
-  Clang_clang_getFile_presult result;
+   ::clad::CXFile _return;
+  Clang_getFile_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10822,21 +10822,21 @@ void ClangClient::send_clang_getFile(const  ::clang::thrift::CXTranslationUnit u
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getFile failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getFile failed: unknown result");
 }
 
-void ClangClient::clang_getNullLocation( ::clang::thrift::CXSourceLocation& _return)
+void ClangClient::getNullLocation( ::clad::CXSourceLocation& _return)
 {
-  send_clang_getNullLocation();
-  recv_clang_getNullLocation(_return);
+  send_getNullLocation();
+  recv_getNullLocation(_return);
 }
 
-void ClangClient::send_clang_getNullLocation()
+void ClangClient::send_getNullLocation()
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getNullLocation", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getNullLocation", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getNullLocation_pargs args;
+  Clang_getNullLocation_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -10844,7 +10844,7 @@ void ClangClient::send_clang_getNullLocation()
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getNullLocation( ::clang::thrift::CXSourceLocation& _return)
+void ClangClient::recv_getNullLocation( ::clad::CXSourceLocation& _return)
 {
 
   int32_t rseqid = 0;
@@ -10864,12 +10864,12 @@ void ClangClient::recv_clang_getNullLocation( ::clang::thrift::CXSourceLocation&
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getNullLocation") != 0) {
+  if (fname.compare("getNullLocation") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getNullLocation_presult result;
+  Clang_getNullLocation_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10879,21 +10879,21 @@ void ClangClient::recv_clang_getNullLocation( ::clang::thrift::CXSourceLocation&
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getNullLocation failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getNullLocation failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_equalLocations(const  ::clang::thrift::CXSourceLocation& loc1, const  ::clang::thrift::CXSourceLocation& loc2)
+ ::clad::u32 ClangClient::equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2)
 {
-  send_clang_equalLocations(loc1, loc2);
-  return recv_clang_equalLocations();
+  send_equalLocations(loc1, loc2);
+  return recv_equalLocations();
 }
 
-void ClangClient::send_clang_equalLocations(const  ::clang::thrift::CXSourceLocation& loc1, const  ::clang::thrift::CXSourceLocation& loc2)
+void ClangClient::send_equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_equalLocations", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("equalLocations", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_equalLocations_pargs args;
+  Clang_equalLocations_pargs args;
   args.loc1 = &loc1;
   args.loc2 = &loc2;
   args.write(oprot_);
@@ -10903,7 +10903,7 @@ void ClangClient::send_clang_equalLocations(const  ::clang::thrift::CXSourceLoca
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_equalLocations()
+ ::clad::u32 ClangClient::recv_equalLocations()
 {
 
   int32_t rseqid = 0;
@@ -10923,13 +10923,13 @@ void ClangClient::send_clang_equalLocations(const  ::clang::thrift::CXSourceLoca
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_equalLocations") != 0) {
+  if (fname.compare("equalLocations") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_equalLocations_presult result;
+   ::clad::u32 _return;
+  Clang_equalLocations_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10938,21 +10938,21 @@ void ClangClient::send_clang_equalLocations(const  ::clang::thrift::CXSourceLoca
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_equalLocations failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "equalLocations failed: unknown result");
 }
 
-void ClangClient::clang_getLocation( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 line, const  ::clang::thrift::u32 column)
+void ClangClient::getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column)
 {
-  send_clang_getLocation(tu, file, line, column);
-  recv_clang_getLocation(_return);
+  send_getLocation(tu, file, line, column);
+  recv_getLocation(_return);
 }
 
-void ClangClient::send_clang_getLocation(const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 line, const  ::clang::thrift::u32 column)
+void ClangClient::send_getLocation(const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getLocation", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getLocation", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getLocation_pargs args;
+  Clang_getLocation_pargs args;
   args.tu = &tu;
   args.file = &file;
   args.line = &line;
@@ -10964,7 +10964,7 @@ void ClangClient::send_clang_getLocation(const  ::clang::thrift::CXTranslationUn
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getLocation( ::clang::thrift::CXSourceLocation& _return)
+void ClangClient::recv_getLocation( ::clad::CXSourceLocation& _return)
 {
 
   int32_t rseqid = 0;
@@ -10984,12 +10984,12 @@ void ClangClient::recv_clang_getLocation( ::clang::thrift::CXSourceLocation& _re
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getLocation") != 0) {
+  if (fname.compare("getLocation") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getLocation_presult result;
+  Clang_getLocation_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -10999,21 +10999,21 @@ void ClangClient::recv_clang_getLocation( ::clang::thrift::CXSourceLocation& _re
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getLocation failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getLocation failed: unknown result");
 }
 
-void ClangClient::clang_getLocationForOffset( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 offset)
+void ClangClient::getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset)
 {
-  send_clang_getLocationForOffset(tu, file, offset);
-  recv_clang_getLocationForOffset(_return);
+  send_getLocationForOffset(tu, file, offset);
+  recv_getLocationForOffset(_return);
 }
 
-void ClangClient::send_clang_getLocationForOffset(const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 offset)
+void ClangClient::send_getLocationForOffset(const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getLocationForOffset", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getLocationForOffset", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getLocationForOffset_pargs args;
+  Clang_getLocationForOffset_pargs args;
   args.tu = &tu;
   args.file = &file;
   args.offset = &offset;
@@ -11024,7 +11024,7 @@ void ClangClient::send_clang_getLocationForOffset(const  ::clang::thrift::CXTran
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getLocationForOffset( ::clang::thrift::CXSourceLocation& _return)
+void ClangClient::recv_getLocationForOffset( ::clad::CXSourceLocation& _return)
 {
 
   int32_t rseqid = 0;
@@ -11044,12 +11044,12 @@ void ClangClient::recv_clang_getLocationForOffset( ::clang::thrift::CXSourceLoca
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getLocationForOffset") != 0) {
+  if (fname.compare("getLocationForOffset") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getLocationForOffset_presult result;
+  Clang_getLocationForOffset_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11059,21 +11059,21 @@ void ClangClient::recv_clang_getLocationForOffset( ::clang::thrift::CXSourceLoca
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getLocationForOffset failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getLocationForOffset failed: unknown result");
 }
 
-void ClangClient::clang_getNullRange( ::clang::thrift::CXSourceRange& _return)
+void ClangClient::getNullRange( ::clad::CXSourceRange& _return)
 {
-  send_clang_getNullRange();
-  recv_clang_getNullRange(_return);
+  send_getNullRange();
+  recv_getNullRange(_return);
 }
 
-void ClangClient::send_clang_getNullRange()
+void ClangClient::send_getNullRange()
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getNullRange", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getNullRange", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getNullRange_pargs args;
+  Clang_getNullRange_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -11081,7 +11081,7 @@ void ClangClient::send_clang_getNullRange()
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getNullRange( ::clang::thrift::CXSourceRange& _return)
+void ClangClient::recv_getNullRange( ::clad::CXSourceRange& _return)
 {
 
   int32_t rseqid = 0;
@@ -11101,12 +11101,12 @@ void ClangClient::recv_clang_getNullRange( ::clang::thrift::CXSourceRange& _retu
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getNullRange") != 0) {
+  if (fname.compare("getNullRange") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getNullRange_presult result;
+  Clang_getNullRange_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11116,21 +11116,21 @@ void ClangClient::recv_clang_getNullRange( ::clang::thrift::CXSourceRange& _retu
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getNullRange failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getNullRange failed: unknown result");
 }
 
-void ClangClient::clang_getRange( ::clang::thrift::CXSourceRange& _return, const  ::clang::thrift::CXSourceLocation& sourceBegin, const  ::clang::thrift::CXSourceLocation& sourceEnd)
+void ClangClient::getRange( ::clad::CXSourceRange& _return, const  ::clad::CXSourceLocation& sourceBegin, const  ::clad::CXSourceLocation& sourceEnd)
 {
-  send_clang_getRange(sourceBegin, sourceEnd);
-  recv_clang_getRange(_return);
+  send_getRange(sourceBegin, sourceEnd);
+  recv_getRange(_return);
 }
 
-void ClangClient::send_clang_getRange(const  ::clang::thrift::CXSourceLocation& sourceBegin, const  ::clang::thrift::CXSourceLocation& sourceEnd)
+void ClangClient::send_getRange(const  ::clad::CXSourceLocation& sourceBegin, const  ::clad::CXSourceLocation& sourceEnd)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getRange", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getRange", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getRange_pargs args;
+  Clang_getRange_pargs args;
   args.sourceBegin = &sourceBegin;
   args.sourceEnd = &sourceEnd;
   args.write(oprot_);
@@ -11140,7 +11140,7 @@ void ClangClient::send_clang_getRange(const  ::clang::thrift::CXSourceLocation& 
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getRange( ::clang::thrift::CXSourceRange& _return)
+void ClangClient::recv_getRange( ::clad::CXSourceRange& _return)
 {
 
   int32_t rseqid = 0;
@@ -11160,12 +11160,12 @@ void ClangClient::recv_clang_getRange( ::clang::thrift::CXSourceRange& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getRange") != 0) {
+  if (fname.compare("getRange") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getRange_presult result;
+  Clang_getRange_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11175,21 +11175,21 @@ void ClangClient::recv_clang_getRange( ::clang::thrift::CXSourceRange& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getRange failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getRange failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_equalRanges(const  ::clang::thrift::CXSourceRange& range1, const  ::clang::thrift::CXSourceRange& range2)
+ ::clad::u32 ClangClient::equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2)
 {
-  send_clang_equalRanges(range1, range2);
-  return recv_clang_equalRanges();
+  send_equalRanges(range1, range2);
+  return recv_equalRanges();
 }
 
-void ClangClient::send_clang_equalRanges(const  ::clang::thrift::CXSourceRange& range1, const  ::clang::thrift::CXSourceRange& range2)
+void ClangClient::send_equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_equalRanges", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("equalRanges", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_equalRanges_pargs args;
+  Clang_equalRanges_pargs args;
   args.range1 = &range1;
   args.range2 = &range2;
   args.write(oprot_);
@@ -11199,7 +11199,7 @@ void ClangClient::send_clang_equalRanges(const  ::clang::thrift::CXSourceRange& 
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_equalRanges()
+ ::clad::u32 ClangClient::recv_equalRanges()
 {
 
   int32_t rseqid = 0;
@@ -11219,13 +11219,13 @@ void ClangClient::send_clang_equalRanges(const  ::clang::thrift::CXSourceRange& 
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_equalRanges") != 0) {
+  if (fname.compare("equalRanges") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_equalRanges_presult result;
+   ::clad::u32 _return;
+  Clang_equalRanges_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11234,21 +11234,21 @@ void ClangClient::send_clang_equalRanges(const  ::clang::thrift::CXSourceRange& 
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_equalRanges failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "equalRanges failed: unknown result");
 }
 
-int32_t ClangClient::clang_Range_isNull(const  ::clang::thrift::CXSourceRange& range)
+int32_t ClangClient::Range_isNull(const  ::clad::CXSourceRange& range)
 {
-  send_clang_Range_isNull(range);
-  return recv_clang_Range_isNull();
+  send_Range_isNull(range);
+  return recv_Range_isNull();
 }
 
-void ClangClient::send_clang_Range_isNull(const  ::clang::thrift::CXSourceRange& range)
+void ClangClient::send_Range_isNull(const  ::clad::CXSourceRange& range)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_Range_isNull", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("Range_isNull", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_Range_isNull_pargs args;
+  Clang_Range_isNull_pargs args;
   args.range = &range;
   args.write(oprot_);
 
@@ -11257,7 +11257,7 @@ void ClangClient::send_clang_Range_isNull(const  ::clang::thrift::CXSourceRange&
   oprot_->getTransport()->flush();
 }
 
-int32_t ClangClient::recv_clang_Range_isNull()
+int32_t ClangClient::recv_Range_isNull()
 {
 
   int32_t rseqid = 0;
@@ -11277,13 +11277,13 @@ int32_t ClangClient::recv_clang_Range_isNull()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_Range_isNull") != 0) {
+  if (fname.compare("Range_isNull") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
   int32_t _return;
-  Clang_clang_Range_isNull_presult result;
+  Clang_Range_isNull_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11292,21 +11292,21 @@ int32_t ClangClient::recv_clang_Range_isNull()
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_Range_isNull failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "Range_isNull failed: unknown result");
 }
 
-void ClangClient::clang_getExpansionLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location)
+void ClangClient::getExpansionLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location)
 {
-  send_clang_getExpansionLocation(location);
-  recv_clang_getExpansionLocation(_return);
+  send_getExpansionLocation(location);
+  recv_getExpansionLocation(_return);
 }
 
-void ClangClient::send_clang_getExpansionLocation(const  ::clang::thrift::CXSourceLocation& location)
+void ClangClient::send_getExpansionLocation(const  ::clad::CXSourceLocation& location)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getExpansionLocation", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getExpansionLocation", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getExpansionLocation_pargs args;
+  Clang_getExpansionLocation_pargs args;
   args.location = &location;
   args.write(oprot_);
 
@@ -11315,7 +11315,7 @@ void ClangClient::send_clang_getExpansionLocation(const  ::clang::thrift::CXSour
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getExpansionLocation( ::clang::thrift::CXSourcePosition& _return)
+void ClangClient::recv_getExpansionLocation( ::clad::CXSourcePosition& _return)
 {
 
   int32_t rseqid = 0;
@@ -11335,12 +11335,12 @@ void ClangClient::recv_clang_getExpansionLocation( ::clang::thrift::CXSourcePosi
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getExpansionLocation") != 0) {
+  if (fname.compare("getExpansionLocation") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getExpansionLocation_presult result;
+  Clang_getExpansionLocation_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11350,21 +11350,21 @@ void ClangClient::recv_clang_getExpansionLocation( ::clang::thrift::CXSourcePosi
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getExpansionLocation failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getExpansionLocation failed: unknown result");
 }
 
-void ClangClient::clang_getPresumedLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location)
+void ClangClient::getPresumedLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location)
 {
-  send_clang_getPresumedLocation(location);
-  recv_clang_getPresumedLocation(_return);
+  send_getPresumedLocation(location);
+  recv_getPresumedLocation(_return);
 }
 
-void ClangClient::send_clang_getPresumedLocation(const  ::clang::thrift::CXSourceLocation& location)
+void ClangClient::send_getPresumedLocation(const  ::clad::CXSourceLocation& location)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getPresumedLocation", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getPresumedLocation", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getPresumedLocation_pargs args;
+  Clang_getPresumedLocation_pargs args;
   args.location = &location;
   args.write(oprot_);
 
@@ -11373,7 +11373,7 @@ void ClangClient::send_clang_getPresumedLocation(const  ::clang::thrift::CXSourc
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getPresumedLocation( ::clang::thrift::CXSourcePosition& _return)
+void ClangClient::recv_getPresumedLocation( ::clad::CXSourcePosition& _return)
 {
 
   int32_t rseqid = 0;
@@ -11393,12 +11393,12 @@ void ClangClient::recv_clang_getPresumedLocation( ::clang::thrift::CXSourcePosit
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getPresumedLocation") != 0) {
+  if (fname.compare("getPresumedLocation") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getPresumedLocation_presult result;
+  Clang_getPresumedLocation_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11408,21 +11408,21 @@ void ClangClient::recv_clang_getPresumedLocation( ::clang::thrift::CXSourcePosit
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getPresumedLocation failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getPresumedLocation failed: unknown result");
 }
 
-void ClangClient::clang_getInstantiationLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location)
+void ClangClient::getInstantiationLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location)
 {
-  send_clang_getInstantiationLocation(location);
-  recv_clang_getInstantiationLocation(_return);
+  send_getInstantiationLocation(location);
+  recv_getInstantiationLocation(_return);
 }
 
-void ClangClient::send_clang_getInstantiationLocation(const  ::clang::thrift::CXSourceLocation& location)
+void ClangClient::send_getInstantiationLocation(const  ::clad::CXSourceLocation& location)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getInstantiationLocation", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getInstantiationLocation", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getInstantiationLocation_pargs args;
+  Clang_getInstantiationLocation_pargs args;
   args.location = &location;
   args.write(oprot_);
 
@@ -11431,7 +11431,7 @@ void ClangClient::send_clang_getInstantiationLocation(const  ::clang::thrift::CX
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getInstantiationLocation( ::clang::thrift::CXSourcePosition& _return)
+void ClangClient::recv_getInstantiationLocation( ::clad::CXSourcePosition& _return)
 {
 
   int32_t rseqid = 0;
@@ -11451,12 +11451,12 @@ void ClangClient::recv_clang_getInstantiationLocation( ::clang::thrift::CXSource
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getInstantiationLocation") != 0) {
+  if (fname.compare("getInstantiationLocation") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getInstantiationLocation_presult result;
+  Clang_getInstantiationLocation_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11466,21 +11466,21 @@ void ClangClient::recv_clang_getInstantiationLocation( ::clang::thrift::CXSource
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getInstantiationLocation failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getInstantiationLocation failed: unknown result");
 }
 
-void ClangClient::clang_getSpellingLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location)
+void ClangClient::getSpellingLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location)
 {
-  send_clang_getSpellingLocation(location);
-  recv_clang_getSpellingLocation(_return);
+  send_getSpellingLocation(location);
+  recv_getSpellingLocation(_return);
 }
 
-void ClangClient::send_clang_getSpellingLocation(const  ::clang::thrift::CXSourceLocation& location)
+void ClangClient::send_getSpellingLocation(const  ::clad::CXSourceLocation& location)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getSpellingLocation", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getSpellingLocation", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getSpellingLocation_pargs args;
+  Clang_getSpellingLocation_pargs args;
   args.location = &location;
   args.write(oprot_);
 
@@ -11489,7 +11489,7 @@ void ClangClient::send_clang_getSpellingLocation(const  ::clang::thrift::CXSourc
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getSpellingLocation( ::clang::thrift::CXSourcePosition& _return)
+void ClangClient::recv_getSpellingLocation( ::clad::CXSourcePosition& _return)
 {
 
   int32_t rseqid = 0;
@@ -11509,12 +11509,12 @@ void ClangClient::recv_clang_getSpellingLocation( ::clang::thrift::CXSourcePosit
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getSpellingLocation") != 0) {
+  if (fname.compare("getSpellingLocation") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getSpellingLocation_presult result;
+  Clang_getSpellingLocation_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11524,21 +11524,21 @@ void ClangClient::recv_clang_getSpellingLocation( ::clang::thrift::CXSourcePosit
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getSpellingLocation failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getSpellingLocation failed: unknown result");
 }
 
-void ClangClient::clang_getRangeStart( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXSourceRange& range)
+void ClangClient::getRangeStart( ::clad::CXSourceLocation& _return, const  ::clad::CXSourceRange& range)
 {
-  send_clang_getRangeStart(range);
-  recv_clang_getRangeStart(_return);
+  send_getRangeStart(range);
+  recv_getRangeStart(_return);
 }
 
-void ClangClient::send_clang_getRangeStart(const  ::clang::thrift::CXSourceRange& range)
+void ClangClient::send_getRangeStart(const  ::clad::CXSourceRange& range)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getRangeStart", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getRangeStart", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getRangeStart_pargs args;
+  Clang_getRangeStart_pargs args;
   args.range = &range;
   args.write(oprot_);
 
@@ -11547,7 +11547,7 @@ void ClangClient::send_clang_getRangeStart(const  ::clang::thrift::CXSourceRange
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getRangeStart( ::clang::thrift::CXSourceLocation& _return)
+void ClangClient::recv_getRangeStart( ::clad::CXSourceLocation& _return)
 {
 
   int32_t rseqid = 0;
@@ -11567,12 +11567,12 @@ void ClangClient::recv_clang_getRangeStart( ::clang::thrift::CXSourceLocation& _
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getRangeStart") != 0) {
+  if (fname.compare("getRangeStart") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getRangeStart_presult result;
+  Clang_getRangeStart_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11582,21 +11582,21 @@ void ClangClient::recv_clang_getRangeStart( ::clang::thrift::CXSourceLocation& _
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getRangeStart failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getRangeStart failed: unknown result");
 }
 
-void ClangClient::clang_getRangeEnd( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXSourceRange& range)
+void ClangClient::getRangeEnd( ::clad::CXSourceLocation& _return, const  ::clad::CXSourceRange& range)
 {
-  send_clang_getRangeEnd(range);
-  recv_clang_getRangeEnd(_return);
+  send_getRangeEnd(range);
+  recv_getRangeEnd(_return);
 }
 
-void ClangClient::send_clang_getRangeEnd(const  ::clang::thrift::CXSourceRange& range)
+void ClangClient::send_getRangeEnd(const  ::clad::CXSourceRange& range)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getRangeEnd", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getRangeEnd", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getRangeEnd_pargs args;
+  Clang_getRangeEnd_pargs args;
   args.range = &range;
   args.write(oprot_);
 
@@ -11605,7 +11605,7 @@ void ClangClient::send_clang_getRangeEnd(const  ::clang::thrift::CXSourceRange& 
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getRangeEnd( ::clang::thrift::CXSourceLocation& _return)
+void ClangClient::recv_getRangeEnd( ::clad::CXSourceLocation& _return)
 {
 
   int32_t rseqid = 0;
@@ -11625,12 +11625,12 @@ void ClangClient::recv_clang_getRangeEnd( ::clang::thrift::CXSourceLocation& _re
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getRangeEnd") != 0) {
+  if (fname.compare("getRangeEnd") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getRangeEnd_presult result;
+  Clang_getRangeEnd_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11640,21 +11640,21 @@ void ClangClient::recv_clang_getRangeEnd( ::clang::thrift::CXSourceLocation& _re
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getRangeEnd failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getRangeEnd failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDiagnosticSet diags)
+ ::clad::u32 ClangClient::getNumDiagnosticsInSet(const  ::clad::CXDiagnosticSet diags)
 {
-  send_clang_getNumDiagnosticsInSet(diags);
-  return recv_clang_getNumDiagnosticsInSet();
+  send_getNumDiagnosticsInSet(diags);
+  return recv_getNumDiagnosticsInSet();
 }
 
-void ClangClient::send_clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDiagnosticSet diags)
+void ClangClient::send_getNumDiagnosticsInSet(const  ::clad::CXDiagnosticSet diags)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getNumDiagnosticsInSet", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getNumDiagnosticsInSet", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getNumDiagnosticsInSet_pargs args;
+  Clang_getNumDiagnosticsInSet_pargs args;
   args.diags = &diags;
   args.write(oprot_);
 
@@ -11663,7 +11663,7 @@ void ClangClient::send_clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDi
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_getNumDiagnosticsInSet()
+ ::clad::u32 ClangClient::recv_getNumDiagnosticsInSet()
 {
 
   int32_t rseqid = 0;
@@ -11683,13 +11683,13 @@ void ClangClient::send_clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDi
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getNumDiagnosticsInSet") != 0) {
+  if (fname.compare("getNumDiagnosticsInSet") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_getNumDiagnosticsInSet_presult result;
+   ::clad::u32 _return;
+  Clang_getNumDiagnosticsInSet_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11698,21 +11698,21 @@ void ClangClient::send_clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDi
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getNumDiagnosticsInSet failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getNumDiagnosticsInSet failed: unknown result");
 }
 
- ::clang::thrift::CXDiagnostic ClangClient::clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagnosticSet diags, const  ::clang::thrift::u32 index)
+ ::clad::CXDiagnostic ClangClient::getDiagnosticInSet(const  ::clad::CXDiagnosticSet diags, const  ::clad::u32 index)
 {
-  send_clang_getDiagnosticInSet(diags, index);
-  return recv_clang_getDiagnosticInSet();
+  send_getDiagnosticInSet(diags, index);
+  return recv_getDiagnosticInSet();
 }
 
-void ClangClient::send_clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagnosticSet diags, const  ::clang::thrift::u32 index)
+void ClangClient::send_getDiagnosticInSet(const  ::clad::CXDiagnosticSet diags, const  ::clad::u32 index)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticInSet", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticInSet", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticInSet_pargs args;
+  Clang_getDiagnosticInSet_pargs args;
   args.diags = &diags;
   args.index = &index;
   args.write(oprot_);
@@ -11722,7 +11722,7 @@ void ClangClient::send_clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagno
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXDiagnostic ClangClient::recv_clang_getDiagnosticInSet()
+ ::clad::CXDiagnostic ClangClient::recv_getDiagnosticInSet()
 {
 
   int32_t rseqid = 0;
@@ -11742,13 +11742,13 @@ void ClangClient::send_clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagno
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticInSet") != 0) {
+  if (fname.compare("getDiagnosticInSet") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXDiagnostic _return;
-  Clang_clang_getDiagnosticInSet_presult result;
+   ::clad::CXDiagnostic _return;
+  Clang_getDiagnosticInSet_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11757,21 +11757,21 @@ void ClangClient::send_clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagno
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticInSet failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticInSet failed: unknown result");
 }
 
- ::clang::thrift::CXDiagnosticSet ClangClient::clang_loadDiagnostics(const std::string& filename)
+ ::clad::CXDiagnosticSet ClangClient::loadDiagnostics(const std::string& filename)
 {
-  send_clang_loadDiagnostics(filename);
-  return recv_clang_loadDiagnostics();
+  send_loadDiagnostics(filename);
+  return recv_loadDiagnostics();
 }
 
-void ClangClient::send_clang_loadDiagnostics(const std::string& filename)
+void ClangClient::send_loadDiagnostics(const std::string& filename)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_loadDiagnostics", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("loadDiagnostics", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_loadDiagnostics_pargs args;
+  Clang_loadDiagnostics_pargs args;
   args.filename = &filename;
   args.write(oprot_);
 
@@ -11780,7 +11780,7 @@ void ClangClient::send_clang_loadDiagnostics(const std::string& filename)
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXDiagnosticSet ClangClient::recv_clang_loadDiagnostics()
+ ::clad::CXDiagnosticSet ClangClient::recv_loadDiagnostics()
 {
 
   int32_t rseqid = 0;
@@ -11800,13 +11800,13 @@ void ClangClient::send_clang_loadDiagnostics(const std::string& filename)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_loadDiagnostics") != 0) {
+  if (fname.compare("loadDiagnostics") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXDiagnosticSet _return;
-  Clang_clang_loadDiagnostics_presult result;
+   ::clad::CXDiagnosticSet _return;
+  Clang_loadDiagnostics_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11818,21 +11818,21 @@ void ClangClient::send_clang_loadDiagnostics(const std::string& filename)
   if (result.__isset.e) {
     throw result.e;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_loadDiagnostics failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "loadDiagnostics failed: unknown result");
 }
 
-void ClangClient::clang_disposeDiagnosticSet(const  ::clang::thrift::CXDiagnosticSet diagnosticSet)
+void ClangClient::disposeDiagnosticSet(const  ::clad::CXDiagnosticSet diagnosticSet)
 {
-  send_clang_disposeDiagnosticSet(diagnosticSet);
-  recv_clang_disposeDiagnosticSet();
+  send_disposeDiagnosticSet(diagnosticSet);
+  recv_disposeDiagnosticSet();
 }
 
-void ClangClient::send_clang_disposeDiagnosticSet(const  ::clang::thrift::CXDiagnosticSet diagnosticSet)
+void ClangClient::send_disposeDiagnosticSet(const  ::clad::CXDiagnosticSet diagnosticSet)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_disposeDiagnosticSet", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("disposeDiagnosticSet", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_disposeDiagnosticSet_pargs args;
+  Clang_disposeDiagnosticSet_pargs args;
   args.diagnosticSet = &diagnosticSet;
   args.write(oprot_);
 
@@ -11841,7 +11841,7 @@ void ClangClient::send_clang_disposeDiagnosticSet(const  ::clang::thrift::CXDiag
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_disposeDiagnosticSet()
+void ClangClient::recv_disposeDiagnosticSet()
 {
 
   int32_t rseqid = 0;
@@ -11861,12 +11861,12 @@ void ClangClient::recv_clang_disposeDiagnosticSet()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_disposeDiagnosticSet") != 0) {
+  if (fname.compare("disposeDiagnosticSet") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_disposeDiagnosticSet_presult result;
+  Clang_disposeDiagnosticSet_presult result;
   result.read(iprot_);
   iprot_->readMessageEnd();
   iprot_->getTransport()->readEnd();
@@ -11874,18 +11874,18 @@ void ClangClient::recv_clang_disposeDiagnosticSet()
   return;
 }
 
- ::clang::thrift::CXDiagnosticSet ClangClient::clang_getChildDiagnostics(const  ::clang::thrift::CXDiagnostic diagnostic)
+ ::clad::CXDiagnosticSet ClangClient::getChildDiagnostics(const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getChildDiagnostics(diagnostic);
-  return recv_clang_getChildDiagnostics();
+  send_getChildDiagnostics(diagnostic);
+  return recv_getChildDiagnostics();
 }
 
-void ClangClient::send_clang_getChildDiagnostics(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getChildDiagnostics(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getChildDiagnostics", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getChildDiagnostics", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getChildDiagnostics_pargs args;
+  Clang_getChildDiagnostics_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -11894,7 +11894,7 @@ void ClangClient::send_clang_getChildDiagnostics(const  ::clang::thrift::CXDiagn
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXDiagnosticSet ClangClient::recv_clang_getChildDiagnostics()
+ ::clad::CXDiagnosticSet ClangClient::recv_getChildDiagnostics()
 {
 
   int32_t rseqid = 0;
@@ -11914,13 +11914,13 @@ void ClangClient::send_clang_getChildDiagnostics(const  ::clang::thrift::CXDiagn
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getChildDiagnostics") != 0) {
+  if (fname.compare("getChildDiagnostics") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXDiagnosticSet _return;
-  Clang_clang_getChildDiagnostics_presult result;
+   ::clad::CXDiagnosticSet _return;
+  Clang_getChildDiagnostics_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11929,21 +11929,21 @@ void ClangClient::send_clang_getChildDiagnostics(const  ::clang::thrift::CXDiagn
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getChildDiagnostics failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getChildDiagnostics failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_getNumDiagnostics(const  ::clang::thrift::CXTranslationUnit unit)
+ ::clad::u32 ClangClient::getNumDiagnostics(const  ::clad::CXTranslationUnit unit)
 {
-  send_clang_getNumDiagnostics(unit);
-  return recv_clang_getNumDiagnostics();
+  send_getNumDiagnostics(unit);
+  return recv_getNumDiagnostics();
 }
 
-void ClangClient::send_clang_getNumDiagnostics(const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::send_getNumDiagnostics(const  ::clad::CXTranslationUnit unit)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getNumDiagnostics", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getNumDiagnostics", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getNumDiagnostics_pargs args;
+  Clang_getNumDiagnostics_pargs args;
   args.unit = &unit;
   args.write(oprot_);
 
@@ -11952,7 +11952,7 @@ void ClangClient::send_clang_getNumDiagnostics(const  ::clang::thrift::CXTransla
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_getNumDiagnostics()
+ ::clad::u32 ClangClient::recv_getNumDiagnostics()
 {
 
   int32_t rseqid = 0;
@@ -11972,13 +11972,13 @@ void ClangClient::send_clang_getNumDiagnostics(const  ::clang::thrift::CXTransla
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getNumDiagnostics") != 0) {
+  if (fname.compare("getNumDiagnostics") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_getNumDiagnostics_presult result;
+   ::clad::u32 _return;
+  Clang_getNumDiagnostics_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -11987,21 +11987,21 @@ void ClangClient::send_clang_getNumDiagnostics(const  ::clang::thrift::CXTransla
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getNumDiagnostics failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getNumDiagnostics failed: unknown result");
 }
 
- ::clang::thrift::CXDiagnostic ClangClient::clang_getDiagnostic(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::u32 index)
+ ::clad::CXDiagnostic ClangClient::getDiagnostic(const  ::clad::CXTranslationUnit unit, const  ::clad::u32 index)
 {
-  send_clang_getDiagnostic(unit, index);
-  return recv_clang_getDiagnostic();
+  send_getDiagnostic(unit, index);
+  return recv_getDiagnostic();
 }
 
-void ClangClient::send_clang_getDiagnostic(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::u32 index)
+void ClangClient::send_getDiagnostic(const  ::clad::CXTranslationUnit unit, const  ::clad::u32 index)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnostic", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnostic", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnostic_pargs args;
+  Clang_getDiagnostic_pargs args;
   args.unit = &unit;
   args.index = &index;
   args.write(oprot_);
@@ -12011,7 +12011,7 @@ void ClangClient::send_clang_getDiagnostic(const  ::clang::thrift::CXTranslation
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXDiagnostic ClangClient::recv_clang_getDiagnostic()
+ ::clad::CXDiagnostic ClangClient::recv_getDiagnostic()
 {
 
   int32_t rseqid = 0;
@@ -12031,13 +12031,13 @@ void ClangClient::send_clang_getDiagnostic(const  ::clang::thrift::CXTranslation
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnostic") != 0) {
+  if (fname.compare("getDiagnostic") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXDiagnostic _return;
-  Clang_clang_getDiagnostic_presult result;
+   ::clad::CXDiagnostic _return;
+  Clang_getDiagnostic_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12046,21 +12046,21 @@ void ClangClient::send_clang_getDiagnostic(const  ::clang::thrift::CXTranslation
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnostic failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnostic failed: unknown result");
 }
 
- ::clang::thrift::CXDiagnosticSet ClangClient::clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTranslationUnit unit)
+ ::clad::CXDiagnosticSet ClangClient::getDiagnosticSetFromTU(const  ::clad::CXTranslationUnit unit)
 {
-  send_clang_getDiagnosticSetFromTU(unit);
-  return recv_clang_getDiagnosticSetFromTU();
+  send_getDiagnosticSetFromTU(unit);
+  return recv_getDiagnosticSetFromTU();
 }
 
-void ClangClient::send_clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTranslationUnit unit)
+void ClangClient::send_getDiagnosticSetFromTU(const  ::clad::CXTranslationUnit unit)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticSetFromTU", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticSetFromTU", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticSetFromTU_pargs args;
+  Clang_getDiagnosticSetFromTU_pargs args;
   args.unit = &unit;
   args.write(oprot_);
 
@@ -12069,7 +12069,7 @@ void ClangClient::send_clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTr
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXDiagnosticSet ClangClient::recv_clang_getDiagnosticSetFromTU()
+ ::clad::CXDiagnosticSet ClangClient::recv_getDiagnosticSetFromTU()
 {
 
   int32_t rseqid = 0;
@@ -12089,13 +12089,13 @@ void ClangClient::send_clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTr
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticSetFromTU") != 0) {
+  if (fname.compare("getDiagnosticSetFromTU") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXDiagnosticSet _return;
-  Clang_clang_getDiagnosticSetFromTU_presult result;
+   ::clad::CXDiagnosticSet _return;
+  Clang_getDiagnosticSetFromTU_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12104,21 +12104,21 @@ void ClangClient::send_clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTr
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticSetFromTU failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticSetFromTU failed: unknown result");
 }
 
-void ClangClient::clang_disposeDiagnostic(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::disposeDiagnostic(const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_disposeDiagnostic(diagnostic);
-  recv_clang_disposeDiagnostic();
+  send_disposeDiagnostic(diagnostic);
+  recv_disposeDiagnostic();
 }
 
-void ClangClient::send_clang_disposeDiagnostic(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_disposeDiagnostic(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_disposeDiagnostic", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("disposeDiagnostic", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_disposeDiagnostic_pargs args;
+  Clang_disposeDiagnostic_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12127,7 +12127,7 @@ void ClangClient::send_clang_disposeDiagnostic(const  ::clang::thrift::CXDiagnos
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_disposeDiagnostic()
+void ClangClient::recv_disposeDiagnostic()
 {
 
   int32_t rseqid = 0;
@@ -12147,12 +12147,12 @@ void ClangClient::recv_clang_disposeDiagnostic()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_disposeDiagnostic") != 0) {
+  if (fname.compare("disposeDiagnostic") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_disposeDiagnostic_presult result;
+  Clang_disposeDiagnostic_presult result;
   result.read(iprot_);
   iprot_->readMessageEnd();
   iprot_->getTransport()->readEnd();
@@ -12160,18 +12160,18 @@ void ClangClient::recv_clang_disposeDiagnostic()
   return;
 }
 
-void ClangClient::clang_formatDiagnostic(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 options)
+void ClangClient::formatDiagnostic(std::string& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 options)
 {
-  send_clang_formatDiagnostic(diagnostic, options);
-  recv_clang_formatDiagnostic(_return);
+  send_formatDiagnostic(diagnostic, options);
+  recv_formatDiagnostic(_return);
 }
 
-void ClangClient::send_clang_formatDiagnostic(const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 options)
+void ClangClient::send_formatDiagnostic(const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 options)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_formatDiagnostic", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("formatDiagnostic", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_formatDiagnostic_pargs args;
+  Clang_formatDiagnostic_pargs args;
   args.diagnostic = &diagnostic;
   args.options = &options;
   args.write(oprot_);
@@ -12181,7 +12181,7 @@ void ClangClient::send_clang_formatDiagnostic(const  ::clang::thrift::CXDiagnost
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_formatDiagnostic(std::string& _return)
+void ClangClient::recv_formatDiagnostic(std::string& _return)
 {
 
   int32_t rseqid = 0;
@@ -12201,12 +12201,12 @@ void ClangClient::recv_clang_formatDiagnostic(std::string& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_formatDiagnostic") != 0) {
+  if (fname.compare("formatDiagnostic") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_formatDiagnostic_presult result;
+  Clang_formatDiagnostic_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12216,21 +12216,21 @@ void ClangClient::recv_clang_formatDiagnostic(std::string& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_formatDiagnostic failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "formatDiagnostic failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_defaultDiagnosticDisplayOptions()
+ ::clad::u32 ClangClient::defaultDiagnosticDisplayOptions()
 {
-  send_clang_defaultDiagnosticDisplayOptions();
-  return recv_clang_defaultDiagnosticDisplayOptions();
+  send_defaultDiagnosticDisplayOptions();
+  return recv_defaultDiagnosticDisplayOptions();
 }
 
-void ClangClient::send_clang_defaultDiagnosticDisplayOptions()
+void ClangClient::send_defaultDiagnosticDisplayOptions()
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_defaultDiagnosticDisplayOptions", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("defaultDiagnosticDisplayOptions", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_defaultDiagnosticDisplayOptions_pargs args;
+  Clang_defaultDiagnosticDisplayOptions_pargs args;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -12238,7 +12238,7 @@ void ClangClient::send_clang_defaultDiagnosticDisplayOptions()
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_defaultDiagnosticDisplayOptions()
+ ::clad::u32 ClangClient::recv_defaultDiagnosticDisplayOptions()
 {
 
   int32_t rseqid = 0;
@@ -12258,13 +12258,13 @@ void ClangClient::send_clang_defaultDiagnosticDisplayOptions()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_defaultDiagnosticDisplayOptions") != 0) {
+  if (fname.compare("defaultDiagnosticDisplayOptions") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_defaultDiagnosticDisplayOptions_presult result;
+   ::clad::u32 _return;
+  Clang_defaultDiagnosticDisplayOptions_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12273,21 +12273,21 @@ void ClangClient::send_clang_defaultDiagnosticDisplayOptions()
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_defaultDiagnosticDisplayOptions failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "defaultDiagnosticDisplayOptions failed: unknown result");
 }
 
- ::clang::thrift::CXDiagnosticSeverity::type ClangClient::clang_getDiagnosticSeverity(const  ::clang::thrift::CXDiagnostic diagnostic)
+ ::clad::CXDiagnosticSeverity::type ClangClient::getDiagnosticSeverity(const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getDiagnosticSeverity(diagnostic);
-  return recv_clang_getDiagnosticSeverity();
+  send_getDiagnosticSeverity(diagnostic);
+  return recv_getDiagnosticSeverity();
 }
 
-void ClangClient::send_clang_getDiagnosticSeverity(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getDiagnosticSeverity(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticSeverity", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticSeverity", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticSeverity_pargs args;
+  Clang_getDiagnosticSeverity_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12296,7 +12296,7 @@ void ClangClient::send_clang_getDiagnosticSeverity(const  ::clang::thrift::CXDia
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::CXDiagnosticSeverity::type ClangClient::recv_clang_getDiagnosticSeverity()
+ ::clad::CXDiagnosticSeverity::type ClangClient::recv_getDiagnosticSeverity()
 {
 
   int32_t rseqid = 0;
@@ -12316,13 +12316,13 @@ void ClangClient::send_clang_getDiagnosticSeverity(const  ::clang::thrift::CXDia
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticSeverity") != 0) {
+  if (fname.compare("getDiagnosticSeverity") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::CXDiagnosticSeverity::type _return;
-  Clang_clang_getDiagnosticSeverity_presult result;
+   ::clad::CXDiagnosticSeverity::type _return;
+  Clang_getDiagnosticSeverity_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12331,21 +12331,21 @@ void ClangClient::send_clang_getDiagnosticSeverity(const  ::clang::thrift::CXDia
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticSeverity failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticSeverity failed: unknown result");
 }
 
-void ClangClient::clang_getDiagnosticLocation( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::getDiagnosticLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getDiagnosticLocation(diagnostic);
-  recv_clang_getDiagnosticLocation(_return);
+  send_getDiagnosticLocation(diagnostic);
+  recv_getDiagnosticLocation(_return);
 }
 
-void ClangClient::send_clang_getDiagnosticLocation(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getDiagnosticLocation(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticLocation", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticLocation", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticLocation_pargs args;
+  Clang_getDiagnosticLocation_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12354,7 +12354,7 @@ void ClangClient::send_clang_getDiagnosticLocation(const  ::clang::thrift::CXDia
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getDiagnosticLocation( ::clang::thrift::CXSourceLocation& _return)
+void ClangClient::recv_getDiagnosticLocation( ::clad::CXSourceLocation& _return)
 {
 
   int32_t rseqid = 0;
@@ -12374,12 +12374,12 @@ void ClangClient::recv_clang_getDiagnosticLocation( ::clang::thrift::CXSourceLoc
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticLocation") != 0) {
+  if (fname.compare("getDiagnosticLocation") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getDiagnosticLocation_presult result;
+  Clang_getDiagnosticLocation_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12389,21 +12389,21 @@ void ClangClient::recv_clang_getDiagnosticLocation( ::clang::thrift::CXSourceLoc
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticLocation failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticLocation failed: unknown result");
 }
 
-void ClangClient::clang_getDiagnosticSpelling(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::getDiagnosticSpelling(std::string& _return, const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getDiagnosticSpelling(diagnostic);
-  recv_clang_getDiagnosticSpelling(_return);
+  send_getDiagnosticSpelling(diagnostic);
+  recv_getDiagnosticSpelling(_return);
 }
 
-void ClangClient::send_clang_getDiagnosticSpelling(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getDiagnosticSpelling(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticSpelling", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticSpelling", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticSpelling_pargs args;
+  Clang_getDiagnosticSpelling_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12412,7 +12412,7 @@ void ClangClient::send_clang_getDiagnosticSpelling(const  ::clang::thrift::CXDia
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getDiagnosticSpelling(std::string& _return)
+void ClangClient::recv_getDiagnosticSpelling(std::string& _return)
 {
 
   int32_t rseqid = 0;
@@ -12432,12 +12432,12 @@ void ClangClient::recv_clang_getDiagnosticSpelling(std::string& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticSpelling") != 0) {
+  if (fname.compare("getDiagnosticSpelling") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getDiagnosticSpelling_presult result;
+  Clang_getDiagnosticSpelling_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12447,21 +12447,21 @@ void ClangClient::recv_clang_getDiagnosticSpelling(std::string& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticSpelling failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticSpelling failed: unknown result");
 }
 
-void ClangClient::clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticOption& _return, const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::getDiagnosticOption( ::clad::CXDiagnosticOption& _return, const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getDiagnosticOption(diagnostic);
-  recv_clang_getDiagnosticOption(_return);
+  send_getDiagnosticOption(diagnostic);
+  recv_getDiagnosticOption(_return);
 }
 
-void ClangClient::send_clang_getDiagnosticOption(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getDiagnosticOption(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticOption", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticOption", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticOption_pargs args;
+  Clang_getDiagnosticOption_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12470,7 +12470,7 @@ void ClangClient::send_clang_getDiagnosticOption(const  ::clang::thrift::CXDiagn
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticOption& _return)
+void ClangClient::recv_getDiagnosticOption( ::clad::CXDiagnosticOption& _return)
 {
 
   int32_t rseqid = 0;
@@ -12490,12 +12490,12 @@ void ClangClient::recv_clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticO
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticOption") != 0) {
+  if (fname.compare("getDiagnosticOption") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getDiagnosticOption_presult result;
+  Clang_getDiagnosticOption_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12505,21 +12505,21 @@ void ClangClient::recv_clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticO
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticOption failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticOption failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_getDiagnosticCategory(const  ::clang::thrift::CXDiagnostic diagnostic)
+ ::clad::u32 ClangClient::getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getDiagnosticCategory(diagnostic);
-  return recv_clang_getDiagnosticCategory();
+  send_getDiagnosticCategory(diagnostic);
+  return recv_getDiagnosticCategory();
 }
 
-void ClangClient::send_clang_getDiagnosticCategory(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticCategory", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticCategory", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticCategory_pargs args;
+  Clang_getDiagnosticCategory_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12528,7 +12528,7 @@ void ClangClient::send_clang_getDiagnosticCategory(const  ::clang::thrift::CXDia
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_getDiagnosticCategory()
+ ::clad::u32 ClangClient::recv_getDiagnosticCategory()
 {
 
   int32_t rseqid = 0;
@@ -12548,13 +12548,13 @@ void ClangClient::send_clang_getDiagnosticCategory(const  ::clang::thrift::CXDia
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticCategory") != 0) {
+  if (fname.compare("getDiagnosticCategory") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_getDiagnosticCategory_presult result;
+   ::clad::u32 _return;
+  Clang_getDiagnosticCategory_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12563,21 +12563,21 @@ void ClangClient::send_clang_getDiagnosticCategory(const  ::clang::thrift::CXDia
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticCategory failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticCategory failed: unknown result");
 }
 
-void ClangClient::clang_getDiagnosticCategoryName(std::string& _return, const  ::clang::thrift::u32 category)
+void ClangClient::getDiagnosticCategoryName(std::string& _return, const  ::clad::u32 category)
 {
-  send_clang_getDiagnosticCategoryName(category);
-  recv_clang_getDiagnosticCategoryName(_return);
+  send_getDiagnosticCategoryName(category);
+  recv_getDiagnosticCategoryName(_return);
 }
 
-void ClangClient::send_clang_getDiagnosticCategoryName(const  ::clang::thrift::u32 category)
+void ClangClient::send_getDiagnosticCategoryName(const  ::clad::u32 category)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticCategoryName", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticCategoryName", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticCategoryName_pargs args;
+  Clang_getDiagnosticCategoryName_pargs args;
   args.category = &category;
   args.write(oprot_);
 
@@ -12586,7 +12586,7 @@ void ClangClient::send_clang_getDiagnosticCategoryName(const  ::clang::thrift::u
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getDiagnosticCategoryName(std::string& _return)
+void ClangClient::recv_getDiagnosticCategoryName(std::string& _return)
 {
 
   int32_t rseqid = 0;
@@ -12606,12 +12606,12 @@ void ClangClient::recv_clang_getDiagnosticCategoryName(std::string& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticCategoryName") != 0) {
+  if (fname.compare("getDiagnosticCategoryName") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getDiagnosticCategoryName_presult result;
+  Clang_getDiagnosticCategoryName_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12621,21 +12621,21 @@ void ClangClient::recv_clang_getDiagnosticCategoryName(std::string& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticCategoryName failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticCategoryName failed: unknown result");
 }
 
-void ClangClient::clang_getDiagnosticCategoryText(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::getDiagnosticCategoryText(std::string& _return, const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getDiagnosticCategoryText(diagnostic);
-  recv_clang_getDiagnosticCategoryText(_return);
+  send_getDiagnosticCategoryText(diagnostic);
+  recv_getDiagnosticCategoryText(_return);
 }
 
-void ClangClient::send_clang_getDiagnosticCategoryText(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getDiagnosticCategoryText(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticCategoryText", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticCategoryText", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticCategoryText_pargs args;
+  Clang_getDiagnosticCategoryText_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12644,7 +12644,7 @@ void ClangClient::send_clang_getDiagnosticCategoryText(const  ::clang::thrift::C
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getDiagnosticCategoryText(std::string& _return)
+void ClangClient::recv_getDiagnosticCategoryText(std::string& _return)
 {
 
   int32_t rseqid = 0;
@@ -12664,12 +12664,12 @@ void ClangClient::recv_clang_getDiagnosticCategoryText(std::string& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticCategoryText") != 0) {
+  if (fname.compare("getDiagnosticCategoryText") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getDiagnosticCategoryText_presult result;
+  Clang_getDiagnosticCategoryText_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12679,21 +12679,21 @@ void ClangClient::recv_clang_getDiagnosticCategoryText(std::string& _return)
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticCategoryText failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticCategoryText failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDiagnostic diagnostic)
+ ::clad::u32 ClangClient::getDiagnosticNumRanges(const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getDiagnosticNumRanges(diagnostic);
-  return recv_clang_getDiagnosticNumRanges();
+  send_getDiagnosticNumRanges(diagnostic);
+  return recv_getDiagnosticNumRanges();
 }
 
-void ClangClient::send_clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getDiagnosticNumRanges(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticNumRanges", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticNumRanges", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticNumRanges_pargs args;
+  Clang_getDiagnosticNumRanges_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12702,7 +12702,7 @@ void ClangClient::send_clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDi
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_getDiagnosticNumRanges()
+ ::clad::u32 ClangClient::recv_getDiagnosticNumRanges()
 {
 
   int32_t rseqid = 0;
@@ -12722,13 +12722,13 @@ void ClangClient::send_clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDi
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticNumRanges") != 0) {
+  if (fname.compare("getDiagnosticNumRanges") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_getDiagnosticNumRanges_presult result;
+   ::clad::u32 _return;
+  Clang_getDiagnosticNumRanges_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12737,21 +12737,21 @@ void ClangClient::send_clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDi
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticNumRanges failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticNumRanges failed: unknown result");
 }
 
-void ClangClient::clang_getDiagnosticRange( ::clang::thrift::CXSourceRange& _return, const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 range)
+void ClangClient::getDiagnosticRange( ::clad::CXSourceRange& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 range)
 {
-  send_clang_getDiagnosticRange(diagnostic, range);
-  recv_clang_getDiagnosticRange(_return);
+  send_getDiagnosticRange(diagnostic, range);
+  recv_getDiagnosticRange(_return);
 }
 
-void ClangClient::send_clang_getDiagnosticRange(const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 range)
+void ClangClient::send_getDiagnosticRange(const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 range)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticRange", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticRange", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticRange_pargs args;
+  Clang_getDiagnosticRange_pargs args;
   args.diagnostic = &diagnostic;
   args.range = &range;
   args.write(oprot_);
@@ -12761,7 +12761,7 @@ void ClangClient::send_clang_getDiagnosticRange(const  ::clang::thrift::CXDiagno
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getDiagnosticRange( ::clang::thrift::CXSourceRange& _return)
+void ClangClient::recv_getDiagnosticRange( ::clad::CXSourceRange& _return)
 {
 
   int32_t rseqid = 0;
@@ -12781,12 +12781,12 @@ void ClangClient::recv_clang_getDiagnosticRange( ::clang::thrift::CXSourceRange&
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticRange") != 0) {
+  if (fname.compare("getDiagnosticRange") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getDiagnosticRange_presult result;
+  Clang_getDiagnosticRange_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12796,21 +12796,21 @@ void ClangClient::recv_clang_getDiagnosticRange( ::clang::thrift::CXSourceRange&
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticRange failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticRange failed: unknown result");
 }
 
- ::clang::thrift::u32 ClangClient::clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDiagnostic diagnostic)
+ ::clad::u32 ClangClient::getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic)
 {
-  send_clang_getDiagnosticNumFixIts(diagnostic);
-  return recv_clang_getDiagnosticNumFixIts();
+  send_getDiagnosticNumFixIts(diagnostic);
+  return recv_getDiagnosticNumFixIts();
 }
 
-void ClangClient::send_clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDiagnostic diagnostic)
+void ClangClient::send_getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticNumFixIts", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticNumFixIts", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticNumFixIts_pargs args;
+  Clang_getDiagnosticNumFixIts_pargs args;
   args.diagnostic = &diagnostic;
   args.write(oprot_);
 
@@ -12819,7 +12819,7 @@ void ClangClient::send_clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDi
   oprot_->getTransport()->flush();
 }
 
- ::clang::thrift::u32 ClangClient::recv_clang_getDiagnosticNumFixIts()
+ ::clad::u32 ClangClient::recv_getDiagnosticNumFixIts()
 {
 
   int32_t rseqid = 0;
@@ -12839,13 +12839,13 @@ void ClangClient::send_clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDi
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticNumFixIts") != 0) {
+  if (fname.compare("getDiagnosticNumFixIts") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-   ::clang::thrift::u32 _return;
-  Clang_clang_getDiagnosticNumFixIts_presult result;
+   ::clad::u32 _return;
+  Clang_getDiagnosticNumFixIts_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12854,21 +12854,21 @@ void ClangClient::send_clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDi
   if (result.__isset.success) {
     return _return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticNumFixIts failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticNumFixIts failed: unknown result");
 }
 
-void ClangClient::clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFixIt& _return, const  ::clang::thrift::CXDiagnostic Diagnostic, const  ::clang::thrift::u32 FixIt)
+void ClangClient::getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt)
 {
-  send_clang_getDiagnosticFixIt(Diagnostic, FixIt);
-  recv_clang_getDiagnosticFixIt(_return);
+  send_getDiagnosticFixIt(Diagnostic, FixIt);
+  recv_getDiagnosticFixIt(_return);
 }
 
-void ClangClient::send_clang_getDiagnosticFixIt(const  ::clang::thrift::CXDiagnostic Diagnostic, const  ::clang::thrift::u32 FixIt)
+void ClangClient::send_getDiagnosticFixIt(const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt)
 {
   int32_t cseqid = 0;
-  oprot_->writeMessageBegin("clang_getDiagnosticFixIt", ::apache::thrift::protocol::T_CALL, cseqid);
+  oprot_->writeMessageBegin("getDiagnosticFixIt", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  Clang_clang_getDiagnosticFixIt_pargs args;
+  Clang_getDiagnosticFixIt_pargs args;
   args.Diagnostic = &Diagnostic;
   args.FixIt = &FixIt;
   args.write(oprot_);
@@ -12878,7 +12878,7 @@ void ClangClient::send_clang_getDiagnosticFixIt(const  ::clang::thrift::CXDiagno
   oprot_->getTransport()->flush();
 }
 
-void ClangClient::recv_clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFixIt& _return)
+void ClangClient::recv_getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return)
 {
 
   int32_t rseqid = 0;
@@ -12898,12 +12898,12 @@ void ClangClient::recv_clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFi
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  if (fname.compare("clang_getDiagnosticFixIt") != 0) {
+  if (fname.compare("getDiagnosticFixIt") != 0) {
     iprot_->skip(::apache::thrift::protocol::T_STRUCT);
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  Clang_clang_getDiagnosticFixIt_presult result;
+  Clang_getDiagnosticFixIt_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -12913,7 +12913,7 @@ void ClangClient::recv_clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFi
     // _return pointer has now been filled
     return;
   }
-  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "clang_getDiagnosticFixIt failed: unknown result");
+  throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "getDiagnosticFixIt failed: unknown result");
 }
 
 bool ClangProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
@@ -12935,38 +12935,38 @@ bool ClangProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, 
   return true;
 }
 
-void ClangProcessor::process_clang_createIndex(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_createIndex(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_createIndex", callContext);
+    ctx = this->eventHandler_->getContext("Clang.createIndex", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_createIndex");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.createIndex");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_createIndex");
+    this->eventHandler_->preRead(ctx, "Clang.createIndex");
   }
 
-  Clang_clang_createIndex_args args;
+  Clang_createIndex_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_createIndex", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.createIndex", bytes);
   }
 
-  Clang_clang_createIndex_result result;
+  Clang_createIndex_result result;
   try {
-    result.success = iface_->clang_createIndex(args.excludeDeclarationsFromPCH, args.displayDiagnostics);
+    result.success = iface_->createIndex(args.excludeDeclarationsFromPCH, args.displayDiagnostics);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_createIndex");
+      this->eventHandler_->handlerError(ctx, "Clang.createIndex");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_createIndex", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("createIndex", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -12975,51 +12975,51 @@ void ClangProcessor::process_clang_createIndex(int32_t seqid, ::apache::thrift::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_createIndex");
+    this->eventHandler_->preWrite(ctx, "Clang.createIndex");
   }
 
-  oprot->writeMessageBegin("clang_createIndex", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("createIndex", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_createIndex", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.createIndex", bytes);
   }
 }
 
-void ClangProcessor::process_clang_disposeIndex(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_disposeIndex(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_disposeIndex", callContext);
+    ctx = this->eventHandler_->getContext("Clang.disposeIndex", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_disposeIndex");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.disposeIndex");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_disposeIndex");
+    this->eventHandler_->preRead(ctx, "Clang.disposeIndex");
   }
 
-  Clang_clang_disposeIndex_args args;
+  Clang_disposeIndex_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_disposeIndex", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.disposeIndex", bytes);
   }
 
-  Clang_clang_disposeIndex_result result;
+  Clang_disposeIndex_result result;
   try {
-    iface_->clang_disposeIndex(args.index);
+    iface_->disposeIndex(args.index);
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_disposeIndex");
+      this->eventHandler_->handlerError(ctx, "Clang.disposeIndex");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_disposeIndex", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("disposeIndex", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13028,51 +13028,51 @@ void ClangProcessor::process_clang_disposeIndex(int32_t seqid, ::apache::thrift:
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_disposeIndex");
+    this->eventHandler_->preWrite(ctx, "Clang.disposeIndex");
   }
 
-  oprot->writeMessageBegin("clang_disposeIndex", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("disposeIndex", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_disposeIndex", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.disposeIndex", bytes);
   }
 }
 
-void ClangProcessor::process_clang_CXIndex_setGlobalOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_CXIndex_setGlobalOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_CXIndex_setGlobalOptions", callContext);
+    ctx = this->eventHandler_->getContext("Clang.CXIndex_setGlobalOptions", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_CXIndex_setGlobalOptions");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.CXIndex_setGlobalOptions");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_CXIndex_setGlobalOptions");
+    this->eventHandler_->preRead(ctx, "Clang.CXIndex_setGlobalOptions");
   }
 
-  Clang_clang_CXIndex_setGlobalOptions_args args;
+  Clang_CXIndex_setGlobalOptions_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_CXIndex_setGlobalOptions", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.CXIndex_setGlobalOptions", bytes);
   }
 
-  Clang_clang_CXIndex_setGlobalOptions_result result;
+  Clang_CXIndex_setGlobalOptions_result result;
   try {
-    iface_->clang_CXIndex_setGlobalOptions(args.index, args.options);
+    iface_->CXIndex_setGlobalOptions(args.index, args.options);
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_CXIndex_setGlobalOptions");
+      this->eventHandler_->handlerError(ctx, "Clang.CXIndex_setGlobalOptions");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_CXIndex_setGlobalOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("CXIndex_setGlobalOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13081,52 +13081,52 @@ void ClangProcessor::process_clang_CXIndex_setGlobalOptions(int32_t seqid, ::apa
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_CXIndex_setGlobalOptions");
+    this->eventHandler_->preWrite(ctx, "Clang.CXIndex_setGlobalOptions");
   }
 
-  oprot->writeMessageBegin("clang_CXIndex_setGlobalOptions", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("CXIndex_setGlobalOptions", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_CXIndex_setGlobalOptions", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.CXIndex_setGlobalOptions", bytes);
   }
 }
 
-void ClangProcessor::process_clang_CXIndex_getGlobalOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_CXIndex_getGlobalOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_CXIndex_getGlobalOptions", callContext);
+    ctx = this->eventHandler_->getContext("Clang.CXIndex_getGlobalOptions", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_CXIndex_getGlobalOptions");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.CXIndex_getGlobalOptions");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_CXIndex_getGlobalOptions");
+    this->eventHandler_->preRead(ctx, "Clang.CXIndex_getGlobalOptions");
   }
 
-  Clang_clang_CXIndex_getGlobalOptions_args args;
+  Clang_CXIndex_getGlobalOptions_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_CXIndex_getGlobalOptions", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.CXIndex_getGlobalOptions", bytes);
   }
 
-  Clang_clang_CXIndex_getGlobalOptions_result result;
+  Clang_CXIndex_getGlobalOptions_result result;
   try {
-    result.success = iface_->clang_CXIndex_getGlobalOptions(args.index);
+    result.success = iface_->CXIndex_getGlobalOptions(args.index);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_CXIndex_getGlobalOptions");
+      this->eventHandler_->handlerError(ctx, "Clang.CXIndex_getGlobalOptions");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_CXIndex_getGlobalOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("CXIndex_getGlobalOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13135,52 +13135,52 @@ void ClangProcessor::process_clang_CXIndex_getGlobalOptions(int32_t seqid, ::apa
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_CXIndex_getGlobalOptions");
+    this->eventHandler_->preWrite(ctx, "Clang.CXIndex_getGlobalOptions");
   }
 
-  oprot->writeMessageBegin("clang_CXIndex_getGlobalOptions", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("CXIndex_getGlobalOptions", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_CXIndex_getGlobalOptions", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.CXIndex_getGlobalOptions", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getTranslationUnitSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getTranslationUnitSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getTranslationUnitSpelling", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getTranslationUnitSpelling", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getTranslationUnitSpelling");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getTranslationUnitSpelling");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getTranslationUnitSpelling");
+    this->eventHandler_->preRead(ctx, "Clang.getTranslationUnitSpelling");
   }
 
-  Clang_clang_getTranslationUnitSpelling_args args;
+  Clang_getTranslationUnitSpelling_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getTranslationUnitSpelling", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getTranslationUnitSpelling", bytes);
   }
 
-  Clang_clang_getTranslationUnitSpelling_result result;
+  Clang_getTranslationUnitSpelling_result result;
   try {
-    iface_->clang_getTranslationUnitSpelling(result.success, args.unit);
+    iface_->getTranslationUnitSpelling(result.success, args.unit);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getTranslationUnitSpelling");
+      this->eventHandler_->handlerError(ctx, "Clang.getTranslationUnitSpelling");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getTranslationUnitSpelling", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getTranslationUnitSpelling", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13189,52 +13189,52 @@ void ClangProcessor::process_clang_getTranslationUnitSpelling(int32_t seqid, ::a
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getTranslationUnitSpelling");
+    this->eventHandler_->preWrite(ctx, "Clang.getTranslationUnitSpelling");
   }
 
-  oprot->writeMessageBegin("clang_getTranslationUnitSpelling", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getTranslationUnitSpelling", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getTranslationUnitSpelling", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getTranslationUnitSpelling", bytes);
   }
 }
 
-void ClangProcessor::process_clang_createTranslationUnitFromSourceFile(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_createTranslationUnitFromSourceFile(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_createTranslationUnitFromSourceFile", callContext);
+    ctx = this->eventHandler_->getContext("Clang.createTranslationUnitFromSourceFile", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_createTranslationUnitFromSourceFile");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.createTranslationUnitFromSourceFile");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_createTranslationUnitFromSourceFile");
+    this->eventHandler_->preRead(ctx, "Clang.createTranslationUnitFromSourceFile");
   }
 
-  Clang_clang_createTranslationUnitFromSourceFile_args args;
+  Clang_createTranslationUnitFromSourceFile_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_createTranslationUnitFromSourceFile", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.createTranslationUnitFromSourceFile", bytes);
   }
 
-  Clang_clang_createTranslationUnitFromSourceFile_result result;
+  Clang_createTranslationUnitFromSourceFile_result result;
   try {
-    result.success = iface_->clang_createTranslationUnitFromSourceFile(args.idx, args.source_filename, args.clang_command_line_args, args.unsaved_files);
+    result.success = iface_->createTranslationUnitFromSourceFile(args.idx, args.source_filename, args.command_line_args, args.unsaved_files);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_createTranslationUnitFromSourceFile");
+      this->eventHandler_->handlerError(ctx, "Clang.createTranslationUnitFromSourceFile");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_createTranslationUnitFromSourceFile", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("createTranslationUnitFromSourceFile", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13243,52 +13243,52 @@ void ClangProcessor::process_clang_createTranslationUnitFromSourceFile(int32_t s
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_createTranslationUnitFromSourceFile");
+    this->eventHandler_->preWrite(ctx, "Clang.createTranslationUnitFromSourceFile");
   }
 
-  oprot->writeMessageBegin("clang_createTranslationUnitFromSourceFile", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("createTranslationUnitFromSourceFile", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_createTranslationUnitFromSourceFile", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.createTranslationUnitFromSourceFile", bytes);
   }
 }
 
-void ClangProcessor::process_clang_createTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_createTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_createTranslationUnit", callContext);
+    ctx = this->eventHandler_->getContext("Clang.createTranslationUnit", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_createTranslationUnit");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.createTranslationUnit");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_createTranslationUnit");
+    this->eventHandler_->preRead(ctx, "Clang.createTranslationUnit");
   }
 
-  Clang_clang_createTranslationUnit_args args;
+  Clang_createTranslationUnit_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_createTranslationUnit", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.createTranslationUnit", bytes);
   }
 
-  Clang_clang_createTranslationUnit_result result;
+  Clang_createTranslationUnit_result result;
   try {
-    result.success = iface_->clang_createTranslationUnit(args.idx, args.ast_filename);
+    result.success = iface_->createTranslationUnit(args.idx, args.ast_filename);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_createTranslationUnit");
+      this->eventHandler_->handlerError(ctx, "Clang.createTranslationUnit");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_createTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("createTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13297,52 +13297,52 @@ void ClangProcessor::process_clang_createTranslationUnit(int32_t seqid, ::apache
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_createTranslationUnit");
+    this->eventHandler_->preWrite(ctx, "Clang.createTranslationUnit");
   }
 
-  oprot->writeMessageBegin("clang_createTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("createTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_createTranslationUnit", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.createTranslationUnit", bytes);
   }
 }
 
-void ClangProcessor::process_clang_defaultEditingTranslationUnitOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_defaultEditingTranslationUnitOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_defaultEditingTranslationUnitOptions", callContext);
+    ctx = this->eventHandler_->getContext("Clang.defaultEditingTranslationUnitOptions", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_defaultEditingTranslationUnitOptions");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.defaultEditingTranslationUnitOptions");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_defaultEditingTranslationUnitOptions");
+    this->eventHandler_->preRead(ctx, "Clang.defaultEditingTranslationUnitOptions");
   }
 
-  Clang_clang_defaultEditingTranslationUnitOptions_args args;
+  Clang_defaultEditingTranslationUnitOptions_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_defaultEditingTranslationUnitOptions", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.defaultEditingTranslationUnitOptions", bytes);
   }
 
-  Clang_clang_defaultEditingTranslationUnitOptions_result result;
+  Clang_defaultEditingTranslationUnitOptions_result result;
   try {
-    result.success = iface_->clang_defaultEditingTranslationUnitOptions();
+    result.success = iface_->defaultEditingTranslationUnitOptions();
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_defaultEditingTranslationUnitOptions");
+      this->eventHandler_->handlerError(ctx, "Clang.defaultEditingTranslationUnitOptions");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_defaultEditingTranslationUnitOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("defaultEditingTranslationUnitOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13351,52 +13351,52 @@ void ClangProcessor::process_clang_defaultEditingTranslationUnitOptions(int32_t 
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_defaultEditingTranslationUnitOptions");
+    this->eventHandler_->preWrite(ctx, "Clang.defaultEditingTranslationUnitOptions");
   }
 
-  oprot->writeMessageBegin("clang_defaultEditingTranslationUnitOptions", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("defaultEditingTranslationUnitOptions", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_defaultEditingTranslationUnitOptions", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.defaultEditingTranslationUnitOptions", bytes);
   }
 }
 
-void ClangProcessor::process_clang_parseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_parseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_parseTranslationUnit", callContext);
+    ctx = this->eventHandler_->getContext("Clang.parseTranslationUnit", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_parseTranslationUnit");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.parseTranslationUnit");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_parseTranslationUnit");
+    this->eventHandler_->preRead(ctx, "Clang.parseTranslationUnit");
   }
 
-  Clang_clang_parseTranslationUnit_args args;
+  Clang_parseTranslationUnit_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_parseTranslationUnit", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.parseTranslationUnit", bytes);
   }
 
-  Clang_clang_parseTranslationUnit_result result;
+  Clang_parseTranslationUnit_result result;
   try {
-    result.success = iface_->clang_parseTranslationUnit(args.idx, args.source_filename, args.command_line_args, args.unsaved_files, args.options);
+    result.success = iface_->parseTranslationUnit(args.idx, args.source_filename, args.command_line_args, args.unsaved_files, args.options);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_parseTranslationUnit");
+      this->eventHandler_->handlerError(ctx, "Clang.parseTranslationUnit");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_parseTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("parseTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13405,52 +13405,52 @@ void ClangProcessor::process_clang_parseTranslationUnit(int32_t seqid, ::apache:
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_parseTranslationUnit");
+    this->eventHandler_->preWrite(ctx, "Clang.parseTranslationUnit");
   }
 
-  oprot->writeMessageBegin("clang_parseTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("parseTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_parseTranslationUnit", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.parseTranslationUnit", bytes);
   }
 }
 
-void ClangProcessor::process_clang_defaultSaveOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_defaultSaveOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_defaultSaveOptions", callContext);
+    ctx = this->eventHandler_->getContext("Clang.defaultSaveOptions", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_defaultSaveOptions");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.defaultSaveOptions");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_defaultSaveOptions");
+    this->eventHandler_->preRead(ctx, "Clang.defaultSaveOptions");
   }
 
-  Clang_clang_defaultSaveOptions_args args;
+  Clang_defaultSaveOptions_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_defaultSaveOptions", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.defaultSaveOptions", bytes);
   }
 
-  Clang_clang_defaultSaveOptions_result result;
+  Clang_defaultSaveOptions_result result;
   try {
-    result.success = iface_->clang_defaultSaveOptions(args.unit);
+    result.success = iface_->defaultSaveOptions(args.unit);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_defaultSaveOptions");
+      this->eventHandler_->handlerError(ctx, "Clang.defaultSaveOptions");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_defaultSaveOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("defaultSaveOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13459,52 +13459,52 @@ void ClangProcessor::process_clang_defaultSaveOptions(int32_t seqid, ::apache::t
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_defaultSaveOptions");
+    this->eventHandler_->preWrite(ctx, "Clang.defaultSaveOptions");
   }
 
-  oprot->writeMessageBegin("clang_defaultSaveOptions", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("defaultSaveOptions", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_defaultSaveOptions", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.defaultSaveOptions", bytes);
   }
 }
 
-void ClangProcessor::process_clang_saveTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_saveTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_saveTranslationUnit", callContext);
+    ctx = this->eventHandler_->getContext("Clang.saveTranslationUnit", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_saveTranslationUnit");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.saveTranslationUnit");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_saveTranslationUnit");
+    this->eventHandler_->preRead(ctx, "Clang.saveTranslationUnit");
   }
 
-  Clang_clang_saveTranslationUnit_args args;
+  Clang_saveTranslationUnit_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_saveTranslationUnit", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.saveTranslationUnit", bytes);
   }
 
-  Clang_clang_saveTranslationUnit_result result;
+  Clang_saveTranslationUnit_result result;
   try {
-    result.success = iface_->clang_saveTranslationUnit(args.unit, args.filename, args.options);
+    result.success = iface_->saveTranslationUnit(args.unit, args.filename, args.options);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_saveTranslationUnit");
+      this->eventHandler_->handlerError(ctx, "Clang.saveTranslationUnit");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_saveTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("saveTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13513,51 +13513,51 @@ void ClangProcessor::process_clang_saveTranslationUnit(int32_t seqid, ::apache::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_saveTranslationUnit");
+    this->eventHandler_->preWrite(ctx, "Clang.saveTranslationUnit");
   }
 
-  oprot->writeMessageBegin("clang_saveTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("saveTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_saveTranslationUnit", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.saveTranslationUnit", bytes);
   }
 }
 
-void ClangProcessor::process_clang_disposeTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_disposeTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_disposeTranslationUnit", callContext);
+    ctx = this->eventHandler_->getContext("Clang.disposeTranslationUnit", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_disposeTranslationUnit");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.disposeTranslationUnit");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_disposeTranslationUnit");
+    this->eventHandler_->preRead(ctx, "Clang.disposeTranslationUnit");
   }
 
-  Clang_clang_disposeTranslationUnit_args args;
+  Clang_disposeTranslationUnit_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_disposeTranslationUnit", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.disposeTranslationUnit", bytes);
   }
 
-  Clang_clang_disposeTranslationUnit_result result;
+  Clang_disposeTranslationUnit_result result;
   try {
-    iface_->clang_disposeTranslationUnit(args.unit);
+    iface_->disposeTranslationUnit(args.unit);
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_disposeTranslationUnit");
+      this->eventHandler_->handlerError(ctx, "Clang.disposeTranslationUnit");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_disposeTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("disposeTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13566,52 +13566,52 @@ void ClangProcessor::process_clang_disposeTranslationUnit(int32_t seqid, ::apach
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_disposeTranslationUnit");
+    this->eventHandler_->preWrite(ctx, "Clang.disposeTranslationUnit");
   }
 
-  oprot->writeMessageBegin("clang_disposeTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("disposeTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_disposeTranslationUnit", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.disposeTranslationUnit", bytes);
   }
 }
 
-void ClangProcessor::process_clang_defaultReparseOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_defaultReparseOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_defaultReparseOptions", callContext);
+    ctx = this->eventHandler_->getContext("Clang.defaultReparseOptions", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_defaultReparseOptions");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.defaultReparseOptions");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_defaultReparseOptions");
+    this->eventHandler_->preRead(ctx, "Clang.defaultReparseOptions");
   }
 
-  Clang_clang_defaultReparseOptions_args args;
+  Clang_defaultReparseOptions_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_defaultReparseOptions", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.defaultReparseOptions", bytes);
   }
 
-  Clang_clang_defaultReparseOptions_result result;
+  Clang_defaultReparseOptions_result result;
   try {
-    result.success = iface_->clang_defaultReparseOptions(args.unit);
+    result.success = iface_->defaultReparseOptions(args.unit);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_defaultReparseOptions");
+      this->eventHandler_->handlerError(ctx, "Clang.defaultReparseOptions");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_defaultReparseOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("defaultReparseOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13620,52 +13620,52 @@ void ClangProcessor::process_clang_defaultReparseOptions(int32_t seqid, ::apache
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_defaultReparseOptions");
+    this->eventHandler_->preWrite(ctx, "Clang.defaultReparseOptions");
   }
 
-  oprot->writeMessageBegin("clang_defaultReparseOptions", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("defaultReparseOptions", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_defaultReparseOptions", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.defaultReparseOptions", bytes);
   }
 }
 
-void ClangProcessor::process_clang_reparseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_reparseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_reparseTranslationUnit", callContext);
+    ctx = this->eventHandler_->getContext("Clang.reparseTranslationUnit", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_reparseTranslationUnit");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.reparseTranslationUnit");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_reparseTranslationUnit");
+    this->eventHandler_->preRead(ctx, "Clang.reparseTranslationUnit");
   }
 
-  Clang_clang_reparseTranslationUnit_args args;
+  Clang_reparseTranslationUnit_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_reparseTranslationUnit", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.reparseTranslationUnit", bytes);
   }
 
-  Clang_clang_reparseTranslationUnit_result result;
+  Clang_reparseTranslationUnit_result result;
   try {
-    result.success = iface_->clang_reparseTranslationUnit(args.unit, args.unsaved_files, args.options);
+    result.success = iface_->reparseTranslationUnit(args.unit, args.unsaved_files, args.options);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_reparseTranslationUnit");
+      this->eventHandler_->handlerError(ctx, "Clang.reparseTranslationUnit");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_reparseTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("reparseTranslationUnit", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13674,52 +13674,52 @@ void ClangProcessor::process_clang_reparseTranslationUnit(int32_t seqid, ::apach
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_reparseTranslationUnit");
+    this->eventHandler_->preWrite(ctx, "Clang.reparseTranslationUnit");
   }
 
-  oprot->writeMessageBegin("clang_reparseTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("reparseTranslationUnit", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_reparseTranslationUnit", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.reparseTranslationUnit", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getTUResourceUsageName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getTUResourceUsageName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getTUResourceUsageName", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getTUResourceUsageName", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getTUResourceUsageName");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getTUResourceUsageName");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getTUResourceUsageName");
+    this->eventHandler_->preRead(ctx, "Clang.getTUResourceUsageName");
   }
 
-  Clang_clang_getTUResourceUsageName_args args;
+  Clang_getTUResourceUsageName_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getTUResourceUsageName", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getTUResourceUsageName", bytes);
   }
 
-  Clang_clang_getTUResourceUsageName_result result;
+  Clang_getTUResourceUsageName_result result;
   try {
-    iface_->clang_getTUResourceUsageName(result.success, args.kind);
+    iface_->getTUResourceUsageName(result.success, args.kind);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getTUResourceUsageName");
+      this->eventHandler_->handlerError(ctx, "Clang.getTUResourceUsageName");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getTUResourceUsageName", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getTUResourceUsageName", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13728,52 +13728,52 @@ void ClangProcessor::process_clang_getTUResourceUsageName(int32_t seqid, ::apach
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getTUResourceUsageName");
+    this->eventHandler_->preWrite(ctx, "Clang.getTUResourceUsageName");
   }
 
-  oprot->writeMessageBegin("clang_getTUResourceUsageName", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getTUResourceUsageName", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getTUResourceUsageName", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getTUResourceUsageName", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getCXTUResourceUsage", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getCXTUResourceUsage", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getCXTUResourceUsage");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getCXTUResourceUsage");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getCXTUResourceUsage");
+    this->eventHandler_->preRead(ctx, "Clang.getCXTUResourceUsage");
   }
 
-  Clang_clang_getCXTUResourceUsage_args args;
+  Clang_getCXTUResourceUsage_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getCXTUResourceUsage", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getCXTUResourceUsage", bytes);
   }
 
-  Clang_clang_getCXTUResourceUsage_result result;
+  Clang_getCXTUResourceUsage_result result;
   try {
-    iface_->clang_getCXTUResourceUsage(result.success, args.unit);
+    iface_->getCXTUResourceUsage(result.success, args.unit);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getCXTUResourceUsage");
+      this->eventHandler_->handlerError(ctx, "Clang.getCXTUResourceUsage");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getCXTUResourceUsage", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getCXTUResourceUsage", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13782,51 +13782,51 @@ void ClangProcessor::process_clang_getCXTUResourceUsage(int32_t seqid, ::apache:
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getCXTUResourceUsage");
+    this->eventHandler_->preWrite(ctx, "Clang.getCXTUResourceUsage");
   }
 
-  oprot->writeMessageBegin("clang_getCXTUResourceUsage", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getCXTUResourceUsage", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getCXTUResourceUsage", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getCXTUResourceUsage", bytes);
   }
 }
 
-void ClangProcessor::process_clang_disposeCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_disposeCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_disposeCXTUResourceUsage", callContext);
+    ctx = this->eventHandler_->getContext("Clang.disposeCXTUResourceUsage", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_disposeCXTUResourceUsage");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.disposeCXTUResourceUsage");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_disposeCXTUResourceUsage");
+    this->eventHandler_->preRead(ctx, "Clang.disposeCXTUResourceUsage");
   }
 
-  Clang_clang_disposeCXTUResourceUsage_args args;
+  Clang_disposeCXTUResourceUsage_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_disposeCXTUResourceUsage", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.disposeCXTUResourceUsage", bytes);
   }
 
-  Clang_clang_disposeCXTUResourceUsage_result result;
+  Clang_disposeCXTUResourceUsage_result result;
   try {
-    iface_->clang_disposeCXTUResourceUsage(args.usage);
+    iface_->disposeCXTUResourceUsage(args.usage);
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_disposeCXTUResourceUsage");
+      this->eventHandler_->handlerError(ctx, "Clang.disposeCXTUResourceUsage");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_disposeCXTUResourceUsage", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("disposeCXTUResourceUsage", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13835,52 +13835,52 @@ void ClangProcessor::process_clang_disposeCXTUResourceUsage(int32_t seqid, ::apa
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_disposeCXTUResourceUsage");
+    this->eventHandler_->preWrite(ctx, "Clang.disposeCXTUResourceUsage");
   }
 
-  oprot->writeMessageBegin("clang_disposeCXTUResourceUsage", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("disposeCXTUResourceUsage", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_disposeCXTUResourceUsage", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.disposeCXTUResourceUsage", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getFileName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getFileName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getFileName", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getFileName", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getFileName");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getFileName");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getFileName");
+    this->eventHandler_->preRead(ctx, "Clang.getFileName");
   }
 
-  Clang_clang_getFileName_args args;
+  Clang_getFileName_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getFileName", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getFileName", bytes);
   }
 
-  Clang_clang_getFileName_result result;
+  Clang_getFileName_result result;
   try {
-    iface_->clang_getFileName(result.success, args.file);
+    iface_->getFileName(result.success, args.file);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getFileName");
+      this->eventHandler_->handlerError(ctx, "Clang.getFileName");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getFileName", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getFileName", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13889,52 +13889,52 @@ void ClangProcessor::process_clang_getFileName(int32_t seqid, ::apache::thrift::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getFileName");
+    this->eventHandler_->preWrite(ctx, "Clang.getFileName");
   }
 
-  oprot->writeMessageBegin("clang_getFileName", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getFileName", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getFileName", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getFileName", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getFileTime(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getFileTime(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getFileTime", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getFileTime", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getFileTime");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getFileTime");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getFileTime");
+    this->eventHandler_->preRead(ctx, "Clang.getFileTime");
   }
 
-  Clang_clang_getFileTime_args args;
+  Clang_getFileTime_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getFileTime", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getFileTime", bytes);
   }
 
-  Clang_clang_getFileTime_result result;
+  Clang_getFileTime_result result;
   try {
-    result.success = iface_->clang_getFileTime(args.file);
+    result.success = iface_->getFileTime(args.file);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getFileTime");
+      this->eventHandler_->handlerError(ctx, "Clang.getFileTime");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getFileTime", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getFileTime", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13943,52 +13943,52 @@ void ClangProcessor::process_clang_getFileTime(int32_t seqid, ::apache::thrift::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getFileTime");
+    this->eventHandler_->preWrite(ctx, "Clang.getFileTime");
   }
 
-  oprot->writeMessageBegin("clang_getFileTime", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getFileTime", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getFileTime", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getFileTime", bytes);
   }
 }
 
-void ClangProcessor::process_clang_isFileMultipleIncludeGuarded(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_isFileMultipleIncludeGuarded(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_isFileMultipleIncludeGuarded", callContext);
+    ctx = this->eventHandler_->getContext("Clang.isFileMultipleIncludeGuarded", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_isFileMultipleIncludeGuarded");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.isFileMultipleIncludeGuarded");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_isFileMultipleIncludeGuarded");
+    this->eventHandler_->preRead(ctx, "Clang.isFileMultipleIncludeGuarded");
   }
 
-  Clang_clang_isFileMultipleIncludeGuarded_args args;
+  Clang_isFileMultipleIncludeGuarded_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_isFileMultipleIncludeGuarded", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.isFileMultipleIncludeGuarded", bytes);
   }
 
-  Clang_clang_isFileMultipleIncludeGuarded_result result;
+  Clang_isFileMultipleIncludeGuarded_result result;
   try {
-    result.success = iface_->clang_isFileMultipleIncludeGuarded(args.unit, args.file);
+    result.success = iface_->isFileMultipleIncludeGuarded(args.unit, args.file);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_isFileMultipleIncludeGuarded");
+      this->eventHandler_->handlerError(ctx, "Clang.isFileMultipleIncludeGuarded");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_isFileMultipleIncludeGuarded", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("isFileMultipleIncludeGuarded", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -13997,52 +13997,52 @@ void ClangProcessor::process_clang_isFileMultipleIncludeGuarded(int32_t seqid, :
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_isFileMultipleIncludeGuarded");
+    this->eventHandler_->preWrite(ctx, "Clang.isFileMultipleIncludeGuarded");
   }
 
-  oprot->writeMessageBegin("clang_isFileMultipleIncludeGuarded", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("isFileMultipleIncludeGuarded", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_isFileMultipleIncludeGuarded", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.isFileMultipleIncludeGuarded", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getFile(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getFile(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getFile", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getFile", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getFile");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getFile");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getFile");
+    this->eventHandler_->preRead(ctx, "Clang.getFile");
   }
 
-  Clang_clang_getFile_args args;
+  Clang_getFile_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getFile", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getFile", bytes);
   }
 
-  Clang_clang_getFile_result result;
+  Clang_getFile_result result;
   try {
-    result.success = iface_->clang_getFile(args.unit, args.filename);
+    result.success = iface_->getFile(args.unit, args.filename);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getFile");
+      this->eventHandler_->handlerError(ctx, "Clang.getFile");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getFile", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getFile", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14051,52 +14051,52 @@ void ClangProcessor::process_clang_getFile(int32_t seqid, ::apache::thrift::prot
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getFile");
+    this->eventHandler_->preWrite(ctx, "Clang.getFile");
   }
 
-  oprot->writeMessageBegin("clang_getFile", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getFile", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getFile", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getFile", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getNullLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getNullLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getNullLocation", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getNullLocation", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getNullLocation");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getNullLocation");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getNullLocation");
+    this->eventHandler_->preRead(ctx, "Clang.getNullLocation");
   }
 
-  Clang_clang_getNullLocation_args args;
+  Clang_getNullLocation_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getNullLocation", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getNullLocation", bytes);
   }
 
-  Clang_clang_getNullLocation_result result;
+  Clang_getNullLocation_result result;
   try {
-    iface_->clang_getNullLocation(result.success);
+    iface_->getNullLocation(result.success);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getNullLocation");
+      this->eventHandler_->handlerError(ctx, "Clang.getNullLocation");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getNullLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getNullLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14105,52 +14105,52 @@ void ClangProcessor::process_clang_getNullLocation(int32_t seqid, ::apache::thri
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getNullLocation");
+    this->eventHandler_->preWrite(ctx, "Clang.getNullLocation");
   }
 
-  oprot->writeMessageBegin("clang_getNullLocation", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getNullLocation", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getNullLocation", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getNullLocation", bytes);
   }
 }
 
-void ClangProcessor::process_clang_equalLocations(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_equalLocations(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_equalLocations", callContext);
+    ctx = this->eventHandler_->getContext("Clang.equalLocations", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_equalLocations");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.equalLocations");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_equalLocations");
+    this->eventHandler_->preRead(ctx, "Clang.equalLocations");
   }
 
-  Clang_clang_equalLocations_args args;
+  Clang_equalLocations_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_equalLocations", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.equalLocations", bytes);
   }
 
-  Clang_clang_equalLocations_result result;
+  Clang_equalLocations_result result;
   try {
-    result.success = iface_->clang_equalLocations(args.loc1, args.loc2);
+    result.success = iface_->equalLocations(args.loc1, args.loc2);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_equalLocations");
+      this->eventHandler_->handlerError(ctx, "Clang.equalLocations");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_equalLocations", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("equalLocations", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14159,52 +14159,52 @@ void ClangProcessor::process_clang_equalLocations(int32_t seqid, ::apache::thrif
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_equalLocations");
+    this->eventHandler_->preWrite(ctx, "Clang.equalLocations");
   }
 
-  oprot->writeMessageBegin("clang_equalLocations", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("equalLocations", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_equalLocations", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.equalLocations", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getLocation", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getLocation", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getLocation");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getLocation");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getLocation");
+    this->eventHandler_->preRead(ctx, "Clang.getLocation");
   }
 
-  Clang_clang_getLocation_args args;
+  Clang_getLocation_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getLocation", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getLocation", bytes);
   }
 
-  Clang_clang_getLocation_result result;
+  Clang_getLocation_result result;
   try {
-    iface_->clang_getLocation(result.success, args.tu, args.file, args.line, args.column);
+    iface_->getLocation(result.success, args.tu, args.file, args.line, args.column);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getLocation");
+      this->eventHandler_->handlerError(ctx, "Clang.getLocation");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14213,52 +14213,52 @@ void ClangProcessor::process_clang_getLocation(int32_t seqid, ::apache::thrift::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getLocation");
+    this->eventHandler_->preWrite(ctx, "Clang.getLocation");
   }
 
-  oprot->writeMessageBegin("clang_getLocation", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getLocation", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getLocation", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getLocation", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getLocationForOffset(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getLocationForOffset(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getLocationForOffset", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getLocationForOffset", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getLocationForOffset");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getLocationForOffset");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getLocationForOffset");
+    this->eventHandler_->preRead(ctx, "Clang.getLocationForOffset");
   }
 
-  Clang_clang_getLocationForOffset_args args;
+  Clang_getLocationForOffset_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getLocationForOffset", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getLocationForOffset", bytes);
   }
 
-  Clang_clang_getLocationForOffset_result result;
+  Clang_getLocationForOffset_result result;
   try {
-    iface_->clang_getLocationForOffset(result.success, args.tu, args.file, args.offset);
+    iface_->getLocationForOffset(result.success, args.tu, args.file, args.offset);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getLocationForOffset");
+      this->eventHandler_->handlerError(ctx, "Clang.getLocationForOffset");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getLocationForOffset", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getLocationForOffset", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14267,52 +14267,52 @@ void ClangProcessor::process_clang_getLocationForOffset(int32_t seqid, ::apache:
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getLocationForOffset");
+    this->eventHandler_->preWrite(ctx, "Clang.getLocationForOffset");
   }
 
-  oprot->writeMessageBegin("clang_getLocationForOffset", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getLocationForOffset", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getLocationForOffset", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getLocationForOffset", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getNullRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getNullRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getNullRange", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getNullRange", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getNullRange");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getNullRange");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getNullRange");
+    this->eventHandler_->preRead(ctx, "Clang.getNullRange");
   }
 
-  Clang_clang_getNullRange_args args;
+  Clang_getNullRange_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getNullRange", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getNullRange", bytes);
   }
 
-  Clang_clang_getNullRange_result result;
+  Clang_getNullRange_result result;
   try {
-    iface_->clang_getNullRange(result.success);
+    iface_->getNullRange(result.success);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getNullRange");
+      this->eventHandler_->handlerError(ctx, "Clang.getNullRange");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getNullRange", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getNullRange", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14321,52 +14321,52 @@ void ClangProcessor::process_clang_getNullRange(int32_t seqid, ::apache::thrift:
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getNullRange");
+    this->eventHandler_->preWrite(ctx, "Clang.getNullRange");
   }
 
-  oprot->writeMessageBegin("clang_getNullRange", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getNullRange", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getNullRange", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getNullRange", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getRange", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getRange", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getRange");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getRange");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getRange");
+    this->eventHandler_->preRead(ctx, "Clang.getRange");
   }
 
-  Clang_clang_getRange_args args;
+  Clang_getRange_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getRange", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getRange", bytes);
   }
 
-  Clang_clang_getRange_result result;
+  Clang_getRange_result result;
   try {
-    iface_->clang_getRange(result.success, args.sourceBegin, args.sourceEnd);
+    iface_->getRange(result.success, args.sourceBegin, args.sourceEnd);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getRange");
+      this->eventHandler_->handlerError(ctx, "Clang.getRange");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getRange", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getRange", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14375,52 +14375,52 @@ void ClangProcessor::process_clang_getRange(int32_t seqid, ::apache::thrift::pro
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getRange");
+    this->eventHandler_->preWrite(ctx, "Clang.getRange");
   }
 
-  oprot->writeMessageBegin("clang_getRange", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getRange", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getRange", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getRange", bytes);
   }
 }
 
-void ClangProcessor::process_clang_equalRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_equalRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_equalRanges", callContext);
+    ctx = this->eventHandler_->getContext("Clang.equalRanges", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_equalRanges");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.equalRanges");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_equalRanges");
+    this->eventHandler_->preRead(ctx, "Clang.equalRanges");
   }
 
-  Clang_clang_equalRanges_args args;
+  Clang_equalRanges_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_equalRanges", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.equalRanges", bytes);
   }
 
-  Clang_clang_equalRanges_result result;
+  Clang_equalRanges_result result;
   try {
-    result.success = iface_->clang_equalRanges(args.range1, args.range2);
+    result.success = iface_->equalRanges(args.range1, args.range2);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_equalRanges");
+      this->eventHandler_->handlerError(ctx, "Clang.equalRanges");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_equalRanges", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("equalRanges", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14429,52 +14429,52 @@ void ClangProcessor::process_clang_equalRanges(int32_t seqid, ::apache::thrift::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_equalRanges");
+    this->eventHandler_->preWrite(ctx, "Clang.equalRanges");
   }
 
-  oprot->writeMessageBegin("clang_equalRanges", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("equalRanges", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_equalRanges", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.equalRanges", bytes);
   }
 }
 
-void ClangProcessor::process_clang_Range_isNull(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_Range_isNull(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_Range_isNull", callContext);
+    ctx = this->eventHandler_->getContext("Clang.Range_isNull", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_Range_isNull");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.Range_isNull");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_Range_isNull");
+    this->eventHandler_->preRead(ctx, "Clang.Range_isNull");
   }
 
-  Clang_clang_Range_isNull_args args;
+  Clang_Range_isNull_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_Range_isNull", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.Range_isNull", bytes);
   }
 
-  Clang_clang_Range_isNull_result result;
+  Clang_Range_isNull_result result;
   try {
-    result.success = iface_->clang_Range_isNull(args.range);
+    result.success = iface_->Range_isNull(args.range);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_Range_isNull");
+      this->eventHandler_->handlerError(ctx, "Clang.Range_isNull");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_Range_isNull", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("Range_isNull", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14483,52 +14483,52 @@ void ClangProcessor::process_clang_Range_isNull(int32_t seqid, ::apache::thrift:
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_Range_isNull");
+    this->eventHandler_->preWrite(ctx, "Clang.Range_isNull");
   }
 
-  oprot->writeMessageBegin("clang_Range_isNull", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("Range_isNull", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_Range_isNull", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.Range_isNull", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getExpansionLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getExpansionLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getExpansionLocation", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getExpansionLocation", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getExpansionLocation");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getExpansionLocation");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getExpansionLocation");
+    this->eventHandler_->preRead(ctx, "Clang.getExpansionLocation");
   }
 
-  Clang_clang_getExpansionLocation_args args;
+  Clang_getExpansionLocation_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getExpansionLocation", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getExpansionLocation", bytes);
   }
 
-  Clang_clang_getExpansionLocation_result result;
+  Clang_getExpansionLocation_result result;
   try {
-    iface_->clang_getExpansionLocation(result.success, args.location);
+    iface_->getExpansionLocation(result.success, args.location);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getExpansionLocation");
+      this->eventHandler_->handlerError(ctx, "Clang.getExpansionLocation");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getExpansionLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getExpansionLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14537,52 +14537,52 @@ void ClangProcessor::process_clang_getExpansionLocation(int32_t seqid, ::apache:
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getExpansionLocation");
+    this->eventHandler_->preWrite(ctx, "Clang.getExpansionLocation");
   }
 
-  oprot->writeMessageBegin("clang_getExpansionLocation", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getExpansionLocation", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getExpansionLocation", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getExpansionLocation", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getPresumedLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getPresumedLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getPresumedLocation", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getPresumedLocation", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getPresumedLocation");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getPresumedLocation");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getPresumedLocation");
+    this->eventHandler_->preRead(ctx, "Clang.getPresumedLocation");
   }
 
-  Clang_clang_getPresumedLocation_args args;
+  Clang_getPresumedLocation_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getPresumedLocation", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getPresumedLocation", bytes);
   }
 
-  Clang_clang_getPresumedLocation_result result;
+  Clang_getPresumedLocation_result result;
   try {
-    iface_->clang_getPresumedLocation(result.success, args.location);
+    iface_->getPresumedLocation(result.success, args.location);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getPresumedLocation");
+      this->eventHandler_->handlerError(ctx, "Clang.getPresumedLocation");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getPresumedLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getPresumedLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14591,52 +14591,52 @@ void ClangProcessor::process_clang_getPresumedLocation(int32_t seqid, ::apache::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getPresumedLocation");
+    this->eventHandler_->preWrite(ctx, "Clang.getPresumedLocation");
   }
 
-  oprot->writeMessageBegin("clang_getPresumedLocation", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getPresumedLocation", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getPresumedLocation", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getPresumedLocation", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getInstantiationLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getInstantiationLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getInstantiationLocation", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getInstantiationLocation", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getInstantiationLocation");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getInstantiationLocation");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getInstantiationLocation");
+    this->eventHandler_->preRead(ctx, "Clang.getInstantiationLocation");
   }
 
-  Clang_clang_getInstantiationLocation_args args;
+  Clang_getInstantiationLocation_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getInstantiationLocation", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getInstantiationLocation", bytes);
   }
 
-  Clang_clang_getInstantiationLocation_result result;
+  Clang_getInstantiationLocation_result result;
   try {
-    iface_->clang_getInstantiationLocation(result.success, args.location);
+    iface_->getInstantiationLocation(result.success, args.location);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getInstantiationLocation");
+      this->eventHandler_->handlerError(ctx, "Clang.getInstantiationLocation");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getInstantiationLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getInstantiationLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14645,52 +14645,52 @@ void ClangProcessor::process_clang_getInstantiationLocation(int32_t seqid, ::apa
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getInstantiationLocation");
+    this->eventHandler_->preWrite(ctx, "Clang.getInstantiationLocation");
   }
 
-  oprot->writeMessageBegin("clang_getInstantiationLocation", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getInstantiationLocation", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getInstantiationLocation", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getInstantiationLocation", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getSpellingLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getSpellingLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getSpellingLocation", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getSpellingLocation", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getSpellingLocation");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getSpellingLocation");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getSpellingLocation");
+    this->eventHandler_->preRead(ctx, "Clang.getSpellingLocation");
   }
 
-  Clang_clang_getSpellingLocation_args args;
+  Clang_getSpellingLocation_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getSpellingLocation", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getSpellingLocation", bytes);
   }
 
-  Clang_clang_getSpellingLocation_result result;
+  Clang_getSpellingLocation_result result;
   try {
-    iface_->clang_getSpellingLocation(result.success, args.location);
+    iface_->getSpellingLocation(result.success, args.location);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getSpellingLocation");
+      this->eventHandler_->handlerError(ctx, "Clang.getSpellingLocation");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getSpellingLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getSpellingLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14699,52 +14699,52 @@ void ClangProcessor::process_clang_getSpellingLocation(int32_t seqid, ::apache::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getSpellingLocation");
+    this->eventHandler_->preWrite(ctx, "Clang.getSpellingLocation");
   }
 
-  oprot->writeMessageBegin("clang_getSpellingLocation", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getSpellingLocation", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getSpellingLocation", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getSpellingLocation", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getRangeStart(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getRangeStart(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getRangeStart", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getRangeStart", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getRangeStart");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getRangeStart");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getRangeStart");
+    this->eventHandler_->preRead(ctx, "Clang.getRangeStart");
   }
 
-  Clang_clang_getRangeStart_args args;
+  Clang_getRangeStart_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getRangeStart", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getRangeStart", bytes);
   }
 
-  Clang_clang_getRangeStart_result result;
+  Clang_getRangeStart_result result;
   try {
-    iface_->clang_getRangeStart(result.success, args.range);
+    iface_->getRangeStart(result.success, args.range);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getRangeStart");
+      this->eventHandler_->handlerError(ctx, "Clang.getRangeStart");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getRangeStart", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getRangeStart", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14753,52 +14753,52 @@ void ClangProcessor::process_clang_getRangeStart(int32_t seqid, ::apache::thrift
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getRangeStart");
+    this->eventHandler_->preWrite(ctx, "Clang.getRangeStart");
   }
 
-  oprot->writeMessageBegin("clang_getRangeStart", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getRangeStart", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getRangeStart", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getRangeStart", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getRangeEnd(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getRangeEnd(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getRangeEnd", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getRangeEnd", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getRangeEnd");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getRangeEnd");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getRangeEnd");
+    this->eventHandler_->preRead(ctx, "Clang.getRangeEnd");
   }
 
-  Clang_clang_getRangeEnd_args args;
+  Clang_getRangeEnd_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getRangeEnd", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getRangeEnd", bytes);
   }
 
-  Clang_clang_getRangeEnd_result result;
+  Clang_getRangeEnd_result result;
   try {
-    iface_->clang_getRangeEnd(result.success, args.range);
+    iface_->getRangeEnd(result.success, args.range);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getRangeEnd");
+      this->eventHandler_->handlerError(ctx, "Clang.getRangeEnd");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getRangeEnd", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getRangeEnd", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14807,52 +14807,52 @@ void ClangProcessor::process_clang_getRangeEnd(int32_t seqid, ::apache::thrift::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getRangeEnd");
+    this->eventHandler_->preWrite(ctx, "Clang.getRangeEnd");
   }
 
-  oprot->writeMessageBegin("clang_getRangeEnd", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getRangeEnd", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getRangeEnd", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getRangeEnd", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getNumDiagnosticsInSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getNumDiagnosticsInSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getNumDiagnosticsInSet", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getNumDiagnosticsInSet", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getNumDiagnosticsInSet");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getNumDiagnosticsInSet");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getNumDiagnosticsInSet");
+    this->eventHandler_->preRead(ctx, "Clang.getNumDiagnosticsInSet");
   }
 
-  Clang_clang_getNumDiagnosticsInSet_args args;
+  Clang_getNumDiagnosticsInSet_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getNumDiagnosticsInSet", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getNumDiagnosticsInSet", bytes);
   }
 
-  Clang_clang_getNumDiagnosticsInSet_result result;
+  Clang_getNumDiagnosticsInSet_result result;
   try {
-    result.success = iface_->clang_getNumDiagnosticsInSet(args.diags);
+    result.success = iface_->getNumDiagnosticsInSet(args.diags);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getNumDiagnosticsInSet");
+      this->eventHandler_->handlerError(ctx, "Clang.getNumDiagnosticsInSet");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getNumDiagnosticsInSet", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getNumDiagnosticsInSet", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14861,52 +14861,52 @@ void ClangProcessor::process_clang_getNumDiagnosticsInSet(int32_t seqid, ::apach
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getNumDiagnosticsInSet");
+    this->eventHandler_->preWrite(ctx, "Clang.getNumDiagnosticsInSet");
   }
 
-  oprot->writeMessageBegin("clang_getNumDiagnosticsInSet", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getNumDiagnosticsInSet", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getNumDiagnosticsInSet", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getNumDiagnosticsInSet", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticInSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticInSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticInSet", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticInSet", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticInSet");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticInSet");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticInSet");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticInSet");
   }
 
-  Clang_clang_getDiagnosticInSet_args args;
+  Clang_getDiagnosticInSet_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticInSet", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticInSet", bytes);
   }
 
-  Clang_clang_getDiagnosticInSet_result result;
+  Clang_getDiagnosticInSet_result result;
   try {
-    result.success = iface_->clang_getDiagnosticInSet(args.diags, args.index);
+    result.success = iface_->getDiagnosticInSet(args.diags, args.index);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticInSet");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticInSet");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticInSet", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticInSet", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14915,55 +14915,55 @@ void ClangProcessor::process_clang_getDiagnosticInSet(int32_t seqid, ::apache::t
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticInSet");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticInSet");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticInSet", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticInSet", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticInSet", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticInSet", bytes);
   }
 }
 
-void ClangProcessor::process_clang_loadDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_loadDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_loadDiagnostics", callContext);
+    ctx = this->eventHandler_->getContext("Clang.loadDiagnostics", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_loadDiagnostics");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.loadDiagnostics");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_loadDiagnostics");
+    this->eventHandler_->preRead(ctx, "Clang.loadDiagnostics");
   }
 
-  Clang_clang_loadDiagnostics_args args;
+  Clang_loadDiagnostics_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_loadDiagnostics", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.loadDiagnostics", bytes);
   }
 
-  Clang_clang_loadDiagnostics_result result;
+  Clang_loadDiagnostics_result result;
   try {
-    result.success = iface_->clang_loadDiagnostics(args.filename);
+    result.success = iface_->loadDiagnostics(args.filename);
     result.__isset.success = true;
-  } catch ( ::clang::thrift::CXLoadDiagException &e) {
+  } catch ( ::clad::CXLoadDiagException &e) {
     result.e = e;
     result.__isset.e = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_loadDiagnostics");
+      this->eventHandler_->handlerError(ctx, "Clang.loadDiagnostics");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_loadDiagnostics", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("loadDiagnostics", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -14972,51 +14972,51 @@ void ClangProcessor::process_clang_loadDiagnostics(int32_t seqid, ::apache::thri
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_loadDiagnostics");
+    this->eventHandler_->preWrite(ctx, "Clang.loadDiagnostics");
   }
 
-  oprot->writeMessageBegin("clang_loadDiagnostics", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("loadDiagnostics", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_loadDiagnostics", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.loadDiagnostics", bytes);
   }
 }
 
-void ClangProcessor::process_clang_disposeDiagnosticSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_disposeDiagnosticSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_disposeDiagnosticSet", callContext);
+    ctx = this->eventHandler_->getContext("Clang.disposeDiagnosticSet", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_disposeDiagnosticSet");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.disposeDiagnosticSet");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_disposeDiagnosticSet");
+    this->eventHandler_->preRead(ctx, "Clang.disposeDiagnosticSet");
   }
 
-  Clang_clang_disposeDiagnosticSet_args args;
+  Clang_disposeDiagnosticSet_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_disposeDiagnosticSet", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.disposeDiagnosticSet", bytes);
   }
 
-  Clang_clang_disposeDiagnosticSet_result result;
+  Clang_disposeDiagnosticSet_result result;
   try {
-    iface_->clang_disposeDiagnosticSet(args.diagnosticSet);
+    iface_->disposeDiagnosticSet(args.diagnosticSet);
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_disposeDiagnosticSet");
+      this->eventHandler_->handlerError(ctx, "Clang.disposeDiagnosticSet");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_disposeDiagnosticSet", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("disposeDiagnosticSet", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15025,52 +15025,52 @@ void ClangProcessor::process_clang_disposeDiagnosticSet(int32_t seqid, ::apache:
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_disposeDiagnosticSet");
+    this->eventHandler_->preWrite(ctx, "Clang.disposeDiagnosticSet");
   }
 
-  oprot->writeMessageBegin("clang_disposeDiagnosticSet", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("disposeDiagnosticSet", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_disposeDiagnosticSet", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.disposeDiagnosticSet", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getChildDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getChildDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getChildDiagnostics", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getChildDiagnostics", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getChildDiagnostics");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getChildDiagnostics");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getChildDiagnostics");
+    this->eventHandler_->preRead(ctx, "Clang.getChildDiagnostics");
   }
 
-  Clang_clang_getChildDiagnostics_args args;
+  Clang_getChildDiagnostics_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getChildDiagnostics", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getChildDiagnostics", bytes);
   }
 
-  Clang_clang_getChildDiagnostics_result result;
+  Clang_getChildDiagnostics_result result;
   try {
-    result.success = iface_->clang_getChildDiagnostics(args.diagnostic);
+    result.success = iface_->getChildDiagnostics(args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getChildDiagnostics");
+      this->eventHandler_->handlerError(ctx, "Clang.getChildDiagnostics");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getChildDiagnostics", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getChildDiagnostics", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15079,52 +15079,52 @@ void ClangProcessor::process_clang_getChildDiagnostics(int32_t seqid, ::apache::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getChildDiagnostics");
+    this->eventHandler_->preWrite(ctx, "Clang.getChildDiagnostics");
   }
 
-  oprot->writeMessageBegin("clang_getChildDiagnostics", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getChildDiagnostics", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getChildDiagnostics", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getChildDiagnostics", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getNumDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getNumDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getNumDiagnostics", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getNumDiagnostics", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getNumDiagnostics");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getNumDiagnostics");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getNumDiagnostics");
+    this->eventHandler_->preRead(ctx, "Clang.getNumDiagnostics");
   }
 
-  Clang_clang_getNumDiagnostics_args args;
+  Clang_getNumDiagnostics_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getNumDiagnostics", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getNumDiagnostics", bytes);
   }
 
-  Clang_clang_getNumDiagnostics_result result;
+  Clang_getNumDiagnostics_result result;
   try {
-    result.success = iface_->clang_getNumDiagnostics(args.unit);
+    result.success = iface_->getNumDiagnostics(args.unit);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getNumDiagnostics");
+      this->eventHandler_->handlerError(ctx, "Clang.getNumDiagnostics");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getNumDiagnostics", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getNumDiagnostics", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15133,52 +15133,52 @@ void ClangProcessor::process_clang_getNumDiagnostics(int32_t seqid, ::apache::th
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getNumDiagnostics");
+    this->eventHandler_->preWrite(ctx, "Clang.getNumDiagnostics");
   }
 
-  oprot->writeMessageBegin("clang_getNumDiagnostics", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getNumDiagnostics", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getNumDiagnostics", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getNumDiagnostics", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnostic", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnostic", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnostic");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnostic");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnostic");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnostic");
   }
 
-  Clang_clang_getDiagnostic_args args;
+  Clang_getDiagnostic_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnostic", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnostic", bytes);
   }
 
-  Clang_clang_getDiagnostic_result result;
+  Clang_getDiagnostic_result result;
   try {
-    result.success = iface_->clang_getDiagnostic(args.unit, args.index);
+    result.success = iface_->getDiagnostic(args.unit, args.index);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnostic");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnostic");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnostic", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnostic", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15187,52 +15187,52 @@ void ClangProcessor::process_clang_getDiagnostic(int32_t seqid, ::apache::thrift
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnostic");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnostic");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnostic", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnostic", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnostic", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnostic", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticSetFromTU(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticSetFromTU(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticSetFromTU", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticSetFromTU", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticSetFromTU");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticSetFromTU");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticSetFromTU");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticSetFromTU");
   }
 
-  Clang_clang_getDiagnosticSetFromTU_args args;
+  Clang_getDiagnosticSetFromTU_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticSetFromTU", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticSetFromTU", bytes);
   }
 
-  Clang_clang_getDiagnosticSetFromTU_result result;
+  Clang_getDiagnosticSetFromTU_result result;
   try {
-    result.success = iface_->clang_getDiagnosticSetFromTU(args.unit);
+    result.success = iface_->getDiagnosticSetFromTU(args.unit);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticSetFromTU");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticSetFromTU");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticSetFromTU", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticSetFromTU", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15241,51 +15241,51 @@ void ClangProcessor::process_clang_getDiagnosticSetFromTU(int32_t seqid, ::apach
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticSetFromTU");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticSetFromTU");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticSetFromTU", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticSetFromTU", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticSetFromTU", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticSetFromTU", bytes);
   }
 }
 
-void ClangProcessor::process_clang_disposeDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_disposeDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_disposeDiagnostic", callContext);
+    ctx = this->eventHandler_->getContext("Clang.disposeDiagnostic", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_disposeDiagnostic");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.disposeDiagnostic");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_disposeDiagnostic");
+    this->eventHandler_->preRead(ctx, "Clang.disposeDiagnostic");
   }
 
-  Clang_clang_disposeDiagnostic_args args;
+  Clang_disposeDiagnostic_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_disposeDiagnostic", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.disposeDiagnostic", bytes);
   }
 
-  Clang_clang_disposeDiagnostic_result result;
+  Clang_disposeDiagnostic_result result;
   try {
-    iface_->clang_disposeDiagnostic(args.diagnostic);
+    iface_->disposeDiagnostic(args.diagnostic);
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_disposeDiagnostic");
+      this->eventHandler_->handlerError(ctx, "Clang.disposeDiagnostic");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_disposeDiagnostic", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("disposeDiagnostic", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15294,52 +15294,52 @@ void ClangProcessor::process_clang_disposeDiagnostic(int32_t seqid, ::apache::th
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_disposeDiagnostic");
+    this->eventHandler_->preWrite(ctx, "Clang.disposeDiagnostic");
   }
 
-  oprot->writeMessageBegin("clang_disposeDiagnostic", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("disposeDiagnostic", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_disposeDiagnostic", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.disposeDiagnostic", bytes);
   }
 }
 
-void ClangProcessor::process_clang_formatDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_formatDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_formatDiagnostic", callContext);
+    ctx = this->eventHandler_->getContext("Clang.formatDiagnostic", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_formatDiagnostic");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.formatDiagnostic");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_formatDiagnostic");
+    this->eventHandler_->preRead(ctx, "Clang.formatDiagnostic");
   }
 
-  Clang_clang_formatDiagnostic_args args;
+  Clang_formatDiagnostic_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_formatDiagnostic", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.formatDiagnostic", bytes);
   }
 
-  Clang_clang_formatDiagnostic_result result;
+  Clang_formatDiagnostic_result result;
   try {
-    iface_->clang_formatDiagnostic(result.success, args.diagnostic, args.options);
+    iface_->formatDiagnostic(result.success, args.diagnostic, args.options);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_formatDiagnostic");
+      this->eventHandler_->handlerError(ctx, "Clang.formatDiagnostic");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_formatDiagnostic", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("formatDiagnostic", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15348,52 +15348,52 @@ void ClangProcessor::process_clang_formatDiagnostic(int32_t seqid, ::apache::thr
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_formatDiagnostic");
+    this->eventHandler_->preWrite(ctx, "Clang.formatDiagnostic");
   }
 
-  oprot->writeMessageBegin("clang_formatDiagnostic", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("formatDiagnostic", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_formatDiagnostic", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.formatDiagnostic", bytes);
   }
 }
 
-void ClangProcessor::process_clang_defaultDiagnosticDisplayOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_defaultDiagnosticDisplayOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_defaultDiagnosticDisplayOptions", callContext);
+    ctx = this->eventHandler_->getContext("Clang.defaultDiagnosticDisplayOptions", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_defaultDiagnosticDisplayOptions");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.defaultDiagnosticDisplayOptions");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_defaultDiagnosticDisplayOptions");
+    this->eventHandler_->preRead(ctx, "Clang.defaultDiagnosticDisplayOptions");
   }
 
-  Clang_clang_defaultDiagnosticDisplayOptions_args args;
+  Clang_defaultDiagnosticDisplayOptions_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_defaultDiagnosticDisplayOptions", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.defaultDiagnosticDisplayOptions", bytes);
   }
 
-  Clang_clang_defaultDiagnosticDisplayOptions_result result;
+  Clang_defaultDiagnosticDisplayOptions_result result;
   try {
-    result.success = iface_->clang_defaultDiagnosticDisplayOptions();
+    result.success = iface_->defaultDiagnosticDisplayOptions();
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_defaultDiagnosticDisplayOptions");
+      this->eventHandler_->handlerError(ctx, "Clang.defaultDiagnosticDisplayOptions");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_defaultDiagnosticDisplayOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("defaultDiagnosticDisplayOptions", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15402,52 +15402,52 @@ void ClangProcessor::process_clang_defaultDiagnosticDisplayOptions(int32_t seqid
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_defaultDiagnosticDisplayOptions");
+    this->eventHandler_->preWrite(ctx, "Clang.defaultDiagnosticDisplayOptions");
   }
 
-  oprot->writeMessageBegin("clang_defaultDiagnosticDisplayOptions", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("defaultDiagnosticDisplayOptions", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_defaultDiagnosticDisplayOptions", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.defaultDiagnosticDisplayOptions", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticSeverity(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticSeverity(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticSeverity", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticSeverity", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticSeverity");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticSeverity");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticSeverity");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticSeverity");
   }
 
-  Clang_clang_getDiagnosticSeverity_args args;
+  Clang_getDiagnosticSeverity_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticSeverity", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticSeverity", bytes);
   }
 
-  Clang_clang_getDiagnosticSeverity_result result;
+  Clang_getDiagnosticSeverity_result result;
   try {
-    result.success = iface_->clang_getDiagnosticSeverity(args.diagnostic);
+    result.success = iface_->getDiagnosticSeverity(args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticSeverity");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticSeverity");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticSeverity", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticSeverity", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15456,52 +15456,52 @@ void ClangProcessor::process_clang_getDiagnosticSeverity(int32_t seqid, ::apache
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticSeverity");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticSeverity");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticSeverity", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticSeverity", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticSeverity", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticSeverity", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticLocation", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticLocation", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticLocation");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticLocation");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticLocation");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticLocation");
   }
 
-  Clang_clang_getDiagnosticLocation_args args;
+  Clang_getDiagnosticLocation_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticLocation", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticLocation", bytes);
   }
 
-  Clang_clang_getDiagnosticLocation_result result;
+  Clang_getDiagnosticLocation_result result;
   try {
-    iface_->clang_getDiagnosticLocation(result.success, args.diagnostic);
+    iface_->getDiagnosticLocation(result.success, args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticLocation");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticLocation");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticLocation", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15510,52 +15510,52 @@ void ClangProcessor::process_clang_getDiagnosticLocation(int32_t seqid, ::apache
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticLocation");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticLocation");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticLocation", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticLocation", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticLocation", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticLocation", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticSpelling", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticSpelling", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticSpelling");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticSpelling");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticSpelling");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticSpelling");
   }
 
-  Clang_clang_getDiagnosticSpelling_args args;
+  Clang_getDiagnosticSpelling_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticSpelling", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticSpelling", bytes);
   }
 
-  Clang_clang_getDiagnosticSpelling_result result;
+  Clang_getDiagnosticSpelling_result result;
   try {
-    iface_->clang_getDiagnosticSpelling(result.success, args.diagnostic);
+    iface_->getDiagnosticSpelling(result.success, args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticSpelling");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticSpelling");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticSpelling", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticSpelling", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15564,52 +15564,52 @@ void ClangProcessor::process_clang_getDiagnosticSpelling(int32_t seqid, ::apache
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticSpelling");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticSpelling");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticSpelling", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticSpelling", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticSpelling", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticSpelling", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticOption(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticOption(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticOption", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticOption", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticOption");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticOption");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticOption");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticOption");
   }
 
-  Clang_clang_getDiagnosticOption_args args;
+  Clang_getDiagnosticOption_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticOption", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticOption", bytes);
   }
 
-  Clang_clang_getDiagnosticOption_result result;
+  Clang_getDiagnosticOption_result result;
   try {
-    iface_->clang_getDiagnosticOption(result.success, args.diagnostic);
+    iface_->getDiagnosticOption(result.success, args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticOption");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticOption");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticOption", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticOption", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15618,52 +15618,52 @@ void ClangProcessor::process_clang_getDiagnosticOption(int32_t seqid, ::apache::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticOption");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticOption");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticOption", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticOption", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticOption", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticOption", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticCategory(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticCategory(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticCategory", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticCategory", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticCategory");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticCategory");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticCategory");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticCategory");
   }
 
-  Clang_clang_getDiagnosticCategory_args args;
+  Clang_getDiagnosticCategory_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticCategory", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticCategory", bytes);
   }
 
-  Clang_clang_getDiagnosticCategory_result result;
+  Clang_getDiagnosticCategory_result result;
   try {
-    result.success = iface_->clang_getDiagnosticCategory(args.diagnostic);
+    result.success = iface_->getDiagnosticCategory(args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticCategory");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticCategory");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticCategory", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticCategory", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15672,52 +15672,52 @@ void ClangProcessor::process_clang_getDiagnosticCategory(int32_t seqid, ::apache
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticCategory");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticCategory");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticCategory", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticCategory", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticCategory", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticCategory", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticCategoryName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticCategoryName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticCategoryName", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticCategoryName", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticCategoryName");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticCategoryName");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticCategoryName");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticCategoryName");
   }
 
-  Clang_clang_getDiagnosticCategoryName_args args;
+  Clang_getDiagnosticCategoryName_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticCategoryName", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticCategoryName", bytes);
   }
 
-  Clang_clang_getDiagnosticCategoryName_result result;
+  Clang_getDiagnosticCategoryName_result result;
   try {
-    iface_->clang_getDiagnosticCategoryName(result.success, args.category);
+    iface_->getDiagnosticCategoryName(result.success, args.category);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticCategoryName");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticCategoryName");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticCategoryName", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticCategoryName", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15726,52 +15726,52 @@ void ClangProcessor::process_clang_getDiagnosticCategoryName(int32_t seqid, ::ap
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticCategoryName");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticCategoryName");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticCategoryName", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticCategoryName", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticCategoryName", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticCategoryName", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticCategoryText(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticCategoryText(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticCategoryText", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticCategoryText", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticCategoryText");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticCategoryText");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticCategoryText");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticCategoryText");
   }
 
-  Clang_clang_getDiagnosticCategoryText_args args;
+  Clang_getDiagnosticCategoryText_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticCategoryText", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticCategoryText", bytes);
   }
 
-  Clang_clang_getDiagnosticCategoryText_result result;
+  Clang_getDiagnosticCategoryText_result result;
   try {
-    iface_->clang_getDiagnosticCategoryText(result.success, args.diagnostic);
+    iface_->getDiagnosticCategoryText(result.success, args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticCategoryText");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticCategoryText");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticCategoryText", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticCategoryText", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15780,52 +15780,52 @@ void ClangProcessor::process_clang_getDiagnosticCategoryText(int32_t seqid, ::ap
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticCategoryText");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticCategoryText");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticCategoryText", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticCategoryText", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticCategoryText", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticCategoryText", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticNumRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticNumRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticNumRanges", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticNumRanges", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticNumRanges");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticNumRanges");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticNumRanges");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticNumRanges");
   }
 
-  Clang_clang_getDiagnosticNumRanges_args args;
+  Clang_getDiagnosticNumRanges_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticNumRanges", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticNumRanges", bytes);
   }
 
-  Clang_clang_getDiagnosticNumRanges_result result;
+  Clang_getDiagnosticNumRanges_result result;
   try {
-    result.success = iface_->clang_getDiagnosticNumRanges(args.diagnostic);
+    result.success = iface_->getDiagnosticNumRanges(args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticNumRanges");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticNumRanges");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticNumRanges", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticNumRanges", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15834,52 +15834,52 @@ void ClangProcessor::process_clang_getDiagnosticNumRanges(int32_t seqid, ::apach
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticNumRanges");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticNumRanges");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticNumRanges", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticNumRanges", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticNumRanges", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticNumRanges", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticRange", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticRange", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticRange");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticRange");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticRange");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticRange");
   }
 
-  Clang_clang_getDiagnosticRange_args args;
+  Clang_getDiagnosticRange_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticRange", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticRange", bytes);
   }
 
-  Clang_clang_getDiagnosticRange_result result;
+  Clang_getDiagnosticRange_result result;
   try {
-    iface_->clang_getDiagnosticRange(result.success, args.diagnostic, args.range);
+    iface_->getDiagnosticRange(result.success, args.diagnostic, args.range);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticRange");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticRange");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticRange", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticRange", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15888,52 +15888,52 @@ void ClangProcessor::process_clang_getDiagnosticRange(int32_t seqid, ::apache::t
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticRange");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticRange");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticRange", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticRange", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticRange", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticRange", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticNumFixIts(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticNumFixIts(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticNumFixIts", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticNumFixIts", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticNumFixIts");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticNumFixIts");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticNumFixIts");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticNumFixIts");
   }
 
-  Clang_clang_getDiagnosticNumFixIts_args args;
+  Clang_getDiagnosticNumFixIts_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticNumFixIts", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticNumFixIts", bytes);
   }
 
-  Clang_clang_getDiagnosticNumFixIts_result result;
+  Clang_getDiagnosticNumFixIts_result result;
   try {
-    result.success = iface_->clang_getDiagnosticNumFixIts(args.diagnostic);
+    result.success = iface_->getDiagnosticNumFixIts(args.diagnostic);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticNumFixIts");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticNumFixIts");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticNumFixIts", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticNumFixIts", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15942,52 +15942,52 @@ void ClangProcessor::process_clang_getDiagnosticNumFixIts(int32_t seqid, ::apach
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticNumFixIts");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticNumFixIts");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticNumFixIts", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticNumFixIts", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticNumFixIts", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticNumFixIts", bytes);
   }
 }
 
-void ClangProcessor::process_clang_getDiagnosticFixIt(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void ClangProcessor::process_getDiagnosticFixIt(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("Clang.clang_getDiagnosticFixIt", callContext);
+    ctx = this->eventHandler_->getContext("Clang.getDiagnosticFixIt", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.clang_getDiagnosticFixIt");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "Clang.getDiagnosticFixIt");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "Clang.clang_getDiagnosticFixIt");
+    this->eventHandler_->preRead(ctx, "Clang.getDiagnosticFixIt");
   }
 
-  Clang_clang_getDiagnosticFixIt_args args;
+  Clang_getDiagnosticFixIt_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "Clang.clang_getDiagnosticFixIt", bytes);
+    this->eventHandler_->postRead(ctx, "Clang.getDiagnosticFixIt", bytes);
   }
 
-  Clang_clang_getDiagnosticFixIt_result result;
+  Clang_getDiagnosticFixIt_result result;
   try {
-    iface_->clang_getDiagnosticFixIt(result.success, args.Diagnostic, args.FixIt);
+    iface_->getDiagnosticFixIt(result.success, args.Diagnostic, args.FixIt);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "Clang.clang_getDiagnosticFixIt");
+      this->eventHandler_->handlerError(ctx, "Clang.getDiagnosticFixIt");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
-    oprot->writeMessageBegin("clang_getDiagnosticFixIt", ::apache::thrift::protocol::T_EXCEPTION, seqid);
+    oprot->writeMessageBegin("getDiagnosticFixIt", ::apache::thrift::protocol::T_EXCEPTION, seqid);
     x.write(oprot);
     oprot->writeMessageEnd();
     oprot->getTransport()->writeEnd();
@@ -15996,17 +15996,17 @@ void ClangProcessor::process_clang_getDiagnosticFixIt(int32_t seqid, ::apache::t
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "Clang.clang_getDiagnosticFixIt");
+    this->eventHandler_->preWrite(ctx, "Clang.getDiagnosticFixIt");
   }
 
-  oprot->writeMessageBegin("clang_getDiagnosticFixIt", ::apache::thrift::protocol::T_REPLY, seqid);
+  oprot->writeMessageBegin("getDiagnosticFixIt", ::apache::thrift::protocol::T_REPLY, seqid);
   result.write(oprot);
   oprot->writeMessageEnd();
   bytes = oprot->getTransport()->writeEnd();
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "Clang.clang_getDiagnosticFixIt", bytes);
+    this->eventHandler_->postWrite(ctx, "Clang.getDiagnosticFixIt", bytes);
   }
 }
 
@@ -16016,5 +16016,5 @@ void ClangProcessor::process_clang_getDiagnosticFixIt(int32_t seqid, ::apache::t
   ::boost::shared_ptr< ::apache::thrift::TProcessor > processor(new ClangProcessor(handler));
   return processor;
 }
-}} // namespace
+} // namespace
 

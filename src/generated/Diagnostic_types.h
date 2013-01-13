@@ -17,7 +17,7 @@
 #include "TranslationUnit_types.h"
 
 
-namespace clang { namespace thrift {
+namespace clad {
 
 struct CXDiagnosticSeverity {
   enum type {
@@ -55,9 +55,9 @@ struct CXDiagnosticDisplayOptions {
 
 extern const std::map<int, const char*> _CXDiagnosticDisplayOptions_VALUES_TO_NAMES;
 
-typedef  ::clang::thrift::ResourceId CXDiagnostic;
+typedef  ::clad::ResourceId CXDiagnostic;
 
-typedef  ::clang::thrift::ResourceId CXDiagnosticSet;
+typedef  ::clad::ResourceId CXDiagnosticSet;
 
 typedef struct _CXLoadDiagException__isset {
   _CXLoadDiagException__isset() : Error(false), ErrorString(false) {}
@@ -178,12 +178,12 @@ class CXDiagnosticFixIt {
 
   virtual ~CXDiagnosticFixIt() throw() {}
 
-   ::clang::thrift::CXSourceRange ReplacementRange;
+   ::clad::CXSourceRange ReplacementRange;
   std::string ReplacementText;
 
   _CXDiagnosticFixIt__isset __isset;
 
-  void __set_ReplacementRange(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_ReplacementRange(const  ::clad::CXSourceRange& val) {
     ReplacementRange = val;
   }
 
@@ -212,6 +212,6 @@ class CXDiagnosticFixIt {
 
 void swap(CXDiagnosticFixIt &a, CXDiagnosticFixIt &b);
 
-}} // namespace
+} // namespace
 
 #endif

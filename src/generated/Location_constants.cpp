@@ -6,12 +6,12 @@
  */
 #include "Location_constants.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 const LocationConstants g_Location_constants;
 
 LocationConstants::LocationConstants() {
 }
 
-}} // namespace
+} // namespace
 

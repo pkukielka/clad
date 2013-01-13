@@ -8,7 +8,7 @@
 
 #include <algorithm>
 
-namespace clang { namespace thrift {
+namespace clad {
 
 int _kCXDiagnosticSeverityValues[] = {
   CXDiagnosticSeverity::CXDiagnostic_Ignored,
@@ -285,4 +285,4 @@ void swap(CXDiagnosticFixIt &a, CXDiagnosticFixIt &b) {
   swap(a.__isset, b.__isset);
 }
 
-}} // namespace
+} // namespace

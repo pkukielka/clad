@@ -6,12 +6,12 @@
  */
 #include "Index_constants.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 const IndexConstants g_Index_constants;
 
 IndexConstants::IndexConstants() {
 }
 
-}} // namespace
+} // namespace
 

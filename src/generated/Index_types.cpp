@@ -8,7 +8,7 @@
 
 #include <algorithm>
 
-namespace clang { namespace thrift {
+namespace clad {
 
 int _kCXAvailabilityKindValues[] = {
   CXAvailabilityKind::CXAvailability_Available,
@@ -126,4 +126,4 @@ void swap(CXVersion &a, CXVersion &b) {
   swap(a.__isset, b.__isset);
 }
 
-}} // namespace
+} // namespace

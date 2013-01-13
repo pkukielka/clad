@@ -17,7 +17,7 @@
 #include "TranslationUnit_types.h"
 
 
-namespace clang { namespace thrift {
+namespace clad {
 
 typedef struct _CXSourceLocation__isset {
   _CXSourceLocation__isset() : ptr_data(false), int_data(false) {}
@@ -36,16 +36,16 @@ class CXSourceLocation {
 
   virtual ~CXSourceLocation() throw() {}
 
-  std::vector< ::clang::thrift::ResourceId>  ptr_data;
-   ::clang::thrift::u32 int_data;
+  std::vector< ::clad::ResourceId>  ptr_data;
+   ::clad::u32 int_data;
 
   _CXSourceLocation__isset __isset;
 
-  void __set_ptr_data(const std::vector< ::clang::thrift::ResourceId> & val) {
+  void __set_ptr_data(const std::vector< ::clad::ResourceId> & val) {
     ptr_data = val;
   }
 
-  void __set_int_data(const  ::clang::thrift::u32 val) {
+  void __set_int_data(const  ::clad::u32 val) {
     int_data = val;
   }
 
@@ -88,21 +88,21 @@ class CXSourceRange {
 
   virtual ~CXSourceRange() throw() {}
 
-  std::vector< ::clang::thrift::ResourceId>  ptr_data;
-   ::clang::thrift::u32 begin_int_data;
-   ::clang::thrift::u32 end_int_data;
+  std::vector< ::clad::ResourceId>  ptr_data;
+   ::clad::u32 begin_int_data;
+   ::clad::u32 end_int_data;
 
   _CXSourceRange__isset __isset;
 
-  void __set_ptr_data(const std::vector< ::clang::thrift::ResourceId> & val) {
+  void __set_ptr_data(const std::vector< ::clad::ResourceId> & val) {
     ptr_data = val;
   }
 
-  void __set_begin_int_data(const  ::clang::thrift::u32 val) {
+  void __set_begin_int_data(const  ::clad::u32 val) {
     begin_int_data = val;
   }
 
-  void __set_end_int_data(const  ::clang::thrift::u32 val) {
+  void __set_end_int_data(const  ::clad::u32 val) {
     end_int_data = val;
   }
 
@@ -149,15 +149,15 @@ class CXSourcePosition {
 
   virtual ~CXSourcePosition() throw() {}
 
-   ::clang::thrift::CXFile file;
+   ::clad::CXFile file;
   std::string filename;
-   ::clang::thrift::u32 line;
-   ::clang::thrift::u32 column;
-   ::clang::thrift::u32 offset;
+   ::clad::u32 line;
+   ::clad::u32 column;
+   ::clad::u32 offset;
 
   _CXSourcePosition__isset __isset;
 
-  void __set_file(const  ::clang::thrift::CXFile val) {
+  void __set_file(const  ::clad::CXFile val) {
     file = val;
   }
 
@@ -165,15 +165,15 @@ class CXSourcePosition {
     filename = val;
   }
 
-  void __set_line(const  ::clang::thrift::u32 val) {
+  void __set_line(const  ::clad::u32 val) {
     line = val;
   }
 
-  void __set_column(const  ::clang::thrift::u32 val) {
+  void __set_column(const  ::clad::u32 val) {
     column = val;
   }
 
-  void __set_offset(const  ::clang::thrift::u32 val) {
+  void __set_offset(const  ::clad::u32 val) {
     offset = val;
   }
 
@@ -204,6 +204,6 @@ class CXSourcePosition {
 
 void swap(CXSourcePosition &a, CXSourcePosition &b);
 
-}} // namespace
+} // namespace
 
 #endif

@@ -14,7 +14,7 @@
 
 
 
-namespace clang { namespace thrift {
+namespace clad {
 
 typedef int32_t u32;
 
@@ -24,6 +24,6 @@ typedef int64_t t64;
 
 typedef int64_t ResourceId;
 
-}} // namespace
+} // namespace
 
 #endif

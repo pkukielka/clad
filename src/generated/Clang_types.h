@@ -20,8 +20,8 @@
 #include "Diagnostic_types.h"
 
 
-namespace clang { namespace thrift {
+namespace clad {
 
-}} // namespace
+} // namespace
 
 #endif

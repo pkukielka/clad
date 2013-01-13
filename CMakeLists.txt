@@ -19,4 +19,4 @@ file (GLOB THRIFT_SOURCES 	"${GENERATED_FILES_DIR}/*.cpp")
 
 add_executable (${PROJECT_NAME} ${THRIFT_SOURCES} "${SRC_DIR}/ClangServ.cpp")
 
-target_link_libraries(${PROJECT_NAME} thrift)
+target_link_libraries(${PROJECT_NAME} thrift clang)

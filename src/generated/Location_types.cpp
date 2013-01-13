@@ -8,7 +8,7 @@
 
 #include <algorithm>
 
-namespace clang { namespace thrift {
+namespace clad {
 
 const char* CXSourceLocation::ascii_fingerprint = "CCD847ED8F9380F935E4ECB1C10F3559";
 const uint8_t CXSourceLocation::binary_fingerprint[16] = {0xCC,0xD8,0x47,0xED,0x8F,0x93,0x80,0xF9,0x35,0xE4,0xEC,0xB1,0xC1,0x0F,0x35,0x59};
@@ -80,7 +80,7 @@ uint32_t CXSourceLocation::write(::apache::thrift::protocol::TProtocol* oprot) c
   xfer += oprot->writeFieldBegin("ptr_data", ::apache::thrift::protocol::T_LIST, 1);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_I64, static_cast<uint32_t>(this->ptr_data.size()));
-    std::vector< ::clang::thrift::ResourceId> ::const_iterator _iter5;
+    std::vector< ::clad::ResourceId> ::const_iterator _iter5;
     for (_iter5 = this->ptr_data.begin(); _iter5 != this->ptr_data.end(); ++_iter5)
     {
       xfer += oprot->writeI64((*_iter5));
@@ -183,7 +183,7 @@ uint32_t CXSourceRange::write(::apache::thrift::protocol::TProtocol* oprot) cons
   xfer += oprot->writeFieldBegin("ptr_data", ::apache::thrift::protocol::T_LIST, 1);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_I64, static_cast<uint32_t>(this->ptr_data.size()));
-    std::vector< ::clang::thrift::ResourceId> ::const_iterator _iter11;
+    std::vector< ::clad::ResourceId> ::const_iterator _iter11;
     for (_iter11 = this->ptr_data.begin(); _iter11 != this->ptr_data.end(); ++_iter11)
     {
       xfer += oprot->writeI64((*_iter11));
@@ -327,4 +327,4 @@ void swap(CXSourcePosition &a, CXSourcePosition &b) {
   swap(a.__isset, b.__isset);
 }
 
-}} // namespace
+} // namespace

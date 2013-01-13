@@ -9,7 +9,7 @@
 
 #include "Clang_types.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 class ClangConstants {
  public:
@@ -19,6 +19,6 @@ class ClangConstants {
 
 extern const ClangConstants g_Clang_constants;
 
-}} // namespace
+} // namespace
 
 #endif

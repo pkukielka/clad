@@ -9,7 +9,7 @@
 
 #include "Index_types.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 class IndexConstants {
  public:
@@ -19,6 +19,6 @@ class IndexConstants {
 
 extern const IndexConstants g_Index_constants;
 
-}} // namespace
+} // namespace
 
 #endif

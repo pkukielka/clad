@@ -8,7 +8,7 @@
 
 #include <algorithm>
 
-namespace clang { namespace thrift {
+namespace clad {
 
 int _kCXTranslationUnit_FlagsValues[] = {
   CXTranslationUnit_Flags::CXTranslationUnit_None,
@@ -366,4 +366,4 @@ void swap(CXTUResourceUsage &a, CXTUResourceUsage &b) {
   swap(a.__isset, b.__isset);
 }
 
-}} // namespace
+} // namespace

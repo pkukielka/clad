@@ -6,12 +6,12 @@
  */
 #include "File_constants.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 const FileConstants g_File_constants;
 
 FileConstants::FileConstants() {
 }
 
-}} // namespace
+} // namespace
 

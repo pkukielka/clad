@@ -6,12 +6,12 @@
  */
 #include "Clang_constants.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 const ClangConstants g_Clang_constants;
 
 ClangConstants::ClangConstants() {
 }
 
-}} // namespace
+} // namespace
 

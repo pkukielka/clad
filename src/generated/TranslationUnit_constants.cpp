@@ -6,12 +6,12 @@
  */
 #include "TranslationUnit_constants.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 const TranslationUnitConstants g_TranslationUnit_constants;
 
 TranslationUnitConstants::TranslationUnitConstants() {
 }
 
-}} // namespace
+} // namespace
 

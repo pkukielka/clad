@@ -9,7 +9,7 @@
 
 #include "File_types.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 class FileConstants {
  public:
@@ -19,6 +19,6 @@ class FileConstants {
 
 extern const FileConstants g_File_constants;
 
-}} // namespace
+} // namespace
 
 #endif

@@ -10,68 +10,68 @@
 #include <thrift/TDispatchProcessor.h>
 #include "Clang_types.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 class ClangIf {
  public:
   virtual ~ClangIf() {}
-  virtual  ::clang::thrift::CXIndex clang_createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics) = 0;
-  virtual void clang_disposeIndex(const  ::clang::thrift::CXIndex index) = 0;
-  virtual void clang_CXIndex_setGlobalOptions(const  ::clang::thrift::CXIndex index, const  ::clang::thrift::CXGlobalOptFlags::type options) = 0;
-  virtual  ::clang::thrift::CXGlobalOptFlags::type clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CXIndex index) = 0;
-  virtual void clang_getTranslationUnitSpelling(std::string& _return, const  ::clang::thrift::CXTranslationUnit unit) = 0;
-  virtual  ::clang::thrift::CXTranslationUnit clang_createTranslationUnitFromSourceFile(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & clang_command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files) = 0;
-  virtual  ::clang::thrift::CXTranslationUnit clang_createTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& ast_filename) = 0;
-  virtual  ::clang::thrift::u32 clang_defaultEditingTranslationUnitOptions() = 0;
-  virtual  ::clang::thrift::CXTranslationUnit clang_parseTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options) = 0;
-  virtual  ::clang::thrift::u32 clang_defaultSaveOptions(const  ::clang::thrift::CXTranslationUnit unit) = 0;
-  virtual  ::clang::thrift::CXSaveError::type clang_saveTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename, const  ::clang::thrift::u32 options) = 0;
-  virtual void clang_disposeTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit) = 0;
-  virtual  ::clang::thrift::u32 clang_defaultReparseOptions(const  ::clang::thrift::CXTranslationUnit unit) = 0;
-  virtual int32_t clang_reparseTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options) = 0;
-  virtual void clang_getTUResourceUsageName(std::string& _return, const  ::clang::thrift::CXTUResourceUsageKind::type kind) = 0;
-  virtual void clang_getCXTUResourceUsage( ::clang::thrift::CXTUResourceUsage& _return, const  ::clang::thrift::CXTranslationUnit unit) = 0;
-  virtual void clang_disposeCXTUResourceUsage(const  ::clang::thrift::CXTUResourceUsage& usage) = 0;
-  virtual void clang_getFileName(std::string& _return, const  ::clang::thrift::CXFile file) = 0;
-  virtual  ::clang::thrift::t64 clang_getFileTime(const  ::clang::thrift::CXFile file) = 0;
-  virtual  ::clang::thrift::u32 clang_isFileMultipleIncludeGuarded(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::CXFile file) = 0;
-  virtual  ::clang::thrift::CXFile clang_getFile(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename) = 0;
-  virtual void clang_getNullLocation( ::clang::thrift::CXSourceLocation& _return) = 0;
-  virtual  ::clang::thrift::u32 clang_equalLocations(const  ::clang::thrift::CXSourceLocation& loc1, const  ::clang::thrift::CXSourceLocation& loc2) = 0;
-  virtual void clang_getLocation( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 line, const  ::clang::thrift::u32 column) = 0;
-  virtual void clang_getLocationForOffset( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 offset) = 0;
-  virtual void clang_getNullRange( ::clang::thrift::CXSourceRange& _return) = 0;
-  virtual void clang_getRange( ::clang::thrift::CXSourceRange& _return, const  ::clang::thrift::CXSourceLocation& sourceBegin, const  ::clang::thrift::CXSourceLocation& sourceEnd) = 0;
-  virtual  ::clang::thrift::u32 clang_equalRanges(const  ::clang::thrift::CXSourceRange& range1, const  ::clang::thrift::CXSourceRange& range2) = 0;
-  virtual int32_t clang_Range_isNull(const  ::clang::thrift::CXSourceRange& range) = 0;
-  virtual void clang_getExpansionLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location) = 0;
-  virtual void clang_getPresumedLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location) = 0;
-  virtual void clang_getInstantiationLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location) = 0;
-  virtual void clang_getSpellingLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location) = 0;
-  virtual void clang_getRangeStart( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXSourceRange& range) = 0;
-  virtual void clang_getRangeEnd( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXSourceRange& range) = 0;
-  virtual  ::clang::thrift::u32 clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDiagnosticSet diags) = 0;
-  virtual  ::clang::thrift::CXDiagnostic clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagnosticSet diags, const  ::clang::thrift::u32 index) = 0;
-  virtual  ::clang::thrift::CXDiagnosticSet clang_loadDiagnostics(const std::string& filename) = 0;
-  virtual void clang_disposeDiagnosticSet(const  ::clang::thrift::CXDiagnosticSet diagnosticSet) = 0;
-  virtual  ::clang::thrift::CXDiagnosticSet clang_getChildDiagnostics(const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual  ::clang::thrift::u32 clang_getNumDiagnostics(const  ::clang::thrift::CXTranslationUnit unit) = 0;
-  virtual  ::clang::thrift::CXDiagnostic clang_getDiagnostic(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::u32 index) = 0;
-  virtual  ::clang::thrift::CXDiagnosticSet clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTranslationUnit unit) = 0;
-  virtual void clang_disposeDiagnostic(const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual void clang_formatDiagnostic(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 options) = 0;
-  virtual  ::clang::thrift::u32 clang_defaultDiagnosticDisplayOptions() = 0;
-  virtual  ::clang::thrift::CXDiagnosticSeverity::type clang_getDiagnosticSeverity(const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual void clang_getDiagnosticLocation( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual void clang_getDiagnosticSpelling(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual void clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticOption& _return, const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual  ::clang::thrift::u32 clang_getDiagnosticCategory(const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual void clang_getDiagnosticCategoryName(std::string& _return, const  ::clang::thrift::u32 category) = 0;
-  virtual void clang_getDiagnosticCategoryText(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual  ::clang::thrift::u32 clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual void clang_getDiagnosticRange( ::clang::thrift::CXSourceRange& _return, const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 range) = 0;
-  virtual  ::clang::thrift::u32 clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDiagnostic diagnostic) = 0;
-  virtual void clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFixIt& _return, const  ::clang::thrift::CXDiagnostic Diagnostic, const  ::clang::thrift::u32 FixIt) = 0;
+  virtual  ::clad::CXIndex createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics) = 0;
+  virtual void disposeIndex(const  ::clad::CXIndex index) = 0;
+  virtual void CXIndex_setGlobalOptions(const  ::clad::CXIndex index, const  ::clad::CXGlobalOptFlags::type options) = 0;
+  virtual  ::clad::CXGlobalOptFlags::type CXIndex_getGlobalOptions(const  ::clad::CXIndex index) = 0;
+  virtual void getTranslationUnitSpelling(std::string& _return, const  ::clad::CXTranslationUnit unit) = 0;
+  virtual  ::clad::CXTranslationUnit createTranslationUnitFromSourceFile(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files) = 0;
+  virtual  ::clad::CXTranslationUnit createTranslationUnit(const  ::clad::CXIndex idx, const std::string& ast_filename) = 0;
+  virtual  ::clad::u32 defaultEditingTranslationUnitOptions() = 0;
+  virtual  ::clad::CXTranslationUnit parseTranslationUnit(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options) = 0;
+  virtual  ::clad::u32 defaultSaveOptions(const  ::clad::CXTranslationUnit unit) = 0;
+  virtual  ::clad::CXSaveError::type saveTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::string& filename, const  ::clad::u32 options) = 0;
+  virtual void disposeTranslationUnit(const  ::clad::CXTranslationUnit unit) = 0;
+  virtual  ::clad::u32 defaultReparseOptions(const  ::clad::CXTranslationUnit unit) = 0;
+  virtual int32_t reparseTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options) = 0;
+  virtual void getTUResourceUsageName(std::string& _return, const  ::clad::CXTUResourceUsageKind::type kind) = 0;
+  virtual void getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return, const  ::clad::CXTranslationUnit unit) = 0;
+  virtual void disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage) = 0;
+  virtual void getFileName(std::string& _return, const  ::clad::CXFile file) = 0;
+  virtual  ::clad::t64 getFileTime(const  ::clad::CXFile file) = 0;
+  virtual  ::clad::u32 isFileMultipleIncludeGuarded(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file) = 0;
+  virtual  ::clad::CXFile getFile(const  ::clad::CXTranslationUnit unit, const std::string& filename) = 0;
+  virtual void getNullLocation( ::clad::CXSourceLocation& _return) = 0;
+  virtual  ::clad::u32 equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2) = 0;
+  virtual void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column) = 0;
+  virtual void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset) = 0;
+  virtual void getNullRange( ::clad::CXSourceRange& _return) = 0;
+  virtual void getRange( ::clad::CXSourceRange& _return, const  ::clad::CXSourceLocation& sourceBegin, const  ::clad::CXSourceLocation& sourceEnd) = 0;
+  virtual  ::clad::u32 equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2) = 0;
+  virtual int32_t Range_isNull(const  ::clad::CXSourceRange& range) = 0;
+  virtual void getExpansionLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) = 0;
+  virtual void getPresumedLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) = 0;
+  virtual void getInstantiationLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) = 0;
+  virtual void getSpellingLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) = 0;
+  virtual void getRangeStart( ::clad::CXSourceLocation& _return, const  ::clad::CXSourceRange& range) = 0;
+  virtual void getRangeEnd( ::clad::CXSourceLocation& _return, const  ::clad::CXSourceRange& range) = 0;
+  virtual  ::clad::u32 getNumDiagnosticsInSet(const  ::clad::CXDiagnosticSet diags) = 0;
+  virtual  ::clad::CXDiagnostic getDiagnosticInSet(const  ::clad::CXDiagnosticSet diags, const  ::clad::u32 index) = 0;
+  virtual  ::clad::CXDiagnosticSet loadDiagnostics(const std::string& filename) = 0;
+  virtual void disposeDiagnosticSet(const  ::clad::CXDiagnosticSet diagnosticSet) = 0;
+  virtual  ::clad::CXDiagnosticSet getChildDiagnostics(const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual  ::clad::u32 getNumDiagnostics(const  ::clad::CXTranslationUnit unit) = 0;
+  virtual  ::clad::CXDiagnostic getDiagnostic(const  ::clad::CXTranslationUnit unit, const  ::clad::u32 index) = 0;
+  virtual  ::clad::CXDiagnosticSet getDiagnosticSetFromTU(const  ::clad::CXTranslationUnit unit) = 0;
+  virtual void disposeDiagnostic(const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual void formatDiagnostic(std::string& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 options) = 0;
+  virtual  ::clad::u32 defaultDiagnosticDisplayOptions() = 0;
+  virtual  ::clad::CXDiagnosticSeverity::type getDiagnosticSeverity(const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual void getDiagnosticLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual void getDiagnosticSpelling(std::string& _return, const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual void getDiagnosticOption( ::clad::CXDiagnosticOption& _return, const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual  ::clad::u32 getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual void getDiagnosticCategoryName(std::string& _return, const  ::clad::u32 category) = 0;
+  virtual void getDiagnosticCategoryText(std::string& _return, const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual  ::clad::u32 getDiagnosticNumRanges(const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual void getDiagnosticRange( ::clad::CXSourceRange& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 range) = 0;
+  virtual  ::clad::u32 getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic) = 0;
+  virtual void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt) = 0;
 };
 
 class ClangIfFactory {
@@ -101,225 +101,225 @@ class ClangIfSingletonFactory : virtual public ClangIfFactory {
 class ClangNull : virtual public ClangIf {
  public:
   virtual ~ClangNull() {}
-   ::clang::thrift::CXIndex clang_createIndex(const int32_t /* excludeDeclarationsFromPCH */, const int32_t /* displayDiagnostics */) {
-     ::clang::thrift::CXIndex _return = 0;
+   ::clad::CXIndex createIndex(const int32_t /* excludeDeclarationsFromPCH */, const int32_t /* displayDiagnostics */) {
+     ::clad::CXIndex _return = 0;
     return _return;
   }
-  void clang_disposeIndex(const  ::clang::thrift::CXIndex /* index */) {
+  void disposeIndex(const  ::clad::CXIndex /* index */) {
     return;
   }
-  void clang_CXIndex_setGlobalOptions(const  ::clang::thrift::CXIndex /* index */, const  ::clang::thrift::CXGlobalOptFlags::type /* options */) {
+  void CXIndex_setGlobalOptions(const  ::clad::CXIndex /* index */, const  ::clad::CXGlobalOptFlags::type /* options */) {
     return;
   }
-   ::clang::thrift::CXGlobalOptFlags::type clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CXIndex /* index */) {
-     ::clang::thrift::CXGlobalOptFlags::type _return = ( ::clang::thrift::CXGlobalOptFlags::type)0;
+   ::clad::CXGlobalOptFlags::type CXIndex_getGlobalOptions(const  ::clad::CXIndex /* index */) {
+     ::clad::CXGlobalOptFlags::type _return = ( ::clad::CXGlobalOptFlags::type)0;
     return _return;
   }
-  void clang_getTranslationUnitSpelling(std::string& /* _return */, const  ::clang::thrift::CXTranslationUnit /* unit */) {
+  void getTranslationUnitSpelling(std::string& /* _return */, const  ::clad::CXTranslationUnit /* unit */) {
     return;
   }
-   ::clang::thrift::CXTranslationUnit clang_createTranslationUnitFromSourceFile(const  ::clang::thrift::CXIndex /* idx */, const std::string& /* source_filename */, const std::vector<std::string> & /* clang_command_line_args */, const std::vector< ::clang::thrift::CXUnsavedFile> & /* unsaved_files */) {
-     ::clang::thrift::CXTranslationUnit _return = 0;
+   ::clad::CXTranslationUnit createTranslationUnitFromSourceFile(const  ::clad::CXIndex /* idx */, const std::string& /* source_filename */, const std::vector<std::string> & /* command_line_args */, const std::vector< ::clad::CXUnsavedFile> & /* unsaved_files */) {
+     ::clad::CXTranslationUnit _return = 0;
     return _return;
   }
-   ::clang::thrift::CXTranslationUnit clang_createTranslationUnit(const  ::clang::thrift::CXIndex /* idx */, const std::string& /* ast_filename */) {
-     ::clang::thrift::CXTranslationUnit _return = 0;
+   ::clad::CXTranslationUnit createTranslationUnit(const  ::clad::CXIndex /* idx */, const std::string& /* ast_filename */) {
+     ::clad::CXTranslationUnit _return = 0;
     return _return;
   }
-   ::clang::thrift::u32 clang_defaultEditingTranslationUnitOptions() {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 defaultEditingTranslationUnitOptions() {
+     ::clad::u32 _return = 0;
     return _return;
   }
-   ::clang::thrift::CXTranslationUnit clang_parseTranslationUnit(const  ::clang::thrift::CXIndex /* idx */, const std::string& /* source_filename */, const std::vector<std::string> & /* command_line_args */, const std::vector< ::clang::thrift::CXUnsavedFile> & /* unsaved_files */, const  ::clang::thrift::u32 /* options */) {
-     ::clang::thrift::CXTranslationUnit _return = 0;
+   ::clad::CXTranslationUnit parseTranslationUnit(const  ::clad::CXIndex /* idx */, const std::string& /* source_filename */, const std::vector<std::string> & /* command_line_args */, const std::vector< ::clad::CXUnsavedFile> & /* unsaved_files */, const  ::clad::u32 /* options */) {
+     ::clad::CXTranslationUnit _return = 0;
     return _return;
   }
-   ::clang::thrift::u32 clang_defaultSaveOptions(const  ::clang::thrift::CXTranslationUnit /* unit */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 defaultSaveOptions(const  ::clad::CXTranslationUnit /* unit */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-   ::clang::thrift::CXSaveError::type clang_saveTranslationUnit(const  ::clang::thrift::CXTranslationUnit /* unit */, const std::string& /* filename */, const  ::clang::thrift::u32 /* options */) {
-     ::clang::thrift::CXSaveError::type _return = ( ::clang::thrift::CXSaveError::type)0;
+   ::clad::CXSaveError::type saveTranslationUnit(const  ::clad::CXTranslationUnit /* unit */, const std::string& /* filename */, const  ::clad::u32 /* options */) {
+     ::clad::CXSaveError::type _return = ( ::clad::CXSaveError::type)0;
     return _return;
   }
-  void clang_disposeTranslationUnit(const  ::clang::thrift::CXTranslationUnit /* unit */) {
+  void disposeTranslationUnit(const  ::clad::CXTranslationUnit /* unit */) {
     return;
   }
-   ::clang::thrift::u32 clang_defaultReparseOptions(const  ::clang::thrift::CXTranslationUnit /* unit */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 defaultReparseOptions(const  ::clad::CXTranslationUnit /* unit */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-  int32_t clang_reparseTranslationUnit(const  ::clang::thrift::CXTranslationUnit /* unit */, const std::vector< ::clang::thrift::CXUnsavedFile> & /* unsaved_files */, const  ::clang::thrift::u32 /* options */) {
+  int32_t reparseTranslationUnit(const  ::clad::CXTranslationUnit /* unit */, const std::vector< ::clad::CXUnsavedFile> & /* unsaved_files */, const  ::clad::u32 /* options */) {
     int32_t _return = 0;
     return _return;
   }
-  void clang_getTUResourceUsageName(std::string& /* _return */, const  ::clang::thrift::CXTUResourceUsageKind::type /* kind */) {
+  void getTUResourceUsageName(std::string& /* _return */, const  ::clad::CXTUResourceUsageKind::type /* kind */) {
     return;
   }
-  void clang_getCXTUResourceUsage( ::clang::thrift::CXTUResourceUsage& /* _return */, const  ::clang::thrift::CXTranslationUnit /* unit */) {
+  void getCXTUResourceUsage( ::clad::CXTUResourceUsage& /* _return */, const  ::clad::CXTranslationUnit /* unit */) {
     return;
   }
-  void clang_disposeCXTUResourceUsage(const  ::clang::thrift::CXTUResourceUsage& /* usage */) {
+  void disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& /* usage */) {
     return;
   }
-  void clang_getFileName(std::string& /* _return */, const  ::clang::thrift::CXFile /* file */) {
+  void getFileName(std::string& /* _return */, const  ::clad::CXFile /* file */) {
     return;
   }
-   ::clang::thrift::t64 clang_getFileTime(const  ::clang::thrift::CXFile /* file */) {
-     ::clang::thrift::t64 _return = 0;
+   ::clad::t64 getFileTime(const  ::clad::CXFile /* file */) {
+     ::clad::t64 _return = 0;
     return _return;
   }
-   ::clang::thrift::u32 clang_isFileMultipleIncludeGuarded(const  ::clang::thrift::CXTranslationUnit /* unit */, const  ::clang::thrift::CXFile /* file */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 isFileMultipleIncludeGuarded(const  ::clad::CXTranslationUnit /* unit */, const  ::clad::CXFile /* file */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-   ::clang::thrift::CXFile clang_getFile(const  ::clang::thrift::CXTranslationUnit /* unit */, const std::string& /* filename */) {
-     ::clang::thrift::CXFile _return = 0;
+   ::clad::CXFile getFile(const  ::clad::CXTranslationUnit /* unit */, const std::string& /* filename */) {
+     ::clad::CXFile _return = 0;
     return _return;
   }
-  void clang_getNullLocation( ::clang::thrift::CXSourceLocation& /* _return */) {
+  void getNullLocation( ::clad::CXSourceLocation& /* _return */) {
     return;
   }
-   ::clang::thrift::u32 clang_equalLocations(const  ::clang::thrift::CXSourceLocation& /* loc1 */, const  ::clang::thrift::CXSourceLocation& /* loc2 */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 equalLocations(const  ::clad::CXSourceLocation& /* loc1 */, const  ::clad::CXSourceLocation& /* loc2 */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-  void clang_getLocation( ::clang::thrift::CXSourceLocation& /* _return */, const  ::clang::thrift::CXTranslationUnit /* tu */, const  ::clang::thrift::CXFile /* file */, const  ::clang::thrift::u32 /* line */, const  ::clang::thrift::u32 /* column */) {
+  void getLocation( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXTranslationUnit /* tu */, const  ::clad::CXFile /* file */, const  ::clad::u32 /* line */, const  ::clad::u32 /* column */) {
     return;
   }
-  void clang_getLocationForOffset( ::clang::thrift::CXSourceLocation& /* _return */, const  ::clang::thrift::CXTranslationUnit /* tu */, const  ::clang::thrift::CXFile /* file */, const  ::clang::thrift::u32 /* offset */) {
+  void getLocationForOffset( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXTranslationUnit /* tu */, const  ::clad::CXFile /* file */, const  ::clad::u32 /* offset */) {
     return;
   }
-  void clang_getNullRange( ::clang::thrift::CXSourceRange& /* _return */) {
+  void getNullRange( ::clad::CXSourceRange& /* _return */) {
     return;
   }
-  void clang_getRange( ::clang::thrift::CXSourceRange& /* _return */, const  ::clang::thrift::CXSourceLocation& /* sourceBegin */, const  ::clang::thrift::CXSourceLocation& /* sourceEnd */) {
+  void getRange( ::clad::CXSourceRange& /* _return */, const  ::clad::CXSourceLocation& /* sourceBegin */, const  ::clad::CXSourceLocation& /* sourceEnd */) {
     return;
   }
-   ::clang::thrift::u32 clang_equalRanges(const  ::clang::thrift::CXSourceRange& /* range1 */, const  ::clang::thrift::CXSourceRange& /* range2 */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 equalRanges(const  ::clad::CXSourceRange& /* range1 */, const  ::clad::CXSourceRange& /* range2 */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-  int32_t clang_Range_isNull(const  ::clang::thrift::CXSourceRange& /* range */) {
+  int32_t Range_isNull(const  ::clad::CXSourceRange& /* range */) {
     int32_t _return = 0;
     return _return;
   }
-  void clang_getExpansionLocation( ::clang::thrift::CXSourcePosition& /* _return */, const  ::clang::thrift::CXSourceLocation& /* location */) {
+  void getExpansionLocation( ::clad::CXSourcePosition& /* _return */, const  ::clad::CXSourceLocation& /* location */) {
     return;
   }
-  void clang_getPresumedLocation( ::clang::thrift::CXSourcePosition& /* _return */, const  ::clang::thrift::CXSourceLocation& /* location */) {
+  void getPresumedLocation( ::clad::CXSourcePosition& /* _return */, const  ::clad::CXSourceLocation& /* location */) {
     return;
   }
-  void clang_getInstantiationLocation( ::clang::thrift::CXSourcePosition& /* _return */, const  ::clang::thrift::CXSourceLocation& /* location */) {
+  void getInstantiationLocation( ::clad::CXSourcePosition& /* _return */, const  ::clad::CXSourceLocation& /* location */) {
     return;
   }
-  void clang_getSpellingLocation( ::clang::thrift::CXSourcePosition& /* _return */, const  ::clang::thrift::CXSourceLocation& /* location */) {
+  void getSpellingLocation( ::clad::CXSourcePosition& /* _return */, const  ::clad::CXSourceLocation& /* location */) {
     return;
   }
-  void clang_getRangeStart( ::clang::thrift::CXSourceLocation& /* _return */, const  ::clang::thrift::CXSourceRange& /* range */) {
+  void getRangeStart( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXSourceRange& /* range */) {
     return;
   }
-  void clang_getRangeEnd( ::clang::thrift::CXSourceLocation& /* _return */, const  ::clang::thrift::CXSourceRange& /* range */) {
+  void getRangeEnd( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXSourceRange& /* range */) {
     return;
   }
-   ::clang::thrift::u32 clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDiagnosticSet /* diags */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 getNumDiagnosticsInSet(const  ::clad::CXDiagnosticSet /* diags */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-   ::clang::thrift::CXDiagnostic clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagnosticSet /* diags */, const  ::clang::thrift::u32 /* index */) {
-     ::clang::thrift::CXDiagnostic _return = 0;
+   ::clad::CXDiagnostic getDiagnosticInSet(const  ::clad::CXDiagnosticSet /* diags */, const  ::clad::u32 /* index */) {
+     ::clad::CXDiagnostic _return = 0;
     return _return;
   }
-   ::clang::thrift::CXDiagnosticSet clang_loadDiagnostics(const std::string& /* filename */) {
-     ::clang::thrift::CXDiagnosticSet _return = 0;
+   ::clad::CXDiagnosticSet loadDiagnostics(const std::string& /* filename */) {
+     ::clad::CXDiagnosticSet _return = 0;
     return _return;
   }
-  void clang_disposeDiagnosticSet(const  ::clang::thrift::CXDiagnosticSet /* diagnosticSet */) {
+  void disposeDiagnosticSet(const  ::clad::CXDiagnosticSet /* diagnosticSet */) {
     return;
   }
-   ::clang::thrift::CXDiagnosticSet clang_getChildDiagnostics(const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
-     ::clang::thrift::CXDiagnosticSet _return = 0;
+   ::clad::CXDiagnosticSet getChildDiagnostics(const  ::clad::CXDiagnostic /* diagnostic */) {
+     ::clad::CXDiagnosticSet _return = 0;
     return _return;
   }
-   ::clang::thrift::u32 clang_getNumDiagnostics(const  ::clang::thrift::CXTranslationUnit /* unit */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 getNumDiagnostics(const  ::clad::CXTranslationUnit /* unit */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-   ::clang::thrift::CXDiagnostic clang_getDiagnostic(const  ::clang::thrift::CXTranslationUnit /* unit */, const  ::clang::thrift::u32 /* index */) {
-     ::clang::thrift::CXDiagnostic _return = 0;
+   ::clad::CXDiagnostic getDiagnostic(const  ::clad::CXTranslationUnit /* unit */, const  ::clad::u32 /* index */) {
+     ::clad::CXDiagnostic _return = 0;
     return _return;
   }
-   ::clang::thrift::CXDiagnosticSet clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTranslationUnit /* unit */) {
-     ::clang::thrift::CXDiagnosticSet _return = 0;
+   ::clad::CXDiagnosticSet getDiagnosticSetFromTU(const  ::clad::CXTranslationUnit /* unit */) {
+     ::clad::CXDiagnosticSet _return = 0;
     return _return;
   }
-  void clang_disposeDiagnostic(const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
+  void disposeDiagnostic(const  ::clad::CXDiagnostic /* diagnostic */) {
     return;
   }
-  void clang_formatDiagnostic(std::string& /* _return */, const  ::clang::thrift::CXDiagnostic /* diagnostic */, const  ::clang::thrift::u32 /* options */) {
+  void formatDiagnostic(std::string& /* _return */, const  ::clad::CXDiagnostic /* diagnostic */, const  ::clad::u32 /* options */) {
     return;
   }
-   ::clang::thrift::u32 clang_defaultDiagnosticDisplayOptions() {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 defaultDiagnosticDisplayOptions() {
+     ::clad::u32 _return = 0;
     return _return;
   }
-   ::clang::thrift::CXDiagnosticSeverity::type clang_getDiagnosticSeverity(const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
-     ::clang::thrift::CXDiagnosticSeverity::type _return = ( ::clang::thrift::CXDiagnosticSeverity::type)0;
+   ::clad::CXDiagnosticSeverity::type getDiagnosticSeverity(const  ::clad::CXDiagnostic /* diagnostic */) {
+     ::clad::CXDiagnosticSeverity::type _return = ( ::clad::CXDiagnosticSeverity::type)0;
     return _return;
   }
-  void clang_getDiagnosticLocation( ::clang::thrift::CXSourceLocation& /* _return */, const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
+  void getDiagnosticLocation( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXDiagnostic /* diagnostic */) {
     return;
   }
-  void clang_getDiagnosticSpelling(std::string& /* _return */, const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
+  void getDiagnosticSpelling(std::string& /* _return */, const  ::clad::CXDiagnostic /* diagnostic */) {
     return;
   }
-  void clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticOption& /* _return */, const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
+  void getDiagnosticOption( ::clad::CXDiagnosticOption& /* _return */, const  ::clad::CXDiagnostic /* diagnostic */) {
     return;
   }
-   ::clang::thrift::u32 clang_getDiagnosticCategory(const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 getDiagnosticCategory(const  ::clad::CXDiagnostic /* diagnostic */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-  void clang_getDiagnosticCategoryName(std::string& /* _return */, const  ::clang::thrift::u32 /* category */) {
+  void getDiagnosticCategoryName(std::string& /* _return */, const  ::clad::u32 /* category */) {
     return;
   }
-  void clang_getDiagnosticCategoryText(std::string& /* _return */, const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
+  void getDiagnosticCategoryText(std::string& /* _return */, const  ::clad::CXDiagnostic /* diagnostic */) {
     return;
   }
-   ::clang::thrift::u32 clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 getDiagnosticNumRanges(const  ::clad::CXDiagnostic /* diagnostic */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-  void clang_getDiagnosticRange( ::clang::thrift::CXSourceRange& /* _return */, const  ::clang::thrift::CXDiagnostic /* diagnostic */, const  ::clang::thrift::u32 /* range */) {
+  void getDiagnosticRange( ::clad::CXSourceRange& /* _return */, const  ::clad::CXDiagnostic /* diagnostic */, const  ::clad::u32 /* range */) {
     return;
   }
-   ::clang::thrift::u32 clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDiagnostic /* diagnostic */) {
-     ::clang::thrift::u32 _return = 0;
+   ::clad::u32 getDiagnosticNumFixIts(const  ::clad::CXDiagnostic /* diagnostic */) {
+     ::clad::u32 _return = 0;
     return _return;
   }
-  void clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFixIt& /* _return */, const  ::clang::thrift::CXDiagnostic /* Diagnostic */, const  ::clang::thrift::u32 /* FixIt */) {
+  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& /* _return */, const  ::clad::CXDiagnostic /* Diagnostic */, const  ::clad::u32 /* FixIt */) {
     return;
   }
 };
 
-typedef struct _Clang_clang_createIndex_args__isset {
-  _Clang_clang_createIndex_args__isset() : excludeDeclarationsFromPCH(false), displayDiagnostics(false) {}
+typedef struct _Clang_createIndex_args__isset {
+  _Clang_createIndex_args__isset() : excludeDeclarationsFromPCH(false), displayDiagnostics(false) {}
   bool excludeDeclarationsFromPCH;
   bool displayDiagnostics;
-} _Clang_clang_createIndex_args__isset;
+} _Clang_createIndex_args__isset;
 
-class Clang_clang_createIndex_args {
+class Clang_createIndex_args {
  public:
 
-  Clang_clang_createIndex_args() : excludeDeclarationsFromPCH(0), displayDiagnostics(0) {
+  Clang_createIndex_args() : excludeDeclarationsFromPCH(0), displayDiagnostics(0) {
   }
 
-  virtual ~Clang_clang_createIndex_args() throw() {}
+  virtual ~Clang_createIndex_args() throw() {}
 
   int32_t excludeDeclarationsFromPCH;
   int32_t displayDiagnostics;
 
-  _Clang_clang_createIndex_args__isset __isset;
+  _Clang_createIndex_args__isset __isset;
 
   void __set_excludeDeclarationsFromPCH(const int32_t val) {
     excludeDeclarationsFromPCH = val;
@@ -329,7 +329,7 @@ class Clang_clang_createIndex_args {
     displayDiagnostics = val;
   }
 
-  bool operator == (const Clang_clang_createIndex_args & rhs) const
+  bool operator == (const Clang_createIndex_args & rhs) const
   {
     if (!(excludeDeclarationsFromPCH == rhs.excludeDeclarationsFromPCH))
       return false;
@@ -337,11 +337,11 @@ class Clang_clang_createIndex_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_createIndex_args &rhs) const {
+  bool operator != (const Clang_createIndex_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_createIndex_args & ) const;
+  bool operator < (const Clang_createIndex_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -349,11 +349,11 @@ class Clang_clang_createIndex_args {
 };
 
 
-class Clang_clang_createIndex_pargs {
+class Clang_createIndex_pargs {
  public:
 
 
-  virtual ~Clang_clang_createIndex_pargs() throw() {}
+  virtual ~Clang_createIndex_pargs() throw() {}
 
   const int32_t* excludeDeclarationsFromPCH;
   const int32_t* displayDiagnostics;
@@ -362,95 +362,95 @@ class Clang_clang_createIndex_pargs {
 
 };
 
-typedef struct _Clang_clang_createIndex_result__isset {
-  _Clang_clang_createIndex_result__isset() : success(false) {}
+typedef struct _Clang_createIndex_result__isset {
+  _Clang_createIndex_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_createIndex_result__isset;
+} _Clang_createIndex_result__isset;
 
-class Clang_clang_createIndex_result {
+class Clang_createIndex_result {
  public:
 
-  Clang_clang_createIndex_result() : success(0) {
+  Clang_createIndex_result() : success(0) {
   }
 
-  virtual ~Clang_clang_createIndex_result() throw() {}
+  virtual ~Clang_createIndex_result() throw() {}
 
-   ::clang::thrift::CXIndex success;
+   ::clad::CXIndex success;
 
-  _Clang_clang_createIndex_result__isset __isset;
+  _Clang_createIndex_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXIndex val) {
+  void __set_success(const  ::clad::CXIndex val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_createIndex_result & rhs) const
+  bool operator == (const Clang_createIndex_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_createIndex_result &rhs) const {
+  bool operator != (const Clang_createIndex_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_createIndex_result & ) const;
+  bool operator < (const Clang_createIndex_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_createIndex_presult__isset {
-  _Clang_clang_createIndex_presult__isset() : success(false) {}
+typedef struct _Clang_createIndex_presult__isset {
+  _Clang_createIndex_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_createIndex_presult__isset;
+} _Clang_createIndex_presult__isset;
 
-class Clang_clang_createIndex_presult {
+class Clang_createIndex_presult {
  public:
 
 
-  virtual ~Clang_clang_createIndex_presult() throw() {}
+  virtual ~Clang_createIndex_presult() throw() {}
 
-   ::clang::thrift::CXIndex* success;
+   ::clad::CXIndex* success;
 
-  _Clang_clang_createIndex_presult__isset __isset;
+  _Clang_createIndex_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_disposeIndex_args__isset {
-  _Clang_clang_disposeIndex_args__isset() : index(false) {}
+typedef struct _Clang_disposeIndex_args__isset {
+  _Clang_disposeIndex_args__isset() : index(false) {}
   bool index;
-} _Clang_clang_disposeIndex_args__isset;
+} _Clang_disposeIndex_args__isset;
 
-class Clang_clang_disposeIndex_args {
+class Clang_disposeIndex_args {
  public:
 
-  Clang_clang_disposeIndex_args() : index(0) {
+  Clang_disposeIndex_args() : index(0) {
   }
 
-  virtual ~Clang_clang_disposeIndex_args() throw() {}
+  virtual ~Clang_disposeIndex_args() throw() {}
 
-   ::clang::thrift::CXIndex index;
+   ::clad::CXIndex index;
 
-  _Clang_clang_disposeIndex_args__isset __isset;
+  _Clang_disposeIndex_args__isset __isset;
 
-  void __set_index(const  ::clang::thrift::CXIndex val) {
+  void __set_index(const  ::clad::CXIndex val) {
     index = val;
   }
 
-  bool operator == (const Clang_clang_disposeIndex_args & rhs) const
+  bool operator == (const Clang_disposeIndex_args & rhs) const
   {
     if (!(index == rhs.index))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_disposeIndex_args &rhs) const {
+  bool operator != (const Clang_disposeIndex_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeIndex_args & ) const;
+  bool operator < (const Clang_disposeIndex_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -458,37 +458,37 @@ class Clang_clang_disposeIndex_args {
 };
 
 
-class Clang_clang_disposeIndex_pargs {
+class Clang_disposeIndex_pargs {
  public:
 
 
-  virtual ~Clang_clang_disposeIndex_pargs() throw() {}
+  virtual ~Clang_disposeIndex_pargs() throw() {}
 
-  const  ::clang::thrift::CXIndex* index;
+  const  ::clad::CXIndex* index;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
 
-class Clang_clang_disposeIndex_result {
+class Clang_disposeIndex_result {
  public:
 
-  Clang_clang_disposeIndex_result() {
+  Clang_disposeIndex_result() {
   }
 
-  virtual ~Clang_clang_disposeIndex_result() throw() {}
+  virtual ~Clang_disposeIndex_result() throw() {}
 
 
-  bool operator == (const Clang_clang_disposeIndex_result & /* rhs */) const
+  bool operator == (const Clang_disposeIndex_result & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_disposeIndex_result &rhs) const {
+  bool operator != (const Clang_disposeIndex_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeIndex_result & ) const;
+  bool operator < (const Clang_disposeIndex_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -496,45 +496,45 @@ class Clang_clang_disposeIndex_result {
 };
 
 
-class Clang_clang_disposeIndex_presult {
+class Clang_disposeIndex_presult {
  public:
 
 
-  virtual ~Clang_clang_disposeIndex_presult() throw() {}
+  virtual ~Clang_disposeIndex_presult() throw() {}
 
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_CXIndex_setGlobalOptions_args__isset {
-  _Clang_clang_CXIndex_setGlobalOptions_args__isset() : index(false), options(false) {}
+typedef struct _Clang_CXIndex_setGlobalOptions_args__isset {
+  _Clang_CXIndex_setGlobalOptions_args__isset() : index(false), options(false) {}
   bool index;
   bool options;
-} _Clang_clang_CXIndex_setGlobalOptions_args__isset;
+} _Clang_CXIndex_setGlobalOptions_args__isset;
 
-class Clang_clang_CXIndex_setGlobalOptions_args {
+class Clang_CXIndex_setGlobalOptions_args {
  public:
 
-  Clang_clang_CXIndex_setGlobalOptions_args() : index(0), options(( ::clang::thrift::CXGlobalOptFlags::type)0) {
+  Clang_CXIndex_setGlobalOptions_args() : index(0), options(( ::clad::CXGlobalOptFlags::type)0) {
   }
 
-  virtual ~Clang_clang_CXIndex_setGlobalOptions_args() throw() {}
+  virtual ~Clang_CXIndex_setGlobalOptions_args() throw() {}
 
-   ::clang::thrift::CXIndex index;
-   ::clang::thrift::CXGlobalOptFlags::type options;
+   ::clad::CXIndex index;
+   ::clad::CXGlobalOptFlags::type options;
 
-  _Clang_clang_CXIndex_setGlobalOptions_args__isset __isset;
+  _Clang_CXIndex_setGlobalOptions_args__isset __isset;
 
-  void __set_index(const  ::clang::thrift::CXIndex val) {
+  void __set_index(const  ::clad::CXIndex val) {
     index = val;
   }
 
-  void __set_options(const  ::clang::thrift::CXGlobalOptFlags::type val) {
+  void __set_options(const  ::clad::CXGlobalOptFlags::type val) {
     options = val;
   }
 
-  bool operator == (const Clang_clang_CXIndex_setGlobalOptions_args & rhs) const
+  bool operator == (const Clang_CXIndex_setGlobalOptions_args & rhs) const
   {
     if (!(index == rhs.index))
       return false;
@@ -542,11 +542,11 @@ class Clang_clang_CXIndex_setGlobalOptions_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_CXIndex_setGlobalOptions_args &rhs) const {
+  bool operator != (const Clang_CXIndex_setGlobalOptions_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_CXIndex_setGlobalOptions_args & ) const;
+  bool operator < (const Clang_CXIndex_setGlobalOptions_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -554,38 +554,38 @@ class Clang_clang_CXIndex_setGlobalOptions_args {
 };
 
 
-class Clang_clang_CXIndex_setGlobalOptions_pargs {
+class Clang_CXIndex_setGlobalOptions_pargs {
  public:
 
 
-  virtual ~Clang_clang_CXIndex_setGlobalOptions_pargs() throw() {}
+  virtual ~Clang_CXIndex_setGlobalOptions_pargs() throw() {}
 
-  const  ::clang::thrift::CXIndex* index;
-  const  ::clang::thrift::CXGlobalOptFlags::type* options;
+  const  ::clad::CXIndex* index;
+  const  ::clad::CXGlobalOptFlags::type* options;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
 
-class Clang_clang_CXIndex_setGlobalOptions_result {
+class Clang_CXIndex_setGlobalOptions_result {
  public:
 
-  Clang_clang_CXIndex_setGlobalOptions_result() {
+  Clang_CXIndex_setGlobalOptions_result() {
   }
 
-  virtual ~Clang_clang_CXIndex_setGlobalOptions_result() throw() {}
+  virtual ~Clang_CXIndex_setGlobalOptions_result() throw() {}
 
 
-  bool operator == (const Clang_clang_CXIndex_setGlobalOptions_result & /* rhs */) const
+  bool operator == (const Clang_CXIndex_setGlobalOptions_result & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_CXIndex_setGlobalOptions_result &rhs) const {
+  bool operator != (const Clang_CXIndex_setGlobalOptions_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_CXIndex_setGlobalOptions_result & ) const;
+  bool operator < (const Clang_CXIndex_setGlobalOptions_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -593,49 +593,49 @@ class Clang_clang_CXIndex_setGlobalOptions_result {
 };
 
 
-class Clang_clang_CXIndex_setGlobalOptions_presult {
+class Clang_CXIndex_setGlobalOptions_presult {
  public:
 
 
-  virtual ~Clang_clang_CXIndex_setGlobalOptions_presult() throw() {}
+  virtual ~Clang_CXIndex_setGlobalOptions_presult() throw() {}
 
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_CXIndex_getGlobalOptions_args__isset {
-  _Clang_clang_CXIndex_getGlobalOptions_args__isset() : index(false) {}
+typedef struct _Clang_CXIndex_getGlobalOptions_args__isset {
+  _Clang_CXIndex_getGlobalOptions_args__isset() : index(false) {}
   bool index;
-} _Clang_clang_CXIndex_getGlobalOptions_args__isset;
+} _Clang_CXIndex_getGlobalOptions_args__isset;
 
-class Clang_clang_CXIndex_getGlobalOptions_args {
+class Clang_CXIndex_getGlobalOptions_args {
  public:
 
-  Clang_clang_CXIndex_getGlobalOptions_args() : index(0) {
+  Clang_CXIndex_getGlobalOptions_args() : index(0) {
   }
 
-  virtual ~Clang_clang_CXIndex_getGlobalOptions_args() throw() {}
+  virtual ~Clang_CXIndex_getGlobalOptions_args() throw() {}
 
-   ::clang::thrift::CXIndex index;
+   ::clad::CXIndex index;
 
-  _Clang_clang_CXIndex_getGlobalOptions_args__isset __isset;
+  _Clang_CXIndex_getGlobalOptions_args__isset __isset;
 
-  void __set_index(const  ::clang::thrift::CXIndex val) {
+  void __set_index(const  ::clad::CXIndex val) {
     index = val;
   }
 
-  bool operator == (const Clang_clang_CXIndex_getGlobalOptions_args & rhs) const
+  bool operator == (const Clang_CXIndex_getGlobalOptions_args & rhs) const
   {
     if (!(index == rhs.index))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_CXIndex_getGlobalOptions_args &rhs) const {
+  bool operator != (const Clang_CXIndex_getGlobalOptions_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_CXIndex_getGlobalOptions_args & ) const;
+  bool operator < (const Clang_CXIndex_getGlobalOptions_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -643,107 +643,107 @@ class Clang_clang_CXIndex_getGlobalOptions_args {
 };
 
 
-class Clang_clang_CXIndex_getGlobalOptions_pargs {
+class Clang_CXIndex_getGlobalOptions_pargs {
  public:
 
 
-  virtual ~Clang_clang_CXIndex_getGlobalOptions_pargs() throw() {}
+  virtual ~Clang_CXIndex_getGlobalOptions_pargs() throw() {}
 
-  const  ::clang::thrift::CXIndex* index;
+  const  ::clad::CXIndex* index;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_CXIndex_getGlobalOptions_result__isset {
-  _Clang_clang_CXIndex_getGlobalOptions_result__isset() : success(false) {}
+typedef struct _Clang_CXIndex_getGlobalOptions_result__isset {
+  _Clang_CXIndex_getGlobalOptions_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_CXIndex_getGlobalOptions_result__isset;
+} _Clang_CXIndex_getGlobalOptions_result__isset;
 
-class Clang_clang_CXIndex_getGlobalOptions_result {
+class Clang_CXIndex_getGlobalOptions_result {
  public:
 
-  Clang_clang_CXIndex_getGlobalOptions_result() : success(( ::clang::thrift::CXGlobalOptFlags::type)0) {
+  Clang_CXIndex_getGlobalOptions_result() : success(( ::clad::CXGlobalOptFlags::type)0) {
   }
 
-  virtual ~Clang_clang_CXIndex_getGlobalOptions_result() throw() {}
+  virtual ~Clang_CXIndex_getGlobalOptions_result() throw() {}
 
-   ::clang::thrift::CXGlobalOptFlags::type success;
+   ::clad::CXGlobalOptFlags::type success;
 
-  _Clang_clang_CXIndex_getGlobalOptions_result__isset __isset;
+  _Clang_CXIndex_getGlobalOptions_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXGlobalOptFlags::type val) {
+  void __set_success(const  ::clad::CXGlobalOptFlags::type val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_CXIndex_getGlobalOptions_result & rhs) const
+  bool operator == (const Clang_CXIndex_getGlobalOptions_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_CXIndex_getGlobalOptions_result &rhs) const {
+  bool operator != (const Clang_CXIndex_getGlobalOptions_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_CXIndex_getGlobalOptions_result & ) const;
+  bool operator < (const Clang_CXIndex_getGlobalOptions_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_CXIndex_getGlobalOptions_presult__isset {
-  _Clang_clang_CXIndex_getGlobalOptions_presult__isset() : success(false) {}
+typedef struct _Clang_CXIndex_getGlobalOptions_presult__isset {
+  _Clang_CXIndex_getGlobalOptions_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_CXIndex_getGlobalOptions_presult__isset;
+} _Clang_CXIndex_getGlobalOptions_presult__isset;
 
-class Clang_clang_CXIndex_getGlobalOptions_presult {
+class Clang_CXIndex_getGlobalOptions_presult {
  public:
 
 
-  virtual ~Clang_clang_CXIndex_getGlobalOptions_presult() throw() {}
+  virtual ~Clang_CXIndex_getGlobalOptions_presult() throw() {}
 
-   ::clang::thrift::CXGlobalOptFlags::type* success;
+   ::clad::CXGlobalOptFlags::type* success;
 
-  _Clang_clang_CXIndex_getGlobalOptions_presult__isset __isset;
+  _Clang_CXIndex_getGlobalOptions_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getTranslationUnitSpelling_args__isset {
-  _Clang_clang_getTranslationUnitSpelling_args__isset() : unit(false) {}
+typedef struct _Clang_getTranslationUnitSpelling_args__isset {
+  _Clang_getTranslationUnitSpelling_args__isset() : unit(false) {}
   bool unit;
-} _Clang_clang_getTranslationUnitSpelling_args__isset;
+} _Clang_getTranslationUnitSpelling_args__isset;
 
-class Clang_clang_getTranslationUnitSpelling_args {
+class Clang_getTranslationUnitSpelling_args {
  public:
 
-  Clang_clang_getTranslationUnitSpelling_args() : unit(0) {
+  Clang_getTranslationUnitSpelling_args() : unit(0) {
   }
 
-  virtual ~Clang_clang_getTranslationUnitSpelling_args() throw() {}
+  virtual ~Clang_getTranslationUnitSpelling_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
 
-  _Clang_clang_getTranslationUnitSpelling_args__isset __isset;
+  _Clang_getTranslationUnitSpelling_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  bool operator == (const Clang_clang_getTranslationUnitSpelling_args & rhs) const
+  bool operator == (const Clang_getTranslationUnitSpelling_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getTranslationUnitSpelling_args &rhs) const {
+  bool operator != (const Clang_getTranslationUnitSpelling_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getTranslationUnitSpelling_args & ) const;
+  bool operator < (const Clang_getTranslationUnitSpelling_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -751,447 +751,99 @@ class Clang_clang_getTranslationUnitSpelling_args {
 };
 
 
-class Clang_clang_getTranslationUnitSpelling_pargs {
+class Clang_getTranslationUnitSpelling_pargs {
  public:
 
 
-  virtual ~Clang_clang_getTranslationUnitSpelling_pargs() throw() {}
+  virtual ~Clang_getTranslationUnitSpelling_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getTranslationUnitSpelling_result__isset {
-  _Clang_clang_getTranslationUnitSpelling_result__isset() : success(false) {}
+typedef struct _Clang_getTranslationUnitSpelling_result__isset {
+  _Clang_getTranslationUnitSpelling_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getTranslationUnitSpelling_result__isset;
+} _Clang_getTranslationUnitSpelling_result__isset;
 
-class Clang_clang_getTranslationUnitSpelling_result {
+class Clang_getTranslationUnitSpelling_result {
  public:
 
-  Clang_clang_getTranslationUnitSpelling_result() : success() {
+  Clang_getTranslationUnitSpelling_result() : success() {
   }
 
-  virtual ~Clang_clang_getTranslationUnitSpelling_result() throw() {}
+  virtual ~Clang_getTranslationUnitSpelling_result() throw() {}
 
   std::string success;
 
-  _Clang_clang_getTranslationUnitSpelling_result__isset __isset;
+  _Clang_getTranslationUnitSpelling_result__isset __isset;
 
   void __set_success(const std::string& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getTranslationUnitSpelling_result & rhs) const
+  bool operator == (const Clang_getTranslationUnitSpelling_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getTranslationUnitSpelling_result &rhs) const {
+  bool operator != (const Clang_getTranslationUnitSpelling_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getTranslationUnitSpelling_result & ) const;
+  bool operator < (const Clang_getTranslationUnitSpelling_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getTranslationUnitSpelling_presult__isset {
-  _Clang_clang_getTranslationUnitSpelling_presult__isset() : success(false) {}
+typedef struct _Clang_getTranslationUnitSpelling_presult__isset {
+  _Clang_getTranslationUnitSpelling_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getTranslationUnitSpelling_presult__isset;
+} _Clang_getTranslationUnitSpelling_presult__isset;
 
-class Clang_clang_getTranslationUnitSpelling_presult {
+class Clang_getTranslationUnitSpelling_presult {
  public:
 
 
-  virtual ~Clang_clang_getTranslationUnitSpelling_presult() throw() {}
+  virtual ~Clang_getTranslationUnitSpelling_presult() throw() {}
 
   std::string* success;
 
-  _Clang_clang_getTranslationUnitSpelling_presult__isset __isset;
+  _Clang_getTranslationUnitSpelling_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_createTranslationUnitFromSourceFile_args__isset {
-  _Clang_clang_createTranslationUnitFromSourceFile_args__isset() : idx(false), source_filename(false), clang_command_line_args(false), unsaved_files(false) {}
-  bool idx;
-  bool source_filename;
-  bool clang_command_line_args;
-  bool unsaved_files;
-} _Clang_clang_createTranslationUnitFromSourceFile_args__isset;
-
-class Clang_clang_createTranslationUnitFromSourceFile_args {
- public:
-
-  Clang_clang_createTranslationUnitFromSourceFile_args() : idx(0), source_filename() {
-  }
-
-  virtual ~Clang_clang_createTranslationUnitFromSourceFile_args() throw() {}
-
-   ::clang::thrift::CXIndex idx;
-  std::string source_filename;
-  std::vector<std::string>  clang_command_line_args;
-  std::vector< ::clang::thrift::CXUnsavedFile>  unsaved_files;
-
-  _Clang_clang_createTranslationUnitFromSourceFile_args__isset __isset;
-
-  void __set_idx(const  ::clang::thrift::CXIndex val) {
-    idx = val;
-  }
-
-  void __set_source_filename(const std::string& val) {
-    source_filename = val;
-  }
-
-  void __set_clang_command_line_args(const std::vector<std::string> & val) {
-    clang_command_line_args = val;
-  }
-
-  void __set_unsaved_files(const std::vector< ::clang::thrift::CXUnsavedFile> & val) {
-    unsaved_files = val;
-  }
-
-  bool operator == (const Clang_clang_createTranslationUnitFromSourceFile_args & rhs) const
-  {
-    if (!(idx == rhs.idx))
-      return false;
-    if (!(source_filename == rhs.source_filename))
-      return false;
-    if (!(clang_command_line_args == rhs.clang_command_line_args))
-      return false;
-    if (!(unsaved_files == rhs.unsaved_files))
-      return false;
-    return true;
-  }
-  bool operator != (const Clang_clang_createTranslationUnitFromSourceFile_args &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_clang_createTranslationUnitFromSourceFile_args & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-
-class Clang_clang_createTranslationUnitFromSourceFile_pargs {
- public:
-
-
-  virtual ~Clang_clang_createTranslationUnitFromSourceFile_pargs() throw() {}
-
-  const  ::clang::thrift::CXIndex* idx;
-  const std::string* source_filename;
-  const std::vector<std::string> * clang_command_line_args;
-  const std::vector< ::clang::thrift::CXUnsavedFile> * unsaved_files;
-
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-typedef struct _Clang_clang_createTranslationUnitFromSourceFile_result__isset {
-  _Clang_clang_createTranslationUnitFromSourceFile_result__isset() : success(false) {}
-  bool success;
-} _Clang_clang_createTranslationUnitFromSourceFile_result__isset;
-
-class Clang_clang_createTranslationUnitFromSourceFile_result {
- public:
-
-  Clang_clang_createTranslationUnitFromSourceFile_result() : success(0) {
-  }
-
-  virtual ~Clang_clang_createTranslationUnitFromSourceFile_result() throw() {}
-
-   ::clang::thrift::CXTranslationUnit success;
-
-  _Clang_clang_createTranslationUnitFromSourceFile_result__isset __isset;
-
-  void __set_success(const  ::clang::thrift::CXTranslationUnit val) {
-    success = val;
-  }
-
-  bool operator == (const Clang_clang_createTranslationUnitFromSourceFile_result & rhs) const
-  {
-    if (!(success == rhs.success))
-      return false;
-    return true;
-  }
-  bool operator != (const Clang_clang_createTranslationUnitFromSourceFile_result &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_clang_createTranslationUnitFromSourceFile_result & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-typedef struct _Clang_clang_createTranslationUnitFromSourceFile_presult__isset {
-  _Clang_clang_createTranslationUnitFromSourceFile_presult__isset() : success(false) {}
-  bool success;
-} _Clang_clang_createTranslationUnitFromSourceFile_presult__isset;
-
-class Clang_clang_createTranslationUnitFromSourceFile_presult {
- public:
-
-
-  virtual ~Clang_clang_createTranslationUnitFromSourceFile_presult() throw() {}
-
-   ::clang::thrift::CXTranslationUnit* success;
-
-  _Clang_clang_createTranslationUnitFromSourceFile_presult__isset __isset;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-
-};
-
-typedef struct _Clang_clang_createTranslationUnit_args__isset {
-  _Clang_clang_createTranslationUnit_args__isset() : idx(false), ast_filename(false) {}
-  bool idx;
-  bool ast_filename;
-} _Clang_clang_createTranslationUnit_args__isset;
-
-class Clang_clang_createTranslationUnit_args {
- public:
-
-  Clang_clang_createTranslationUnit_args() : idx(0), ast_filename() {
-  }
-
-  virtual ~Clang_clang_createTranslationUnit_args() throw() {}
-
-   ::clang::thrift::CXIndex idx;
-  std::string ast_filename;
-
-  _Clang_clang_createTranslationUnit_args__isset __isset;
-
-  void __set_idx(const  ::clang::thrift::CXIndex val) {
-    idx = val;
-  }
-
-  void __set_ast_filename(const std::string& val) {
-    ast_filename = val;
-  }
-
-  bool operator == (const Clang_clang_createTranslationUnit_args & rhs) const
-  {
-    if (!(idx == rhs.idx))
-      return false;
-    if (!(ast_filename == rhs.ast_filename))
-      return false;
-    return true;
-  }
-  bool operator != (const Clang_clang_createTranslationUnit_args &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_clang_createTranslationUnit_args & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-
-class Clang_clang_createTranslationUnit_pargs {
- public:
-
-
-  virtual ~Clang_clang_createTranslationUnit_pargs() throw() {}
-
-  const  ::clang::thrift::CXIndex* idx;
-  const std::string* ast_filename;
-
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-typedef struct _Clang_clang_createTranslationUnit_result__isset {
-  _Clang_clang_createTranslationUnit_result__isset() : success(false) {}
-  bool success;
-} _Clang_clang_createTranslationUnit_result__isset;
-
-class Clang_clang_createTranslationUnit_result {
- public:
-
-  Clang_clang_createTranslationUnit_result() : success(0) {
-  }
-
-  virtual ~Clang_clang_createTranslationUnit_result() throw() {}
-
-   ::clang::thrift::CXTranslationUnit success;
-
-  _Clang_clang_createTranslationUnit_result__isset __isset;
-
-  void __set_success(const  ::clang::thrift::CXTranslationUnit val) {
-    success = val;
-  }
-
-  bool operator == (const Clang_clang_createTranslationUnit_result & rhs) const
-  {
-    if (!(success == rhs.success))
-      return false;
-    return true;
-  }
-  bool operator != (const Clang_clang_createTranslationUnit_result &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_clang_createTranslationUnit_result & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-typedef struct _Clang_clang_createTranslationUnit_presult__isset {
-  _Clang_clang_createTranslationUnit_presult__isset() : success(false) {}
-  bool success;
-} _Clang_clang_createTranslationUnit_presult__isset;
-
-class Clang_clang_createTranslationUnit_presult {
- public:
-
-
-  virtual ~Clang_clang_createTranslationUnit_presult() throw() {}
-
-   ::clang::thrift::CXTranslationUnit* success;
-
-  _Clang_clang_createTranslationUnit_presult__isset __isset;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-
-};
-
-
-class Clang_clang_defaultEditingTranslationUnitOptions_args {
- public:
-
-  Clang_clang_defaultEditingTranslationUnitOptions_args() {
-  }
-
-  virtual ~Clang_clang_defaultEditingTranslationUnitOptions_args() throw() {}
-
-
-  bool operator == (const Clang_clang_defaultEditingTranslationUnitOptions_args & /* rhs */) const
-  {
-    return true;
-  }
-  bool operator != (const Clang_clang_defaultEditingTranslationUnitOptions_args &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_clang_defaultEditingTranslationUnitOptions_args & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-
-class Clang_clang_defaultEditingTranslationUnitOptions_pargs {
- public:
-
-
-  virtual ~Clang_clang_defaultEditingTranslationUnitOptions_pargs() throw() {}
-
-
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-typedef struct _Clang_clang_defaultEditingTranslationUnitOptions_result__isset {
-  _Clang_clang_defaultEditingTranslationUnitOptions_result__isset() : success(false) {}
-  bool success;
-} _Clang_clang_defaultEditingTranslationUnitOptions_result__isset;
-
-class Clang_clang_defaultEditingTranslationUnitOptions_result {
- public:
-
-  Clang_clang_defaultEditingTranslationUnitOptions_result() : success(0) {
-  }
-
-  virtual ~Clang_clang_defaultEditingTranslationUnitOptions_result() throw() {}
-
-   ::clang::thrift::u32 success;
-
-  _Clang_clang_defaultEditingTranslationUnitOptions_result__isset __isset;
-
-  void __set_success(const  ::clang::thrift::u32 val) {
-    success = val;
-  }
-
-  bool operator == (const Clang_clang_defaultEditingTranslationUnitOptions_result & rhs) const
-  {
-    if (!(success == rhs.success))
-      return false;
-    return true;
-  }
-  bool operator != (const Clang_clang_defaultEditingTranslationUnitOptions_result &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_clang_defaultEditingTranslationUnitOptions_result & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-typedef struct _Clang_clang_defaultEditingTranslationUnitOptions_presult__isset {
-  _Clang_clang_defaultEditingTranslationUnitOptions_presult__isset() : success(false) {}
-  bool success;
-} _Clang_clang_defaultEditingTranslationUnitOptions_presult__isset;
-
-class Clang_clang_defaultEditingTranslationUnitOptions_presult {
- public:
-
-
-  virtual ~Clang_clang_defaultEditingTranslationUnitOptions_presult() throw() {}
-
-   ::clang::thrift::u32* success;
-
-  _Clang_clang_defaultEditingTranslationUnitOptions_presult__isset __isset;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-
-};
-
-typedef struct _Clang_clang_parseTranslationUnit_args__isset {
-  _Clang_clang_parseTranslationUnit_args__isset() : idx(false), source_filename(false), command_line_args(false), unsaved_files(false), options(false) {}
+typedef struct _Clang_createTranslationUnitFromSourceFile_args__isset {
+  _Clang_createTranslationUnitFromSourceFile_args__isset() : idx(false), source_filename(false), command_line_args(false), unsaved_files(false) {}
   bool idx;
   bool source_filename;
   bool command_line_args;
   bool unsaved_files;
-  bool options;
-} _Clang_clang_parseTranslationUnit_args__isset;
+} _Clang_createTranslationUnitFromSourceFile_args__isset;
 
-class Clang_clang_parseTranslationUnit_args {
+class Clang_createTranslationUnitFromSourceFile_args {
  public:
 
-  Clang_clang_parseTranslationUnit_args() : idx(0), source_filename(), options(0) {
+  Clang_createTranslationUnitFromSourceFile_args() : idx(0), source_filename() {
   }
 
-  virtual ~Clang_clang_parseTranslationUnit_args() throw() {}
+  virtual ~Clang_createTranslationUnitFromSourceFile_args() throw() {}
 
-   ::clang::thrift::CXIndex idx;
+   ::clad::CXIndex idx;
   std::string source_filename;
   std::vector<std::string>  command_line_args;
-  std::vector< ::clang::thrift::CXUnsavedFile>  unsaved_files;
-   ::clang::thrift::u32 options;
+  std::vector< ::clad::CXUnsavedFile>  unsaved_files;
 
-  _Clang_clang_parseTranslationUnit_args__isset __isset;
+  _Clang_createTranslationUnitFromSourceFile_args__isset __isset;
 
-  void __set_idx(const  ::clang::thrift::CXIndex val) {
+  void __set_idx(const  ::clad::CXIndex val) {
     idx = val;
   }
 
@@ -1203,15 +855,363 @@ class Clang_clang_parseTranslationUnit_args {
     command_line_args = val;
   }
 
-  void __set_unsaved_files(const std::vector< ::clang::thrift::CXUnsavedFile> & val) {
+  void __set_unsaved_files(const std::vector< ::clad::CXUnsavedFile> & val) {
     unsaved_files = val;
   }
 
-  void __set_options(const  ::clang::thrift::u32 val) {
+  bool operator == (const Clang_createTranslationUnitFromSourceFile_args & rhs) const
+  {
+    if (!(idx == rhs.idx))
+      return false;
+    if (!(source_filename == rhs.source_filename))
+      return false;
+    if (!(command_line_args == rhs.command_line_args))
+      return false;
+    if (!(unsaved_files == rhs.unsaved_files))
+      return false;
+    return true;
+  }
+  bool operator != (const Clang_createTranslationUnitFromSourceFile_args &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const Clang_createTranslationUnitFromSourceFile_args & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class Clang_createTranslationUnitFromSourceFile_pargs {
+ public:
+
+
+  virtual ~Clang_createTranslationUnitFromSourceFile_pargs() throw() {}
+
+  const  ::clad::CXIndex* idx;
+  const std::string* source_filename;
+  const std::vector<std::string> * command_line_args;
+  const std::vector< ::clad::CXUnsavedFile> * unsaved_files;
+
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+typedef struct _Clang_createTranslationUnitFromSourceFile_result__isset {
+  _Clang_createTranslationUnitFromSourceFile_result__isset() : success(false) {}
+  bool success;
+} _Clang_createTranslationUnitFromSourceFile_result__isset;
+
+class Clang_createTranslationUnitFromSourceFile_result {
+ public:
+
+  Clang_createTranslationUnitFromSourceFile_result() : success(0) {
+  }
+
+  virtual ~Clang_createTranslationUnitFromSourceFile_result() throw() {}
+
+   ::clad::CXTranslationUnit success;
+
+  _Clang_createTranslationUnitFromSourceFile_result__isset __isset;
+
+  void __set_success(const  ::clad::CXTranslationUnit val) {
+    success = val;
+  }
+
+  bool operator == (const Clang_createTranslationUnitFromSourceFile_result & rhs) const
+  {
+    if (!(success == rhs.success))
+      return false;
+    return true;
+  }
+  bool operator != (const Clang_createTranslationUnitFromSourceFile_result &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const Clang_createTranslationUnitFromSourceFile_result & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+typedef struct _Clang_createTranslationUnitFromSourceFile_presult__isset {
+  _Clang_createTranslationUnitFromSourceFile_presult__isset() : success(false) {}
+  bool success;
+} _Clang_createTranslationUnitFromSourceFile_presult__isset;
+
+class Clang_createTranslationUnitFromSourceFile_presult {
+ public:
+
+
+  virtual ~Clang_createTranslationUnitFromSourceFile_presult() throw() {}
+
+   ::clad::CXTranslationUnit* success;
+
+  _Clang_createTranslationUnitFromSourceFile_presult__isset __isset;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+
+};
+
+typedef struct _Clang_createTranslationUnit_args__isset {
+  _Clang_createTranslationUnit_args__isset() : idx(false), ast_filename(false) {}
+  bool idx;
+  bool ast_filename;
+} _Clang_createTranslationUnit_args__isset;
+
+class Clang_createTranslationUnit_args {
+ public:
+
+  Clang_createTranslationUnit_args() : idx(0), ast_filename() {
+  }
+
+  virtual ~Clang_createTranslationUnit_args() throw() {}
+
+   ::clad::CXIndex idx;
+  std::string ast_filename;
+
+  _Clang_createTranslationUnit_args__isset __isset;
+
+  void __set_idx(const  ::clad::CXIndex val) {
+    idx = val;
+  }
+
+  void __set_ast_filename(const std::string& val) {
+    ast_filename = val;
+  }
+
+  bool operator == (const Clang_createTranslationUnit_args & rhs) const
+  {
+    if (!(idx == rhs.idx))
+      return false;
+    if (!(ast_filename == rhs.ast_filename))
+      return false;
+    return true;
+  }
+  bool operator != (const Clang_createTranslationUnit_args &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const Clang_createTranslationUnit_args & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class Clang_createTranslationUnit_pargs {
+ public:
+
+
+  virtual ~Clang_createTranslationUnit_pargs() throw() {}
+
+  const  ::clad::CXIndex* idx;
+  const std::string* ast_filename;
+
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+typedef struct _Clang_createTranslationUnit_result__isset {
+  _Clang_createTranslationUnit_result__isset() : success(false) {}
+  bool success;
+} _Clang_createTranslationUnit_result__isset;
+
+class Clang_createTranslationUnit_result {
+ public:
+
+  Clang_createTranslationUnit_result() : success(0) {
+  }
+
+  virtual ~Clang_createTranslationUnit_result() throw() {}
+
+   ::clad::CXTranslationUnit success;
+
+  _Clang_createTranslationUnit_result__isset __isset;
+
+  void __set_success(const  ::clad::CXTranslationUnit val) {
+    success = val;
+  }
+
+  bool operator == (const Clang_createTranslationUnit_result & rhs) const
+  {
+    if (!(success == rhs.success))
+      return false;
+    return true;
+  }
+  bool operator != (const Clang_createTranslationUnit_result &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const Clang_createTranslationUnit_result & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+typedef struct _Clang_createTranslationUnit_presult__isset {
+  _Clang_createTranslationUnit_presult__isset() : success(false) {}
+  bool success;
+} _Clang_createTranslationUnit_presult__isset;
+
+class Clang_createTranslationUnit_presult {
+ public:
+
+
+  virtual ~Clang_createTranslationUnit_presult() throw() {}
+
+   ::clad::CXTranslationUnit* success;
+
+  _Clang_createTranslationUnit_presult__isset __isset;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+
+};
+
+
+class Clang_defaultEditingTranslationUnitOptions_args {
+ public:
+
+  Clang_defaultEditingTranslationUnitOptions_args() {
+  }
+
+  virtual ~Clang_defaultEditingTranslationUnitOptions_args() throw() {}
+
+
+  bool operator == (const Clang_defaultEditingTranslationUnitOptions_args & /* rhs */) const
+  {
+    return true;
+  }
+  bool operator != (const Clang_defaultEditingTranslationUnitOptions_args &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const Clang_defaultEditingTranslationUnitOptions_args & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class Clang_defaultEditingTranslationUnitOptions_pargs {
+ public:
+
+
+  virtual ~Clang_defaultEditingTranslationUnitOptions_pargs() throw() {}
+
+
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+typedef struct _Clang_defaultEditingTranslationUnitOptions_result__isset {
+  _Clang_defaultEditingTranslationUnitOptions_result__isset() : success(false) {}
+  bool success;
+} _Clang_defaultEditingTranslationUnitOptions_result__isset;
+
+class Clang_defaultEditingTranslationUnitOptions_result {
+ public:
+
+  Clang_defaultEditingTranslationUnitOptions_result() : success(0) {
+  }
+
+  virtual ~Clang_defaultEditingTranslationUnitOptions_result() throw() {}
+
+   ::clad::u32 success;
+
+  _Clang_defaultEditingTranslationUnitOptions_result__isset __isset;
+
+  void __set_success(const  ::clad::u32 val) {
+    success = val;
+  }
+
+  bool operator == (const Clang_defaultEditingTranslationUnitOptions_result & rhs) const
+  {
+    if (!(success == rhs.success))
+      return false;
+    return true;
+  }
+  bool operator != (const Clang_defaultEditingTranslationUnitOptions_result &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const Clang_defaultEditingTranslationUnitOptions_result & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+typedef struct _Clang_defaultEditingTranslationUnitOptions_presult__isset {
+  _Clang_defaultEditingTranslationUnitOptions_presult__isset() : success(false) {}
+  bool success;
+} _Clang_defaultEditingTranslationUnitOptions_presult__isset;
+
+class Clang_defaultEditingTranslationUnitOptions_presult {
+ public:
+
+
+  virtual ~Clang_defaultEditingTranslationUnitOptions_presult() throw() {}
+
+   ::clad::u32* success;
+
+  _Clang_defaultEditingTranslationUnitOptions_presult__isset __isset;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+
+};
+
+typedef struct _Clang_parseTranslationUnit_args__isset {
+  _Clang_parseTranslationUnit_args__isset() : idx(false), source_filename(false), command_line_args(false), unsaved_files(false), options(false) {}
+  bool idx;
+  bool source_filename;
+  bool command_line_args;
+  bool unsaved_files;
+  bool options;
+} _Clang_parseTranslationUnit_args__isset;
+
+class Clang_parseTranslationUnit_args {
+ public:
+
+  Clang_parseTranslationUnit_args() : idx(0), source_filename(), options(0) {
+  }
+
+  virtual ~Clang_parseTranslationUnit_args() throw() {}
+
+   ::clad::CXIndex idx;
+  std::string source_filename;
+  std::vector<std::string>  command_line_args;
+  std::vector< ::clad::CXUnsavedFile>  unsaved_files;
+   ::clad::u32 options;
+
+  _Clang_parseTranslationUnit_args__isset __isset;
+
+  void __set_idx(const  ::clad::CXIndex val) {
+    idx = val;
+  }
+
+  void __set_source_filename(const std::string& val) {
+    source_filename = val;
+  }
+
+  void __set_command_line_args(const std::vector<std::string> & val) {
+    command_line_args = val;
+  }
+
+  void __set_unsaved_files(const std::vector< ::clad::CXUnsavedFile> & val) {
+    unsaved_files = val;
+  }
+
+  void __set_options(const  ::clad::u32 val) {
     options = val;
   }
 
-  bool operator == (const Clang_clang_parseTranslationUnit_args & rhs) const
+  bool operator == (const Clang_parseTranslationUnit_args & rhs) const
   {
     if (!(idx == rhs.idx))
       return false;
@@ -1225,11 +1225,11 @@ class Clang_clang_parseTranslationUnit_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_parseTranslationUnit_args &rhs) const {
+  bool operator != (const Clang_parseTranslationUnit_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_parseTranslationUnit_args & ) const;
+  bool operator < (const Clang_parseTranslationUnit_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -1237,111 +1237,111 @@ class Clang_clang_parseTranslationUnit_args {
 };
 
 
-class Clang_clang_parseTranslationUnit_pargs {
+class Clang_parseTranslationUnit_pargs {
  public:
 
 
-  virtual ~Clang_clang_parseTranslationUnit_pargs() throw() {}
+  virtual ~Clang_parseTranslationUnit_pargs() throw() {}
 
-  const  ::clang::thrift::CXIndex* idx;
+  const  ::clad::CXIndex* idx;
   const std::string* source_filename;
   const std::vector<std::string> * command_line_args;
-  const std::vector< ::clang::thrift::CXUnsavedFile> * unsaved_files;
-  const  ::clang::thrift::u32* options;
+  const std::vector< ::clad::CXUnsavedFile> * unsaved_files;
+  const  ::clad::u32* options;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_parseTranslationUnit_result__isset {
-  _Clang_clang_parseTranslationUnit_result__isset() : success(false) {}
+typedef struct _Clang_parseTranslationUnit_result__isset {
+  _Clang_parseTranslationUnit_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_parseTranslationUnit_result__isset;
+} _Clang_parseTranslationUnit_result__isset;
 
-class Clang_clang_parseTranslationUnit_result {
+class Clang_parseTranslationUnit_result {
  public:
 
-  Clang_clang_parseTranslationUnit_result() : success(0) {
+  Clang_parseTranslationUnit_result() : success(0) {
   }
 
-  virtual ~Clang_clang_parseTranslationUnit_result() throw() {}
+  virtual ~Clang_parseTranslationUnit_result() throw() {}
 
-   ::clang::thrift::CXTranslationUnit success;
+   ::clad::CXTranslationUnit success;
 
-  _Clang_clang_parseTranslationUnit_result__isset __isset;
+  _Clang_parseTranslationUnit_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_success(const  ::clad::CXTranslationUnit val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_parseTranslationUnit_result & rhs) const
+  bool operator == (const Clang_parseTranslationUnit_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_parseTranslationUnit_result &rhs) const {
+  bool operator != (const Clang_parseTranslationUnit_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_parseTranslationUnit_result & ) const;
+  bool operator < (const Clang_parseTranslationUnit_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_parseTranslationUnit_presult__isset {
-  _Clang_clang_parseTranslationUnit_presult__isset() : success(false) {}
+typedef struct _Clang_parseTranslationUnit_presult__isset {
+  _Clang_parseTranslationUnit_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_parseTranslationUnit_presult__isset;
+} _Clang_parseTranslationUnit_presult__isset;
 
-class Clang_clang_parseTranslationUnit_presult {
+class Clang_parseTranslationUnit_presult {
  public:
 
 
-  virtual ~Clang_clang_parseTranslationUnit_presult() throw() {}
+  virtual ~Clang_parseTranslationUnit_presult() throw() {}
 
-   ::clang::thrift::CXTranslationUnit* success;
+   ::clad::CXTranslationUnit* success;
 
-  _Clang_clang_parseTranslationUnit_presult__isset __isset;
+  _Clang_parseTranslationUnit_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_defaultSaveOptions_args__isset {
-  _Clang_clang_defaultSaveOptions_args__isset() : unit(false) {}
+typedef struct _Clang_defaultSaveOptions_args__isset {
+  _Clang_defaultSaveOptions_args__isset() : unit(false) {}
   bool unit;
-} _Clang_clang_defaultSaveOptions_args__isset;
+} _Clang_defaultSaveOptions_args__isset;
 
-class Clang_clang_defaultSaveOptions_args {
+class Clang_defaultSaveOptions_args {
  public:
 
-  Clang_clang_defaultSaveOptions_args() : unit(0) {
+  Clang_defaultSaveOptions_args() : unit(0) {
   }
 
-  virtual ~Clang_clang_defaultSaveOptions_args() throw() {}
+  virtual ~Clang_defaultSaveOptions_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
 
-  _Clang_clang_defaultSaveOptions_args__isset __isset;
+  _Clang_defaultSaveOptions_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  bool operator == (const Clang_clang_defaultSaveOptions_args & rhs) const
+  bool operator == (const Clang_defaultSaveOptions_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_defaultSaveOptions_args &rhs) const {
+  bool operator != (const Clang_defaultSaveOptions_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_defaultSaveOptions_args & ) const;
+  bool operator < (const Clang_defaultSaveOptions_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -1349,97 +1349,97 @@ class Clang_clang_defaultSaveOptions_args {
 };
 
 
-class Clang_clang_defaultSaveOptions_pargs {
+class Clang_defaultSaveOptions_pargs {
  public:
 
 
-  virtual ~Clang_clang_defaultSaveOptions_pargs() throw() {}
+  virtual ~Clang_defaultSaveOptions_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_defaultSaveOptions_result__isset {
-  _Clang_clang_defaultSaveOptions_result__isset() : success(false) {}
+typedef struct _Clang_defaultSaveOptions_result__isset {
+  _Clang_defaultSaveOptions_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_defaultSaveOptions_result__isset;
+} _Clang_defaultSaveOptions_result__isset;
 
-class Clang_clang_defaultSaveOptions_result {
+class Clang_defaultSaveOptions_result {
  public:
 
-  Clang_clang_defaultSaveOptions_result() : success(0) {
+  Clang_defaultSaveOptions_result() : success(0) {
   }
 
-  virtual ~Clang_clang_defaultSaveOptions_result() throw() {}
+  virtual ~Clang_defaultSaveOptions_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_defaultSaveOptions_result__isset __isset;
+  _Clang_defaultSaveOptions_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_defaultSaveOptions_result & rhs) const
+  bool operator == (const Clang_defaultSaveOptions_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_defaultSaveOptions_result &rhs) const {
+  bool operator != (const Clang_defaultSaveOptions_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_defaultSaveOptions_result & ) const;
+  bool operator < (const Clang_defaultSaveOptions_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_defaultSaveOptions_presult__isset {
-  _Clang_clang_defaultSaveOptions_presult__isset() : success(false) {}
+typedef struct _Clang_defaultSaveOptions_presult__isset {
+  _Clang_defaultSaveOptions_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_defaultSaveOptions_presult__isset;
+} _Clang_defaultSaveOptions_presult__isset;
 
-class Clang_clang_defaultSaveOptions_presult {
+class Clang_defaultSaveOptions_presult {
  public:
 
 
-  virtual ~Clang_clang_defaultSaveOptions_presult() throw() {}
+  virtual ~Clang_defaultSaveOptions_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_defaultSaveOptions_presult__isset __isset;
+  _Clang_defaultSaveOptions_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_saveTranslationUnit_args__isset {
-  _Clang_clang_saveTranslationUnit_args__isset() : unit(false), filename(false), options(false) {}
+typedef struct _Clang_saveTranslationUnit_args__isset {
+  _Clang_saveTranslationUnit_args__isset() : unit(false), filename(false), options(false) {}
   bool unit;
   bool filename;
   bool options;
-} _Clang_clang_saveTranslationUnit_args__isset;
+} _Clang_saveTranslationUnit_args__isset;
 
-class Clang_clang_saveTranslationUnit_args {
+class Clang_saveTranslationUnit_args {
  public:
 
-  Clang_clang_saveTranslationUnit_args() : unit(0), filename(), options(0) {
+  Clang_saveTranslationUnit_args() : unit(0), filename(), options(0) {
   }
 
-  virtual ~Clang_clang_saveTranslationUnit_args() throw() {}
+  virtual ~Clang_saveTranslationUnit_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
   std::string filename;
-   ::clang::thrift::u32 options;
+   ::clad::u32 options;
 
-  _Clang_clang_saveTranslationUnit_args__isset __isset;
+  _Clang_saveTranslationUnit_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
@@ -1447,11 +1447,11 @@ class Clang_clang_saveTranslationUnit_args {
     filename = val;
   }
 
-  void __set_options(const  ::clang::thrift::u32 val) {
+  void __set_options(const  ::clad::u32 val) {
     options = val;
   }
 
-  bool operator == (const Clang_clang_saveTranslationUnit_args & rhs) const
+  bool operator == (const Clang_saveTranslationUnit_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
@@ -1461,11 +1461,11 @@ class Clang_clang_saveTranslationUnit_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_saveTranslationUnit_args &rhs) const {
+  bool operator != (const Clang_saveTranslationUnit_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_saveTranslationUnit_args & ) const;
+  bool operator < (const Clang_saveTranslationUnit_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -1473,109 +1473,109 @@ class Clang_clang_saveTranslationUnit_args {
 };
 
 
-class Clang_clang_saveTranslationUnit_pargs {
+class Clang_saveTranslationUnit_pargs {
  public:
 
 
-  virtual ~Clang_clang_saveTranslationUnit_pargs() throw() {}
+  virtual ~Clang_saveTranslationUnit_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
   const std::string* filename;
-  const  ::clang::thrift::u32* options;
+  const  ::clad::u32* options;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_saveTranslationUnit_result__isset {
-  _Clang_clang_saveTranslationUnit_result__isset() : success(false) {}
+typedef struct _Clang_saveTranslationUnit_result__isset {
+  _Clang_saveTranslationUnit_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_saveTranslationUnit_result__isset;
+} _Clang_saveTranslationUnit_result__isset;
 
-class Clang_clang_saveTranslationUnit_result {
+class Clang_saveTranslationUnit_result {
  public:
 
-  Clang_clang_saveTranslationUnit_result() : success(( ::clang::thrift::CXSaveError::type)0) {
+  Clang_saveTranslationUnit_result() : success(( ::clad::CXSaveError::type)0) {
   }
 
-  virtual ~Clang_clang_saveTranslationUnit_result() throw() {}
+  virtual ~Clang_saveTranslationUnit_result() throw() {}
 
-   ::clang::thrift::CXSaveError::type success;
+   ::clad::CXSaveError::type success;
 
-  _Clang_clang_saveTranslationUnit_result__isset __isset;
+  _Clang_saveTranslationUnit_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSaveError::type val) {
+  void __set_success(const  ::clad::CXSaveError::type val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_saveTranslationUnit_result & rhs) const
+  bool operator == (const Clang_saveTranslationUnit_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_saveTranslationUnit_result &rhs) const {
+  bool operator != (const Clang_saveTranslationUnit_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_saveTranslationUnit_result & ) const;
+  bool operator < (const Clang_saveTranslationUnit_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_saveTranslationUnit_presult__isset {
-  _Clang_clang_saveTranslationUnit_presult__isset() : success(false) {}
+typedef struct _Clang_saveTranslationUnit_presult__isset {
+  _Clang_saveTranslationUnit_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_saveTranslationUnit_presult__isset;
+} _Clang_saveTranslationUnit_presult__isset;
 
-class Clang_clang_saveTranslationUnit_presult {
+class Clang_saveTranslationUnit_presult {
  public:
 
 
-  virtual ~Clang_clang_saveTranslationUnit_presult() throw() {}
+  virtual ~Clang_saveTranslationUnit_presult() throw() {}
 
-   ::clang::thrift::CXSaveError::type* success;
+   ::clad::CXSaveError::type* success;
 
-  _Clang_clang_saveTranslationUnit_presult__isset __isset;
+  _Clang_saveTranslationUnit_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_disposeTranslationUnit_args__isset {
-  _Clang_clang_disposeTranslationUnit_args__isset() : unit(false) {}
+typedef struct _Clang_disposeTranslationUnit_args__isset {
+  _Clang_disposeTranslationUnit_args__isset() : unit(false) {}
   bool unit;
-} _Clang_clang_disposeTranslationUnit_args__isset;
+} _Clang_disposeTranslationUnit_args__isset;
 
-class Clang_clang_disposeTranslationUnit_args {
+class Clang_disposeTranslationUnit_args {
  public:
 
-  Clang_clang_disposeTranslationUnit_args() : unit(0) {
+  Clang_disposeTranslationUnit_args() : unit(0) {
   }
 
-  virtual ~Clang_clang_disposeTranslationUnit_args() throw() {}
+  virtual ~Clang_disposeTranslationUnit_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
 
-  _Clang_clang_disposeTranslationUnit_args__isset __isset;
+  _Clang_disposeTranslationUnit_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  bool operator == (const Clang_clang_disposeTranslationUnit_args & rhs) const
+  bool operator == (const Clang_disposeTranslationUnit_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_disposeTranslationUnit_args &rhs) const {
+  bool operator != (const Clang_disposeTranslationUnit_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeTranslationUnit_args & ) const;
+  bool operator < (const Clang_disposeTranslationUnit_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -1583,37 +1583,37 @@ class Clang_clang_disposeTranslationUnit_args {
 };
 
 
-class Clang_clang_disposeTranslationUnit_pargs {
+class Clang_disposeTranslationUnit_pargs {
  public:
 
 
-  virtual ~Clang_clang_disposeTranslationUnit_pargs() throw() {}
+  virtual ~Clang_disposeTranslationUnit_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
 
-class Clang_clang_disposeTranslationUnit_result {
+class Clang_disposeTranslationUnit_result {
  public:
 
-  Clang_clang_disposeTranslationUnit_result() {
+  Clang_disposeTranslationUnit_result() {
   }
 
-  virtual ~Clang_clang_disposeTranslationUnit_result() throw() {}
+  virtual ~Clang_disposeTranslationUnit_result() throw() {}
 
 
-  bool operator == (const Clang_clang_disposeTranslationUnit_result & /* rhs */) const
+  bool operator == (const Clang_disposeTranslationUnit_result & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_disposeTranslationUnit_result &rhs) const {
+  bool operator != (const Clang_disposeTranslationUnit_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeTranslationUnit_result & ) const;
+  bool operator < (const Clang_disposeTranslationUnit_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -1621,49 +1621,49 @@ class Clang_clang_disposeTranslationUnit_result {
 };
 
 
-class Clang_clang_disposeTranslationUnit_presult {
+class Clang_disposeTranslationUnit_presult {
  public:
 
 
-  virtual ~Clang_clang_disposeTranslationUnit_presult() throw() {}
+  virtual ~Clang_disposeTranslationUnit_presult() throw() {}
 
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_defaultReparseOptions_args__isset {
-  _Clang_clang_defaultReparseOptions_args__isset() : unit(false) {}
+typedef struct _Clang_defaultReparseOptions_args__isset {
+  _Clang_defaultReparseOptions_args__isset() : unit(false) {}
   bool unit;
-} _Clang_clang_defaultReparseOptions_args__isset;
+} _Clang_defaultReparseOptions_args__isset;
 
-class Clang_clang_defaultReparseOptions_args {
+class Clang_defaultReparseOptions_args {
  public:
 
-  Clang_clang_defaultReparseOptions_args() : unit(0) {
+  Clang_defaultReparseOptions_args() : unit(0) {
   }
 
-  virtual ~Clang_clang_defaultReparseOptions_args() throw() {}
+  virtual ~Clang_defaultReparseOptions_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
 
-  _Clang_clang_defaultReparseOptions_args__isset __isset;
+  _Clang_defaultReparseOptions_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  bool operator == (const Clang_clang_defaultReparseOptions_args & rhs) const
+  bool operator == (const Clang_defaultReparseOptions_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_defaultReparseOptions_args &rhs) const {
+  bool operator != (const Clang_defaultReparseOptions_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_defaultReparseOptions_args & ) const;
+  bool operator < (const Clang_defaultReparseOptions_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -1671,109 +1671,109 @@ class Clang_clang_defaultReparseOptions_args {
 };
 
 
-class Clang_clang_defaultReparseOptions_pargs {
+class Clang_defaultReparseOptions_pargs {
  public:
 
 
-  virtual ~Clang_clang_defaultReparseOptions_pargs() throw() {}
+  virtual ~Clang_defaultReparseOptions_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_defaultReparseOptions_result__isset {
-  _Clang_clang_defaultReparseOptions_result__isset() : success(false) {}
+typedef struct _Clang_defaultReparseOptions_result__isset {
+  _Clang_defaultReparseOptions_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_defaultReparseOptions_result__isset;
+} _Clang_defaultReparseOptions_result__isset;
 
-class Clang_clang_defaultReparseOptions_result {
+class Clang_defaultReparseOptions_result {
  public:
 
-  Clang_clang_defaultReparseOptions_result() : success(0) {
+  Clang_defaultReparseOptions_result() : success(0) {
   }
 
-  virtual ~Clang_clang_defaultReparseOptions_result() throw() {}
+  virtual ~Clang_defaultReparseOptions_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_defaultReparseOptions_result__isset __isset;
+  _Clang_defaultReparseOptions_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_defaultReparseOptions_result & rhs) const
+  bool operator == (const Clang_defaultReparseOptions_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_defaultReparseOptions_result &rhs) const {
+  bool operator != (const Clang_defaultReparseOptions_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_defaultReparseOptions_result & ) const;
+  bool operator < (const Clang_defaultReparseOptions_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_defaultReparseOptions_presult__isset {
-  _Clang_clang_defaultReparseOptions_presult__isset() : success(false) {}
+typedef struct _Clang_defaultReparseOptions_presult__isset {
+  _Clang_defaultReparseOptions_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_defaultReparseOptions_presult__isset;
+} _Clang_defaultReparseOptions_presult__isset;
 
-class Clang_clang_defaultReparseOptions_presult {
+class Clang_defaultReparseOptions_presult {
  public:
 
 
-  virtual ~Clang_clang_defaultReparseOptions_presult() throw() {}
+  virtual ~Clang_defaultReparseOptions_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_defaultReparseOptions_presult__isset __isset;
+  _Clang_defaultReparseOptions_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_reparseTranslationUnit_args__isset {
-  _Clang_clang_reparseTranslationUnit_args__isset() : unit(false), unsaved_files(false), options(false) {}
+typedef struct _Clang_reparseTranslationUnit_args__isset {
+  _Clang_reparseTranslationUnit_args__isset() : unit(false), unsaved_files(false), options(false) {}
   bool unit;
   bool unsaved_files;
   bool options;
-} _Clang_clang_reparseTranslationUnit_args__isset;
+} _Clang_reparseTranslationUnit_args__isset;
 
-class Clang_clang_reparseTranslationUnit_args {
+class Clang_reparseTranslationUnit_args {
  public:
 
-  Clang_clang_reparseTranslationUnit_args() : unit(0), options(0) {
+  Clang_reparseTranslationUnit_args() : unit(0), options(0) {
   }
 
-  virtual ~Clang_clang_reparseTranslationUnit_args() throw() {}
+  virtual ~Clang_reparseTranslationUnit_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
-  std::vector< ::clang::thrift::CXUnsavedFile>  unsaved_files;
-   ::clang::thrift::u32 options;
+   ::clad::CXTranslationUnit unit;
+  std::vector< ::clad::CXUnsavedFile>  unsaved_files;
+   ::clad::u32 options;
 
-  _Clang_clang_reparseTranslationUnit_args__isset __isset;
+  _Clang_reparseTranslationUnit_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  void __set_unsaved_files(const std::vector< ::clang::thrift::CXUnsavedFile> & val) {
+  void __set_unsaved_files(const std::vector< ::clad::CXUnsavedFile> & val) {
     unsaved_files = val;
   }
 
-  void __set_options(const  ::clang::thrift::u32 val) {
+  void __set_options(const  ::clad::u32 val) {
     options = val;
   }
 
-  bool operator == (const Clang_clang_reparseTranslationUnit_args & rhs) const
+  bool operator == (const Clang_reparseTranslationUnit_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
@@ -1783,11 +1783,11 @@ class Clang_clang_reparseTranslationUnit_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_reparseTranslationUnit_args &rhs) const {
+  bool operator != (const Clang_reparseTranslationUnit_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_reparseTranslationUnit_args & ) const;
+  bool operator < (const Clang_reparseTranslationUnit_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -1795,109 +1795,109 @@ class Clang_clang_reparseTranslationUnit_args {
 };
 
 
-class Clang_clang_reparseTranslationUnit_pargs {
+class Clang_reparseTranslationUnit_pargs {
  public:
 
 
-  virtual ~Clang_clang_reparseTranslationUnit_pargs() throw() {}
+  virtual ~Clang_reparseTranslationUnit_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
-  const std::vector< ::clang::thrift::CXUnsavedFile> * unsaved_files;
-  const  ::clang::thrift::u32* options;
+  const  ::clad::CXTranslationUnit* unit;
+  const std::vector< ::clad::CXUnsavedFile> * unsaved_files;
+  const  ::clad::u32* options;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_reparseTranslationUnit_result__isset {
-  _Clang_clang_reparseTranslationUnit_result__isset() : success(false) {}
+typedef struct _Clang_reparseTranslationUnit_result__isset {
+  _Clang_reparseTranslationUnit_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_reparseTranslationUnit_result__isset;
+} _Clang_reparseTranslationUnit_result__isset;
 
-class Clang_clang_reparseTranslationUnit_result {
+class Clang_reparseTranslationUnit_result {
  public:
 
-  Clang_clang_reparseTranslationUnit_result() : success(0) {
+  Clang_reparseTranslationUnit_result() : success(0) {
   }
 
-  virtual ~Clang_clang_reparseTranslationUnit_result() throw() {}
+  virtual ~Clang_reparseTranslationUnit_result() throw() {}
 
   int32_t success;
 
-  _Clang_clang_reparseTranslationUnit_result__isset __isset;
+  _Clang_reparseTranslationUnit_result__isset __isset;
 
   void __set_success(const int32_t val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_reparseTranslationUnit_result & rhs) const
+  bool operator == (const Clang_reparseTranslationUnit_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_reparseTranslationUnit_result &rhs) const {
+  bool operator != (const Clang_reparseTranslationUnit_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_reparseTranslationUnit_result & ) const;
+  bool operator < (const Clang_reparseTranslationUnit_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_reparseTranslationUnit_presult__isset {
-  _Clang_clang_reparseTranslationUnit_presult__isset() : success(false) {}
+typedef struct _Clang_reparseTranslationUnit_presult__isset {
+  _Clang_reparseTranslationUnit_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_reparseTranslationUnit_presult__isset;
+} _Clang_reparseTranslationUnit_presult__isset;
 
-class Clang_clang_reparseTranslationUnit_presult {
+class Clang_reparseTranslationUnit_presult {
  public:
 
 
-  virtual ~Clang_clang_reparseTranslationUnit_presult() throw() {}
+  virtual ~Clang_reparseTranslationUnit_presult() throw() {}
 
   int32_t* success;
 
-  _Clang_clang_reparseTranslationUnit_presult__isset __isset;
+  _Clang_reparseTranslationUnit_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getTUResourceUsageName_args__isset {
-  _Clang_clang_getTUResourceUsageName_args__isset() : kind(false) {}
+typedef struct _Clang_getTUResourceUsageName_args__isset {
+  _Clang_getTUResourceUsageName_args__isset() : kind(false) {}
   bool kind;
-} _Clang_clang_getTUResourceUsageName_args__isset;
+} _Clang_getTUResourceUsageName_args__isset;
 
-class Clang_clang_getTUResourceUsageName_args {
+class Clang_getTUResourceUsageName_args {
  public:
 
-  Clang_clang_getTUResourceUsageName_args() : kind(( ::clang::thrift::CXTUResourceUsageKind::type)0) {
+  Clang_getTUResourceUsageName_args() : kind(( ::clad::CXTUResourceUsageKind::type)0) {
   }
 
-  virtual ~Clang_clang_getTUResourceUsageName_args() throw() {}
+  virtual ~Clang_getTUResourceUsageName_args() throw() {}
 
-   ::clang::thrift::CXTUResourceUsageKind::type kind;
+   ::clad::CXTUResourceUsageKind::type kind;
 
-  _Clang_clang_getTUResourceUsageName_args__isset __isset;
+  _Clang_getTUResourceUsageName_args__isset __isset;
 
-  void __set_kind(const  ::clang::thrift::CXTUResourceUsageKind::type val) {
+  void __set_kind(const  ::clad::CXTUResourceUsageKind::type val) {
     kind = val;
   }
 
-  bool operator == (const Clang_clang_getTUResourceUsageName_args & rhs) const
+  bool operator == (const Clang_getTUResourceUsageName_args & rhs) const
   {
     if (!(kind == rhs.kind))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getTUResourceUsageName_args &rhs) const {
+  bool operator != (const Clang_getTUResourceUsageName_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getTUResourceUsageName_args & ) const;
+  bool operator < (const Clang_getTUResourceUsageName_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -1905,107 +1905,107 @@ class Clang_clang_getTUResourceUsageName_args {
 };
 
 
-class Clang_clang_getTUResourceUsageName_pargs {
+class Clang_getTUResourceUsageName_pargs {
  public:
 
 
-  virtual ~Clang_clang_getTUResourceUsageName_pargs() throw() {}
+  virtual ~Clang_getTUResourceUsageName_pargs() throw() {}
 
-  const  ::clang::thrift::CXTUResourceUsageKind::type* kind;
+  const  ::clad::CXTUResourceUsageKind::type* kind;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getTUResourceUsageName_result__isset {
-  _Clang_clang_getTUResourceUsageName_result__isset() : success(false) {}
+typedef struct _Clang_getTUResourceUsageName_result__isset {
+  _Clang_getTUResourceUsageName_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getTUResourceUsageName_result__isset;
+} _Clang_getTUResourceUsageName_result__isset;
 
-class Clang_clang_getTUResourceUsageName_result {
+class Clang_getTUResourceUsageName_result {
  public:
 
-  Clang_clang_getTUResourceUsageName_result() : success() {
+  Clang_getTUResourceUsageName_result() : success() {
   }
 
-  virtual ~Clang_clang_getTUResourceUsageName_result() throw() {}
+  virtual ~Clang_getTUResourceUsageName_result() throw() {}
 
   std::string success;
 
-  _Clang_clang_getTUResourceUsageName_result__isset __isset;
+  _Clang_getTUResourceUsageName_result__isset __isset;
 
   void __set_success(const std::string& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getTUResourceUsageName_result & rhs) const
+  bool operator == (const Clang_getTUResourceUsageName_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getTUResourceUsageName_result &rhs) const {
+  bool operator != (const Clang_getTUResourceUsageName_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getTUResourceUsageName_result & ) const;
+  bool operator < (const Clang_getTUResourceUsageName_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getTUResourceUsageName_presult__isset {
-  _Clang_clang_getTUResourceUsageName_presult__isset() : success(false) {}
+typedef struct _Clang_getTUResourceUsageName_presult__isset {
+  _Clang_getTUResourceUsageName_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getTUResourceUsageName_presult__isset;
+} _Clang_getTUResourceUsageName_presult__isset;
 
-class Clang_clang_getTUResourceUsageName_presult {
+class Clang_getTUResourceUsageName_presult {
  public:
 
 
-  virtual ~Clang_clang_getTUResourceUsageName_presult() throw() {}
+  virtual ~Clang_getTUResourceUsageName_presult() throw() {}
 
   std::string* success;
 
-  _Clang_clang_getTUResourceUsageName_presult__isset __isset;
+  _Clang_getTUResourceUsageName_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getCXTUResourceUsage_args__isset {
-  _Clang_clang_getCXTUResourceUsage_args__isset() : unit(false) {}
+typedef struct _Clang_getCXTUResourceUsage_args__isset {
+  _Clang_getCXTUResourceUsage_args__isset() : unit(false) {}
   bool unit;
-} _Clang_clang_getCXTUResourceUsage_args__isset;
+} _Clang_getCXTUResourceUsage_args__isset;
 
-class Clang_clang_getCXTUResourceUsage_args {
+class Clang_getCXTUResourceUsage_args {
  public:
 
-  Clang_clang_getCXTUResourceUsage_args() : unit(0) {
+  Clang_getCXTUResourceUsage_args() : unit(0) {
   }
 
-  virtual ~Clang_clang_getCXTUResourceUsage_args() throw() {}
+  virtual ~Clang_getCXTUResourceUsage_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
 
-  _Clang_clang_getCXTUResourceUsage_args__isset __isset;
+  _Clang_getCXTUResourceUsage_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  bool operator == (const Clang_clang_getCXTUResourceUsage_args & rhs) const
+  bool operator == (const Clang_getCXTUResourceUsage_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getCXTUResourceUsage_args &rhs) const {
+  bool operator != (const Clang_getCXTUResourceUsage_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getCXTUResourceUsage_args & ) const;
+  bool operator < (const Clang_getCXTUResourceUsage_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2013,107 +2013,107 @@ class Clang_clang_getCXTUResourceUsage_args {
 };
 
 
-class Clang_clang_getCXTUResourceUsage_pargs {
+class Clang_getCXTUResourceUsage_pargs {
  public:
 
 
-  virtual ~Clang_clang_getCXTUResourceUsage_pargs() throw() {}
+  virtual ~Clang_getCXTUResourceUsage_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getCXTUResourceUsage_result__isset {
-  _Clang_clang_getCXTUResourceUsage_result__isset() : success(false) {}
+typedef struct _Clang_getCXTUResourceUsage_result__isset {
+  _Clang_getCXTUResourceUsage_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getCXTUResourceUsage_result__isset;
+} _Clang_getCXTUResourceUsage_result__isset;
 
-class Clang_clang_getCXTUResourceUsage_result {
+class Clang_getCXTUResourceUsage_result {
  public:
 
-  Clang_clang_getCXTUResourceUsage_result() {
+  Clang_getCXTUResourceUsage_result() {
   }
 
-  virtual ~Clang_clang_getCXTUResourceUsage_result() throw() {}
+  virtual ~Clang_getCXTUResourceUsage_result() throw() {}
 
-   ::clang::thrift::CXTUResourceUsage success;
+   ::clad::CXTUResourceUsage success;
 
-  _Clang_clang_getCXTUResourceUsage_result__isset __isset;
+  _Clang_getCXTUResourceUsage_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXTUResourceUsage& val) {
+  void __set_success(const  ::clad::CXTUResourceUsage& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getCXTUResourceUsage_result & rhs) const
+  bool operator == (const Clang_getCXTUResourceUsage_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getCXTUResourceUsage_result &rhs) const {
+  bool operator != (const Clang_getCXTUResourceUsage_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getCXTUResourceUsage_result & ) const;
+  bool operator < (const Clang_getCXTUResourceUsage_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getCXTUResourceUsage_presult__isset {
-  _Clang_clang_getCXTUResourceUsage_presult__isset() : success(false) {}
+typedef struct _Clang_getCXTUResourceUsage_presult__isset {
+  _Clang_getCXTUResourceUsage_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getCXTUResourceUsage_presult__isset;
+} _Clang_getCXTUResourceUsage_presult__isset;
 
-class Clang_clang_getCXTUResourceUsage_presult {
+class Clang_getCXTUResourceUsage_presult {
  public:
 
 
-  virtual ~Clang_clang_getCXTUResourceUsage_presult() throw() {}
+  virtual ~Clang_getCXTUResourceUsage_presult() throw() {}
 
-   ::clang::thrift::CXTUResourceUsage* success;
+   ::clad::CXTUResourceUsage* success;
 
-  _Clang_clang_getCXTUResourceUsage_presult__isset __isset;
+  _Clang_getCXTUResourceUsage_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_disposeCXTUResourceUsage_args__isset {
-  _Clang_clang_disposeCXTUResourceUsage_args__isset() : usage(false) {}
+typedef struct _Clang_disposeCXTUResourceUsage_args__isset {
+  _Clang_disposeCXTUResourceUsage_args__isset() : usage(false) {}
   bool usage;
-} _Clang_clang_disposeCXTUResourceUsage_args__isset;
+} _Clang_disposeCXTUResourceUsage_args__isset;
 
-class Clang_clang_disposeCXTUResourceUsage_args {
+class Clang_disposeCXTUResourceUsage_args {
  public:
 
-  Clang_clang_disposeCXTUResourceUsage_args() {
+  Clang_disposeCXTUResourceUsage_args() {
   }
 
-  virtual ~Clang_clang_disposeCXTUResourceUsage_args() throw() {}
+  virtual ~Clang_disposeCXTUResourceUsage_args() throw() {}
 
-   ::clang::thrift::CXTUResourceUsage usage;
+   ::clad::CXTUResourceUsage usage;
 
-  _Clang_clang_disposeCXTUResourceUsage_args__isset __isset;
+  _Clang_disposeCXTUResourceUsage_args__isset __isset;
 
-  void __set_usage(const  ::clang::thrift::CXTUResourceUsage& val) {
+  void __set_usage(const  ::clad::CXTUResourceUsage& val) {
     usage = val;
   }
 
-  bool operator == (const Clang_clang_disposeCXTUResourceUsage_args & rhs) const
+  bool operator == (const Clang_disposeCXTUResourceUsage_args & rhs) const
   {
     if (!(usage == rhs.usage))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_disposeCXTUResourceUsage_args &rhs) const {
+  bool operator != (const Clang_disposeCXTUResourceUsage_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeCXTUResourceUsage_args & ) const;
+  bool operator < (const Clang_disposeCXTUResourceUsage_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2121,37 +2121,37 @@ class Clang_clang_disposeCXTUResourceUsage_args {
 };
 
 
-class Clang_clang_disposeCXTUResourceUsage_pargs {
+class Clang_disposeCXTUResourceUsage_pargs {
  public:
 
 
-  virtual ~Clang_clang_disposeCXTUResourceUsage_pargs() throw() {}
+  virtual ~Clang_disposeCXTUResourceUsage_pargs() throw() {}
 
-  const  ::clang::thrift::CXTUResourceUsage* usage;
+  const  ::clad::CXTUResourceUsage* usage;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
 
-class Clang_clang_disposeCXTUResourceUsage_result {
+class Clang_disposeCXTUResourceUsage_result {
  public:
 
-  Clang_clang_disposeCXTUResourceUsage_result() {
+  Clang_disposeCXTUResourceUsage_result() {
   }
 
-  virtual ~Clang_clang_disposeCXTUResourceUsage_result() throw() {}
+  virtual ~Clang_disposeCXTUResourceUsage_result() throw() {}
 
 
-  bool operator == (const Clang_clang_disposeCXTUResourceUsage_result & /* rhs */) const
+  bool operator == (const Clang_disposeCXTUResourceUsage_result & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_disposeCXTUResourceUsage_result &rhs) const {
+  bool operator != (const Clang_disposeCXTUResourceUsage_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeCXTUResourceUsage_result & ) const;
+  bool operator < (const Clang_disposeCXTUResourceUsage_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2159,49 +2159,49 @@ class Clang_clang_disposeCXTUResourceUsage_result {
 };
 
 
-class Clang_clang_disposeCXTUResourceUsage_presult {
+class Clang_disposeCXTUResourceUsage_presult {
  public:
 
 
-  virtual ~Clang_clang_disposeCXTUResourceUsage_presult() throw() {}
+  virtual ~Clang_disposeCXTUResourceUsage_presult() throw() {}
 
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getFileName_args__isset {
-  _Clang_clang_getFileName_args__isset() : file(false) {}
+typedef struct _Clang_getFileName_args__isset {
+  _Clang_getFileName_args__isset() : file(false) {}
   bool file;
-} _Clang_clang_getFileName_args__isset;
+} _Clang_getFileName_args__isset;
 
-class Clang_clang_getFileName_args {
+class Clang_getFileName_args {
  public:
 
-  Clang_clang_getFileName_args() : file(0) {
+  Clang_getFileName_args() : file(0) {
   }
 
-  virtual ~Clang_clang_getFileName_args() throw() {}
+  virtual ~Clang_getFileName_args() throw() {}
 
-   ::clang::thrift::CXFile file;
+   ::clad::CXFile file;
 
-  _Clang_clang_getFileName_args__isset __isset;
+  _Clang_getFileName_args__isset __isset;
 
-  void __set_file(const  ::clang::thrift::CXFile val) {
+  void __set_file(const  ::clad::CXFile val) {
     file = val;
   }
 
-  bool operator == (const Clang_clang_getFileName_args & rhs) const
+  bool operator == (const Clang_getFileName_args & rhs) const
   {
     if (!(file == rhs.file))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getFileName_args &rhs) const {
+  bool operator != (const Clang_getFileName_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getFileName_args & ) const;
+  bool operator < (const Clang_getFileName_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2209,107 +2209,107 @@ class Clang_clang_getFileName_args {
 };
 
 
-class Clang_clang_getFileName_pargs {
+class Clang_getFileName_pargs {
  public:
 
 
-  virtual ~Clang_clang_getFileName_pargs() throw() {}
+  virtual ~Clang_getFileName_pargs() throw() {}
 
-  const  ::clang::thrift::CXFile* file;
+  const  ::clad::CXFile* file;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getFileName_result__isset {
-  _Clang_clang_getFileName_result__isset() : success(false) {}
+typedef struct _Clang_getFileName_result__isset {
+  _Clang_getFileName_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getFileName_result__isset;
+} _Clang_getFileName_result__isset;
 
-class Clang_clang_getFileName_result {
+class Clang_getFileName_result {
  public:
 
-  Clang_clang_getFileName_result() : success() {
+  Clang_getFileName_result() : success() {
   }
 
-  virtual ~Clang_clang_getFileName_result() throw() {}
+  virtual ~Clang_getFileName_result() throw() {}
 
   std::string success;
 
-  _Clang_clang_getFileName_result__isset __isset;
+  _Clang_getFileName_result__isset __isset;
 
   void __set_success(const std::string& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getFileName_result & rhs) const
+  bool operator == (const Clang_getFileName_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getFileName_result &rhs) const {
+  bool operator != (const Clang_getFileName_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getFileName_result & ) const;
+  bool operator < (const Clang_getFileName_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getFileName_presult__isset {
-  _Clang_clang_getFileName_presult__isset() : success(false) {}
+typedef struct _Clang_getFileName_presult__isset {
+  _Clang_getFileName_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getFileName_presult__isset;
+} _Clang_getFileName_presult__isset;
 
-class Clang_clang_getFileName_presult {
+class Clang_getFileName_presult {
  public:
 
 
-  virtual ~Clang_clang_getFileName_presult() throw() {}
+  virtual ~Clang_getFileName_presult() throw() {}
 
   std::string* success;
 
-  _Clang_clang_getFileName_presult__isset __isset;
+  _Clang_getFileName_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getFileTime_args__isset {
-  _Clang_clang_getFileTime_args__isset() : file(false) {}
+typedef struct _Clang_getFileTime_args__isset {
+  _Clang_getFileTime_args__isset() : file(false) {}
   bool file;
-} _Clang_clang_getFileTime_args__isset;
+} _Clang_getFileTime_args__isset;
 
-class Clang_clang_getFileTime_args {
+class Clang_getFileTime_args {
  public:
 
-  Clang_clang_getFileTime_args() : file(0) {
+  Clang_getFileTime_args() : file(0) {
   }
 
-  virtual ~Clang_clang_getFileTime_args() throw() {}
+  virtual ~Clang_getFileTime_args() throw() {}
 
-   ::clang::thrift::CXFile file;
+   ::clad::CXFile file;
 
-  _Clang_clang_getFileTime_args__isset __isset;
+  _Clang_getFileTime_args__isset __isset;
 
-  void __set_file(const  ::clang::thrift::CXFile val) {
+  void __set_file(const  ::clad::CXFile val) {
     file = val;
   }
 
-  bool operator == (const Clang_clang_getFileTime_args & rhs) const
+  bool operator == (const Clang_getFileTime_args & rhs) const
   {
     if (!(file == rhs.file))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getFileTime_args &rhs) const {
+  bool operator != (const Clang_getFileTime_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getFileTime_args & ) const;
+  bool operator < (const Clang_getFileTime_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2317,103 +2317,103 @@ class Clang_clang_getFileTime_args {
 };
 
 
-class Clang_clang_getFileTime_pargs {
+class Clang_getFileTime_pargs {
  public:
 
 
-  virtual ~Clang_clang_getFileTime_pargs() throw() {}
+  virtual ~Clang_getFileTime_pargs() throw() {}
 
-  const  ::clang::thrift::CXFile* file;
+  const  ::clad::CXFile* file;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getFileTime_result__isset {
-  _Clang_clang_getFileTime_result__isset() : success(false) {}
+typedef struct _Clang_getFileTime_result__isset {
+  _Clang_getFileTime_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getFileTime_result__isset;
+} _Clang_getFileTime_result__isset;
 
-class Clang_clang_getFileTime_result {
+class Clang_getFileTime_result {
  public:
 
-  Clang_clang_getFileTime_result() : success(0) {
+  Clang_getFileTime_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getFileTime_result() throw() {}
+  virtual ~Clang_getFileTime_result() throw() {}
 
-   ::clang::thrift::t64 success;
+   ::clad::t64 success;
 
-  _Clang_clang_getFileTime_result__isset __isset;
+  _Clang_getFileTime_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::t64 val) {
+  void __set_success(const  ::clad::t64 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getFileTime_result & rhs) const
+  bool operator == (const Clang_getFileTime_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getFileTime_result &rhs) const {
+  bool operator != (const Clang_getFileTime_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getFileTime_result & ) const;
+  bool operator < (const Clang_getFileTime_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getFileTime_presult__isset {
-  _Clang_clang_getFileTime_presult__isset() : success(false) {}
+typedef struct _Clang_getFileTime_presult__isset {
+  _Clang_getFileTime_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getFileTime_presult__isset;
+} _Clang_getFileTime_presult__isset;
 
-class Clang_clang_getFileTime_presult {
+class Clang_getFileTime_presult {
  public:
 
 
-  virtual ~Clang_clang_getFileTime_presult() throw() {}
+  virtual ~Clang_getFileTime_presult() throw() {}
 
-   ::clang::thrift::t64* success;
+   ::clad::t64* success;
 
-  _Clang_clang_getFileTime_presult__isset __isset;
+  _Clang_getFileTime_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_isFileMultipleIncludeGuarded_args__isset {
-  _Clang_clang_isFileMultipleIncludeGuarded_args__isset() : unit(false), file(false) {}
+typedef struct _Clang_isFileMultipleIncludeGuarded_args__isset {
+  _Clang_isFileMultipleIncludeGuarded_args__isset() : unit(false), file(false) {}
   bool unit;
   bool file;
-} _Clang_clang_isFileMultipleIncludeGuarded_args__isset;
+} _Clang_isFileMultipleIncludeGuarded_args__isset;
 
-class Clang_clang_isFileMultipleIncludeGuarded_args {
+class Clang_isFileMultipleIncludeGuarded_args {
  public:
 
-  Clang_clang_isFileMultipleIncludeGuarded_args() : unit(0), file(0) {
+  Clang_isFileMultipleIncludeGuarded_args() : unit(0), file(0) {
   }
 
-  virtual ~Clang_clang_isFileMultipleIncludeGuarded_args() throw() {}
+  virtual ~Clang_isFileMultipleIncludeGuarded_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
-   ::clang::thrift::CXFile file;
+   ::clad::CXTranslationUnit unit;
+   ::clad::CXFile file;
 
-  _Clang_clang_isFileMultipleIncludeGuarded_args__isset __isset;
+  _Clang_isFileMultipleIncludeGuarded_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  void __set_file(const  ::clang::thrift::CXFile val) {
+  void __set_file(const  ::clad::CXFile val) {
     file = val;
   }
 
-  bool operator == (const Clang_clang_isFileMultipleIncludeGuarded_args & rhs) const
+  bool operator == (const Clang_isFileMultipleIncludeGuarded_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
@@ -2421,11 +2421,11 @@ class Clang_clang_isFileMultipleIncludeGuarded_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_isFileMultipleIncludeGuarded_args &rhs) const {
+  bool operator != (const Clang_isFileMultipleIncludeGuarded_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_isFileMultipleIncludeGuarded_args & ) const;
+  bool operator < (const Clang_isFileMultipleIncludeGuarded_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2433,96 +2433,96 @@ class Clang_clang_isFileMultipleIncludeGuarded_args {
 };
 
 
-class Clang_clang_isFileMultipleIncludeGuarded_pargs {
+class Clang_isFileMultipleIncludeGuarded_pargs {
  public:
 
 
-  virtual ~Clang_clang_isFileMultipleIncludeGuarded_pargs() throw() {}
+  virtual ~Clang_isFileMultipleIncludeGuarded_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
-  const  ::clang::thrift::CXFile* file;
+  const  ::clad::CXTranslationUnit* unit;
+  const  ::clad::CXFile* file;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_isFileMultipleIncludeGuarded_result__isset {
-  _Clang_clang_isFileMultipleIncludeGuarded_result__isset() : success(false) {}
+typedef struct _Clang_isFileMultipleIncludeGuarded_result__isset {
+  _Clang_isFileMultipleIncludeGuarded_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_isFileMultipleIncludeGuarded_result__isset;
+} _Clang_isFileMultipleIncludeGuarded_result__isset;
 
-class Clang_clang_isFileMultipleIncludeGuarded_result {
+class Clang_isFileMultipleIncludeGuarded_result {
  public:
 
-  Clang_clang_isFileMultipleIncludeGuarded_result() : success(0) {
+  Clang_isFileMultipleIncludeGuarded_result() : success(0) {
   }
 
-  virtual ~Clang_clang_isFileMultipleIncludeGuarded_result() throw() {}
+  virtual ~Clang_isFileMultipleIncludeGuarded_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_isFileMultipleIncludeGuarded_result__isset __isset;
+  _Clang_isFileMultipleIncludeGuarded_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_isFileMultipleIncludeGuarded_result & rhs) const
+  bool operator == (const Clang_isFileMultipleIncludeGuarded_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_isFileMultipleIncludeGuarded_result &rhs) const {
+  bool operator != (const Clang_isFileMultipleIncludeGuarded_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_isFileMultipleIncludeGuarded_result & ) const;
+  bool operator < (const Clang_isFileMultipleIncludeGuarded_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_isFileMultipleIncludeGuarded_presult__isset {
-  _Clang_clang_isFileMultipleIncludeGuarded_presult__isset() : success(false) {}
+typedef struct _Clang_isFileMultipleIncludeGuarded_presult__isset {
+  _Clang_isFileMultipleIncludeGuarded_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_isFileMultipleIncludeGuarded_presult__isset;
+} _Clang_isFileMultipleIncludeGuarded_presult__isset;
 
-class Clang_clang_isFileMultipleIncludeGuarded_presult {
+class Clang_isFileMultipleIncludeGuarded_presult {
  public:
 
 
-  virtual ~Clang_clang_isFileMultipleIncludeGuarded_presult() throw() {}
+  virtual ~Clang_isFileMultipleIncludeGuarded_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_isFileMultipleIncludeGuarded_presult__isset __isset;
+  _Clang_isFileMultipleIncludeGuarded_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getFile_args__isset {
-  _Clang_clang_getFile_args__isset() : unit(false), filename(false) {}
+typedef struct _Clang_getFile_args__isset {
+  _Clang_getFile_args__isset() : unit(false), filename(false) {}
   bool unit;
   bool filename;
-} _Clang_clang_getFile_args__isset;
+} _Clang_getFile_args__isset;
 
-class Clang_clang_getFile_args {
+class Clang_getFile_args {
  public:
 
-  Clang_clang_getFile_args() : unit(0), filename() {
+  Clang_getFile_args() : unit(0), filename() {
   }
 
-  virtual ~Clang_clang_getFile_args() throw() {}
+  virtual ~Clang_getFile_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
   std::string filename;
 
-  _Clang_clang_getFile_args__isset __isset;
+  _Clang_getFile_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
@@ -2530,7 +2530,7 @@ class Clang_clang_getFile_args {
     filename = val;
   }
 
-  bool operator == (const Clang_clang_getFile_args & rhs) const
+  bool operator == (const Clang_getFile_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
@@ -2538,11 +2538,11 @@ class Clang_clang_getFile_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getFile_args &rhs) const {
+  bool operator != (const Clang_getFile_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getFile_args & ) const;
+  bool operator < (const Clang_getFile_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2550,95 +2550,95 @@ class Clang_clang_getFile_args {
 };
 
 
-class Clang_clang_getFile_pargs {
+class Clang_getFile_pargs {
  public:
 
 
-  virtual ~Clang_clang_getFile_pargs() throw() {}
+  virtual ~Clang_getFile_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
   const std::string* filename;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getFile_result__isset {
-  _Clang_clang_getFile_result__isset() : success(false) {}
+typedef struct _Clang_getFile_result__isset {
+  _Clang_getFile_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getFile_result__isset;
+} _Clang_getFile_result__isset;
 
-class Clang_clang_getFile_result {
+class Clang_getFile_result {
  public:
 
-  Clang_clang_getFile_result() : success(0) {
+  Clang_getFile_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getFile_result() throw() {}
+  virtual ~Clang_getFile_result() throw() {}
 
-   ::clang::thrift::CXFile success;
+   ::clad::CXFile success;
 
-  _Clang_clang_getFile_result__isset __isset;
+  _Clang_getFile_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXFile val) {
+  void __set_success(const  ::clad::CXFile val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getFile_result & rhs) const
+  bool operator == (const Clang_getFile_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getFile_result &rhs) const {
+  bool operator != (const Clang_getFile_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getFile_result & ) const;
+  bool operator < (const Clang_getFile_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getFile_presult__isset {
-  _Clang_clang_getFile_presult__isset() : success(false) {}
+typedef struct _Clang_getFile_presult__isset {
+  _Clang_getFile_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getFile_presult__isset;
+} _Clang_getFile_presult__isset;
 
-class Clang_clang_getFile_presult {
+class Clang_getFile_presult {
  public:
 
 
-  virtual ~Clang_clang_getFile_presult() throw() {}
+  virtual ~Clang_getFile_presult() throw() {}
 
-   ::clang::thrift::CXFile* success;
+   ::clad::CXFile* success;
 
-  _Clang_clang_getFile_presult__isset __isset;
+  _Clang_getFile_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
 
-class Clang_clang_getNullLocation_args {
+class Clang_getNullLocation_args {
  public:
 
-  Clang_clang_getNullLocation_args() {
+  Clang_getNullLocation_args() {
   }
 
-  virtual ~Clang_clang_getNullLocation_args() throw() {}
+  virtual ~Clang_getNullLocation_args() throw() {}
 
 
-  bool operator == (const Clang_clang_getNullLocation_args & /* rhs */) const
+  bool operator == (const Clang_getNullLocation_args & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_getNullLocation_args &rhs) const {
+  bool operator != (const Clang_getNullLocation_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getNullLocation_args & ) const;
+  bool operator < (const Clang_getNullLocation_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2646,102 +2646,102 @@ class Clang_clang_getNullLocation_args {
 };
 
 
-class Clang_clang_getNullLocation_pargs {
+class Clang_getNullLocation_pargs {
  public:
 
 
-  virtual ~Clang_clang_getNullLocation_pargs() throw() {}
+  virtual ~Clang_getNullLocation_pargs() throw() {}
 
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getNullLocation_result__isset {
-  _Clang_clang_getNullLocation_result__isset() : success(false) {}
+typedef struct _Clang_getNullLocation_result__isset {
+  _Clang_getNullLocation_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getNullLocation_result__isset;
+} _Clang_getNullLocation_result__isset;
 
-class Clang_clang_getNullLocation_result {
+class Clang_getNullLocation_result {
  public:
 
-  Clang_clang_getNullLocation_result() {
+  Clang_getNullLocation_result() {
   }
 
-  virtual ~Clang_clang_getNullLocation_result() throw() {}
+  virtual ~Clang_getNullLocation_result() throw() {}
 
-   ::clang::thrift::CXSourceLocation success;
+   ::clad::CXSourceLocation success;
 
-  _Clang_clang_getNullLocation_result__isset __isset;
+  _Clang_getNullLocation_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_success(const  ::clad::CXSourceLocation& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getNullLocation_result & rhs) const
+  bool operator == (const Clang_getNullLocation_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getNullLocation_result &rhs) const {
+  bool operator != (const Clang_getNullLocation_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getNullLocation_result & ) const;
+  bool operator < (const Clang_getNullLocation_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getNullLocation_presult__isset {
-  _Clang_clang_getNullLocation_presult__isset() : success(false) {}
+typedef struct _Clang_getNullLocation_presult__isset {
+  _Clang_getNullLocation_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getNullLocation_presult__isset;
+} _Clang_getNullLocation_presult__isset;
 
-class Clang_clang_getNullLocation_presult {
+class Clang_getNullLocation_presult {
  public:
 
 
-  virtual ~Clang_clang_getNullLocation_presult() throw() {}
+  virtual ~Clang_getNullLocation_presult() throw() {}
 
-   ::clang::thrift::CXSourceLocation* success;
+   ::clad::CXSourceLocation* success;
 
-  _Clang_clang_getNullLocation_presult__isset __isset;
+  _Clang_getNullLocation_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_equalLocations_args__isset {
-  _Clang_clang_equalLocations_args__isset() : loc1(false), loc2(false) {}
+typedef struct _Clang_equalLocations_args__isset {
+  _Clang_equalLocations_args__isset() : loc1(false), loc2(false) {}
   bool loc1;
   bool loc2;
-} _Clang_clang_equalLocations_args__isset;
+} _Clang_equalLocations_args__isset;
 
-class Clang_clang_equalLocations_args {
+class Clang_equalLocations_args {
  public:
 
-  Clang_clang_equalLocations_args() {
+  Clang_equalLocations_args() {
   }
 
-  virtual ~Clang_clang_equalLocations_args() throw() {}
+  virtual ~Clang_equalLocations_args() throw() {}
 
-   ::clang::thrift::CXSourceLocation loc1;
-   ::clang::thrift::CXSourceLocation loc2;
+   ::clad::CXSourceLocation loc1;
+   ::clad::CXSourceLocation loc2;
 
-  _Clang_clang_equalLocations_args__isset __isset;
+  _Clang_equalLocations_args__isset __isset;
 
-  void __set_loc1(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_loc1(const  ::clad::CXSourceLocation& val) {
     loc1 = val;
   }
 
-  void __set_loc2(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_loc2(const  ::clad::CXSourceLocation& val) {
     loc2 = val;
   }
 
-  bool operator == (const Clang_clang_equalLocations_args & rhs) const
+  bool operator == (const Clang_equalLocations_args & rhs) const
   {
     if (!(loc1 == rhs.loc1))
       return false;
@@ -2749,11 +2749,11 @@ class Clang_clang_equalLocations_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_equalLocations_args &rhs) const {
+  bool operator != (const Clang_equalLocations_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_equalLocations_args & ) const;
+  bool operator < (const Clang_equalLocations_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2761,116 +2761,116 @@ class Clang_clang_equalLocations_args {
 };
 
 
-class Clang_clang_equalLocations_pargs {
+class Clang_equalLocations_pargs {
  public:
 
 
-  virtual ~Clang_clang_equalLocations_pargs() throw() {}
+  virtual ~Clang_equalLocations_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceLocation* loc1;
-  const  ::clang::thrift::CXSourceLocation* loc2;
+  const  ::clad::CXSourceLocation* loc1;
+  const  ::clad::CXSourceLocation* loc2;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_equalLocations_result__isset {
-  _Clang_clang_equalLocations_result__isset() : success(false) {}
+typedef struct _Clang_equalLocations_result__isset {
+  _Clang_equalLocations_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_equalLocations_result__isset;
+} _Clang_equalLocations_result__isset;
 
-class Clang_clang_equalLocations_result {
+class Clang_equalLocations_result {
  public:
 
-  Clang_clang_equalLocations_result() : success(0) {
+  Clang_equalLocations_result() : success(0) {
   }
 
-  virtual ~Clang_clang_equalLocations_result() throw() {}
+  virtual ~Clang_equalLocations_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_equalLocations_result__isset __isset;
+  _Clang_equalLocations_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_equalLocations_result & rhs) const
+  bool operator == (const Clang_equalLocations_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_equalLocations_result &rhs) const {
+  bool operator != (const Clang_equalLocations_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_equalLocations_result & ) const;
+  bool operator < (const Clang_equalLocations_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_equalLocations_presult__isset {
-  _Clang_clang_equalLocations_presult__isset() : success(false) {}
+typedef struct _Clang_equalLocations_presult__isset {
+  _Clang_equalLocations_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_equalLocations_presult__isset;
+} _Clang_equalLocations_presult__isset;
 
-class Clang_clang_equalLocations_presult {
+class Clang_equalLocations_presult {
  public:
 
 
-  virtual ~Clang_clang_equalLocations_presult() throw() {}
+  virtual ~Clang_equalLocations_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_equalLocations_presult__isset __isset;
+  _Clang_equalLocations_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getLocation_args__isset {
-  _Clang_clang_getLocation_args__isset() : tu(false), file(false), line(false), column(false) {}
+typedef struct _Clang_getLocation_args__isset {
+  _Clang_getLocation_args__isset() : tu(false), file(false), line(false), column(false) {}
   bool tu;
   bool file;
   bool line;
   bool column;
-} _Clang_clang_getLocation_args__isset;
+} _Clang_getLocation_args__isset;
 
-class Clang_clang_getLocation_args {
+class Clang_getLocation_args {
  public:
 
-  Clang_clang_getLocation_args() : tu(0), file(0), line(0), column(0) {
+  Clang_getLocation_args() : tu(0), file(0), line(0), column(0) {
   }
 
-  virtual ~Clang_clang_getLocation_args() throw() {}
+  virtual ~Clang_getLocation_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit tu;
-   ::clang::thrift::CXFile file;
-   ::clang::thrift::u32 line;
-   ::clang::thrift::u32 column;
+   ::clad::CXTranslationUnit tu;
+   ::clad::CXFile file;
+   ::clad::u32 line;
+   ::clad::u32 column;
 
-  _Clang_clang_getLocation_args__isset __isset;
+  _Clang_getLocation_args__isset __isset;
 
-  void __set_tu(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_tu(const  ::clad::CXTranslationUnit val) {
     tu = val;
   }
 
-  void __set_file(const  ::clang::thrift::CXFile val) {
+  void __set_file(const  ::clad::CXFile val) {
     file = val;
   }
 
-  void __set_line(const  ::clang::thrift::u32 val) {
+  void __set_line(const  ::clad::u32 val) {
     line = val;
   }
 
-  void __set_column(const  ::clang::thrift::u32 val) {
+  void __set_column(const  ::clad::u32 val) {
     column = val;
   }
 
-  bool operator == (const Clang_clang_getLocation_args & rhs) const
+  bool operator == (const Clang_getLocation_args & rhs) const
   {
     if (!(tu == rhs.tu))
       return false;
@@ -2882,11 +2882,11 @@ class Clang_clang_getLocation_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getLocation_args &rhs) const {
+  bool operator != (const Clang_getLocation_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getLocation_args & ) const;
+  bool operator < (const Clang_getLocation_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -2894,112 +2894,112 @@ class Clang_clang_getLocation_args {
 };
 
 
-class Clang_clang_getLocation_pargs {
+class Clang_getLocation_pargs {
  public:
 
 
-  virtual ~Clang_clang_getLocation_pargs() throw() {}
+  virtual ~Clang_getLocation_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* tu;
-  const  ::clang::thrift::CXFile* file;
-  const  ::clang::thrift::u32* line;
-  const  ::clang::thrift::u32* column;
+  const  ::clad::CXTranslationUnit* tu;
+  const  ::clad::CXFile* file;
+  const  ::clad::u32* line;
+  const  ::clad::u32* column;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getLocation_result__isset {
-  _Clang_clang_getLocation_result__isset() : success(false) {}
+typedef struct _Clang_getLocation_result__isset {
+  _Clang_getLocation_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getLocation_result__isset;
+} _Clang_getLocation_result__isset;
 
-class Clang_clang_getLocation_result {
+class Clang_getLocation_result {
  public:
 
-  Clang_clang_getLocation_result() {
+  Clang_getLocation_result() {
   }
 
-  virtual ~Clang_clang_getLocation_result() throw() {}
+  virtual ~Clang_getLocation_result() throw() {}
 
-   ::clang::thrift::CXSourceLocation success;
+   ::clad::CXSourceLocation success;
 
-  _Clang_clang_getLocation_result__isset __isset;
+  _Clang_getLocation_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_success(const  ::clad::CXSourceLocation& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getLocation_result & rhs) const
+  bool operator == (const Clang_getLocation_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getLocation_result &rhs) const {
+  bool operator != (const Clang_getLocation_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getLocation_result & ) const;
+  bool operator < (const Clang_getLocation_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getLocation_presult__isset {
-  _Clang_clang_getLocation_presult__isset() : success(false) {}
+typedef struct _Clang_getLocation_presult__isset {
+  _Clang_getLocation_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getLocation_presult__isset;
+} _Clang_getLocation_presult__isset;
 
-class Clang_clang_getLocation_presult {
+class Clang_getLocation_presult {
  public:
 
 
-  virtual ~Clang_clang_getLocation_presult() throw() {}
+  virtual ~Clang_getLocation_presult() throw() {}
 
-   ::clang::thrift::CXSourceLocation* success;
+   ::clad::CXSourceLocation* success;
 
-  _Clang_clang_getLocation_presult__isset __isset;
+  _Clang_getLocation_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getLocationForOffset_args__isset {
-  _Clang_clang_getLocationForOffset_args__isset() : tu(false), file(false), offset(false) {}
+typedef struct _Clang_getLocationForOffset_args__isset {
+  _Clang_getLocationForOffset_args__isset() : tu(false), file(false), offset(false) {}
   bool tu;
   bool file;
   bool offset;
-} _Clang_clang_getLocationForOffset_args__isset;
+} _Clang_getLocationForOffset_args__isset;
 
-class Clang_clang_getLocationForOffset_args {
+class Clang_getLocationForOffset_args {
  public:
 
-  Clang_clang_getLocationForOffset_args() : tu(0), file(0), offset(0) {
+  Clang_getLocationForOffset_args() : tu(0), file(0), offset(0) {
   }
 
-  virtual ~Clang_clang_getLocationForOffset_args() throw() {}
+  virtual ~Clang_getLocationForOffset_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit tu;
-   ::clang::thrift::CXFile file;
-   ::clang::thrift::u32 offset;
+   ::clad::CXTranslationUnit tu;
+   ::clad::CXFile file;
+   ::clad::u32 offset;
 
-  _Clang_clang_getLocationForOffset_args__isset __isset;
+  _Clang_getLocationForOffset_args__isset __isset;
 
-  void __set_tu(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_tu(const  ::clad::CXTranslationUnit val) {
     tu = val;
   }
 
-  void __set_file(const  ::clang::thrift::CXFile val) {
+  void __set_file(const  ::clad::CXFile val) {
     file = val;
   }
 
-  void __set_offset(const  ::clang::thrift::u32 val) {
+  void __set_offset(const  ::clad::u32 val) {
     offset = val;
   }
 
-  bool operator == (const Clang_clang_getLocationForOffset_args & rhs) const
+  bool operator == (const Clang_getLocationForOffset_args & rhs) const
   {
     if (!(tu == rhs.tu))
       return false;
@@ -3009,11 +3009,11 @@ class Clang_clang_getLocationForOffset_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getLocationForOffset_args &rhs) const {
+  bool operator != (const Clang_getLocationForOffset_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getLocationForOffset_args & ) const;
+  bool operator < (const Clang_getLocationForOffset_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3021,96 +3021,96 @@ class Clang_clang_getLocationForOffset_args {
 };
 
 
-class Clang_clang_getLocationForOffset_pargs {
+class Clang_getLocationForOffset_pargs {
  public:
 
 
-  virtual ~Clang_clang_getLocationForOffset_pargs() throw() {}
+  virtual ~Clang_getLocationForOffset_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* tu;
-  const  ::clang::thrift::CXFile* file;
-  const  ::clang::thrift::u32* offset;
+  const  ::clad::CXTranslationUnit* tu;
+  const  ::clad::CXFile* file;
+  const  ::clad::u32* offset;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getLocationForOffset_result__isset {
-  _Clang_clang_getLocationForOffset_result__isset() : success(false) {}
+typedef struct _Clang_getLocationForOffset_result__isset {
+  _Clang_getLocationForOffset_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getLocationForOffset_result__isset;
+} _Clang_getLocationForOffset_result__isset;
 
-class Clang_clang_getLocationForOffset_result {
+class Clang_getLocationForOffset_result {
  public:
 
-  Clang_clang_getLocationForOffset_result() {
+  Clang_getLocationForOffset_result() {
   }
 
-  virtual ~Clang_clang_getLocationForOffset_result() throw() {}
+  virtual ~Clang_getLocationForOffset_result() throw() {}
 
-   ::clang::thrift::CXSourceLocation success;
+   ::clad::CXSourceLocation success;
 
-  _Clang_clang_getLocationForOffset_result__isset __isset;
+  _Clang_getLocationForOffset_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_success(const  ::clad::CXSourceLocation& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getLocationForOffset_result & rhs) const
+  bool operator == (const Clang_getLocationForOffset_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getLocationForOffset_result &rhs) const {
+  bool operator != (const Clang_getLocationForOffset_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getLocationForOffset_result & ) const;
+  bool operator < (const Clang_getLocationForOffset_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getLocationForOffset_presult__isset {
-  _Clang_clang_getLocationForOffset_presult__isset() : success(false) {}
+typedef struct _Clang_getLocationForOffset_presult__isset {
+  _Clang_getLocationForOffset_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getLocationForOffset_presult__isset;
+} _Clang_getLocationForOffset_presult__isset;
 
-class Clang_clang_getLocationForOffset_presult {
+class Clang_getLocationForOffset_presult {
  public:
 
 
-  virtual ~Clang_clang_getLocationForOffset_presult() throw() {}
+  virtual ~Clang_getLocationForOffset_presult() throw() {}
 
-   ::clang::thrift::CXSourceLocation* success;
+   ::clad::CXSourceLocation* success;
 
-  _Clang_clang_getLocationForOffset_presult__isset __isset;
+  _Clang_getLocationForOffset_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
 
-class Clang_clang_getNullRange_args {
+class Clang_getNullRange_args {
  public:
 
-  Clang_clang_getNullRange_args() {
+  Clang_getNullRange_args() {
   }
 
-  virtual ~Clang_clang_getNullRange_args() throw() {}
+  virtual ~Clang_getNullRange_args() throw() {}
 
 
-  bool operator == (const Clang_clang_getNullRange_args & /* rhs */) const
+  bool operator == (const Clang_getNullRange_args & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_getNullRange_args &rhs) const {
+  bool operator != (const Clang_getNullRange_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getNullRange_args & ) const;
+  bool operator < (const Clang_getNullRange_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3118,102 +3118,102 @@ class Clang_clang_getNullRange_args {
 };
 
 
-class Clang_clang_getNullRange_pargs {
+class Clang_getNullRange_pargs {
  public:
 
 
-  virtual ~Clang_clang_getNullRange_pargs() throw() {}
+  virtual ~Clang_getNullRange_pargs() throw() {}
 
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getNullRange_result__isset {
-  _Clang_clang_getNullRange_result__isset() : success(false) {}
+typedef struct _Clang_getNullRange_result__isset {
+  _Clang_getNullRange_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getNullRange_result__isset;
+} _Clang_getNullRange_result__isset;
 
-class Clang_clang_getNullRange_result {
+class Clang_getNullRange_result {
  public:
 
-  Clang_clang_getNullRange_result() {
+  Clang_getNullRange_result() {
   }
 
-  virtual ~Clang_clang_getNullRange_result() throw() {}
+  virtual ~Clang_getNullRange_result() throw() {}
 
-   ::clang::thrift::CXSourceRange success;
+   ::clad::CXSourceRange success;
 
-  _Clang_clang_getNullRange_result__isset __isset;
+  _Clang_getNullRange_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_success(const  ::clad::CXSourceRange& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getNullRange_result & rhs) const
+  bool operator == (const Clang_getNullRange_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getNullRange_result &rhs) const {
+  bool operator != (const Clang_getNullRange_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getNullRange_result & ) const;
+  bool operator < (const Clang_getNullRange_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getNullRange_presult__isset {
-  _Clang_clang_getNullRange_presult__isset() : success(false) {}
+typedef struct _Clang_getNullRange_presult__isset {
+  _Clang_getNullRange_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getNullRange_presult__isset;
+} _Clang_getNullRange_presult__isset;
 
-class Clang_clang_getNullRange_presult {
+class Clang_getNullRange_presult {
  public:
 
 
-  virtual ~Clang_clang_getNullRange_presult() throw() {}
+  virtual ~Clang_getNullRange_presult() throw() {}
 
-   ::clang::thrift::CXSourceRange* success;
+   ::clad::CXSourceRange* success;
 
-  _Clang_clang_getNullRange_presult__isset __isset;
+  _Clang_getNullRange_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getRange_args__isset {
-  _Clang_clang_getRange_args__isset() : sourceBegin(false), sourceEnd(false) {}
+typedef struct _Clang_getRange_args__isset {
+  _Clang_getRange_args__isset() : sourceBegin(false), sourceEnd(false) {}
   bool sourceBegin;
   bool sourceEnd;
-} _Clang_clang_getRange_args__isset;
+} _Clang_getRange_args__isset;
 
-class Clang_clang_getRange_args {
+class Clang_getRange_args {
  public:
 
-  Clang_clang_getRange_args() {
+  Clang_getRange_args() {
   }
 
-  virtual ~Clang_clang_getRange_args() throw() {}
+  virtual ~Clang_getRange_args() throw() {}
 
-   ::clang::thrift::CXSourceLocation sourceBegin;
-   ::clang::thrift::CXSourceLocation sourceEnd;
+   ::clad::CXSourceLocation sourceBegin;
+   ::clad::CXSourceLocation sourceEnd;
 
-  _Clang_clang_getRange_args__isset __isset;
+  _Clang_getRange_args__isset __isset;
 
-  void __set_sourceBegin(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_sourceBegin(const  ::clad::CXSourceLocation& val) {
     sourceBegin = val;
   }
 
-  void __set_sourceEnd(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_sourceEnd(const  ::clad::CXSourceLocation& val) {
     sourceEnd = val;
   }
 
-  bool operator == (const Clang_clang_getRange_args & rhs) const
+  bool operator == (const Clang_getRange_args & rhs) const
   {
     if (!(sourceBegin == rhs.sourceBegin))
       return false;
@@ -3221,11 +3221,11 @@ class Clang_clang_getRange_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getRange_args &rhs) const {
+  bool operator != (const Clang_getRange_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getRange_args & ) const;
+  bool operator < (const Clang_getRange_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3233,104 +3233,104 @@ class Clang_clang_getRange_args {
 };
 
 
-class Clang_clang_getRange_pargs {
+class Clang_getRange_pargs {
  public:
 
 
-  virtual ~Clang_clang_getRange_pargs() throw() {}
+  virtual ~Clang_getRange_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceLocation* sourceBegin;
-  const  ::clang::thrift::CXSourceLocation* sourceEnd;
+  const  ::clad::CXSourceLocation* sourceBegin;
+  const  ::clad::CXSourceLocation* sourceEnd;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getRange_result__isset {
-  _Clang_clang_getRange_result__isset() : success(false) {}
+typedef struct _Clang_getRange_result__isset {
+  _Clang_getRange_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getRange_result__isset;
+} _Clang_getRange_result__isset;
 
-class Clang_clang_getRange_result {
+class Clang_getRange_result {
  public:
 
-  Clang_clang_getRange_result() {
+  Clang_getRange_result() {
   }
 
-  virtual ~Clang_clang_getRange_result() throw() {}
+  virtual ~Clang_getRange_result() throw() {}
 
-   ::clang::thrift::CXSourceRange success;
+   ::clad::CXSourceRange success;
 
-  _Clang_clang_getRange_result__isset __isset;
+  _Clang_getRange_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_success(const  ::clad::CXSourceRange& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getRange_result & rhs) const
+  bool operator == (const Clang_getRange_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getRange_result &rhs) const {
+  bool operator != (const Clang_getRange_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getRange_result & ) const;
+  bool operator < (const Clang_getRange_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getRange_presult__isset {
-  _Clang_clang_getRange_presult__isset() : success(false) {}
+typedef struct _Clang_getRange_presult__isset {
+  _Clang_getRange_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getRange_presult__isset;
+} _Clang_getRange_presult__isset;
 
-class Clang_clang_getRange_presult {
+class Clang_getRange_presult {
  public:
 
 
-  virtual ~Clang_clang_getRange_presult() throw() {}
+  virtual ~Clang_getRange_presult() throw() {}
 
-   ::clang::thrift::CXSourceRange* success;
+   ::clad::CXSourceRange* success;
 
-  _Clang_clang_getRange_presult__isset __isset;
+  _Clang_getRange_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_equalRanges_args__isset {
-  _Clang_clang_equalRanges_args__isset() : range1(false), range2(false) {}
+typedef struct _Clang_equalRanges_args__isset {
+  _Clang_equalRanges_args__isset() : range1(false), range2(false) {}
   bool range1;
   bool range2;
-} _Clang_clang_equalRanges_args__isset;
+} _Clang_equalRanges_args__isset;
 
-class Clang_clang_equalRanges_args {
+class Clang_equalRanges_args {
  public:
 
-  Clang_clang_equalRanges_args() {
+  Clang_equalRanges_args() {
   }
 
-  virtual ~Clang_clang_equalRanges_args() throw() {}
+  virtual ~Clang_equalRanges_args() throw() {}
 
-   ::clang::thrift::CXSourceRange range1;
-   ::clang::thrift::CXSourceRange range2;
+   ::clad::CXSourceRange range1;
+   ::clad::CXSourceRange range2;
 
-  _Clang_clang_equalRanges_args__isset __isset;
+  _Clang_equalRanges_args__isset __isset;
 
-  void __set_range1(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_range1(const  ::clad::CXSourceRange& val) {
     range1 = val;
   }
 
-  void __set_range2(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_range2(const  ::clad::CXSourceRange& val) {
     range2 = val;
   }
 
-  bool operator == (const Clang_clang_equalRanges_args & rhs) const
+  bool operator == (const Clang_equalRanges_args & rhs) const
   {
     if (!(range1 == rhs.range1))
       return false;
@@ -3338,11 +3338,11 @@ class Clang_clang_equalRanges_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_equalRanges_args &rhs) const {
+  bool operator != (const Clang_equalRanges_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_equalRanges_args & ) const;
+  bool operator < (const Clang_equalRanges_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3350,108 +3350,108 @@ class Clang_clang_equalRanges_args {
 };
 
 
-class Clang_clang_equalRanges_pargs {
+class Clang_equalRanges_pargs {
  public:
 
 
-  virtual ~Clang_clang_equalRanges_pargs() throw() {}
+  virtual ~Clang_equalRanges_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceRange* range1;
-  const  ::clang::thrift::CXSourceRange* range2;
+  const  ::clad::CXSourceRange* range1;
+  const  ::clad::CXSourceRange* range2;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_equalRanges_result__isset {
-  _Clang_clang_equalRanges_result__isset() : success(false) {}
+typedef struct _Clang_equalRanges_result__isset {
+  _Clang_equalRanges_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_equalRanges_result__isset;
+} _Clang_equalRanges_result__isset;
 
-class Clang_clang_equalRanges_result {
+class Clang_equalRanges_result {
  public:
 
-  Clang_clang_equalRanges_result() : success(0) {
+  Clang_equalRanges_result() : success(0) {
   }
 
-  virtual ~Clang_clang_equalRanges_result() throw() {}
+  virtual ~Clang_equalRanges_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_equalRanges_result__isset __isset;
+  _Clang_equalRanges_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_equalRanges_result & rhs) const
+  bool operator == (const Clang_equalRanges_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_equalRanges_result &rhs) const {
+  bool operator != (const Clang_equalRanges_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_equalRanges_result & ) const;
+  bool operator < (const Clang_equalRanges_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_equalRanges_presult__isset {
-  _Clang_clang_equalRanges_presult__isset() : success(false) {}
+typedef struct _Clang_equalRanges_presult__isset {
+  _Clang_equalRanges_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_equalRanges_presult__isset;
+} _Clang_equalRanges_presult__isset;
 
-class Clang_clang_equalRanges_presult {
+class Clang_equalRanges_presult {
  public:
 
 
-  virtual ~Clang_clang_equalRanges_presult() throw() {}
+  virtual ~Clang_equalRanges_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_equalRanges_presult__isset __isset;
+  _Clang_equalRanges_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_Range_isNull_args__isset {
-  _Clang_clang_Range_isNull_args__isset() : range(false) {}
+typedef struct _Clang_Range_isNull_args__isset {
+  _Clang_Range_isNull_args__isset() : range(false) {}
   bool range;
-} _Clang_clang_Range_isNull_args__isset;
+} _Clang_Range_isNull_args__isset;
 
-class Clang_clang_Range_isNull_args {
+class Clang_Range_isNull_args {
  public:
 
-  Clang_clang_Range_isNull_args() {
+  Clang_Range_isNull_args() {
   }
 
-  virtual ~Clang_clang_Range_isNull_args() throw() {}
+  virtual ~Clang_Range_isNull_args() throw() {}
 
-   ::clang::thrift::CXSourceRange range;
+   ::clad::CXSourceRange range;
 
-  _Clang_clang_Range_isNull_args__isset __isset;
+  _Clang_Range_isNull_args__isset __isset;
 
-  void __set_range(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_range(const  ::clad::CXSourceRange& val) {
     range = val;
   }
 
-  bool operator == (const Clang_clang_Range_isNull_args & rhs) const
+  bool operator == (const Clang_Range_isNull_args & rhs) const
   {
     if (!(range == rhs.range))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_Range_isNull_args &rhs) const {
+  bool operator != (const Clang_Range_isNull_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_Range_isNull_args & ) const;
+  bool operator < (const Clang_Range_isNull_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3459,107 +3459,107 @@ class Clang_clang_Range_isNull_args {
 };
 
 
-class Clang_clang_Range_isNull_pargs {
+class Clang_Range_isNull_pargs {
  public:
 
 
-  virtual ~Clang_clang_Range_isNull_pargs() throw() {}
+  virtual ~Clang_Range_isNull_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceRange* range;
+  const  ::clad::CXSourceRange* range;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_Range_isNull_result__isset {
-  _Clang_clang_Range_isNull_result__isset() : success(false) {}
+typedef struct _Clang_Range_isNull_result__isset {
+  _Clang_Range_isNull_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_Range_isNull_result__isset;
+} _Clang_Range_isNull_result__isset;
 
-class Clang_clang_Range_isNull_result {
+class Clang_Range_isNull_result {
  public:
 
-  Clang_clang_Range_isNull_result() : success(0) {
+  Clang_Range_isNull_result() : success(0) {
   }
 
-  virtual ~Clang_clang_Range_isNull_result() throw() {}
+  virtual ~Clang_Range_isNull_result() throw() {}
 
   int32_t success;
 
-  _Clang_clang_Range_isNull_result__isset __isset;
+  _Clang_Range_isNull_result__isset __isset;
 
   void __set_success(const int32_t val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_Range_isNull_result & rhs) const
+  bool operator == (const Clang_Range_isNull_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_Range_isNull_result &rhs) const {
+  bool operator != (const Clang_Range_isNull_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_Range_isNull_result & ) const;
+  bool operator < (const Clang_Range_isNull_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_Range_isNull_presult__isset {
-  _Clang_clang_Range_isNull_presult__isset() : success(false) {}
+typedef struct _Clang_Range_isNull_presult__isset {
+  _Clang_Range_isNull_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_Range_isNull_presult__isset;
+} _Clang_Range_isNull_presult__isset;
 
-class Clang_clang_Range_isNull_presult {
+class Clang_Range_isNull_presult {
  public:
 
 
-  virtual ~Clang_clang_Range_isNull_presult() throw() {}
+  virtual ~Clang_Range_isNull_presult() throw() {}
 
   int32_t* success;
 
-  _Clang_clang_Range_isNull_presult__isset __isset;
+  _Clang_Range_isNull_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getExpansionLocation_args__isset {
-  _Clang_clang_getExpansionLocation_args__isset() : location(false) {}
+typedef struct _Clang_getExpansionLocation_args__isset {
+  _Clang_getExpansionLocation_args__isset() : location(false) {}
   bool location;
-} _Clang_clang_getExpansionLocation_args__isset;
+} _Clang_getExpansionLocation_args__isset;
 
-class Clang_clang_getExpansionLocation_args {
+class Clang_getExpansionLocation_args {
  public:
 
-  Clang_clang_getExpansionLocation_args() {
+  Clang_getExpansionLocation_args() {
   }
 
-  virtual ~Clang_clang_getExpansionLocation_args() throw() {}
+  virtual ~Clang_getExpansionLocation_args() throw() {}
 
-   ::clang::thrift::CXSourceLocation location;
+   ::clad::CXSourceLocation location;
 
-  _Clang_clang_getExpansionLocation_args__isset __isset;
+  _Clang_getExpansionLocation_args__isset __isset;
 
-  void __set_location(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_location(const  ::clad::CXSourceLocation& val) {
     location = val;
   }
 
-  bool operator == (const Clang_clang_getExpansionLocation_args & rhs) const
+  bool operator == (const Clang_getExpansionLocation_args & rhs) const
   {
     if (!(location == rhs.location))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getExpansionLocation_args &rhs) const {
+  bool operator != (const Clang_getExpansionLocation_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getExpansionLocation_args & ) const;
+  bool operator < (const Clang_getExpansionLocation_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3567,107 +3567,107 @@ class Clang_clang_getExpansionLocation_args {
 };
 
 
-class Clang_clang_getExpansionLocation_pargs {
+class Clang_getExpansionLocation_pargs {
  public:
 
 
-  virtual ~Clang_clang_getExpansionLocation_pargs() throw() {}
+  virtual ~Clang_getExpansionLocation_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceLocation* location;
+  const  ::clad::CXSourceLocation* location;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getExpansionLocation_result__isset {
-  _Clang_clang_getExpansionLocation_result__isset() : success(false) {}
+typedef struct _Clang_getExpansionLocation_result__isset {
+  _Clang_getExpansionLocation_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getExpansionLocation_result__isset;
+} _Clang_getExpansionLocation_result__isset;
 
-class Clang_clang_getExpansionLocation_result {
+class Clang_getExpansionLocation_result {
  public:
 
-  Clang_clang_getExpansionLocation_result() {
+  Clang_getExpansionLocation_result() {
   }
 
-  virtual ~Clang_clang_getExpansionLocation_result() throw() {}
+  virtual ~Clang_getExpansionLocation_result() throw() {}
 
-   ::clang::thrift::CXSourcePosition success;
+   ::clad::CXSourcePosition success;
 
-  _Clang_clang_getExpansionLocation_result__isset __isset;
+  _Clang_getExpansionLocation_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourcePosition& val) {
+  void __set_success(const  ::clad::CXSourcePosition& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getExpansionLocation_result & rhs) const
+  bool operator == (const Clang_getExpansionLocation_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getExpansionLocation_result &rhs) const {
+  bool operator != (const Clang_getExpansionLocation_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getExpansionLocation_result & ) const;
+  bool operator < (const Clang_getExpansionLocation_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getExpansionLocation_presult__isset {
-  _Clang_clang_getExpansionLocation_presult__isset() : success(false) {}
+typedef struct _Clang_getExpansionLocation_presult__isset {
+  _Clang_getExpansionLocation_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getExpansionLocation_presult__isset;
+} _Clang_getExpansionLocation_presult__isset;
 
-class Clang_clang_getExpansionLocation_presult {
+class Clang_getExpansionLocation_presult {
  public:
 
 
-  virtual ~Clang_clang_getExpansionLocation_presult() throw() {}
+  virtual ~Clang_getExpansionLocation_presult() throw() {}
 
-   ::clang::thrift::CXSourcePosition* success;
+   ::clad::CXSourcePosition* success;
 
-  _Clang_clang_getExpansionLocation_presult__isset __isset;
+  _Clang_getExpansionLocation_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getPresumedLocation_args__isset {
-  _Clang_clang_getPresumedLocation_args__isset() : location(false) {}
+typedef struct _Clang_getPresumedLocation_args__isset {
+  _Clang_getPresumedLocation_args__isset() : location(false) {}
   bool location;
-} _Clang_clang_getPresumedLocation_args__isset;
+} _Clang_getPresumedLocation_args__isset;
 
-class Clang_clang_getPresumedLocation_args {
+class Clang_getPresumedLocation_args {
  public:
 
-  Clang_clang_getPresumedLocation_args() {
+  Clang_getPresumedLocation_args() {
   }
 
-  virtual ~Clang_clang_getPresumedLocation_args() throw() {}
+  virtual ~Clang_getPresumedLocation_args() throw() {}
 
-   ::clang::thrift::CXSourceLocation location;
+   ::clad::CXSourceLocation location;
 
-  _Clang_clang_getPresumedLocation_args__isset __isset;
+  _Clang_getPresumedLocation_args__isset __isset;
 
-  void __set_location(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_location(const  ::clad::CXSourceLocation& val) {
     location = val;
   }
 
-  bool operator == (const Clang_clang_getPresumedLocation_args & rhs) const
+  bool operator == (const Clang_getPresumedLocation_args & rhs) const
   {
     if (!(location == rhs.location))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getPresumedLocation_args &rhs) const {
+  bool operator != (const Clang_getPresumedLocation_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getPresumedLocation_args & ) const;
+  bool operator < (const Clang_getPresumedLocation_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3675,107 +3675,107 @@ class Clang_clang_getPresumedLocation_args {
 };
 
 
-class Clang_clang_getPresumedLocation_pargs {
+class Clang_getPresumedLocation_pargs {
  public:
 
 
-  virtual ~Clang_clang_getPresumedLocation_pargs() throw() {}
+  virtual ~Clang_getPresumedLocation_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceLocation* location;
+  const  ::clad::CXSourceLocation* location;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getPresumedLocation_result__isset {
-  _Clang_clang_getPresumedLocation_result__isset() : success(false) {}
+typedef struct _Clang_getPresumedLocation_result__isset {
+  _Clang_getPresumedLocation_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getPresumedLocation_result__isset;
+} _Clang_getPresumedLocation_result__isset;
 
-class Clang_clang_getPresumedLocation_result {
+class Clang_getPresumedLocation_result {
  public:
 
-  Clang_clang_getPresumedLocation_result() {
+  Clang_getPresumedLocation_result() {
   }
 
-  virtual ~Clang_clang_getPresumedLocation_result() throw() {}
+  virtual ~Clang_getPresumedLocation_result() throw() {}
 
-   ::clang::thrift::CXSourcePosition success;
+   ::clad::CXSourcePosition success;
 
-  _Clang_clang_getPresumedLocation_result__isset __isset;
+  _Clang_getPresumedLocation_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourcePosition& val) {
+  void __set_success(const  ::clad::CXSourcePosition& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getPresumedLocation_result & rhs) const
+  bool operator == (const Clang_getPresumedLocation_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getPresumedLocation_result &rhs) const {
+  bool operator != (const Clang_getPresumedLocation_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getPresumedLocation_result & ) const;
+  bool operator < (const Clang_getPresumedLocation_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getPresumedLocation_presult__isset {
-  _Clang_clang_getPresumedLocation_presult__isset() : success(false) {}
+typedef struct _Clang_getPresumedLocation_presult__isset {
+  _Clang_getPresumedLocation_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getPresumedLocation_presult__isset;
+} _Clang_getPresumedLocation_presult__isset;
 
-class Clang_clang_getPresumedLocation_presult {
+class Clang_getPresumedLocation_presult {
  public:
 
 
-  virtual ~Clang_clang_getPresumedLocation_presult() throw() {}
+  virtual ~Clang_getPresumedLocation_presult() throw() {}
 
-   ::clang::thrift::CXSourcePosition* success;
+   ::clad::CXSourcePosition* success;
 
-  _Clang_clang_getPresumedLocation_presult__isset __isset;
+  _Clang_getPresumedLocation_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getInstantiationLocation_args__isset {
-  _Clang_clang_getInstantiationLocation_args__isset() : location(false) {}
+typedef struct _Clang_getInstantiationLocation_args__isset {
+  _Clang_getInstantiationLocation_args__isset() : location(false) {}
   bool location;
-} _Clang_clang_getInstantiationLocation_args__isset;
+} _Clang_getInstantiationLocation_args__isset;
 
-class Clang_clang_getInstantiationLocation_args {
+class Clang_getInstantiationLocation_args {
  public:
 
-  Clang_clang_getInstantiationLocation_args() {
+  Clang_getInstantiationLocation_args() {
   }
 
-  virtual ~Clang_clang_getInstantiationLocation_args() throw() {}
+  virtual ~Clang_getInstantiationLocation_args() throw() {}
 
-   ::clang::thrift::CXSourceLocation location;
+   ::clad::CXSourceLocation location;
 
-  _Clang_clang_getInstantiationLocation_args__isset __isset;
+  _Clang_getInstantiationLocation_args__isset __isset;
 
-  void __set_location(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_location(const  ::clad::CXSourceLocation& val) {
     location = val;
   }
 
-  bool operator == (const Clang_clang_getInstantiationLocation_args & rhs) const
+  bool operator == (const Clang_getInstantiationLocation_args & rhs) const
   {
     if (!(location == rhs.location))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getInstantiationLocation_args &rhs) const {
+  bool operator != (const Clang_getInstantiationLocation_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getInstantiationLocation_args & ) const;
+  bool operator < (const Clang_getInstantiationLocation_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3783,107 +3783,107 @@ class Clang_clang_getInstantiationLocation_args {
 };
 
 
-class Clang_clang_getInstantiationLocation_pargs {
+class Clang_getInstantiationLocation_pargs {
  public:
 
 
-  virtual ~Clang_clang_getInstantiationLocation_pargs() throw() {}
+  virtual ~Clang_getInstantiationLocation_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceLocation* location;
+  const  ::clad::CXSourceLocation* location;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getInstantiationLocation_result__isset {
-  _Clang_clang_getInstantiationLocation_result__isset() : success(false) {}
+typedef struct _Clang_getInstantiationLocation_result__isset {
+  _Clang_getInstantiationLocation_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getInstantiationLocation_result__isset;
+} _Clang_getInstantiationLocation_result__isset;
 
-class Clang_clang_getInstantiationLocation_result {
+class Clang_getInstantiationLocation_result {
  public:
 
-  Clang_clang_getInstantiationLocation_result() {
+  Clang_getInstantiationLocation_result() {
   }
 
-  virtual ~Clang_clang_getInstantiationLocation_result() throw() {}
+  virtual ~Clang_getInstantiationLocation_result() throw() {}
 
-   ::clang::thrift::CXSourcePosition success;
+   ::clad::CXSourcePosition success;
 
-  _Clang_clang_getInstantiationLocation_result__isset __isset;
+  _Clang_getInstantiationLocation_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourcePosition& val) {
+  void __set_success(const  ::clad::CXSourcePosition& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getInstantiationLocation_result & rhs) const
+  bool operator == (const Clang_getInstantiationLocation_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getInstantiationLocation_result &rhs) const {
+  bool operator != (const Clang_getInstantiationLocation_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getInstantiationLocation_result & ) const;
+  bool operator < (const Clang_getInstantiationLocation_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getInstantiationLocation_presult__isset {
-  _Clang_clang_getInstantiationLocation_presult__isset() : success(false) {}
+typedef struct _Clang_getInstantiationLocation_presult__isset {
+  _Clang_getInstantiationLocation_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getInstantiationLocation_presult__isset;
+} _Clang_getInstantiationLocation_presult__isset;
 
-class Clang_clang_getInstantiationLocation_presult {
+class Clang_getInstantiationLocation_presult {
  public:
 
 
-  virtual ~Clang_clang_getInstantiationLocation_presult() throw() {}
+  virtual ~Clang_getInstantiationLocation_presult() throw() {}
 
-   ::clang::thrift::CXSourcePosition* success;
+   ::clad::CXSourcePosition* success;
 
-  _Clang_clang_getInstantiationLocation_presult__isset __isset;
+  _Clang_getInstantiationLocation_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getSpellingLocation_args__isset {
-  _Clang_clang_getSpellingLocation_args__isset() : location(false) {}
+typedef struct _Clang_getSpellingLocation_args__isset {
+  _Clang_getSpellingLocation_args__isset() : location(false) {}
   bool location;
-} _Clang_clang_getSpellingLocation_args__isset;
+} _Clang_getSpellingLocation_args__isset;
 
-class Clang_clang_getSpellingLocation_args {
+class Clang_getSpellingLocation_args {
  public:
 
-  Clang_clang_getSpellingLocation_args() {
+  Clang_getSpellingLocation_args() {
   }
 
-  virtual ~Clang_clang_getSpellingLocation_args() throw() {}
+  virtual ~Clang_getSpellingLocation_args() throw() {}
 
-   ::clang::thrift::CXSourceLocation location;
+   ::clad::CXSourceLocation location;
 
-  _Clang_clang_getSpellingLocation_args__isset __isset;
+  _Clang_getSpellingLocation_args__isset __isset;
 
-  void __set_location(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_location(const  ::clad::CXSourceLocation& val) {
     location = val;
   }
 
-  bool operator == (const Clang_clang_getSpellingLocation_args & rhs) const
+  bool operator == (const Clang_getSpellingLocation_args & rhs) const
   {
     if (!(location == rhs.location))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getSpellingLocation_args &rhs) const {
+  bool operator != (const Clang_getSpellingLocation_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getSpellingLocation_args & ) const;
+  bool operator < (const Clang_getSpellingLocation_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3891,107 +3891,107 @@ class Clang_clang_getSpellingLocation_args {
 };
 
 
-class Clang_clang_getSpellingLocation_pargs {
+class Clang_getSpellingLocation_pargs {
  public:
 
 
-  virtual ~Clang_clang_getSpellingLocation_pargs() throw() {}
+  virtual ~Clang_getSpellingLocation_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceLocation* location;
+  const  ::clad::CXSourceLocation* location;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getSpellingLocation_result__isset {
-  _Clang_clang_getSpellingLocation_result__isset() : success(false) {}
+typedef struct _Clang_getSpellingLocation_result__isset {
+  _Clang_getSpellingLocation_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getSpellingLocation_result__isset;
+} _Clang_getSpellingLocation_result__isset;
 
-class Clang_clang_getSpellingLocation_result {
+class Clang_getSpellingLocation_result {
  public:
 
-  Clang_clang_getSpellingLocation_result() {
+  Clang_getSpellingLocation_result() {
   }
 
-  virtual ~Clang_clang_getSpellingLocation_result() throw() {}
+  virtual ~Clang_getSpellingLocation_result() throw() {}
 
-   ::clang::thrift::CXSourcePosition success;
+   ::clad::CXSourcePosition success;
 
-  _Clang_clang_getSpellingLocation_result__isset __isset;
+  _Clang_getSpellingLocation_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourcePosition& val) {
+  void __set_success(const  ::clad::CXSourcePosition& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getSpellingLocation_result & rhs) const
+  bool operator == (const Clang_getSpellingLocation_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getSpellingLocation_result &rhs) const {
+  bool operator != (const Clang_getSpellingLocation_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getSpellingLocation_result & ) const;
+  bool operator < (const Clang_getSpellingLocation_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getSpellingLocation_presult__isset {
-  _Clang_clang_getSpellingLocation_presult__isset() : success(false) {}
+typedef struct _Clang_getSpellingLocation_presult__isset {
+  _Clang_getSpellingLocation_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getSpellingLocation_presult__isset;
+} _Clang_getSpellingLocation_presult__isset;
 
-class Clang_clang_getSpellingLocation_presult {
+class Clang_getSpellingLocation_presult {
  public:
 
 
-  virtual ~Clang_clang_getSpellingLocation_presult() throw() {}
+  virtual ~Clang_getSpellingLocation_presult() throw() {}
 
-   ::clang::thrift::CXSourcePosition* success;
+   ::clad::CXSourcePosition* success;
 
-  _Clang_clang_getSpellingLocation_presult__isset __isset;
+  _Clang_getSpellingLocation_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getRangeStart_args__isset {
-  _Clang_clang_getRangeStart_args__isset() : range(false) {}
+typedef struct _Clang_getRangeStart_args__isset {
+  _Clang_getRangeStart_args__isset() : range(false) {}
   bool range;
-} _Clang_clang_getRangeStart_args__isset;
+} _Clang_getRangeStart_args__isset;
 
-class Clang_clang_getRangeStart_args {
+class Clang_getRangeStart_args {
  public:
 
-  Clang_clang_getRangeStart_args() {
+  Clang_getRangeStart_args() {
   }
 
-  virtual ~Clang_clang_getRangeStart_args() throw() {}
+  virtual ~Clang_getRangeStart_args() throw() {}
 
-   ::clang::thrift::CXSourceRange range;
+   ::clad::CXSourceRange range;
 
-  _Clang_clang_getRangeStart_args__isset __isset;
+  _Clang_getRangeStart_args__isset __isset;
 
-  void __set_range(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_range(const  ::clad::CXSourceRange& val) {
     range = val;
   }
 
-  bool operator == (const Clang_clang_getRangeStart_args & rhs) const
+  bool operator == (const Clang_getRangeStart_args & rhs) const
   {
     if (!(range == rhs.range))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getRangeStart_args &rhs) const {
+  bool operator != (const Clang_getRangeStart_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getRangeStart_args & ) const;
+  bool operator < (const Clang_getRangeStart_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3999,107 +3999,107 @@ class Clang_clang_getRangeStart_args {
 };
 
 
-class Clang_clang_getRangeStart_pargs {
+class Clang_getRangeStart_pargs {
  public:
 
 
-  virtual ~Clang_clang_getRangeStart_pargs() throw() {}
+  virtual ~Clang_getRangeStart_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceRange* range;
+  const  ::clad::CXSourceRange* range;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getRangeStart_result__isset {
-  _Clang_clang_getRangeStart_result__isset() : success(false) {}
+typedef struct _Clang_getRangeStart_result__isset {
+  _Clang_getRangeStart_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getRangeStart_result__isset;
+} _Clang_getRangeStart_result__isset;
 
-class Clang_clang_getRangeStart_result {
+class Clang_getRangeStart_result {
  public:
 
-  Clang_clang_getRangeStart_result() {
+  Clang_getRangeStart_result() {
   }
 
-  virtual ~Clang_clang_getRangeStart_result() throw() {}
+  virtual ~Clang_getRangeStart_result() throw() {}
 
-   ::clang::thrift::CXSourceLocation success;
+   ::clad::CXSourceLocation success;
 
-  _Clang_clang_getRangeStart_result__isset __isset;
+  _Clang_getRangeStart_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_success(const  ::clad::CXSourceLocation& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getRangeStart_result & rhs) const
+  bool operator == (const Clang_getRangeStart_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getRangeStart_result &rhs) const {
+  bool operator != (const Clang_getRangeStart_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getRangeStart_result & ) const;
+  bool operator < (const Clang_getRangeStart_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getRangeStart_presult__isset {
-  _Clang_clang_getRangeStart_presult__isset() : success(false) {}
+typedef struct _Clang_getRangeStart_presult__isset {
+  _Clang_getRangeStart_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getRangeStart_presult__isset;
+} _Clang_getRangeStart_presult__isset;
 
-class Clang_clang_getRangeStart_presult {
+class Clang_getRangeStart_presult {
  public:
 
 
-  virtual ~Clang_clang_getRangeStart_presult() throw() {}
+  virtual ~Clang_getRangeStart_presult() throw() {}
 
-   ::clang::thrift::CXSourceLocation* success;
+   ::clad::CXSourceLocation* success;
 
-  _Clang_clang_getRangeStart_presult__isset __isset;
+  _Clang_getRangeStart_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getRangeEnd_args__isset {
-  _Clang_clang_getRangeEnd_args__isset() : range(false) {}
+typedef struct _Clang_getRangeEnd_args__isset {
+  _Clang_getRangeEnd_args__isset() : range(false) {}
   bool range;
-} _Clang_clang_getRangeEnd_args__isset;
+} _Clang_getRangeEnd_args__isset;
 
-class Clang_clang_getRangeEnd_args {
+class Clang_getRangeEnd_args {
  public:
 
-  Clang_clang_getRangeEnd_args() {
+  Clang_getRangeEnd_args() {
   }
 
-  virtual ~Clang_clang_getRangeEnd_args() throw() {}
+  virtual ~Clang_getRangeEnd_args() throw() {}
 
-   ::clang::thrift::CXSourceRange range;
+   ::clad::CXSourceRange range;
 
-  _Clang_clang_getRangeEnd_args__isset __isset;
+  _Clang_getRangeEnd_args__isset __isset;
 
-  void __set_range(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_range(const  ::clad::CXSourceRange& val) {
     range = val;
   }
 
-  bool operator == (const Clang_clang_getRangeEnd_args & rhs) const
+  bool operator == (const Clang_getRangeEnd_args & rhs) const
   {
     if (!(range == rhs.range))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getRangeEnd_args &rhs) const {
+  bool operator != (const Clang_getRangeEnd_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getRangeEnd_args & ) const;
+  bool operator < (const Clang_getRangeEnd_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4107,107 +4107,107 @@ class Clang_clang_getRangeEnd_args {
 };
 
 
-class Clang_clang_getRangeEnd_pargs {
+class Clang_getRangeEnd_pargs {
  public:
 
 
-  virtual ~Clang_clang_getRangeEnd_pargs() throw() {}
+  virtual ~Clang_getRangeEnd_pargs() throw() {}
 
-  const  ::clang::thrift::CXSourceRange* range;
+  const  ::clad::CXSourceRange* range;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getRangeEnd_result__isset {
-  _Clang_clang_getRangeEnd_result__isset() : success(false) {}
+typedef struct _Clang_getRangeEnd_result__isset {
+  _Clang_getRangeEnd_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getRangeEnd_result__isset;
+} _Clang_getRangeEnd_result__isset;
 
-class Clang_clang_getRangeEnd_result {
+class Clang_getRangeEnd_result {
  public:
 
-  Clang_clang_getRangeEnd_result() {
+  Clang_getRangeEnd_result() {
   }
 
-  virtual ~Clang_clang_getRangeEnd_result() throw() {}
+  virtual ~Clang_getRangeEnd_result() throw() {}
 
-   ::clang::thrift::CXSourceLocation success;
+   ::clad::CXSourceLocation success;
 
-  _Clang_clang_getRangeEnd_result__isset __isset;
+  _Clang_getRangeEnd_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_success(const  ::clad::CXSourceLocation& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getRangeEnd_result & rhs) const
+  bool operator == (const Clang_getRangeEnd_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getRangeEnd_result &rhs) const {
+  bool operator != (const Clang_getRangeEnd_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getRangeEnd_result & ) const;
+  bool operator < (const Clang_getRangeEnd_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getRangeEnd_presult__isset {
-  _Clang_clang_getRangeEnd_presult__isset() : success(false) {}
+typedef struct _Clang_getRangeEnd_presult__isset {
+  _Clang_getRangeEnd_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getRangeEnd_presult__isset;
+} _Clang_getRangeEnd_presult__isset;
 
-class Clang_clang_getRangeEnd_presult {
+class Clang_getRangeEnd_presult {
  public:
 
 
-  virtual ~Clang_clang_getRangeEnd_presult() throw() {}
+  virtual ~Clang_getRangeEnd_presult() throw() {}
 
-   ::clang::thrift::CXSourceLocation* success;
+   ::clad::CXSourceLocation* success;
 
-  _Clang_clang_getRangeEnd_presult__isset __isset;
+  _Clang_getRangeEnd_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getNumDiagnosticsInSet_args__isset {
-  _Clang_clang_getNumDiagnosticsInSet_args__isset() : diags(false) {}
+typedef struct _Clang_getNumDiagnosticsInSet_args__isset {
+  _Clang_getNumDiagnosticsInSet_args__isset() : diags(false) {}
   bool diags;
-} _Clang_clang_getNumDiagnosticsInSet_args__isset;
+} _Clang_getNumDiagnosticsInSet_args__isset;
 
-class Clang_clang_getNumDiagnosticsInSet_args {
+class Clang_getNumDiagnosticsInSet_args {
  public:
 
-  Clang_clang_getNumDiagnosticsInSet_args() : diags(0) {
+  Clang_getNumDiagnosticsInSet_args() : diags(0) {
   }
 
-  virtual ~Clang_clang_getNumDiagnosticsInSet_args() throw() {}
+  virtual ~Clang_getNumDiagnosticsInSet_args() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet diags;
+   ::clad::CXDiagnosticSet diags;
 
-  _Clang_clang_getNumDiagnosticsInSet_args__isset __isset;
+  _Clang_getNumDiagnosticsInSet_args__isset __isset;
 
-  void __set_diags(const  ::clang::thrift::CXDiagnosticSet val) {
+  void __set_diags(const  ::clad::CXDiagnosticSet val) {
     diags = val;
   }
 
-  bool operator == (const Clang_clang_getNumDiagnosticsInSet_args & rhs) const
+  bool operator == (const Clang_getNumDiagnosticsInSet_args & rhs) const
   {
     if (!(diags == rhs.diags))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getNumDiagnosticsInSet_args &rhs) const {
+  bool operator != (const Clang_getNumDiagnosticsInSet_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getNumDiagnosticsInSet_args & ) const;
+  bool operator < (const Clang_getNumDiagnosticsInSet_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4215,103 +4215,103 @@ class Clang_clang_getNumDiagnosticsInSet_args {
 };
 
 
-class Clang_clang_getNumDiagnosticsInSet_pargs {
+class Clang_getNumDiagnosticsInSet_pargs {
  public:
 
 
-  virtual ~Clang_clang_getNumDiagnosticsInSet_pargs() throw() {}
+  virtual ~Clang_getNumDiagnosticsInSet_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnosticSet* diags;
+  const  ::clad::CXDiagnosticSet* diags;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getNumDiagnosticsInSet_result__isset {
-  _Clang_clang_getNumDiagnosticsInSet_result__isset() : success(false) {}
+typedef struct _Clang_getNumDiagnosticsInSet_result__isset {
+  _Clang_getNumDiagnosticsInSet_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getNumDiagnosticsInSet_result__isset;
+} _Clang_getNumDiagnosticsInSet_result__isset;
 
-class Clang_clang_getNumDiagnosticsInSet_result {
+class Clang_getNumDiagnosticsInSet_result {
  public:
 
-  Clang_clang_getNumDiagnosticsInSet_result() : success(0) {
+  Clang_getNumDiagnosticsInSet_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getNumDiagnosticsInSet_result() throw() {}
+  virtual ~Clang_getNumDiagnosticsInSet_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_getNumDiagnosticsInSet_result__isset __isset;
+  _Clang_getNumDiagnosticsInSet_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getNumDiagnosticsInSet_result & rhs) const
+  bool operator == (const Clang_getNumDiagnosticsInSet_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getNumDiagnosticsInSet_result &rhs) const {
+  bool operator != (const Clang_getNumDiagnosticsInSet_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getNumDiagnosticsInSet_result & ) const;
+  bool operator < (const Clang_getNumDiagnosticsInSet_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getNumDiagnosticsInSet_presult__isset {
-  _Clang_clang_getNumDiagnosticsInSet_presult__isset() : success(false) {}
+typedef struct _Clang_getNumDiagnosticsInSet_presult__isset {
+  _Clang_getNumDiagnosticsInSet_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getNumDiagnosticsInSet_presult__isset;
+} _Clang_getNumDiagnosticsInSet_presult__isset;
 
-class Clang_clang_getNumDiagnosticsInSet_presult {
+class Clang_getNumDiagnosticsInSet_presult {
  public:
 
 
-  virtual ~Clang_clang_getNumDiagnosticsInSet_presult() throw() {}
+  virtual ~Clang_getNumDiagnosticsInSet_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_getNumDiagnosticsInSet_presult__isset __isset;
+  _Clang_getNumDiagnosticsInSet_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticInSet_args__isset {
-  _Clang_clang_getDiagnosticInSet_args__isset() : diags(false), index(false) {}
+typedef struct _Clang_getDiagnosticInSet_args__isset {
+  _Clang_getDiagnosticInSet_args__isset() : diags(false), index(false) {}
   bool diags;
   bool index;
-} _Clang_clang_getDiagnosticInSet_args__isset;
+} _Clang_getDiagnosticInSet_args__isset;
 
-class Clang_clang_getDiagnosticInSet_args {
+class Clang_getDiagnosticInSet_args {
  public:
 
-  Clang_clang_getDiagnosticInSet_args() : diags(0), index(0) {
+  Clang_getDiagnosticInSet_args() : diags(0), index(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticInSet_args() throw() {}
+  virtual ~Clang_getDiagnosticInSet_args() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet diags;
-   ::clang::thrift::u32 index;
+   ::clad::CXDiagnosticSet diags;
+   ::clad::u32 index;
 
-  _Clang_clang_getDiagnosticInSet_args__isset __isset;
+  _Clang_getDiagnosticInSet_args__isset __isset;
 
-  void __set_diags(const  ::clang::thrift::CXDiagnosticSet val) {
+  void __set_diags(const  ::clad::CXDiagnosticSet val) {
     diags = val;
   }
 
-  void __set_index(const  ::clang::thrift::u32 val) {
+  void __set_index(const  ::clad::u32 val) {
     index = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticInSet_args & rhs) const
+  bool operator == (const Clang_getDiagnosticInSet_args & rhs) const
   {
     if (!(diags == rhs.diags))
       return false;
@@ -4319,11 +4319,11 @@ class Clang_clang_getDiagnosticInSet_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticInSet_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticInSet_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticInSet_args & ) const;
+  bool operator < (const Clang_getDiagnosticInSet_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4331,108 +4331,108 @@ class Clang_clang_getDiagnosticInSet_args {
 };
 
 
-class Clang_clang_getDiagnosticInSet_pargs {
+class Clang_getDiagnosticInSet_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticInSet_pargs() throw() {}
+  virtual ~Clang_getDiagnosticInSet_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnosticSet* diags;
-  const  ::clang::thrift::u32* index;
+  const  ::clad::CXDiagnosticSet* diags;
+  const  ::clad::u32* index;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticInSet_result__isset {
-  _Clang_clang_getDiagnosticInSet_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticInSet_result__isset {
+  _Clang_getDiagnosticInSet_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticInSet_result__isset;
+} _Clang_getDiagnosticInSet_result__isset;
 
-class Clang_clang_getDiagnosticInSet_result {
+class Clang_getDiagnosticInSet_result {
  public:
 
-  Clang_clang_getDiagnosticInSet_result() : success(0) {
+  Clang_getDiagnosticInSet_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticInSet_result() throw() {}
+  virtual ~Clang_getDiagnosticInSet_result() throw() {}
 
-   ::clang::thrift::CXDiagnostic success;
+   ::clad::CXDiagnostic success;
 
-  _Clang_clang_getDiagnosticInSet_result__isset __isset;
+  _Clang_getDiagnosticInSet_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_success(const  ::clad::CXDiagnostic val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticInSet_result & rhs) const
+  bool operator == (const Clang_getDiagnosticInSet_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticInSet_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticInSet_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticInSet_result & ) const;
+  bool operator < (const Clang_getDiagnosticInSet_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticInSet_presult__isset {
-  _Clang_clang_getDiagnosticInSet_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticInSet_presult__isset {
+  _Clang_getDiagnosticInSet_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticInSet_presult__isset;
+} _Clang_getDiagnosticInSet_presult__isset;
 
-class Clang_clang_getDiagnosticInSet_presult {
+class Clang_getDiagnosticInSet_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticInSet_presult() throw() {}
+  virtual ~Clang_getDiagnosticInSet_presult() throw() {}
 
-   ::clang::thrift::CXDiagnostic* success;
+   ::clad::CXDiagnostic* success;
 
-  _Clang_clang_getDiagnosticInSet_presult__isset __isset;
+  _Clang_getDiagnosticInSet_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_loadDiagnostics_args__isset {
-  _Clang_clang_loadDiagnostics_args__isset() : filename(false) {}
+typedef struct _Clang_loadDiagnostics_args__isset {
+  _Clang_loadDiagnostics_args__isset() : filename(false) {}
   bool filename;
-} _Clang_clang_loadDiagnostics_args__isset;
+} _Clang_loadDiagnostics_args__isset;
 
-class Clang_clang_loadDiagnostics_args {
+class Clang_loadDiagnostics_args {
  public:
 
-  Clang_clang_loadDiagnostics_args() : filename() {
+  Clang_loadDiagnostics_args() : filename() {
   }
 
-  virtual ~Clang_clang_loadDiagnostics_args() throw() {}
+  virtual ~Clang_loadDiagnostics_args() throw() {}
 
   std::string filename;
 
-  _Clang_clang_loadDiagnostics_args__isset __isset;
+  _Clang_loadDiagnostics_args__isset __isset;
 
   void __set_filename(const std::string& val) {
     filename = val;
   }
 
-  bool operator == (const Clang_clang_loadDiagnostics_args & rhs) const
+  bool operator == (const Clang_loadDiagnostics_args & rhs) const
   {
     if (!(filename == rhs.filename))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_loadDiagnostics_args &rhs) const {
+  bool operator != (const Clang_loadDiagnostics_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_loadDiagnostics_args & ) const;
+  bool operator < (const Clang_loadDiagnostics_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4440,11 +4440,11 @@ class Clang_clang_loadDiagnostics_args {
 };
 
 
-class Clang_clang_loadDiagnostics_pargs {
+class Clang_loadDiagnostics_pargs {
  public:
 
 
-  virtual ~Clang_clang_loadDiagnostics_pargs() throw() {}
+  virtual ~Clang_loadDiagnostics_pargs() throw() {}
 
   const std::string* filename;
 
@@ -4452,34 +4452,34 @@ class Clang_clang_loadDiagnostics_pargs {
 
 };
 
-typedef struct _Clang_clang_loadDiagnostics_result__isset {
-  _Clang_clang_loadDiagnostics_result__isset() : success(false), e(false) {}
+typedef struct _Clang_loadDiagnostics_result__isset {
+  _Clang_loadDiagnostics_result__isset() : success(false), e(false) {}
   bool success;
   bool e;
-} _Clang_clang_loadDiagnostics_result__isset;
+} _Clang_loadDiagnostics_result__isset;
 
-class Clang_clang_loadDiagnostics_result {
+class Clang_loadDiagnostics_result {
  public:
 
-  Clang_clang_loadDiagnostics_result() : success(0) {
+  Clang_loadDiagnostics_result() : success(0) {
   }
 
-  virtual ~Clang_clang_loadDiagnostics_result() throw() {}
+  virtual ~Clang_loadDiagnostics_result() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet success;
-   ::clang::thrift::CXLoadDiagException e;
+   ::clad::CXDiagnosticSet success;
+   ::clad::CXLoadDiagException e;
 
-  _Clang_clang_loadDiagnostics_result__isset __isset;
+  _Clang_loadDiagnostics_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXDiagnosticSet val) {
+  void __set_success(const  ::clad::CXDiagnosticSet val) {
     success = val;
   }
 
-  void __set_e(const  ::clang::thrift::CXLoadDiagException& val) {
+  void __set_e(const  ::clad::CXLoadDiagException& val) {
     e = val;
   }
 
-  bool operator == (const Clang_clang_loadDiagnostics_result & rhs) const
+  bool operator == (const Clang_loadDiagnostics_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
@@ -4487,70 +4487,70 @@ class Clang_clang_loadDiagnostics_result {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_loadDiagnostics_result &rhs) const {
+  bool operator != (const Clang_loadDiagnostics_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_loadDiagnostics_result & ) const;
+  bool operator < (const Clang_loadDiagnostics_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_loadDiagnostics_presult__isset {
-  _Clang_clang_loadDiagnostics_presult__isset() : success(false), e(false) {}
+typedef struct _Clang_loadDiagnostics_presult__isset {
+  _Clang_loadDiagnostics_presult__isset() : success(false), e(false) {}
   bool success;
   bool e;
-} _Clang_clang_loadDiagnostics_presult__isset;
+} _Clang_loadDiagnostics_presult__isset;
 
-class Clang_clang_loadDiagnostics_presult {
+class Clang_loadDiagnostics_presult {
  public:
 
 
-  virtual ~Clang_clang_loadDiagnostics_presult() throw() {}
+  virtual ~Clang_loadDiagnostics_presult() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet* success;
-   ::clang::thrift::CXLoadDiagException e;
+   ::clad::CXDiagnosticSet* success;
+   ::clad::CXLoadDiagException e;
 
-  _Clang_clang_loadDiagnostics_presult__isset __isset;
+  _Clang_loadDiagnostics_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_disposeDiagnosticSet_args__isset {
-  _Clang_clang_disposeDiagnosticSet_args__isset() : diagnosticSet(false) {}
+typedef struct _Clang_disposeDiagnosticSet_args__isset {
+  _Clang_disposeDiagnosticSet_args__isset() : diagnosticSet(false) {}
   bool diagnosticSet;
-} _Clang_clang_disposeDiagnosticSet_args__isset;
+} _Clang_disposeDiagnosticSet_args__isset;
 
-class Clang_clang_disposeDiagnosticSet_args {
+class Clang_disposeDiagnosticSet_args {
  public:
 
-  Clang_clang_disposeDiagnosticSet_args() : diagnosticSet(0) {
+  Clang_disposeDiagnosticSet_args() : diagnosticSet(0) {
   }
 
-  virtual ~Clang_clang_disposeDiagnosticSet_args() throw() {}
+  virtual ~Clang_disposeDiagnosticSet_args() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet diagnosticSet;
+   ::clad::CXDiagnosticSet diagnosticSet;
 
-  _Clang_clang_disposeDiagnosticSet_args__isset __isset;
+  _Clang_disposeDiagnosticSet_args__isset __isset;
 
-  void __set_diagnosticSet(const  ::clang::thrift::CXDiagnosticSet val) {
+  void __set_diagnosticSet(const  ::clad::CXDiagnosticSet val) {
     diagnosticSet = val;
   }
 
-  bool operator == (const Clang_clang_disposeDiagnosticSet_args & rhs) const
+  bool operator == (const Clang_disposeDiagnosticSet_args & rhs) const
   {
     if (!(diagnosticSet == rhs.diagnosticSet))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_disposeDiagnosticSet_args &rhs) const {
+  bool operator != (const Clang_disposeDiagnosticSet_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeDiagnosticSet_args & ) const;
+  bool operator < (const Clang_disposeDiagnosticSet_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4558,37 +4558,37 @@ class Clang_clang_disposeDiagnosticSet_args {
 };
 
 
-class Clang_clang_disposeDiagnosticSet_pargs {
+class Clang_disposeDiagnosticSet_pargs {
  public:
 
 
-  virtual ~Clang_clang_disposeDiagnosticSet_pargs() throw() {}
+  virtual ~Clang_disposeDiagnosticSet_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnosticSet* diagnosticSet;
+  const  ::clad::CXDiagnosticSet* diagnosticSet;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
 
-class Clang_clang_disposeDiagnosticSet_result {
+class Clang_disposeDiagnosticSet_result {
  public:
 
-  Clang_clang_disposeDiagnosticSet_result() {
+  Clang_disposeDiagnosticSet_result() {
   }
 
-  virtual ~Clang_clang_disposeDiagnosticSet_result() throw() {}
+  virtual ~Clang_disposeDiagnosticSet_result() throw() {}
 
 
-  bool operator == (const Clang_clang_disposeDiagnosticSet_result & /* rhs */) const
+  bool operator == (const Clang_disposeDiagnosticSet_result & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_disposeDiagnosticSet_result &rhs) const {
+  bool operator != (const Clang_disposeDiagnosticSet_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeDiagnosticSet_result & ) const;
+  bool operator < (const Clang_disposeDiagnosticSet_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4596,49 +4596,49 @@ class Clang_clang_disposeDiagnosticSet_result {
 };
 
 
-class Clang_clang_disposeDiagnosticSet_presult {
+class Clang_disposeDiagnosticSet_presult {
  public:
 
 
-  virtual ~Clang_clang_disposeDiagnosticSet_presult() throw() {}
+  virtual ~Clang_disposeDiagnosticSet_presult() throw() {}
 
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getChildDiagnostics_args__isset {
-  _Clang_clang_getChildDiagnostics_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getChildDiagnostics_args__isset {
+  _Clang_getChildDiagnostics_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getChildDiagnostics_args__isset;
+} _Clang_getChildDiagnostics_args__isset;
 
-class Clang_clang_getChildDiagnostics_args {
+class Clang_getChildDiagnostics_args {
  public:
 
-  Clang_clang_getChildDiagnostics_args() : diagnostic(0) {
+  Clang_getChildDiagnostics_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getChildDiagnostics_args() throw() {}
+  virtual ~Clang_getChildDiagnostics_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getChildDiagnostics_args__isset __isset;
+  _Clang_getChildDiagnostics_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getChildDiagnostics_args & rhs) const
+  bool operator == (const Clang_getChildDiagnostics_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getChildDiagnostics_args &rhs) const {
+  bool operator != (const Clang_getChildDiagnostics_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getChildDiagnostics_args & ) const;
+  bool operator < (const Clang_getChildDiagnostics_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4646,107 +4646,107 @@ class Clang_clang_getChildDiagnostics_args {
 };
 
 
-class Clang_clang_getChildDiagnostics_pargs {
+class Clang_getChildDiagnostics_pargs {
  public:
 
 
-  virtual ~Clang_clang_getChildDiagnostics_pargs() throw() {}
+  virtual ~Clang_getChildDiagnostics_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getChildDiagnostics_result__isset {
-  _Clang_clang_getChildDiagnostics_result__isset() : success(false) {}
+typedef struct _Clang_getChildDiagnostics_result__isset {
+  _Clang_getChildDiagnostics_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getChildDiagnostics_result__isset;
+} _Clang_getChildDiagnostics_result__isset;
 
-class Clang_clang_getChildDiagnostics_result {
+class Clang_getChildDiagnostics_result {
  public:
 
-  Clang_clang_getChildDiagnostics_result() : success(0) {
+  Clang_getChildDiagnostics_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getChildDiagnostics_result() throw() {}
+  virtual ~Clang_getChildDiagnostics_result() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet success;
+   ::clad::CXDiagnosticSet success;
 
-  _Clang_clang_getChildDiagnostics_result__isset __isset;
+  _Clang_getChildDiagnostics_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXDiagnosticSet val) {
+  void __set_success(const  ::clad::CXDiagnosticSet val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getChildDiagnostics_result & rhs) const
+  bool operator == (const Clang_getChildDiagnostics_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getChildDiagnostics_result &rhs) const {
+  bool operator != (const Clang_getChildDiagnostics_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getChildDiagnostics_result & ) const;
+  bool operator < (const Clang_getChildDiagnostics_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getChildDiagnostics_presult__isset {
-  _Clang_clang_getChildDiagnostics_presult__isset() : success(false) {}
+typedef struct _Clang_getChildDiagnostics_presult__isset {
+  _Clang_getChildDiagnostics_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getChildDiagnostics_presult__isset;
+} _Clang_getChildDiagnostics_presult__isset;
 
-class Clang_clang_getChildDiagnostics_presult {
+class Clang_getChildDiagnostics_presult {
  public:
 
 
-  virtual ~Clang_clang_getChildDiagnostics_presult() throw() {}
+  virtual ~Clang_getChildDiagnostics_presult() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet* success;
+   ::clad::CXDiagnosticSet* success;
 
-  _Clang_clang_getChildDiagnostics_presult__isset __isset;
+  _Clang_getChildDiagnostics_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getNumDiagnostics_args__isset {
-  _Clang_clang_getNumDiagnostics_args__isset() : unit(false) {}
+typedef struct _Clang_getNumDiagnostics_args__isset {
+  _Clang_getNumDiagnostics_args__isset() : unit(false) {}
   bool unit;
-} _Clang_clang_getNumDiagnostics_args__isset;
+} _Clang_getNumDiagnostics_args__isset;
 
-class Clang_clang_getNumDiagnostics_args {
+class Clang_getNumDiagnostics_args {
  public:
 
-  Clang_clang_getNumDiagnostics_args() : unit(0) {
+  Clang_getNumDiagnostics_args() : unit(0) {
   }
 
-  virtual ~Clang_clang_getNumDiagnostics_args() throw() {}
+  virtual ~Clang_getNumDiagnostics_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
 
-  _Clang_clang_getNumDiagnostics_args__isset __isset;
+  _Clang_getNumDiagnostics_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  bool operator == (const Clang_clang_getNumDiagnostics_args & rhs) const
+  bool operator == (const Clang_getNumDiagnostics_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getNumDiagnostics_args &rhs) const {
+  bool operator != (const Clang_getNumDiagnostics_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getNumDiagnostics_args & ) const;
+  bool operator < (const Clang_getNumDiagnostics_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4754,103 +4754,103 @@ class Clang_clang_getNumDiagnostics_args {
 };
 
 
-class Clang_clang_getNumDiagnostics_pargs {
+class Clang_getNumDiagnostics_pargs {
  public:
 
 
-  virtual ~Clang_clang_getNumDiagnostics_pargs() throw() {}
+  virtual ~Clang_getNumDiagnostics_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getNumDiagnostics_result__isset {
-  _Clang_clang_getNumDiagnostics_result__isset() : success(false) {}
+typedef struct _Clang_getNumDiagnostics_result__isset {
+  _Clang_getNumDiagnostics_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getNumDiagnostics_result__isset;
+} _Clang_getNumDiagnostics_result__isset;
 
-class Clang_clang_getNumDiagnostics_result {
+class Clang_getNumDiagnostics_result {
  public:
 
-  Clang_clang_getNumDiagnostics_result() : success(0) {
+  Clang_getNumDiagnostics_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getNumDiagnostics_result() throw() {}
+  virtual ~Clang_getNumDiagnostics_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_getNumDiagnostics_result__isset __isset;
+  _Clang_getNumDiagnostics_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getNumDiagnostics_result & rhs) const
+  bool operator == (const Clang_getNumDiagnostics_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getNumDiagnostics_result &rhs) const {
+  bool operator != (const Clang_getNumDiagnostics_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getNumDiagnostics_result & ) const;
+  bool operator < (const Clang_getNumDiagnostics_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getNumDiagnostics_presult__isset {
-  _Clang_clang_getNumDiagnostics_presult__isset() : success(false) {}
+typedef struct _Clang_getNumDiagnostics_presult__isset {
+  _Clang_getNumDiagnostics_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getNumDiagnostics_presult__isset;
+} _Clang_getNumDiagnostics_presult__isset;
 
-class Clang_clang_getNumDiagnostics_presult {
+class Clang_getNumDiagnostics_presult {
  public:
 
 
-  virtual ~Clang_clang_getNumDiagnostics_presult() throw() {}
+  virtual ~Clang_getNumDiagnostics_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_getNumDiagnostics_presult__isset __isset;
+  _Clang_getNumDiagnostics_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnostic_args__isset {
-  _Clang_clang_getDiagnostic_args__isset() : unit(false), index(false) {}
+typedef struct _Clang_getDiagnostic_args__isset {
+  _Clang_getDiagnostic_args__isset() : unit(false), index(false) {}
   bool unit;
   bool index;
-} _Clang_clang_getDiagnostic_args__isset;
+} _Clang_getDiagnostic_args__isset;
 
-class Clang_clang_getDiagnostic_args {
+class Clang_getDiagnostic_args {
  public:
 
-  Clang_clang_getDiagnostic_args() : unit(0), index(0) {
+  Clang_getDiagnostic_args() : unit(0), index(0) {
   }
 
-  virtual ~Clang_clang_getDiagnostic_args() throw() {}
+  virtual ~Clang_getDiagnostic_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
-   ::clang::thrift::u32 index;
+   ::clad::CXTranslationUnit unit;
+   ::clad::u32 index;
 
-  _Clang_clang_getDiagnostic_args__isset __isset;
+  _Clang_getDiagnostic_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  void __set_index(const  ::clang::thrift::u32 val) {
+  void __set_index(const  ::clad::u32 val) {
     index = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnostic_args & rhs) const
+  bool operator == (const Clang_getDiagnostic_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
@@ -4858,11 +4858,11 @@ class Clang_clang_getDiagnostic_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnostic_args &rhs) const {
+  bool operator != (const Clang_getDiagnostic_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnostic_args & ) const;
+  bool operator < (const Clang_getDiagnostic_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4870,108 +4870,108 @@ class Clang_clang_getDiagnostic_args {
 };
 
 
-class Clang_clang_getDiagnostic_pargs {
+class Clang_getDiagnostic_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnostic_pargs() throw() {}
+  virtual ~Clang_getDiagnostic_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
-  const  ::clang::thrift::u32* index;
+  const  ::clad::CXTranslationUnit* unit;
+  const  ::clad::u32* index;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnostic_result__isset {
-  _Clang_clang_getDiagnostic_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnostic_result__isset {
+  _Clang_getDiagnostic_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnostic_result__isset;
+} _Clang_getDiagnostic_result__isset;
 
-class Clang_clang_getDiagnostic_result {
+class Clang_getDiagnostic_result {
  public:
 
-  Clang_clang_getDiagnostic_result() : success(0) {
+  Clang_getDiagnostic_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getDiagnostic_result() throw() {}
+  virtual ~Clang_getDiagnostic_result() throw() {}
 
-   ::clang::thrift::CXDiagnostic success;
+   ::clad::CXDiagnostic success;
 
-  _Clang_clang_getDiagnostic_result__isset __isset;
+  _Clang_getDiagnostic_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_success(const  ::clad::CXDiagnostic val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnostic_result & rhs) const
+  bool operator == (const Clang_getDiagnostic_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnostic_result &rhs) const {
+  bool operator != (const Clang_getDiagnostic_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnostic_result & ) const;
+  bool operator < (const Clang_getDiagnostic_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnostic_presult__isset {
-  _Clang_clang_getDiagnostic_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnostic_presult__isset {
+  _Clang_getDiagnostic_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnostic_presult__isset;
+} _Clang_getDiagnostic_presult__isset;
 
-class Clang_clang_getDiagnostic_presult {
+class Clang_getDiagnostic_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnostic_presult() throw() {}
+  virtual ~Clang_getDiagnostic_presult() throw() {}
 
-   ::clang::thrift::CXDiagnostic* success;
+   ::clad::CXDiagnostic* success;
 
-  _Clang_clang_getDiagnostic_presult__isset __isset;
+  _Clang_getDiagnostic_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSetFromTU_args__isset {
-  _Clang_clang_getDiagnosticSetFromTU_args__isset() : unit(false) {}
+typedef struct _Clang_getDiagnosticSetFromTU_args__isset {
+  _Clang_getDiagnosticSetFromTU_args__isset() : unit(false) {}
   bool unit;
-} _Clang_clang_getDiagnosticSetFromTU_args__isset;
+} _Clang_getDiagnosticSetFromTU_args__isset;
 
-class Clang_clang_getDiagnosticSetFromTU_args {
+class Clang_getDiagnosticSetFromTU_args {
  public:
 
-  Clang_clang_getDiagnosticSetFromTU_args() : unit(0) {
+  Clang_getDiagnosticSetFromTU_args() : unit(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticSetFromTU_args() throw() {}
+  virtual ~Clang_getDiagnosticSetFromTU_args() throw() {}
 
-   ::clang::thrift::CXTranslationUnit unit;
+   ::clad::CXTranslationUnit unit;
 
-  _Clang_clang_getDiagnosticSetFromTU_args__isset __isset;
+  _Clang_getDiagnosticSetFromTU_args__isset __isset;
 
-  void __set_unit(const  ::clang::thrift::CXTranslationUnit val) {
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
     unit = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticSetFromTU_args & rhs) const
+  bool operator == (const Clang_getDiagnosticSetFromTU_args & rhs) const
   {
     if (!(unit == rhs.unit))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticSetFromTU_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticSetFromTU_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticSetFromTU_args & ) const;
+  bool operator < (const Clang_getDiagnosticSetFromTU_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -4979,107 +4979,107 @@ class Clang_clang_getDiagnosticSetFromTU_args {
 };
 
 
-class Clang_clang_getDiagnosticSetFromTU_pargs {
+class Clang_getDiagnosticSetFromTU_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticSetFromTU_pargs() throw() {}
+  virtual ~Clang_getDiagnosticSetFromTU_pargs() throw() {}
 
-  const  ::clang::thrift::CXTranslationUnit* unit;
+  const  ::clad::CXTranslationUnit* unit;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSetFromTU_result__isset {
-  _Clang_clang_getDiagnosticSetFromTU_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticSetFromTU_result__isset {
+  _Clang_getDiagnosticSetFromTU_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticSetFromTU_result__isset;
+} _Clang_getDiagnosticSetFromTU_result__isset;
 
-class Clang_clang_getDiagnosticSetFromTU_result {
+class Clang_getDiagnosticSetFromTU_result {
  public:
 
-  Clang_clang_getDiagnosticSetFromTU_result() : success(0) {
+  Clang_getDiagnosticSetFromTU_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticSetFromTU_result() throw() {}
+  virtual ~Clang_getDiagnosticSetFromTU_result() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet success;
+   ::clad::CXDiagnosticSet success;
 
-  _Clang_clang_getDiagnosticSetFromTU_result__isset __isset;
+  _Clang_getDiagnosticSetFromTU_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXDiagnosticSet val) {
+  void __set_success(const  ::clad::CXDiagnosticSet val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticSetFromTU_result & rhs) const
+  bool operator == (const Clang_getDiagnosticSetFromTU_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticSetFromTU_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticSetFromTU_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticSetFromTU_result & ) const;
+  bool operator < (const Clang_getDiagnosticSetFromTU_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSetFromTU_presult__isset {
-  _Clang_clang_getDiagnosticSetFromTU_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticSetFromTU_presult__isset {
+  _Clang_getDiagnosticSetFromTU_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticSetFromTU_presult__isset;
+} _Clang_getDiagnosticSetFromTU_presult__isset;
 
-class Clang_clang_getDiagnosticSetFromTU_presult {
+class Clang_getDiagnosticSetFromTU_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticSetFromTU_presult() throw() {}
+  virtual ~Clang_getDiagnosticSetFromTU_presult() throw() {}
 
-   ::clang::thrift::CXDiagnosticSet* success;
+   ::clad::CXDiagnosticSet* success;
 
-  _Clang_clang_getDiagnosticSetFromTU_presult__isset __isset;
+  _Clang_getDiagnosticSetFromTU_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_disposeDiagnostic_args__isset {
-  _Clang_clang_disposeDiagnostic_args__isset() : diagnostic(false) {}
+typedef struct _Clang_disposeDiagnostic_args__isset {
+  _Clang_disposeDiagnostic_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_disposeDiagnostic_args__isset;
+} _Clang_disposeDiagnostic_args__isset;
 
-class Clang_clang_disposeDiagnostic_args {
+class Clang_disposeDiagnostic_args {
  public:
 
-  Clang_clang_disposeDiagnostic_args() : diagnostic(0) {
+  Clang_disposeDiagnostic_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_disposeDiagnostic_args() throw() {}
+  virtual ~Clang_disposeDiagnostic_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_disposeDiagnostic_args__isset __isset;
+  _Clang_disposeDiagnostic_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_disposeDiagnostic_args & rhs) const
+  bool operator == (const Clang_disposeDiagnostic_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_disposeDiagnostic_args &rhs) const {
+  bool operator != (const Clang_disposeDiagnostic_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeDiagnostic_args & ) const;
+  bool operator < (const Clang_disposeDiagnostic_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5087,37 +5087,37 @@ class Clang_clang_disposeDiagnostic_args {
 };
 
 
-class Clang_clang_disposeDiagnostic_pargs {
+class Clang_disposeDiagnostic_pargs {
  public:
 
 
-  virtual ~Clang_clang_disposeDiagnostic_pargs() throw() {}
+  virtual ~Clang_disposeDiagnostic_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
 
-class Clang_clang_disposeDiagnostic_result {
+class Clang_disposeDiagnostic_result {
  public:
 
-  Clang_clang_disposeDiagnostic_result() {
+  Clang_disposeDiagnostic_result() {
   }
 
-  virtual ~Clang_clang_disposeDiagnostic_result() throw() {}
+  virtual ~Clang_disposeDiagnostic_result() throw() {}
 
 
-  bool operator == (const Clang_clang_disposeDiagnostic_result & /* rhs */) const
+  bool operator == (const Clang_disposeDiagnostic_result & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_disposeDiagnostic_result &rhs) const {
+  bool operator != (const Clang_disposeDiagnostic_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_disposeDiagnostic_result & ) const;
+  bool operator < (const Clang_disposeDiagnostic_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5125,45 +5125,45 @@ class Clang_clang_disposeDiagnostic_result {
 };
 
 
-class Clang_clang_disposeDiagnostic_presult {
+class Clang_disposeDiagnostic_presult {
  public:
 
 
-  virtual ~Clang_clang_disposeDiagnostic_presult() throw() {}
+  virtual ~Clang_disposeDiagnostic_presult() throw() {}
 
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_formatDiagnostic_args__isset {
-  _Clang_clang_formatDiagnostic_args__isset() : diagnostic(false), options(false) {}
+typedef struct _Clang_formatDiagnostic_args__isset {
+  _Clang_formatDiagnostic_args__isset() : diagnostic(false), options(false) {}
   bool diagnostic;
   bool options;
-} _Clang_clang_formatDiagnostic_args__isset;
+} _Clang_formatDiagnostic_args__isset;
 
-class Clang_clang_formatDiagnostic_args {
+class Clang_formatDiagnostic_args {
  public:
 
-  Clang_clang_formatDiagnostic_args() : diagnostic(0), options(0) {
+  Clang_formatDiagnostic_args() : diagnostic(0), options(0) {
   }
 
-  virtual ~Clang_clang_formatDiagnostic_args() throw() {}
+  virtual ~Clang_formatDiagnostic_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
-   ::clang::thrift::u32 options;
+   ::clad::CXDiagnostic diagnostic;
+   ::clad::u32 options;
 
-  _Clang_clang_formatDiagnostic_args__isset __isset;
+  _Clang_formatDiagnostic_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  void __set_options(const  ::clang::thrift::u32 val) {
+  void __set_options(const  ::clad::u32 val) {
     options = val;
   }
 
-  bool operator == (const Clang_clang_formatDiagnostic_args & rhs) const
+  bool operator == (const Clang_formatDiagnostic_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
@@ -5171,11 +5171,11 @@ class Clang_clang_formatDiagnostic_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_formatDiagnostic_args &rhs) const {
+  bool operator != (const Clang_formatDiagnostic_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_formatDiagnostic_args & ) const;
+  bool operator < (const Clang_formatDiagnostic_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5183,95 +5183,95 @@ class Clang_clang_formatDiagnostic_args {
 };
 
 
-class Clang_clang_formatDiagnostic_pargs {
+class Clang_formatDiagnostic_pargs {
  public:
 
 
-  virtual ~Clang_clang_formatDiagnostic_pargs() throw() {}
+  virtual ~Clang_formatDiagnostic_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
-  const  ::clang::thrift::u32* options;
+  const  ::clad::CXDiagnostic* diagnostic;
+  const  ::clad::u32* options;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_formatDiagnostic_result__isset {
-  _Clang_clang_formatDiagnostic_result__isset() : success(false) {}
+typedef struct _Clang_formatDiagnostic_result__isset {
+  _Clang_formatDiagnostic_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_formatDiagnostic_result__isset;
+} _Clang_formatDiagnostic_result__isset;
 
-class Clang_clang_formatDiagnostic_result {
+class Clang_formatDiagnostic_result {
  public:
 
-  Clang_clang_formatDiagnostic_result() : success() {
+  Clang_formatDiagnostic_result() : success() {
   }
 
-  virtual ~Clang_clang_formatDiagnostic_result() throw() {}
+  virtual ~Clang_formatDiagnostic_result() throw() {}
 
   std::string success;
 
-  _Clang_clang_formatDiagnostic_result__isset __isset;
+  _Clang_formatDiagnostic_result__isset __isset;
 
   void __set_success(const std::string& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_formatDiagnostic_result & rhs) const
+  bool operator == (const Clang_formatDiagnostic_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_formatDiagnostic_result &rhs) const {
+  bool operator != (const Clang_formatDiagnostic_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_formatDiagnostic_result & ) const;
+  bool operator < (const Clang_formatDiagnostic_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_formatDiagnostic_presult__isset {
-  _Clang_clang_formatDiagnostic_presult__isset() : success(false) {}
+typedef struct _Clang_formatDiagnostic_presult__isset {
+  _Clang_formatDiagnostic_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_formatDiagnostic_presult__isset;
+} _Clang_formatDiagnostic_presult__isset;
 
-class Clang_clang_formatDiagnostic_presult {
+class Clang_formatDiagnostic_presult {
  public:
 
 
-  virtual ~Clang_clang_formatDiagnostic_presult() throw() {}
+  virtual ~Clang_formatDiagnostic_presult() throw() {}
 
   std::string* success;
 
-  _Clang_clang_formatDiagnostic_presult__isset __isset;
+  _Clang_formatDiagnostic_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
 
-class Clang_clang_defaultDiagnosticDisplayOptions_args {
+class Clang_defaultDiagnosticDisplayOptions_args {
  public:
 
-  Clang_clang_defaultDiagnosticDisplayOptions_args() {
+  Clang_defaultDiagnosticDisplayOptions_args() {
   }
 
-  virtual ~Clang_clang_defaultDiagnosticDisplayOptions_args() throw() {}
+  virtual ~Clang_defaultDiagnosticDisplayOptions_args() throw() {}
 
 
-  bool operator == (const Clang_clang_defaultDiagnosticDisplayOptions_args & /* rhs */) const
+  bool operator == (const Clang_defaultDiagnosticDisplayOptions_args & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const Clang_clang_defaultDiagnosticDisplayOptions_args &rhs) const {
+  bool operator != (const Clang_defaultDiagnosticDisplayOptions_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_defaultDiagnosticDisplayOptions_args & ) const;
+  bool operator < (const Clang_defaultDiagnosticDisplayOptions_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5279,106 +5279,106 @@ class Clang_clang_defaultDiagnosticDisplayOptions_args {
 };
 
 
-class Clang_clang_defaultDiagnosticDisplayOptions_pargs {
+class Clang_defaultDiagnosticDisplayOptions_pargs {
  public:
 
 
-  virtual ~Clang_clang_defaultDiagnosticDisplayOptions_pargs() throw() {}
+  virtual ~Clang_defaultDiagnosticDisplayOptions_pargs() throw() {}
 
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_defaultDiagnosticDisplayOptions_result__isset {
-  _Clang_clang_defaultDiagnosticDisplayOptions_result__isset() : success(false) {}
+typedef struct _Clang_defaultDiagnosticDisplayOptions_result__isset {
+  _Clang_defaultDiagnosticDisplayOptions_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_defaultDiagnosticDisplayOptions_result__isset;
+} _Clang_defaultDiagnosticDisplayOptions_result__isset;
 
-class Clang_clang_defaultDiagnosticDisplayOptions_result {
+class Clang_defaultDiagnosticDisplayOptions_result {
  public:
 
-  Clang_clang_defaultDiagnosticDisplayOptions_result() : success(0) {
+  Clang_defaultDiagnosticDisplayOptions_result() : success(0) {
   }
 
-  virtual ~Clang_clang_defaultDiagnosticDisplayOptions_result() throw() {}
+  virtual ~Clang_defaultDiagnosticDisplayOptions_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_defaultDiagnosticDisplayOptions_result__isset __isset;
+  _Clang_defaultDiagnosticDisplayOptions_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_defaultDiagnosticDisplayOptions_result & rhs) const
+  bool operator == (const Clang_defaultDiagnosticDisplayOptions_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_defaultDiagnosticDisplayOptions_result &rhs) const {
+  bool operator != (const Clang_defaultDiagnosticDisplayOptions_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_defaultDiagnosticDisplayOptions_result & ) const;
+  bool operator < (const Clang_defaultDiagnosticDisplayOptions_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_defaultDiagnosticDisplayOptions_presult__isset {
-  _Clang_clang_defaultDiagnosticDisplayOptions_presult__isset() : success(false) {}
+typedef struct _Clang_defaultDiagnosticDisplayOptions_presult__isset {
+  _Clang_defaultDiagnosticDisplayOptions_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_defaultDiagnosticDisplayOptions_presult__isset;
+} _Clang_defaultDiagnosticDisplayOptions_presult__isset;
 
-class Clang_clang_defaultDiagnosticDisplayOptions_presult {
+class Clang_defaultDiagnosticDisplayOptions_presult {
  public:
 
 
-  virtual ~Clang_clang_defaultDiagnosticDisplayOptions_presult() throw() {}
+  virtual ~Clang_defaultDiagnosticDisplayOptions_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_defaultDiagnosticDisplayOptions_presult__isset __isset;
+  _Clang_defaultDiagnosticDisplayOptions_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSeverity_args__isset {
-  _Clang_clang_getDiagnosticSeverity_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getDiagnosticSeverity_args__isset {
+  _Clang_getDiagnosticSeverity_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getDiagnosticSeverity_args__isset;
+} _Clang_getDiagnosticSeverity_args__isset;
 
-class Clang_clang_getDiagnosticSeverity_args {
+class Clang_getDiagnosticSeverity_args {
  public:
 
-  Clang_clang_getDiagnosticSeverity_args() : diagnostic(0) {
+  Clang_getDiagnosticSeverity_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticSeverity_args() throw() {}
+  virtual ~Clang_getDiagnosticSeverity_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getDiagnosticSeverity_args__isset __isset;
+  _Clang_getDiagnosticSeverity_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticSeverity_args & rhs) const
+  bool operator == (const Clang_getDiagnosticSeverity_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticSeverity_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticSeverity_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticSeverity_args & ) const;
+  bool operator < (const Clang_getDiagnosticSeverity_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5386,107 +5386,107 @@ class Clang_clang_getDiagnosticSeverity_args {
 };
 
 
-class Clang_clang_getDiagnosticSeverity_pargs {
+class Clang_getDiagnosticSeverity_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticSeverity_pargs() throw() {}
+  virtual ~Clang_getDiagnosticSeverity_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSeverity_result__isset {
-  _Clang_clang_getDiagnosticSeverity_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticSeverity_result__isset {
+  _Clang_getDiagnosticSeverity_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticSeverity_result__isset;
+} _Clang_getDiagnosticSeverity_result__isset;
 
-class Clang_clang_getDiagnosticSeverity_result {
+class Clang_getDiagnosticSeverity_result {
  public:
 
-  Clang_clang_getDiagnosticSeverity_result() : success(( ::clang::thrift::CXDiagnosticSeverity::type)0) {
+  Clang_getDiagnosticSeverity_result() : success(( ::clad::CXDiagnosticSeverity::type)0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticSeverity_result() throw() {}
+  virtual ~Clang_getDiagnosticSeverity_result() throw() {}
 
-   ::clang::thrift::CXDiagnosticSeverity::type success;
+   ::clad::CXDiagnosticSeverity::type success;
 
-  _Clang_clang_getDiagnosticSeverity_result__isset __isset;
+  _Clang_getDiagnosticSeverity_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXDiagnosticSeverity::type val) {
+  void __set_success(const  ::clad::CXDiagnosticSeverity::type val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticSeverity_result & rhs) const
+  bool operator == (const Clang_getDiagnosticSeverity_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticSeverity_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticSeverity_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticSeverity_result & ) const;
+  bool operator < (const Clang_getDiagnosticSeverity_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSeverity_presult__isset {
-  _Clang_clang_getDiagnosticSeverity_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticSeverity_presult__isset {
+  _Clang_getDiagnosticSeverity_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticSeverity_presult__isset;
+} _Clang_getDiagnosticSeverity_presult__isset;
 
-class Clang_clang_getDiagnosticSeverity_presult {
+class Clang_getDiagnosticSeverity_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticSeverity_presult() throw() {}
+  virtual ~Clang_getDiagnosticSeverity_presult() throw() {}
 
-   ::clang::thrift::CXDiagnosticSeverity::type* success;
+   ::clad::CXDiagnosticSeverity::type* success;
 
-  _Clang_clang_getDiagnosticSeverity_presult__isset __isset;
+  _Clang_getDiagnosticSeverity_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticLocation_args__isset {
-  _Clang_clang_getDiagnosticLocation_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getDiagnosticLocation_args__isset {
+  _Clang_getDiagnosticLocation_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getDiagnosticLocation_args__isset;
+} _Clang_getDiagnosticLocation_args__isset;
 
-class Clang_clang_getDiagnosticLocation_args {
+class Clang_getDiagnosticLocation_args {
  public:
 
-  Clang_clang_getDiagnosticLocation_args() : diagnostic(0) {
+  Clang_getDiagnosticLocation_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticLocation_args() throw() {}
+  virtual ~Clang_getDiagnosticLocation_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getDiagnosticLocation_args__isset __isset;
+  _Clang_getDiagnosticLocation_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticLocation_args & rhs) const
+  bool operator == (const Clang_getDiagnosticLocation_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticLocation_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticLocation_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticLocation_args & ) const;
+  bool operator < (const Clang_getDiagnosticLocation_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5494,107 +5494,107 @@ class Clang_clang_getDiagnosticLocation_args {
 };
 
 
-class Clang_clang_getDiagnosticLocation_pargs {
+class Clang_getDiagnosticLocation_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticLocation_pargs() throw() {}
+  virtual ~Clang_getDiagnosticLocation_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticLocation_result__isset {
-  _Clang_clang_getDiagnosticLocation_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticLocation_result__isset {
+  _Clang_getDiagnosticLocation_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticLocation_result__isset;
+} _Clang_getDiagnosticLocation_result__isset;
 
-class Clang_clang_getDiagnosticLocation_result {
+class Clang_getDiagnosticLocation_result {
  public:
 
-  Clang_clang_getDiagnosticLocation_result() {
+  Clang_getDiagnosticLocation_result() {
   }
 
-  virtual ~Clang_clang_getDiagnosticLocation_result() throw() {}
+  virtual ~Clang_getDiagnosticLocation_result() throw() {}
 
-   ::clang::thrift::CXSourceLocation success;
+   ::clad::CXSourceLocation success;
 
-  _Clang_clang_getDiagnosticLocation_result__isset __isset;
+  _Clang_getDiagnosticLocation_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceLocation& val) {
+  void __set_success(const  ::clad::CXSourceLocation& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticLocation_result & rhs) const
+  bool operator == (const Clang_getDiagnosticLocation_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticLocation_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticLocation_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticLocation_result & ) const;
+  bool operator < (const Clang_getDiagnosticLocation_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticLocation_presult__isset {
-  _Clang_clang_getDiagnosticLocation_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticLocation_presult__isset {
+  _Clang_getDiagnosticLocation_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticLocation_presult__isset;
+} _Clang_getDiagnosticLocation_presult__isset;
 
-class Clang_clang_getDiagnosticLocation_presult {
+class Clang_getDiagnosticLocation_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticLocation_presult() throw() {}
+  virtual ~Clang_getDiagnosticLocation_presult() throw() {}
 
-   ::clang::thrift::CXSourceLocation* success;
+   ::clad::CXSourceLocation* success;
 
-  _Clang_clang_getDiagnosticLocation_presult__isset __isset;
+  _Clang_getDiagnosticLocation_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSpelling_args__isset {
-  _Clang_clang_getDiagnosticSpelling_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getDiagnosticSpelling_args__isset {
+  _Clang_getDiagnosticSpelling_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getDiagnosticSpelling_args__isset;
+} _Clang_getDiagnosticSpelling_args__isset;
 
-class Clang_clang_getDiagnosticSpelling_args {
+class Clang_getDiagnosticSpelling_args {
  public:
 
-  Clang_clang_getDiagnosticSpelling_args() : diagnostic(0) {
+  Clang_getDiagnosticSpelling_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticSpelling_args() throw() {}
+  virtual ~Clang_getDiagnosticSpelling_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getDiagnosticSpelling_args__isset __isset;
+  _Clang_getDiagnosticSpelling_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticSpelling_args & rhs) const
+  bool operator == (const Clang_getDiagnosticSpelling_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticSpelling_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticSpelling_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticSpelling_args & ) const;
+  bool operator < (const Clang_getDiagnosticSpelling_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5602,107 +5602,107 @@ class Clang_clang_getDiagnosticSpelling_args {
 };
 
 
-class Clang_clang_getDiagnosticSpelling_pargs {
+class Clang_getDiagnosticSpelling_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticSpelling_pargs() throw() {}
+  virtual ~Clang_getDiagnosticSpelling_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSpelling_result__isset {
-  _Clang_clang_getDiagnosticSpelling_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticSpelling_result__isset {
+  _Clang_getDiagnosticSpelling_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticSpelling_result__isset;
+} _Clang_getDiagnosticSpelling_result__isset;
 
-class Clang_clang_getDiagnosticSpelling_result {
+class Clang_getDiagnosticSpelling_result {
  public:
 
-  Clang_clang_getDiagnosticSpelling_result() : success() {
+  Clang_getDiagnosticSpelling_result() : success() {
   }
 
-  virtual ~Clang_clang_getDiagnosticSpelling_result() throw() {}
+  virtual ~Clang_getDiagnosticSpelling_result() throw() {}
 
   std::string success;
 
-  _Clang_clang_getDiagnosticSpelling_result__isset __isset;
+  _Clang_getDiagnosticSpelling_result__isset __isset;
 
   void __set_success(const std::string& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticSpelling_result & rhs) const
+  bool operator == (const Clang_getDiagnosticSpelling_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticSpelling_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticSpelling_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticSpelling_result & ) const;
+  bool operator < (const Clang_getDiagnosticSpelling_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticSpelling_presult__isset {
-  _Clang_clang_getDiagnosticSpelling_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticSpelling_presult__isset {
+  _Clang_getDiagnosticSpelling_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticSpelling_presult__isset;
+} _Clang_getDiagnosticSpelling_presult__isset;
 
-class Clang_clang_getDiagnosticSpelling_presult {
+class Clang_getDiagnosticSpelling_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticSpelling_presult() throw() {}
+  virtual ~Clang_getDiagnosticSpelling_presult() throw() {}
 
   std::string* success;
 
-  _Clang_clang_getDiagnosticSpelling_presult__isset __isset;
+  _Clang_getDiagnosticSpelling_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticOption_args__isset {
-  _Clang_clang_getDiagnosticOption_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getDiagnosticOption_args__isset {
+  _Clang_getDiagnosticOption_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getDiagnosticOption_args__isset;
+} _Clang_getDiagnosticOption_args__isset;
 
-class Clang_clang_getDiagnosticOption_args {
+class Clang_getDiagnosticOption_args {
  public:
 
-  Clang_clang_getDiagnosticOption_args() : diagnostic(0) {
+  Clang_getDiagnosticOption_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticOption_args() throw() {}
+  virtual ~Clang_getDiagnosticOption_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getDiagnosticOption_args__isset __isset;
+  _Clang_getDiagnosticOption_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticOption_args & rhs) const
+  bool operator == (const Clang_getDiagnosticOption_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticOption_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticOption_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticOption_args & ) const;
+  bool operator < (const Clang_getDiagnosticOption_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5710,107 +5710,107 @@ class Clang_clang_getDiagnosticOption_args {
 };
 
 
-class Clang_clang_getDiagnosticOption_pargs {
+class Clang_getDiagnosticOption_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticOption_pargs() throw() {}
+  virtual ~Clang_getDiagnosticOption_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticOption_result__isset {
-  _Clang_clang_getDiagnosticOption_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticOption_result__isset {
+  _Clang_getDiagnosticOption_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticOption_result__isset;
+} _Clang_getDiagnosticOption_result__isset;
 
-class Clang_clang_getDiagnosticOption_result {
+class Clang_getDiagnosticOption_result {
  public:
 
-  Clang_clang_getDiagnosticOption_result() {
+  Clang_getDiagnosticOption_result() {
   }
 
-  virtual ~Clang_clang_getDiagnosticOption_result() throw() {}
+  virtual ~Clang_getDiagnosticOption_result() throw() {}
 
-   ::clang::thrift::CXDiagnosticOption success;
+   ::clad::CXDiagnosticOption success;
 
-  _Clang_clang_getDiagnosticOption_result__isset __isset;
+  _Clang_getDiagnosticOption_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXDiagnosticOption& val) {
+  void __set_success(const  ::clad::CXDiagnosticOption& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticOption_result & rhs) const
+  bool operator == (const Clang_getDiagnosticOption_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticOption_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticOption_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticOption_result & ) const;
+  bool operator < (const Clang_getDiagnosticOption_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticOption_presult__isset {
-  _Clang_clang_getDiagnosticOption_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticOption_presult__isset {
+  _Clang_getDiagnosticOption_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticOption_presult__isset;
+} _Clang_getDiagnosticOption_presult__isset;
 
-class Clang_clang_getDiagnosticOption_presult {
+class Clang_getDiagnosticOption_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticOption_presult() throw() {}
+  virtual ~Clang_getDiagnosticOption_presult() throw() {}
 
-   ::clang::thrift::CXDiagnosticOption* success;
+   ::clad::CXDiagnosticOption* success;
 
-  _Clang_clang_getDiagnosticOption_presult__isset __isset;
+  _Clang_getDiagnosticOption_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategory_args__isset {
-  _Clang_clang_getDiagnosticCategory_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getDiagnosticCategory_args__isset {
+  _Clang_getDiagnosticCategory_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getDiagnosticCategory_args__isset;
+} _Clang_getDiagnosticCategory_args__isset;
 
-class Clang_clang_getDiagnosticCategory_args {
+class Clang_getDiagnosticCategory_args {
  public:
 
-  Clang_clang_getDiagnosticCategory_args() : diagnostic(0) {
+  Clang_getDiagnosticCategory_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticCategory_args() throw() {}
+  virtual ~Clang_getDiagnosticCategory_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getDiagnosticCategory_args__isset __isset;
+  _Clang_getDiagnosticCategory_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticCategory_args & rhs) const
+  bool operator == (const Clang_getDiagnosticCategory_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticCategory_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticCategory_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticCategory_args & ) const;
+  bool operator < (const Clang_getDiagnosticCategory_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5818,107 +5818,107 @@ class Clang_clang_getDiagnosticCategory_args {
 };
 
 
-class Clang_clang_getDiagnosticCategory_pargs {
+class Clang_getDiagnosticCategory_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticCategory_pargs() throw() {}
+  virtual ~Clang_getDiagnosticCategory_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategory_result__isset {
-  _Clang_clang_getDiagnosticCategory_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticCategory_result__isset {
+  _Clang_getDiagnosticCategory_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticCategory_result__isset;
+} _Clang_getDiagnosticCategory_result__isset;
 
-class Clang_clang_getDiagnosticCategory_result {
+class Clang_getDiagnosticCategory_result {
  public:
 
-  Clang_clang_getDiagnosticCategory_result() : success(0) {
+  Clang_getDiagnosticCategory_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticCategory_result() throw() {}
+  virtual ~Clang_getDiagnosticCategory_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_getDiagnosticCategory_result__isset __isset;
+  _Clang_getDiagnosticCategory_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticCategory_result & rhs) const
+  bool operator == (const Clang_getDiagnosticCategory_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticCategory_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticCategory_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticCategory_result & ) const;
+  bool operator < (const Clang_getDiagnosticCategory_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategory_presult__isset {
-  _Clang_clang_getDiagnosticCategory_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticCategory_presult__isset {
+  _Clang_getDiagnosticCategory_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticCategory_presult__isset;
+} _Clang_getDiagnosticCategory_presult__isset;
 
-class Clang_clang_getDiagnosticCategory_presult {
+class Clang_getDiagnosticCategory_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticCategory_presult() throw() {}
+  virtual ~Clang_getDiagnosticCategory_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_getDiagnosticCategory_presult__isset __isset;
+  _Clang_getDiagnosticCategory_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategoryName_args__isset {
-  _Clang_clang_getDiagnosticCategoryName_args__isset() : category(false) {}
+typedef struct _Clang_getDiagnosticCategoryName_args__isset {
+  _Clang_getDiagnosticCategoryName_args__isset() : category(false) {}
   bool category;
-} _Clang_clang_getDiagnosticCategoryName_args__isset;
+} _Clang_getDiagnosticCategoryName_args__isset;
 
-class Clang_clang_getDiagnosticCategoryName_args {
+class Clang_getDiagnosticCategoryName_args {
  public:
 
-  Clang_clang_getDiagnosticCategoryName_args() : category(0) {
+  Clang_getDiagnosticCategoryName_args() : category(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticCategoryName_args() throw() {}
+  virtual ~Clang_getDiagnosticCategoryName_args() throw() {}
 
-   ::clang::thrift::u32 category;
+   ::clad::u32 category;
 
-  _Clang_clang_getDiagnosticCategoryName_args__isset __isset;
+  _Clang_getDiagnosticCategoryName_args__isset __isset;
 
-  void __set_category(const  ::clang::thrift::u32 val) {
+  void __set_category(const  ::clad::u32 val) {
     category = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticCategoryName_args & rhs) const
+  bool operator == (const Clang_getDiagnosticCategoryName_args & rhs) const
   {
     if (!(category == rhs.category))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticCategoryName_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticCategoryName_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticCategoryName_args & ) const;
+  bool operator < (const Clang_getDiagnosticCategoryName_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -5926,107 +5926,107 @@ class Clang_clang_getDiagnosticCategoryName_args {
 };
 
 
-class Clang_clang_getDiagnosticCategoryName_pargs {
+class Clang_getDiagnosticCategoryName_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticCategoryName_pargs() throw() {}
+  virtual ~Clang_getDiagnosticCategoryName_pargs() throw() {}
 
-  const  ::clang::thrift::u32* category;
+  const  ::clad::u32* category;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategoryName_result__isset {
-  _Clang_clang_getDiagnosticCategoryName_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticCategoryName_result__isset {
+  _Clang_getDiagnosticCategoryName_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticCategoryName_result__isset;
+} _Clang_getDiagnosticCategoryName_result__isset;
 
-class Clang_clang_getDiagnosticCategoryName_result {
+class Clang_getDiagnosticCategoryName_result {
  public:
 
-  Clang_clang_getDiagnosticCategoryName_result() : success() {
+  Clang_getDiagnosticCategoryName_result() : success() {
   }
 
-  virtual ~Clang_clang_getDiagnosticCategoryName_result() throw() {}
+  virtual ~Clang_getDiagnosticCategoryName_result() throw() {}
 
   std::string success;
 
-  _Clang_clang_getDiagnosticCategoryName_result__isset __isset;
+  _Clang_getDiagnosticCategoryName_result__isset __isset;
 
   void __set_success(const std::string& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticCategoryName_result & rhs) const
+  bool operator == (const Clang_getDiagnosticCategoryName_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticCategoryName_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticCategoryName_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticCategoryName_result & ) const;
+  bool operator < (const Clang_getDiagnosticCategoryName_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategoryName_presult__isset {
-  _Clang_clang_getDiagnosticCategoryName_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticCategoryName_presult__isset {
+  _Clang_getDiagnosticCategoryName_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticCategoryName_presult__isset;
+} _Clang_getDiagnosticCategoryName_presult__isset;
 
-class Clang_clang_getDiagnosticCategoryName_presult {
+class Clang_getDiagnosticCategoryName_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticCategoryName_presult() throw() {}
+  virtual ~Clang_getDiagnosticCategoryName_presult() throw() {}
 
   std::string* success;
 
-  _Clang_clang_getDiagnosticCategoryName_presult__isset __isset;
+  _Clang_getDiagnosticCategoryName_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategoryText_args__isset {
-  _Clang_clang_getDiagnosticCategoryText_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getDiagnosticCategoryText_args__isset {
+  _Clang_getDiagnosticCategoryText_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getDiagnosticCategoryText_args__isset;
+} _Clang_getDiagnosticCategoryText_args__isset;
 
-class Clang_clang_getDiagnosticCategoryText_args {
+class Clang_getDiagnosticCategoryText_args {
  public:
 
-  Clang_clang_getDiagnosticCategoryText_args() : diagnostic(0) {
+  Clang_getDiagnosticCategoryText_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticCategoryText_args() throw() {}
+  virtual ~Clang_getDiagnosticCategoryText_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getDiagnosticCategoryText_args__isset __isset;
+  _Clang_getDiagnosticCategoryText_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticCategoryText_args & rhs) const
+  bool operator == (const Clang_getDiagnosticCategoryText_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticCategoryText_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticCategoryText_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticCategoryText_args & ) const;
+  bool operator < (const Clang_getDiagnosticCategoryText_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -6034,107 +6034,107 @@ class Clang_clang_getDiagnosticCategoryText_args {
 };
 
 
-class Clang_clang_getDiagnosticCategoryText_pargs {
+class Clang_getDiagnosticCategoryText_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticCategoryText_pargs() throw() {}
+  virtual ~Clang_getDiagnosticCategoryText_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategoryText_result__isset {
-  _Clang_clang_getDiagnosticCategoryText_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticCategoryText_result__isset {
+  _Clang_getDiagnosticCategoryText_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticCategoryText_result__isset;
+} _Clang_getDiagnosticCategoryText_result__isset;
 
-class Clang_clang_getDiagnosticCategoryText_result {
+class Clang_getDiagnosticCategoryText_result {
  public:
 
-  Clang_clang_getDiagnosticCategoryText_result() : success() {
+  Clang_getDiagnosticCategoryText_result() : success() {
   }
 
-  virtual ~Clang_clang_getDiagnosticCategoryText_result() throw() {}
+  virtual ~Clang_getDiagnosticCategoryText_result() throw() {}
 
   std::string success;
 
-  _Clang_clang_getDiagnosticCategoryText_result__isset __isset;
+  _Clang_getDiagnosticCategoryText_result__isset __isset;
 
   void __set_success(const std::string& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticCategoryText_result & rhs) const
+  bool operator == (const Clang_getDiagnosticCategoryText_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticCategoryText_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticCategoryText_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticCategoryText_result & ) const;
+  bool operator < (const Clang_getDiagnosticCategoryText_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticCategoryText_presult__isset {
-  _Clang_clang_getDiagnosticCategoryText_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticCategoryText_presult__isset {
+  _Clang_getDiagnosticCategoryText_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticCategoryText_presult__isset;
+} _Clang_getDiagnosticCategoryText_presult__isset;
 
-class Clang_clang_getDiagnosticCategoryText_presult {
+class Clang_getDiagnosticCategoryText_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticCategoryText_presult() throw() {}
+  virtual ~Clang_getDiagnosticCategoryText_presult() throw() {}
 
   std::string* success;
 
-  _Clang_clang_getDiagnosticCategoryText_presult__isset __isset;
+  _Clang_getDiagnosticCategoryText_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticNumRanges_args__isset {
-  _Clang_clang_getDiagnosticNumRanges_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getDiagnosticNumRanges_args__isset {
+  _Clang_getDiagnosticNumRanges_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getDiagnosticNumRanges_args__isset;
+} _Clang_getDiagnosticNumRanges_args__isset;
 
-class Clang_clang_getDiagnosticNumRanges_args {
+class Clang_getDiagnosticNumRanges_args {
  public:
 
-  Clang_clang_getDiagnosticNumRanges_args() : diagnostic(0) {
+  Clang_getDiagnosticNumRanges_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticNumRanges_args() throw() {}
+  virtual ~Clang_getDiagnosticNumRanges_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getDiagnosticNumRanges_args__isset __isset;
+  _Clang_getDiagnosticNumRanges_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticNumRanges_args & rhs) const
+  bool operator == (const Clang_getDiagnosticNumRanges_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticNumRanges_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticNumRanges_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticNumRanges_args & ) const;
+  bool operator < (const Clang_getDiagnosticNumRanges_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -6142,103 +6142,103 @@ class Clang_clang_getDiagnosticNumRanges_args {
 };
 
 
-class Clang_clang_getDiagnosticNumRanges_pargs {
+class Clang_getDiagnosticNumRanges_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticNumRanges_pargs() throw() {}
+  virtual ~Clang_getDiagnosticNumRanges_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticNumRanges_result__isset {
-  _Clang_clang_getDiagnosticNumRanges_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticNumRanges_result__isset {
+  _Clang_getDiagnosticNumRanges_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticNumRanges_result__isset;
+} _Clang_getDiagnosticNumRanges_result__isset;
 
-class Clang_clang_getDiagnosticNumRanges_result {
+class Clang_getDiagnosticNumRanges_result {
  public:
 
-  Clang_clang_getDiagnosticNumRanges_result() : success(0) {
+  Clang_getDiagnosticNumRanges_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticNumRanges_result() throw() {}
+  virtual ~Clang_getDiagnosticNumRanges_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_getDiagnosticNumRanges_result__isset __isset;
+  _Clang_getDiagnosticNumRanges_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticNumRanges_result & rhs) const
+  bool operator == (const Clang_getDiagnosticNumRanges_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticNumRanges_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticNumRanges_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticNumRanges_result & ) const;
+  bool operator < (const Clang_getDiagnosticNumRanges_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticNumRanges_presult__isset {
-  _Clang_clang_getDiagnosticNumRanges_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticNumRanges_presult__isset {
+  _Clang_getDiagnosticNumRanges_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticNumRanges_presult__isset;
+} _Clang_getDiagnosticNumRanges_presult__isset;
 
-class Clang_clang_getDiagnosticNumRanges_presult {
+class Clang_getDiagnosticNumRanges_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticNumRanges_presult() throw() {}
+  virtual ~Clang_getDiagnosticNumRanges_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_getDiagnosticNumRanges_presult__isset __isset;
+  _Clang_getDiagnosticNumRanges_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticRange_args__isset {
-  _Clang_clang_getDiagnosticRange_args__isset() : diagnostic(false), range(false) {}
+typedef struct _Clang_getDiagnosticRange_args__isset {
+  _Clang_getDiagnosticRange_args__isset() : diagnostic(false), range(false) {}
   bool diagnostic;
   bool range;
-} _Clang_clang_getDiagnosticRange_args__isset;
+} _Clang_getDiagnosticRange_args__isset;
 
-class Clang_clang_getDiagnosticRange_args {
+class Clang_getDiagnosticRange_args {
  public:
 
-  Clang_clang_getDiagnosticRange_args() : diagnostic(0), range(0) {
+  Clang_getDiagnosticRange_args() : diagnostic(0), range(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticRange_args() throw() {}
+  virtual ~Clang_getDiagnosticRange_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
-   ::clang::thrift::u32 range;
+   ::clad::CXDiagnostic diagnostic;
+   ::clad::u32 range;
 
-  _Clang_clang_getDiagnosticRange_args__isset __isset;
+  _Clang_getDiagnosticRange_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  void __set_range(const  ::clang::thrift::u32 val) {
+  void __set_range(const  ::clad::u32 val) {
     range = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticRange_args & rhs) const
+  bool operator == (const Clang_getDiagnosticRange_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
@@ -6246,11 +6246,11 @@ class Clang_clang_getDiagnosticRange_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticRange_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticRange_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticRange_args & ) const;
+  bool operator < (const Clang_getDiagnosticRange_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -6258,108 +6258,108 @@ class Clang_clang_getDiagnosticRange_args {
 };
 
 
-class Clang_clang_getDiagnosticRange_pargs {
+class Clang_getDiagnosticRange_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticRange_pargs() throw() {}
+  virtual ~Clang_getDiagnosticRange_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
-  const  ::clang::thrift::u32* range;
+  const  ::clad::CXDiagnostic* diagnostic;
+  const  ::clad::u32* range;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticRange_result__isset {
-  _Clang_clang_getDiagnosticRange_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticRange_result__isset {
+  _Clang_getDiagnosticRange_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticRange_result__isset;
+} _Clang_getDiagnosticRange_result__isset;
 
-class Clang_clang_getDiagnosticRange_result {
+class Clang_getDiagnosticRange_result {
  public:
 
-  Clang_clang_getDiagnosticRange_result() {
+  Clang_getDiagnosticRange_result() {
   }
 
-  virtual ~Clang_clang_getDiagnosticRange_result() throw() {}
+  virtual ~Clang_getDiagnosticRange_result() throw() {}
 
-   ::clang::thrift::CXSourceRange success;
+   ::clad::CXSourceRange success;
 
-  _Clang_clang_getDiagnosticRange_result__isset __isset;
+  _Clang_getDiagnosticRange_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXSourceRange& val) {
+  void __set_success(const  ::clad::CXSourceRange& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticRange_result & rhs) const
+  bool operator == (const Clang_getDiagnosticRange_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticRange_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticRange_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticRange_result & ) const;
+  bool operator < (const Clang_getDiagnosticRange_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticRange_presult__isset {
-  _Clang_clang_getDiagnosticRange_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticRange_presult__isset {
+  _Clang_getDiagnosticRange_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticRange_presult__isset;
+} _Clang_getDiagnosticRange_presult__isset;
 
-class Clang_clang_getDiagnosticRange_presult {
+class Clang_getDiagnosticRange_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticRange_presult() throw() {}
+  virtual ~Clang_getDiagnosticRange_presult() throw() {}
 
-   ::clang::thrift::CXSourceRange* success;
+   ::clad::CXSourceRange* success;
 
-  _Clang_clang_getDiagnosticRange_presult__isset __isset;
+  _Clang_getDiagnosticRange_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticNumFixIts_args__isset {
-  _Clang_clang_getDiagnosticNumFixIts_args__isset() : diagnostic(false) {}
+typedef struct _Clang_getDiagnosticNumFixIts_args__isset {
+  _Clang_getDiagnosticNumFixIts_args__isset() : diagnostic(false) {}
   bool diagnostic;
-} _Clang_clang_getDiagnosticNumFixIts_args__isset;
+} _Clang_getDiagnosticNumFixIts_args__isset;
 
-class Clang_clang_getDiagnosticNumFixIts_args {
+class Clang_getDiagnosticNumFixIts_args {
  public:
 
-  Clang_clang_getDiagnosticNumFixIts_args() : diagnostic(0) {
+  Clang_getDiagnosticNumFixIts_args() : diagnostic(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticNumFixIts_args() throw() {}
+  virtual ~Clang_getDiagnosticNumFixIts_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic diagnostic;
+   ::clad::CXDiagnostic diagnostic;
 
-  _Clang_clang_getDiagnosticNumFixIts_args__isset __isset;
+  _Clang_getDiagnosticNumFixIts_args__isset __isset;
 
-  void __set_diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_diagnostic(const  ::clad::CXDiagnostic val) {
     diagnostic = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticNumFixIts_args & rhs) const
+  bool operator == (const Clang_getDiagnosticNumFixIts_args & rhs) const
   {
     if (!(diagnostic == rhs.diagnostic))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticNumFixIts_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticNumFixIts_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticNumFixIts_args & ) const;
+  bool operator < (const Clang_getDiagnosticNumFixIts_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -6367,103 +6367,103 @@ class Clang_clang_getDiagnosticNumFixIts_args {
 };
 
 
-class Clang_clang_getDiagnosticNumFixIts_pargs {
+class Clang_getDiagnosticNumFixIts_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticNumFixIts_pargs() throw() {}
+  virtual ~Clang_getDiagnosticNumFixIts_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* diagnostic;
+  const  ::clad::CXDiagnostic* diagnostic;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticNumFixIts_result__isset {
-  _Clang_clang_getDiagnosticNumFixIts_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticNumFixIts_result__isset {
+  _Clang_getDiagnosticNumFixIts_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticNumFixIts_result__isset;
+} _Clang_getDiagnosticNumFixIts_result__isset;
 
-class Clang_clang_getDiagnosticNumFixIts_result {
+class Clang_getDiagnosticNumFixIts_result {
  public:
 
-  Clang_clang_getDiagnosticNumFixIts_result() : success(0) {
+  Clang_getDiagnosticNumFixIts_result() : success(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticNumFixIts_result() throw() {}
+  virtual ~Clang_getDiagnosticNumFixIts_result() throw() {}
 
-   ::clang::thrift::u32 success;
+   ::clad::u32 success;
 
-  _Clang_clang_getDiagnosticNumFixIts_result__isset __isset;
+  _Clang_getDiagnosticNumFixIts_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::u32 val) {
+  void __set_success(const  ::clad::u32 val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticNumFixIts_result & rhs) const
+  bool operator == (const Clang_getDiagnosticNumFixIts_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticNumFixIts_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticNumFixIts_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticNumFixIts_result & ) const;
+  bool operator < (const Clang_getDiagnosticNumFixIts_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticNumFixIts_presult__isset {
-  _Clang_clang_getDiagnosticNumFixIts_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticNumFixIts_presult__isset {
+  _Clang_getDiagnosticNumFixIts_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticNumFixIts_presult__isset;
+} _Clang_getDiagnosticNumFixIts_presult__isset;
 
-class Clang_clang_getDiagnosticNumFixIts_presult {
+class Clang_getDiagnosticNumFixIts_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticNumFixIts_presult() throw() {}
+  virtual ~Clang_getDiagnosticNumFixIts_presult() throw() {}
 
-   ::clang::thrift::u32* success;
+   ::clad::u32* success;
 
-  _Clang_clang_getDiagnosticNumFixIts_presult__isset __isset;
+  _Clang_getDiagnosticNumFixIts_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-typedef struct _Clang_clang_getDiagnosticFixIt_args__isset {
-  _Clang_clang_getDiagnosticFixIt_args__isset() : Diagnostic(false), FixIt(false) {}
+typedef struct _Clang_getDiagnosticFixIt_args__isset {
+  _Clang_getDiagnosticFixIt_args__isset() : Diagnostic(false), FixIt(false) {}
   bool Diagnostic;
   bool FixIt;
-} _Clang_clang_getDiagnosticFixIt_args__isset;
+} _Clang_getDiagnosticFixIt_args__isset;
 
-class Clang_clang_getDiagnosticFixIt_args {
+class Clang_getDiagnosticFixIt_args {
  public:
 
-  Clang_clang_getDiagnosticFixIt_args() : Diagnostic(0), FixIt(0) {
+  Clang_getDiagnosticFixIt_args() : Diagnostic(0), FixIt(0) {
   }
 
-  virtual ~Clang_clang_getDiagnosticFixIt_args() throw() {}
+  virtual ~Clang_getDiagnosticFixIt_args() throw() {}
 
-   ::clang::thrift::CXDiagnostic Diagnostic;
-   ::clang::thrift::u32 FixIt;
+   ::clad::CXDiagnostic Diagnostic;
+   ::clad::u32 FixIt;
 
-  _Clang_clang_getDiagnosticFixIt_args__isset __isset;
+  _Clang_getDiagnosticFixIt_args__isset __isset;
 
-  void __set_Diagnostic(const  ::clang::thrift::CXDiagnostic val) {
+  void __set_Diagnostic(const  ::clad::CXDiagnostic val) {
     Diagnostic = val;
   }
 
-  void __set_FixIt(const  ::clang::thrift::u32 val) {
+  void __set_FixIt(const  ::clad::u32 val) {
     FixIt = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticFixIt_args & rhs) const
+  bool operator == (const Clang_getDiagnosticFixIt_args & rhs) const
   {
     if (!(Diagnostic == rhs.Diagnostic))
       return false;
@@ -6471,11 +6471,11 @@ class Clang_clang_getDiagnosticFixIt_args {
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticFixIt_args &rhs) const {
+  bool operator != (const Clang_getDiagnosticFixIt_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticFixIt_args & ) const;
+  bool operator < (const Clang_getDiagnosticFixIt_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -6483,71 +6483,71 @@ class Clang_clang_getDiagnosticFixIt_args {
 };
 
 
-class Clang_clang_getDiagnosticFixIt_pargs {
+class Clang_getDiagnosticFixIt_pargs {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticFixIt_pargs() throw() {}
+  virtual ~Clang_getDiagnosticFixIt_pargs() throw() {}
 
-  const  ::clang::thrift::CXDiagnostic* Diagnostic;
-  const  ::clang::thrift::u32* FixIt;
+  const  ::clad::CXDiagnostic* Diagnostic;
+  const  ::clad::u32* FixIt;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticFixIt_result__isset {
-  _Clang_clang_getDiagnosticFixIt_result__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticFixIt_result__isset {
+  _Clang_getDiagnosticFixIt_result__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticFixIt_result__isset;
+} _Clang_getDiagnosticFixIt_result__isset;
 
-class Clang_clang_getDiagnosticFixIt_result {
+class Clang_getDiagnosticFixIt_result {
  public:
 
-  Clang_clang_getDiagnosticFixIt_result() {
+  Clang_getDiagnosticFixIt_result() {
   }
 
-  virtual ~Clang_clang_getDiagnosticFixIt_result() throw() {}
+  virtual ~Clang_getDiagnosticFixIt_result() throw() {}
 
-   ::clang::thrift::CXDiagnosticFixIt success;
+   ::clad::CXDiagnosticFixIt success;
 
-  _Clang_clang_getDiagnosticFixIt_result__isset __isset;
+  _Clang_getDiagnosticFixIt_result__isset __isset;
 
-  void __set_success(const  ::clang::thrift::CXDiagnosticFixIt& val) {
+  void __set_success(const  ::clad::CXDiagnosticFixIt& val) {
     success = val;
   }
 
-  bool operator == (const Clang_clang_getDiagnosticFixIt_result & rhs) const
+  bool operator == (const Clang_getDiagnosticFixIt_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_clang_getDiagnosticFixIt_result &rhs) const {
+  bool operator != (const Clang_getDiagnosticFixIt_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_clang_getDiagnosticFixIt_result & ) const;
+  bool operator < (const Clang_getDiagnosticFixIt_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_clang_getDiagnosticFixIt_presult__isset {
-  _Clang_clang_getDiagnosticFixIt_presult__isset() : success(false) {}
+typedef struct _Clang_getDiagnosticFixIt_presult__isset {
+  _Clang_getDiagnosticFixIt_presult__isset() : success(false) {}
   bool success;
-} _Clang_clang_getDiagnosticFixIt_presult__isset;
+} _Clang_getDiagnosticFixIt_presult__isset;
 
-class Clang_clang_getDiagnosticFixIt_presult {
+class Clang_getDiagnosticFixIt_presult {
  public:
 
 
-  virtual ~Clang_clang_getDiagnosticFixIt_presult() throw() {}
+  virtual ~Clang_getDiagnosticFixIt_presult() throw() {}
 
-   ::clang::thrift::CXDiagnosticFixIt* success;
+   ::clad::CXDiagnosticFixIt* success;
 
-  _Clang_clang_getDiagnosticFixIt_presult__isset __isset;
+  _Clang_getDiagnosticFixIt_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
@@ -6573,177 +6573,177 @@ class ClangClient : virtual public ClangIf {
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> getOutputProtocol() {
     return poprot_;
   }
-   ::clang::thrift::CXIndex clang_createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics);
-  void send_clang_createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics);
-   ::clang::thrift::CXIndex recv_clang_createIndex();
-  void clang_disposeIndex(const  ::clang::thrift::CXIndex index);
-  void send_clang_disposeIndex(const  ::clang::thrift::CXIndex index);
-  void recv_clang_disposeIndex();
-  void clang_CXIndex_setGlobalOptions(const  ::clang::thrift::CXIndex index, const  ::clang::thrift::CXGlobalOptFlags::type options);
-  void send_clang_CXIndex_setGlobalOptions(const  ::clang::thrift::CXIndex index, const  ::clang::thrift::CXGlobalOptFlags::type options);
-  void recv_clang_CXIndex_setGlobalOptions();
-   ::clang::thrift::CXGlobalOptFlags::type clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CXIndex index);
-  void send_clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CXIndex index);
-   ::clang::thrift::CXGlobalOptFlags::type recv_clang_CXIndex_getGlobalOptions();
-  void clang_getTranslationUnitSpelling(std::string& _return, const  ::clang::thrift::CXTranslationUnit unit);
-  void send_clang_getTranslationUnitSpelling(const  ::clang::thrift::CXTranslationUnit unit);
-  void recv_clang_getTranslationUnitSpelling(std::string& _return);
-   ::clang::thrift::CXTranslationUnit clang_createTranslationUnitFromSourceFile(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & clang_command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files);
-  void send_clang_createTranslationUnitFromSourceFile(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & clang_command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files);
-   ::clang::thrift::CXTranslationUnit recv_clang_createTranslationUnitFromSourceFile();
-   ::clang::thrift::CXTranslationUnit clang_createTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& ast_filename);
-  void send_clang_createTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& ast_filename);
-   ::clang::thrift::CXTranslationUnit recv_clang_createTranslationUnit();
-   ::clang::thrift::u32 clang_defaultEditingTranslationUnitOptions();
-  void send_clang_defaultEditingTranslationUnitOptions();
-   ::clang::thrift::u32 recv_clang_defaultEditingTranslationUnitOptions();
-   ::clang::thrift::CXTranslationUnit clang_parseTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options);
-  void send_clang_parseTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options);
-   ::clang::thrift::CXTranslationUnit recv_clang_parseTranslationUnit();
-   ::clang::thrift::u32 clang_defaultSaveOptions(const  ::clang::thrift::CXTranslationUnit unit);
-  void send_clang_defaultSaveOptions(const  ::clang::thrift::CXTranslationUnit unit);
-   ::clang::thrift::u32 recv_clang_defaultSaveOptions();
-   ::clang::thrift::CXSaveError::type clang_saveTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename, const  ::clang::thrift::u32 options);
-  void send_clang_saveTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename, const  ::clang::thrift::u32 options);
-   ::clang::thrift::CXSaveError::type recv_clang_saveTranslationUnit();
-  void clang_disposeTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit);
-  void send_clang_disposeTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit);
-  void recv_clang_disposeTranslationUnit();
-   ::clang::thrift::u32 clang_defaultReparseOptions(const  ::clang::thrift::CXTranslationUnit unit);
-  void send_clang_defaultReparseOptions(const  ::clang::thrift::CXTranslationUnit unit);
-   ::clang::thrift::u32 recv_clang_defaultReparseOptions();
-  int32_t clang_reparseTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options);
-  void send_clang_reparseTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options);
-  int32_t recv_clang_reparseTranslationUnit();
-  void clang_getTUResourceUsageName(std::string& _return, const  ::clang::thrift::CXTUResourceUsageKind::type kind);
-  void send_clang_getTUResourceUsageName(const  ::clang::thrift::CXTUResourceUsageKind::type kind);
-  void recv_clang_getTUResourceUsageName(std::string& _return);
-  void clang_getCXTUResourceUsage( ::clang::thrift::CXTUResourceUsage& _return, const  ::clang::thrift::CXTranslationUnit unit);
-  void send_clang_getCXTUResourceUsage(const  ::clang::thrift::CXTranslationUnit unit);
-  void recv_clang_getCXTUResourceUsage( ::clang::thrift::CXTUResourceUsage& _return);
-  void clang_disposeCXTUResourceUsage(const  ::clang::thrift::CXTUResourceUsage& usage);
-  void send_clang_disposeCXTUResourceUsage(const  ::clang::thrift::CXTUResourceUsage& usage);
-  void recv_clang_disposeCXTUResourceUsage();
-  void clang_getFileName(std::string& _return, const  ::clang::thrift::CXFile file);
-  void send_clang_getFileName(const  ::clang::thrift::CXFile file);
-  void recv_clang_getFileName(std::string& _return);
-   ::clang::thrift::t64 clang_getFileTime(const  ::clang::thrift::CXFile file);
-  void send_clang_getFileTime(const  ::clang::thrift::CXFile file);
-   ::clang::thrift::t64 recv_clang_getFileTime();
-   ::clang::thrift::u32 clang_isFileMultipleIncludeGuarded(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::CXFile file);
-  void send_clang_isFileMultipleIncludeGuarded(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::CXFile file);
-   ::clang::thrift::u32 recv_clang_isFileMultipleIncludeGuarded();
-   ::clang::thrift::CXFile clang_getFile(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename);
-  void send_clang_getFile(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename);
-   ::clang::thrift::CXFile recv_clang_getFile();
-  void clang_getNullLocation( ::clang::thrift::CXSourceLocation& _return);
-  void send_clang_getNullLocation();
-  void recv_clang_getNullLocation( ::clang::thrift::CXSourceLocation& _return);
-   ::clang::thrift::u32 clang_equalLocations(const  ::clang::thrift::CXSourceLocation& loc1, const  ::clang::thrift::CXSourceLocation& loc2);
-  void send_clang_equalLocations(const  ::clang::thrift::CXSourceLocation& loc1, const  ::clang::thrift::CXSourceLocation& loc2);
-   ::clang::thrift::u32 recv_clang_equalLocations();
-  void clang_getLocation( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 line, const  ::clang::thrift::u32 column);
-  void send_clang_getLocation(const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 line, const  ::clang::thrift::u32 column);
-  void recv_clang_getLocation( ::clang::thrift::CXSourceLocation& _return);
-  void clang_getLocationForOffset( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 offset);
-  void send_clang_getLocationForOffset(const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 offset);
-  void recv_clang_getLocationForOffset( ::clang::thrift::CXSourceLocation& _return);
-  void clang_getNullRange( ::clang::thrift::CXSourceRange& _return);
-  void send_clang_getNullRange();
-  void recv_clang_getNullRange( ::clang::thrift::CXSourceRange& _return);
-  void clang_getRange( ::clang::thrift::CXSourceRange& _return, const  ::clang::thrift::CXSourceLocation& sourceBegin, const  ::clang::thrift::CXSourceLocation& sourceEnd);
-  void send_clang_getRange(const  ::clang::thrift::CXSourceLocation& sourceBegin, const  ::clang::thrift::CXSourceLocation& sourceEnd);
-  void recv_clang_getRange( ::clang::thrift::CXSourceRange& _return);
-   ::clang::thrift::u32 clang_equalRanges(const  ::clang::thrift::CXSourceRange& range1, const  ::clang::thrift::CXSourceRange& range2);
-  void send_clang_equalRanges(const  ::clang::thrift::CXSourceRange& range1, const  ::clang::thrift::CXSourceRange& range2);
-   ::clang::thrift::u32 recv_clang_equalRanges();
-  int32_t clang_Range_isNull(const  ::clang::thrift::CXSourceRange& range);
-  void send_clang_Range_isNull(const  ::clang::thrift::CXSourceRange& range);
-  int32_t recv_clang_Range_isNull();
-  void clang_getExpansionLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location);
-  void send_clang_getExpansionLocation(const  ::clang::thrift::CXSourceLocation& location);
-  void recv_clang_getExpansionLocation( ::clang::thrift::CXSourcePosition& _return);
-  void clang_getPresumedLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location);
-  void send_clang_getPresumedLocation(const  ::clang::thrift::CXSourceLocation& location);
-  void recv_clang_getPresumedLocation( ::clang::thrift::CXSourcePosition& _return);
-  void clang_getInstantiationLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location);
-  void send_clang_getInstantiationLocation(const  ::clang::thrift::CXSourceLocation& location);
-  void recv_clang_getInstantiationLocation( ::clang::thrift::CXSourcePosition& _return);
-  void clang_getSpellingLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location);
-  void send_clang_getSpellingLocation(const  ::clang::thrift::CXSourceLocation& location);
-  void recv_clang_getSpellingLocation( ::clang::thrift::CXSourcePosition& _return);
-  void clang_getRangeStart( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXSourceRange& range);
-  void send_clang_getRangeStart(const  ::clang::thrift::CXSourceRange& range);
-  void recv_clang_getRangeStart( ::clang::thrift::CXSourceLocation& _return);
-  void clang_getRangeEnd( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXSourceRange& range);
-  void send_clang_getRangeEnd(const  ::clang::thrift::CXSourceRange& range);
-  void recv_clang_getRangeEnd( ::clang::thrift::CXSourceLocation& _return);
-   ::clang::thrift::u32 clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDiagnosticSet diags);
-  void send_clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDiagnosticSet diags);
-   ::clang::thrift::u32 recv_clang_getNumDiagnosticsInSet();
-   ::clang::thrift::CXDiagnostic clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagnosticSet diags, const  ::clang::thrift::u32 index);
-  void send_clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagnosticSet diags, const  ::clang::thrift::u32 index);
-   ::clang::thrift::CXDiagnostic recv_clang_getDiagnosticInSet();
-   ::clang::thrift::CXDiagnosticSet clang_loadDiagnostics(const std::string& filename);
-  void send_clang_loadDiagnostics(const std::string& filename);
-   ::clang::thrift::CXDiagnosticSet recv_clang_loadDiagnostics();
-  void clang_disposeDiagnosticSet(const  ::clang::thrift::CXDiagnosticSet diagnosticSet);
-  void send_clang_disposeDiagnosticSet(const  ::clang::thrift::CXDiagnosticSet diagnosticSet);
-  void recv_clang_disposeDiagnosticSet();
-   ::clang::thrift::CXDiagnosticSet clang_getChildDiagnostics(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getChildDiagnostics(const  ::clang::thrift::CXDiagnostic diagnostic);
-   ::clang::thrift::CXDiagnosticSet recv_clang_getChildDiagnostics();
-   ::clang::thrift::u32 clang_getNumDiagnostics(const  ::clang::thrift::CXTranslationUnit unit);
-  void send_clang_getNumDiagnostics(const  ::clang::thrift::CXTranslationUnit unit);
-   ::clang::thrift::u32 recv_clang_getNumDiagnostics();
-   ::clang::thrift::CXDiagnostic clang_getDiagnostic(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::u32 index);
-  void send_clang_getDiagnostic(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::u32 index);
-   ::clang::thrift::CXDiagnostic recv_clang_getDiagnostic();
-   ::clang::thrift::CXDiagnosticSet clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTranslationUnit unit);
-  void send_clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTranslationUnit unit);
-   ::clang::thrift::CXDiagnosticSet recv_clang_getDiagnosticSetFromTU();
-  void clang_disposeDiagnostic(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_disposeDiagnostic(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void recv_clang_disposeDiagnostic();
-  void clang_formatDiagnostic(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 options);
-  void send_clang_formatDiagnostic(const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 options);
-  void recv_clang_formatDiagnostic(std::string& _return);
-   ::clang::thrift::u32 clang_defaultDiagnosticDisplayOptions();
-  void send_clang_defaultDiagnosticDisplayOptions();
-   ::clang::thrift::u32 recv_clang_defaultDiagnosticDisplayOptions();
-   ::clang::thrift::CXDiagnosticSeverity::type clang_getDiagnosticSeverity(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getDiagnosticSeverity(const  ::clang::thrift::CXDiagnostic diagnostic);
-   ::clang::thrift::CXDiagnosticSeverity::type recv_clang_getDiagnosticSeverity();
-  void clang_getDiagnosticLocation( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getDiagnosticLocation(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void recv_clang_getDiagnosticLocation( ::clang::thrift::CXSourceLocation& _return);
-  void clang_getDiagnosticSpelling(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getDiagnosticSpelling(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void recv_clang_getDiagnosticSpelling(std::string& _return);
-  void clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticOption& _return, const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getDiagnosticOption(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void recv_clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticOption& _return);
-   ::clang::thrift::u32 clang_getDiagnosticCategory(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getDiagnosticCategory(const  ::clang::thrift::CXDiagnostic diagnostic);
-   ::clang::thrift::u32 recv_clang_getDiagnosticCategory();
-  void clang_getDiagnosticCategoryName(std::string& _return, const  ::clang::thrift::u32 category);
-  void send_clang_getDiagnosticCategoryName(const  ::clang::thrift::u32 category);
-  void recv_clang_getDiagnosticCategoryName(std::string& _return);
-  void clang_getDiagnosticCategoryText(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getDiagnosticCategoryText(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void recv_clang_getDiagnosticCategoryText(std::string& _return);
-   ::clang::thrift::u32 clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDiagnostic diagnostic);
-   ::clang::thrift::u32 recv_clang_getDiagnosticNumRanges();
-  void clang_getDiagnosticRange( ::clang::thrift::CXSourceRange& _return, const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 range);
-  void send_clang_getDiagnosticRange(const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 range);
-  void recv_clang_getDiagnosticRange( ::clang::thrift::CXSourceRange& _return);
-   ::clang::thrift::u32 clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDiagnostic diagnostic);
-  void send_clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDiagnostic diagnostic);
-   ::clang::thrift::u32 recv_clang_getDiagnosticNumFixIts();
-  void clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFixIt& _return, const  ::clang::thrift::CXDiagnostic Diagnostic, const  ::clang::thrift::u32 FixIt);
-  void send_clang_getDiagnosticFixIt(const  ::clang::thrift::CXDiagnostic Diagnostic, const  ::clang::thrift::u32 FixIt);
-  void recv_clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFixIt& _return);
+   ::clad::CXIndex createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics);
+  void send_createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics);
+   ::clad::CXIndex recv_createIndex();
+  void disposeIndex(const  ::clad::CXIndex index);
+  void send_disposeIndex(const  ::clad::CXIndex index);
+  void recv_disposeIndex();
+  void CXIndex_setGlobalOptions(const  ::clad::CXIndex index, const  ::clad::CXGlobalOptFlags::type options);
+  void send_CXIndex_setGlobalOptions(const  ::clad::CXIndex index, const  ::clad::CXGlobalOptFlags::type options);
+  void recv_CXIndex_setGlobalOptions();
+   ::clad::CXGlobalOptFlags::type CXIndex_getGlobalOptions(const  ::clad::CXIndex index);
+  void send_CXIndex_getGlobalOptions(const  ::clad::CXIndex index);
+   ::clad::CXGlobalOptFlags::type recv_CXIndex_getGlobalOptions();
+  void getTranslationUnitSpelling(std::string& _return, const  ::clad::CXTranslationUnit unit);
+  void send_getTranslationUnitSpelling(const  ::clad::CXTranslationUnit unit);
+  void recv_getTranslationUnitSpelling(std::string& _return);
+   ::clad::CXTranslationUnit createTranslationUnitFromSourceFile(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files);
+  void send_createTranslationUnitFromSourceFile(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files);
+   ::clad::CXTranslationUnit recv_createTranslationUnitFromSourceFile();
+   ::clad::CXTranslationUnit createTranslationUnit(const  ::clad::CXIndex idx, const std::string& ast_filename);
+  void send_createTranslationUnit(const  ::clad::CXIndex idx, const std::string& ast_filename);
+   ::clad::CXTranslationUnit recv_createTranslationUnit();
+   ::clad::u32 defaultEditingTranslationUnitOptions();
+  void send_defaultEditingTranslationUnitOptions();
+   ::clad::u32 recv_defaultEditingTranslationUnitOptions();
+   ::clad::CXTranslationUnit parseTranslationUnit(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options);
+  void send_parseTranslationUnit(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options);
+   ::clad::CXTranslationUnit recv_parseTranslationUnit();
+   ::clad::u32 defaultSaveOptions(const  ::clad::CXTranslationUnit unit);
+  void send_defaultSaveOptions(const  ::clad::CXTranslationUnit unit);
+   ::clad::u32 recv_defaultSaveOptions();
+   ::clad::CXSaveError::type saveTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::string& filename, const  ::clad::u32 options);
+  void send_saveTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::string& filename, const  ::clad::u32 options);
+   ::clad::CXSaveError::type recv_saveTranslationUnit();
+  void disposeTranslationUnit(const  ::clad::CXTranslationUnit unit);
+  void send_disposeTranslationUnit(const  ::clad::CXTranslationUnit unit);
+  void recv_disposeTranslationUnit();
+   ::clad::u32 defaultReparseOptions(const  ::clad::CXTranslationUnit unit);
+  void send_defaultReparseOptions(const  ::clad::CXTranslationUnit unit);
+   ::clad::u32 recv_defaultReparseOptions();
+  int32_t reparseTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options);
+  void send_reparseTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options);
+  int32_t recv_reparseTranslationUnit();
+  void getTUResourceUsageName(std::string& _return, const  ::clad::CXTUResourceUsageKind::type kind);
+  void send_getTUResourceUsageName(const  ::clad::CXTUResourceUsageKind::type kind);
+  void recv_getTUResourceUsageName(std::string& _return);
+  void getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return, const  ::clad::CXTranslationUnit unit);
+  void send_getCXTUResourceUsage(const  ::clad::CXTranslationUnit unit);
+  void recv_getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return);
+  void disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage);
+  void send_disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage);
+  void recv_disposeCXTUResourceUsage();
+  void getFileName(std::string& _return, const  ::clad::CXFile file);
+  void send_getFileName(const  ::clad::CXFile file);
+  void recv_getFileName(std::string& _return);
+   ::clad::t64 getFileTime(const  ::clad::CXFile file);
+  void send_getFileTime(const  ::clad::CXFile file);
+   ::clad::t64 recv_getFileTime();
+   ::clad::u32 isFileMultipleIncludeGuarded(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file);
+  void send_isFileMultipleIncludeGuarded(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file);
+   ::clad::u32 recv_isFileMultipleIncludeGuarded();
+   ::clad::CXFile getFile(const  ::clad::CXTranslationUnit unit, const std::string& filename);
+  void send_getFile(const  ::clad::CXTranslationUnit unit, const std::string& filename);
+   ::clad::CXFile recv_getFile();
+  void getNullLocation( ::clad::CXSourceLocation& _return);
+  void send_getNullLocation();
+  void recv_getNullLocation( ::clad::CXSourceLocation& _return);
+   ::clad::u32 equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2);
+  void send_equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2);
+   ::clad::u32 recv_equalLocations();
+  void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column);
+  void send_getLocation(const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column);
+  void recv_getLocation( ::clad::CXSourceLocation& _return);
+  void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset);
+  void send_getLocationForOffset(const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset);
+  void recv_getLocationForOffset( ::clad::CXSourceLocation& _return);
+  void getNullRange( ::clad::CXSourceRange& _return);
+  void send_getNullRange();
+  void recv_getNullRange( ::clad::CXSourceRange& _return);
+  void getRange( ::clad::CXSourceRange& _return, const  ::clad::CXSourceLocation& sourceBegin, const  ::clad::CXSourceLocation& sourceEnd);
+  void send_getRange(const  ::clad::CXSourceLocation& sourceBegin, const  ::clad::CXSourceLocation& sourceEnd);
+  void recv_getRange( ::clad::CXSourceRange& _return);
+   ::clad::u32 equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2);
+  void send_equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2);
+   ::clad::u32 recv_equalRanges();
+  int32_t Range_isNull(const  ::clad::CXSourceRange& range);
+  void send_Range_isNull(const  ::clad::CXSourceRange& range);
+  int32_t recv_Range_isNull();
+  void getExpansionLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location);
+  void send_getExpansionLocation(const  ::clad::CXSourceLocation& location);
+  void recv_getExpansionLocation( ::clad::CXSourcePosition& _return);
+  void getPresumedLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location);
+  void send_getPresumedLocation(const  ::clad::CXSourceLocation& location);
+  void recv_getPresumedLocation( ::clad::CXSourcePosition& _return);
+  void getInstantiationLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location);
+  void send_getInstantiationLocation(const  ::clad::CXSourceLocation& location);
+  void recv_getInstantiationLocation( ::clad::CXSourcePosition& _return);
+  void getSpellingLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location);
+  void send_getSpellingLocation(const  ::clad::CXSourceLocation& location);
+  void recv_getSpellingLocation( ::clad::CXSourcePosition& _return);
+  void getRangeStart( ::clad::CXSourceLocation& _return, const  ::clad::CXSourceRange& range);
+  void send_getRangeStart(const  ::clad::CXSourceRange& range);
+  void recv_getRangeStart( ::clad::CXSourceLocation& _return);
+  void getRangeEnd( ::clad::CXSourceLocation& _return, const  ::clad::CXSourceRange& range);
+  void send_getRangeEnd(const  ::clad::CXSourceRange& range);
+  void recv_getRangeEnd( ::clad::CXSourceLocation& _return);
+   ::clad::u32 getNumDiagnosticsInSet(const  ::clad::CXDiagnosticSet diags);
+  void send_getNumDiagnosticsInSet(const  ::clad::CXDiagnosticSet diags);
+   ::clad::u32 recv_getNumDiagnosticsInSet();
+   ::clad::CXDiagnostic getDiagnosticInSet(const  ::clad::CXDiagnosticSet diags, const  ::clad::u32 index);
+  void send_getDiagnosticInSet(const  ::clad::CXDiagnosticSet diags, const  ::clad::u32 index);
+   ::clad::CXDiagnostic recv_getDiagnosticInSet();
+   ::clad::CXDiagnosticSet loadDiagnostics(const std::string& filename);
+  void send_loadDiagnostics(const std::string& filename);
+   ::clad::CXDiagnosticSet recv_loadDiagnostics();
+  void disposeDiagnosticSet(const  ::clad::CXDiagnosticSet diagnosticSet);
+  void send_disposeDiagnosticSet(const  ::clad::CXDiagnosticSet diagnosticSet);
+  void recv_disposeDiagnosticSet();
+   ::clad::CXDiagnosticSet getChildDiagnostics(const  ::clad::CXDiagnostic diagnostic);
+  void send_getChildDiagnostics(const  ::clad::CXDiagnostic diagnostic);
+   ::clad::CXDiagnosticSet recv_getChildDiagnostics();
+   ::clad::u32 getNumDiagnostics(const  ::clad::CXTranslationUnit unit);
+  void send_getNumDiagnostics(const  ::clad::CXTranslationUnit unit);
+   ::clad::u32 recv_getNumDiagnostics();
+   ::clad::CXDiagnostic getDiagnostic(const  ::clad::CXTranslationUnit unit, const  ::clad::u32 index);
+  void send_getDiagnostic(const  ::clad::CXTranslationUnit unit, const  ::clad::u32 index);
+   ::clad::CXDiagnostic recv_getDiagnostic();
+   ::clad::CXDiagnosticSet getDiagnosticSetFromTU(const  ::clad::CXTranslationUnit unit);
+  void send_getDiagnosticSetFromTU(const  ::clad::CXTranslationUnit unit);
+   ::clad::CXDiagnosticSet recv_getDiagnosticSetFromTU();
+  void disposeDiagnostic(const  ::clad::CXDiagnostic diagnostic);
+  void send_disposeDiagnostic(const  ::clad::CXDiagnostic diagnostic);
+  void recv_disposeDiagnostic();
+  void formatDiagnostic(std::string& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 options);
+  void send_formatDiagnostic(const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 options);
+  void recv_formatDiagnostic(std::string& _return);
+   ::clad::u32 defaultDiagnosticDisplayOptions();
+  void send_defaultDiagnosticDisplayOptions();
+   ::clad::u32 recv_defaultDiagnosticDisplayOptions();
+   ::clad::CXDiagnosticSeverity::type getDiagnosticSeverity(const  ::clad::CXDiagnostic diagnostic);
+  void send_getDiagnosticSeverity(const  ::clad::CXDiagnostic diagnostic);
+   ::clad::CXDiagnosticSeverity::type recv_getDiagnosticSeverity();
+  void getDiagnosticLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXDiagnostic diagnostic);
+  void send_getDiagnosticLocation(const  ::clad::CXDiagnostic diagnostic);
+  void recv_getDiagnosticLocation( ::clad::CXSourceLocation& _return);
+  void getDiagnosticSpelling(std::string& _return, const  ::clad::CXDiagnostic diagnostic);
+  void send_getDiagnosticSpelling(const  ::clad::CXDiagnostic diagnostic);
+  void recv_getDiagnosticSpelling(std::string& _return);
+  void getDiagnosticOption( ::clad::CXDiagnosticOption& _return, const  ::clad::CXDiagnostic diagnostic);
+  void send_getDiagnosticOption(const  ::clad::CXDiagnostic diagnostic);
+  void recv_getDiagnosticOption( ::clad::CXDiagnosticOption& _return);
+   ::clad::u32 getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic);
+  void send_getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic);
+   ::clad::u32 recv_getDiagnosticCategory();
+  void getDiagnosticCategoryName(std::string& _return, const  ::clad::u32 category);
+  void send_getDiagnosticCategoryName(const  ::clad::u32 category);
+  void recv_getDiagnosticCategoryName(std::string& _return);
+  void getDiagnosticCategoryText(std::string& _return, const  ::clad::CXDiagnostic diagnostic);
+  void send_getDiagnosticCategoryText(const  ::clad::CXDiagnostic diagnostic);
+  void recv_getDiagnosticCategoryText(std::string& _return);
+   ::clad::u32 getDiagnosticNumRanges(const  ::clad::CXDiagnostic diagnostic);
+  void send_getDiagnosticNumRanges(const  ::clad::CXDiagnostic diagnostic);
+   ::clad::u32 recv_getDiagnosticNumRanges();
+  void getDiagnosticRange( ::clad::CXSourceRange& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 range);
+  void send_getDiagnosticRange(const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 range);
+  void recv_getDiagnosticRange( ::clad::CXSourceRange& _return);
+   ::clad::u32 getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic);
+  void send_getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic);
+   ::clad::u32 recv_getDiagnosticNumFixIts();
+  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt);
+  void send_getDiagnosticFixIt(const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt);
+  void recv_getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return);
  protected:
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> piprot_;
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> poprot_;
@@ -6759,123 +6759,123 @@ class ClangProcessor : public ::apache::thrift::TDispatchProcessor {
   typedef  void (ClangProcessor::*ProcessFunction)(int32_t, ::apache::thrift::protocol::TProtocol*, ::apache::thrift::protocol::TProtocol*, void*);
   typedef std::map<std::string, ProcessFunction> ProcessMap;
   ProcessMap processMap_;
-  void process_clang_createIndex(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_disposeIndex(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_CXIndex_setGlobalOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_CXIndex_getGlobalOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getTranslationUnitSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_createTranslationUnitFromSourceFile(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_createTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_defaultEditingTranslationUnitOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_parseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_defaultSaveOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_saveTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_disposeTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_defaultReparseOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_reparseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getTUResourceUsageName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_disposeCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getFileName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getFileTime(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_isFileMultipleIncludeGuarded(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getFile(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getNullLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_equalLocations(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getLocationForOffset(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getNullRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_equalRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_Range_isNull(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getExpansionLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getPresumedLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getInstantiationLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getSpellingLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getRangeStart(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getRangeEnd(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getNumDiagnosticsInSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticInSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_loadDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_disposeDiagnosticSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getChildDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getNumDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticSetFromTU(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_disposeDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_formatDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_defaultDiagnosticDisplayOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticSeverity(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticOption(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticCategory(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticCategoryName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticCategoryText(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticNumRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticNumFixIts(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_clang_getDiagnosticFixIt(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_createIndex(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_disposeIndex(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_CXIndex_setGlobalOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_CXIndex_getGlobalOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getTranslationUnitSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_createTranslationUnitFromSourceFile(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_createTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_defaultEditingTranslationUnitOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_parseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_defaultSaveOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_saveTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_disposeTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_defaultReparseOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_reparseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getTUResourceUsageName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_disposeCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getFileName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getFileTime(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_isFileMultipleIncludeGuarded(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getFile(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getNullLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_equalLocations(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getLocationForOffset(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getNullRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_equalRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_Range_isNull(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getExpansionLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getPresumedLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getInstantiationLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getSpellingLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getRangeStart(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getRangeEnd(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getNumDiagnosticsInSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticInSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_loadDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_disposeDiagnosticSet(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getChildDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getNumDiagnostics(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticSetFromTU(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_disposeDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_formatDiagnostic(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_defaultDiagnosticDisplayOptions(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticSeverity(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticOption(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticCategory(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticCategoryName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticCategoryText(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticNumRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticNumFixIts(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_getDiagnosticFixIt(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
  public:
   ClangProcessor(boost::shared_ptr<ClangIf> iface) :
     iface_(iface) {
-    processMap_["clang_createIndex"] = &ClangProcessor::process_clang_createIndex;
-    processMap_["clang_disposeIndex"] = &ClangProcessor::process_clang_disposeIndex;
-    processMap_["clang_CXIndex_setGlobalOptions"] = &ClangProcessor::process_clang_CXIndex_setGlobalOptions;
-    processMap_["clang_CXIndex_getGlobalOptions"] = &ClangProcessor::process_clang_CXIndex_getGlobalOptions;
-    processMap_["clang_getTranslationUnitSpelling"] = &ClangProcessor::process_clang_getTranslationUnitSpelling;
-    processMap_["clang_createTranslationUnitFromSourceFile"] = &ClangProcessor::process_clang_createTranslationUnitFromSourceFile;
-    processMap_["clang_createTranslationUnit"] = &ClangProcessor::process_clang_createTranslationUnit;
-    processMap_["clang_defaultEditingTranslationUnitOptions"] = &ClangProcessor::process_clang_defaultEditingTranslationUnitOptions;
-    processMap_["clang_parseTranslationUnit"] = &ClangProcessor::process_clang_parseTranslationUnit;
-    processMap_["clang_defaultSaveOptions"] = &ClangProcessor::process_clang_defaultSaveOptions;
-    processMap_["clang_saveTranslationUnit"] = &ClangProcessor::process_clang_saveTranslationUnit;
-    processMap_["clang_disposeTranslationUnit"] = &ClangProcessor::process_clang_disposeTranslationUnit;
-    processMap_["clang_defaultReparseOptions"] = &ClangProcessor::process_clang_defaultReparseOptions;
-    processMap_["clang_reparseTranslationUnit"] = &ClangProcessor::process_clang_reparseTranslationUnit;
-    processMap_["clang_getTUResourceUsageName"] = &ClangProcessor::process_clang_getTUResourceUsageName;
-    processMap_["clang_getCXTUResourceUsage"] = &ClangProcessor::process_clang_getCXTUResourceUsage;
-    processMap_["clang_disposeCXTUResourceUsage"] = &ClangProcessor::process_clang_disposeCXTUResourceUsage;
-    processMap_["clang_getFileName"] = &ClangProcessor::process_clang_getFileName;
-    processMap_["clang_getFileTime"] = &ClangProcessor::process_clang_getFileTime;
-    processMap_["clang_isFileMultipleIncludeGuarded"] = &ClangProcessor::process_clang_isFileMultipleIncludeGuarded;
-    processMap_["clang_getFile"] = &ClangProcessor::process_clang_getFile;
-    processMap_["clang_getNullLocation"] = &ClangProcessor::process_clang_getNullLocation;
-    processMap_["clang_equalLocations"] = &ClangProcessor::process_clang_equalLocations;
-    processMap_["clang_getLocation"] = &ClangProcessor::process_clang_getLocation;
-    processMap_["clang_getLocationForOffset"] = &ClangProcessor::process_clang_getLocationForOffset;
-    processMap_["clang_getNullRange"] = &ClangProcessor::process_clang_getNullRange;
-    processMap_["clang_getRange"] = &ClangProcessor::process_clang_getRange;
-    processMap_["clang_equalRanges"] = &ClangProcessor::process_clang_equalRanges;
-    processMap_["clang_Range_isNull"] = &ClangProcessor::process_clang_Range_isNull;
-    processMap_["clang_getExpansionLocation"] = &ClangProcessor::process_clang_getExpansionLocation;
-    processMap_["clang_getPresumedLocation"] = &ClangProcessor::process_clang_getPresumedLocation;
-    processMap_["clang_getInstantiationLocation"] = &ClangProcessor::process_clang_getInstantiationLocation;
-    processMap_["clang_getSpellingLocation"] = &ClangProcessor::process_clang_getSpellingLocation;
-    processMap_["clang_getRangeStart"] = &ClangProcessor::process_clang_getRangeStart;
-    processMap_["clang_getRangeEnd"] = &ClangProcessor::process_clang_getRangeEnd;
-    processMap_["clang_getNumDiagnosticsInSet"] = &ClangProcessor::process_clang_getNumDiagnosticsInSet;
-    processMap_["clang_getDiagnosticInSet"] = &ClangProcessor::process_clang_getDiagnosticInSet;
-    processMap_["clang_loadDiagnostics"] = &ClangProcessor::process_clang_loadDiagnostics;
-    processMap_["clang_disposeDiagnosticSet"] = &ClangProcessor::process_clang_disposeDiagnosticSet;
-    processMap_["clang_getChildDiagnostics"] = &ClangProcessor::process_clang_getChildDiagnostics;
-    processMap_["clang_getNumDiagnostics"] = &ClangProcessor::process_clang_getNumDiagnostics;
-    processMap_["clang_getDiagnostic"] = &ClangProcessor::process_clang_getDiagnostic;
-    processMap_["clang_getDiagnosticSetFromTU"] = &ClangProcessor::process_clang_getDiagnosticSetFromTU;
-    processMap_["clang_disposeDiagnostic"] = &ClangProcessor::process_clang_disposeDiagnostic;
-    processMap_["clang_formatDiagnostic"] = &ClangProcessor::process_clang_formatDiagnostic;
-    processMap_["clang_defaultDiagnosticDisplayOptions"] = &ClangProcessor::process_clang_defaultDiagnosticDisplayOptions;
-    processMap_["clang_getDiagnosticSeverity"] = &ClangProcessor::process_clang_getDiagnosticSeverity;
-    processMap_["clang_getDiagnosticLocation"] = &ClangProcessor::process_clang_getDiagnosticLocation;
-    processMap_["clang_getDiagnosticSpelling"] = &ClangProcessor::process_clang_getDiagnosticSpelling;
-    processMap_["clang_getDiagnosticOption"] = &ClangProcessor::process_clang_getDiagnosticOption;
-    processMap_["clang_getDiagnosticCategory"] = &ClangProcessor::process_clang_getDiagnosticCategory;
-    processMap_["clang_getDiagnosticCategoryName"] = &ClangProcessor::process_clang_getDiagnosticCategoryName;
-    processMap_["clang_getDiagnosticCategoryText"] = &ClangProcessor::process_clang_getDiagnosticCategoryText;
-    processMap_["clang_getDiagnosticNumRanges"] = &ClangProcessor::process_clang_getDiagnosticNumRanges;
-    processMap_["clang_getDiagnosticRange"] = &ClangProcessor::process_clang_getDiagnosticRange;
-    processMap_["clang_getDiagnosticNumFixIts"] = &ClangProcessor::process_clang_getDiagnosticNumFixIts;
-    processMap_["clang_getDiagnosticFixIt"] = &ClangProcessor::process_clang_getDiagnosticFixIt;
+    processMap_["createIndex"] = &ClangProcessor::process_createIndex;
+    processMap_["disposeIndex"] = &ClangProcessor::process_disposeIndex;
+    processMap_["CXIndex_setGlobalOptions"] = &ClangProcessor::process_CXIndex_setGlobalOptions;
+    processMap_["CXIndex_getGlobalOptions"] = &ClangProcessor::process_CXIndex_getGlobalOptions;
+    processMap_["getTranslationUnitSpelling"] = &ClangProcessor::process_getTranslationUnitSpelling;
+    processMap_["createTranslationUnitFromSourceFile"] = &ClangProcessor::process_createTranslationUnitFromSourceFile;
+    processMap_["createTranslationUnit"] = &ClangProcessor::process_createTranslationUnit;
+    processMap_["defaultEditingTranslationUnitOptions"] = &ClangProcessor::process_defaultEditingTranslationUnitOptions;
+    processMap_["parseTranslationUnit"] = &ClangProcessor::process_parseTranslationUnit;
+    processMap_["defaultSaveOptions"] = &ClangProcessor::process_defaultSaveOptions;
+    processMap_["saveTranslationUnit"] = &ClangProcessor::process_saveTranslationUnit;
+    processMap_["disposeTranslationUnit"] = &ClangProcessor::process_disposeTranslationUnit;
+    processMap_["defaultReparseOptions"] = &ClangProcessor::process_defaultReparseOptions;
+    processMap_["reparseTranslationUnit"] = &ClangProcessor::process_reparseTranslationUnit;
+    processMap_["getTUResourceUsageName"] = &ClangProcessor::process_getTUResourceUsageName;
+    processMap_["getCXTUResourceUsage"] = &ClangProcessor::process_getCXTUResourceUsage;
+    processMap_["disposeCXTUResourceUsage"] = &ClangProcessor::process_disposeCXTUResourceUsage;
+    processMap_["getFileName"] = &ClangProcessor::process_getFileName;
+    processMap_["getFileTime"] = &ClangProcessor::process_getFileTime;
+    processMap_["isFileMultipleIncludeGuarded"] = &ClangProcessor::process_isFileMultipleIncludeGuarded;
+    processMap_["getFile"] = &ClangProcessor::process_getFile;
+    processMap_["getNullLocation"] = &ClangProcessor::process_getNullLocation;
+    processMap_["equalLocations"] = &ClangProcessor::process_equalLocations;
+    processMap_["getLocation"] = &ClangProcessor::process_getLocation;
+    processMap_["getLocationForOffset"] = &ClangProcessor::process_getLocationForOffset;
+    processMap_["getNullRange"] = &ClangProcessor::process_getNullRange;
+    processMap_["getRange"] = &ClangProcessor::process_getRange;
+    processMap_["equalRanges"] = &ClangProcessor::process_equalRanges;
+    processMap_["Range_isNull"] = &ClangProcessor::process_Range_isNull;
+    processMap_["getExpansionLocation"] = &ClangProcessor::process_getExpansionLocation;
+    processMap_["getPresumedLocation"] = &ClangProcessor::process_getPresumedLocation;
+    processMap_["getInstantiationLocation"] = &ClangProcessor::process_getInstantiationLocation;
+    processMap_["getSpellingLocation"] = &ClangProcessor::process_getSpellingLocation;
+    processMap_["getRangeStart"] = &ClangProcessor::process_getRangeStart;
+    processMap_["getRangeEnd"] = &ClangProcessor::process_getRangeEnd;
+    processMap_["getNumDiagnosticsInSet"] = &ClangProcessor::process_getNumDiagnosticsInSet;
+    processMap_["getDiagnosticInSet"] = &ClangProcessor::process_getDiagnosticInSet;
+    processMap_["loadDiagnostics"] = &ClangProcessor::process_loadDiagnostics;
+    processMap_["disposeDiagnosticSet"] = &ClangProcessor::process_disposeDiagnosticSet;
+    processMap_["getChildDiagnostics"] = &ClangProcessor::process_getChildDiagnostics;
+    processMap_["getNumDiagnostics"] = &ClangProcessor::process_getNumDiagnostics;
+    processMap_["getDiagnostic"] = &ClangProcessor::process_getDiagnostic;
+    processMap_["getDiagnosticSetFromTU"] = &ClangProcessor::process_getDiagnosticSetFromTU;
+    processMap_["disposeDiagnostic"] = &ClangProcessor::process_disposeDiagnostic;
+    processMap_["formatDiagnostic"] = &ClangProcessor::process_formatDiagnostic;
+    processMap_["defaultDiagnosticDisplayOptions"] = &ClangProcessor::process_defaultDiagnosticDisplayOptions;
+    processMap_["getDiagnosticSeverity"] = &ClangProcessor::process_getDiagnosticSeverity;
+    processMap_["getDiagnosticLocation"] = &ClangProcessor::process_getDiagnosticLocation;
+    processMap_["getDiagnosticSpelling"] = &ClangProcessor::process_getDiagnosticSpelling;
+    processMap_["getDiagnosticOption"] = &ClangProcessor::process_getDiagnosticOption;
+    processMap_["getDiagnosticCategory"] = &ClangProcessor::process_getDiagnosticCategory;
+    processMap_["getDiagnosticCategoryName"] = &ClangProcessor::process_getDiagnosticCategoryName;
+    processMap_["getDiagnosticCategoryText"] = &ClangProcessor::process_getDiagnosticCategoryText;
+    processMap_["getDiagnosticNumRanges"] = &ClangProcessor::process_getDiagnosticNumRanges;
+    processMap_["getDiagnosticRange"] = &ClangProcessor::process_getDiagnosticRange;
+    processMap_["getDiagnosticNumFixIts"] = &ClangProcessor::process_getDiagnosticNumFixIts;
+    processMap_["getDiagnosticFixIt"] = &ClangProcessor::process_getDiagnosticFixIt;
   }
 
   virtual ~ClangProcessor() {}
@@ -6904,544 +6904,544 @@ class ClangMultiface : virtual public ClangIf {
     ifaces_.push_back(iface);
   }
  public:
-   ::clang::thrift::CXIndex clang_createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics) {
+   ::clad::CXIndex createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
+      ifaces_[i]->createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
     }
-    return ifaces_[i]->clang_createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
+    return ifaces_[i]->createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
   }
 
-  void clang_disposeIndex(const  ::clang::thrift::CXIndex index) {
+  void disposeIndex(const  ::clad::CXIndex index) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_disposeIndex(index);
+      ifaces_[i]->disposeIndex(index);
     }
-    ifaces_[i]->clang_disposeIndex(index);
+    ifaces_[i]->disposeIndex(index);
   }
 
-  void clang_CXIndex_setGlobalOptions(const  ::clang::thrift::CXIndex index, const  ::clang::thrift::CXGlobalOptFlags::type options) {
+  void CXIndex_setGlobalOptions(const  ::clad::CXIndex index, const  ::clad::CXGlobalOptFlags::type options) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_CXIndex_setGlobalOptions(index, options);
+      ifaces_[i]->CXIndex_setGlobalOptions(index, options);
     }
-    ifaces_[i]->clang_CXIndex_setGlobalOptions(index, options);
+    ifaces_[i]->CXIndex_setGlobalOptions(index, options);
   }
 
-   ::clang::thrift::CXGlobalOptFlags::type clang_CXIndex_getGlobalOptions(const  ::clang::thrift::CXIndex index) {
+   ::clad::CXGlobalOptFlags::type CXIndex_getGlobalOptions(const  ::clad::CXIndex index) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_CXIndex_getGlobalOptions(index);
+      ifaces_[i]->CXIndex_getGlobalOptions(index);
     }
-    return ifaces_[i]->clang_CXIndex_getGlobalOptions(index);
+    return ifaces_[i]->CXIndex_getGlobalOptions(index);
   }
 
-  void clang_getTranslationUnitSpelling(std::string& _return, const  ::clang::thrift::CXTranslationUnit unit) {
+  void getTranslationUnitSpelling(std::string& _return, const  ::clad::CXTranslationUnit unit) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getTranslationUnitSpelling(_return, unit);
+      ifaces_[i]->getTranslationUnitSpelling(_return, unit);
     }
-    ifaces_[i]->clang_getTranslationUnitSpelling(_return, unit);
+    ifaces_[i]->getTranslationUnitSpelling(_return, unit);
     return;
   }
 
-   ::clang::thrift::CXTranslationUnit clang_createTranslationUnitFromSourceFile(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & clang_command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files) {
+   ::clad::CXTranslationUnit createTranslationUnitFromSourceFile(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_createTranslationUnitFromSourceFile(idx, source_filename, clang_command_line_args, unsaved_files);
+      ifaces_[i]->createTranslationUnitFromSourceFile(idx, source_filename, command_line_args, unsaved_files);
     }
-    return ifaces_[i]->clang_createTranslationUnitFromSourceFile(idx, source_filename, clang_command_line_args, unsaved_files);
+    return ifaces_[i]->createTranslationUnitFromSourceFile(idx, source_filename, command_line_args, unsaved_files);
   }
 
-   ::clang::thrift::CXTranslationUnit clang_createTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& ast_filename) {
+   ::clad::CXTranslationUnit createTranslationUnit(const  ::clad::CXIndex idx, const std::string& ast_filename) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_createTranslationUnit(idx, ast_filename);
+      ifaces_[i]->createTranslationUnit(idx, ast_filename);
     }
-    return ifaces_[i]->clang_createTranslationUnit(idx, ast_filename);
+    return ifaces_[i]->createTranslationUnit(idx, ast_filename);
   }
 
-   ::clang::thrift::u32 clang_defaultEditingTranslationUnitOptions() {
+   ::clad::u32 defaultEditingTranslationUnitOptions() {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_defaultEditingTranslationUnitOptions();
+      ifaces_[i]->defaultEditingTranslationUnitOptions();
     }
-    return ifaces_[i]->clang_defaultEditingTranslationUnitOptions();
+    return ifaces_[i]->defaultEditingTranslationUnitOptions();
   }
 
-   ::clang::thrift::CXTranslationUnit clang_parseTranslationUnit(const  ::clang::thrift::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options) {
+   ::clad::CXTranslationUnit parseTranslationUnit(const  ::clad::CXIndex idx, const std::string& source_filename, const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_parseTranslationUnit(idx, source_filename, command_line_args, unsaved_files, options);
+      ifaces_[i]->parseTranslationUnit(idx, source_filename, command_line_args, unsaved_files, options);
     }
-    return ifaces_[i]->clang_parseTranslationUnit(idx, source_filename, command_line_args, unsaved_files, options);
+    return ifaces_[i]->parseTranslationUnit(idx, source_filename, command_line_args, unsaved_files, options);
   }
 
-   ::clang::thrift::u32 clang_defaultSaveOptions(const  ::clang::thrift::CXTranslationUnit unit) {
+   ::clad::u32 defaultSaveOptions(const  ::clad::CXTranslationUnit unit) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_defaultSaveOptions(unit);
+      ifaces_[i]->defaultSaveOptions(unit);
     }
-    return ifaces_[i]->clang_defaultSaveOptions(unit);
+    return ifaces_[i]->defaultSaveOptions(unit);
   }
 
-   ::clang::thrift::CXSaveError::type clang_saveTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename, const  ::clang::thrift::u32 options) {
+   ::clad::CXSaveError::type saveTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::string& filename, const  ::clad::u32 options) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_saveTranslationUnit(unit, filename, options);
+      ifaces_[i]->saveTranslationUnit(unit, filename, options);
     }
-    return ifaces_[i]->clang_saveTranslationUnit(unit, filename, options);
+    return ifaces_[i]->saveTranslationUnit(unit, filename, options);
   }
 
-  void clang_disposeTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit) {
+  void disposeTranslationUnit(const  ::clad::CXTranslationUnit unit) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_disposeTranslationUnit(unit);
+      ifaces_[i]->disposeTranslationUnit(unit);
     }
-    ifaces_[i]->clang_disposeTranslationUnit(unit);
+    ifaces_[i]->disposeTranslationUnit(unit);
   }
 
-   ::clang::thrift::u32 clang_defaultReparseOptions(const  ::clang::thrift::CXTranslationUnit unit) {
+   ::clad::u32 defaultReparseOptions(const  ::clad::CXTranslationUnit unit) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_defaultReparseOptions(unit);
+      ifaces_[i]->defaultReparseOptions(unit);
     }
-    return ifaces_[i]->clang_defaultReparseOptions(unit);
+    return ifaces_[i]->defaultReparseOptions(unit);
   }
 
-  int32_t clang_reparseTranslationUnit(const  ::clang::thrift::CXTranslationUnit unit, const std::vector< ::clang::thrift::CXUnsavedFile> & unsaved_files, const  ::clang::thrift::u32 options) {
+  int32_t reparseTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_reparseTranslationUnit(unit, unsaved_files, options);
+      ifaces_[i]->reparseTranslationUnit(unit, unsaved_files, options);
     }
-    return ifaces_[i]->clang_reparseTranslationUnit(unit, unsaved_files, options);
+    return ifaces_[i]->reparseTranslationUnit(unit, unsaved_files, options);
   }
 
-  void clang_getTUResourceUsageName(std::string& _return, const  ::clang::thrift::CXTUResourceUsageKind::type kind) {
+  void getTUResourceUsageName(std::string& _return, const  ::clad::CXTUResourceUsageKind::type kind) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getTUResourceUsageName(_return, kind);
+      ifaces_[i]->getTUResourceUsageName(_return, kind);
     }
-    ifaces_[i]->clang_getTUResourceUsageName(_return, kind);
+    ifaces_[i]->getTUResourceUsageName(_return, kind);
     return;
   }
 
-  void clang_getCXTUResourceUsage( ::clang::thrift::CXTUResourceUsage& _return, const  ::clang::thrift::CXTranslationUnit unit) {
+  void getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return, const  ::clad::CXTranslationUnit unit) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getCXTUResourceUsage(_return, unit);
+      ifaces_[i]->getCXTUResourceUsage(_return, unit);
     }
-    ifaces_[i]->clang_getCXTUResourceUsage(_return, unit);
+    ifaces_[i]->getCXTUResourceUsage(_return, unit);
     return;
   }
 
-  void clang_disposeCXTUResourceUsage(const  ::clang::thrift::CXTUResourceUsage& usage) {
+  void disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_disposeCXTUResourceUsage(usage);
+      ifaces_[i]->disposeCXTUResourceUsage(usage);
     }
-    ifaces_[i]->clang_disposeCXTUResourceUsage(usage);
+    ifaces_[i]->disposeCXTUResourceUsage(usage);
   }
 
-  void clang_getFileName(std::string& _return, const  ::clang::thrift::CXFile file) {
+  void getFileName(std::string& _return, const  ::clad::CXFile file) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getFileName(_return, file);
+      ifaces_[i]->getFileName(_return, file);
     }
-    ifaces_[i]->clang_getFileName(_return, file);
+    ifaces_[i]->getFileName(_return, file);
     return;
   }
 
-   ::clang::thrift::t64 clang_getFileTime(const  ::clang::thrift::CXFile file) {
+   ::clad::t64 getFileTime(const  ::clad::CXFile file) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getFileTime(file);
+      ifaces_[i]->getFileTime(file);
     }
-    return ifaces_[i]->clang_getFileTime(file);
+    return ifaces_[i]->getFileTime(file);
   }
 
-   ::clang::thrift::u32 clang_isFileMultipleIncludeGuarded(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::CXFile file) {
+   ::clad::u32 isFileMultipleIncludeGuarded(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_isFileMultipleIncludeGuarded(unit, file);
+      ifaces_[i]->isFileMultipleIncludeGuarded(unit, file);
     }
-    return ifaces_[i]->clang_isFileMultipleIncludeGuarded(unit, file);
+    return ifaces_[i]->isFileMultipleIncludeGuarded(unit, file);
   }
 
-   ::clang::thrift::CXFile clang_getFile(const  ::clang::thrift::CXTranslationUnit unit, const std::string& filename) {
+   ::clad::CXFile getFile(const  ::clad::CXTranslationUnit unit, const std::string& filename) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getFile(unit, filename);
+      ifaces_[i]->getFile(unit, filename);
     }
-    return ifaces_[i]->clang_getFile(unit, filename);
+    return ifaces_[i]->getFile(unit, filename);
   }
 
-  void clang_getNullLocation( ::clang::thrift::CXSourceLocation& _return) {
+  void getNullLocation( ::clad::CXSourceLocation& _return) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getNullLocation(_return);
+      ifaces_[i]->getNullLocation(_return);
     }
-    ifaces_[i]->clang_getNullLocation(_return);
+    ifaces_[i]->getNullLocation(_return);
     return;
   }
 
-   ::clang::thrift::u32 clang_equalLocations(const  ::clang::thrift::CXSourceLocation& loc1, const  ::clang::thrift::CXSourceLocation& loc2) {
+   ::clad::u32 equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_equalLocations(loc1, loc2);
+      ifaces_[i]->equalLocations(loc1, loc2);
     }
-    return ifaces_[i]->clang_equalLocations(loc1, loc2);
+    return ifaces_[i]->equalLocations(loc1, loc2);
   }
 
-  void clang_getLocation( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 line, const  ::clang::thrift::u32 column) {
+  void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getLocation(_return, tu, file, line, column);
+      ifaces_[i]->getLocation(_return, tu, file, line, column);
     }
-    ifaces_[i]->clang_getLocation(_return, tu, file, line, column);
+    ifaces_[i]->getLocation(_return, tu, file, line, column);
     return;
   }
 
-  void clang_getLocationForOffset( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXTranslationUnit tu, const  ::clang::thrift::CXFile file, const  ::clang::thrift::u32 offset) {
+  void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getLocationForOffset(_return, tu, file, offset);
+      ifaces_[i]->getLocationForOffset(_return, tu, file, offset);
     }
-    ifaces_[i]->clang_getLocationForOffset(_return, tu, file, offset);
+    ifaces_[i]->getLocationForOffset(_return, tu, file, offset);
     return;
   }
 
-  void clang_getNullRange( ::clang::thrift::CXSourceRange& _return) {
+  void getNullRange( ::clad::CXSourceRange& _return) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getNullRange(_return);
+      ifaces_[i]->getNullRange(_return);
     }
-    ifaces_[i]->clang_getNullRange(_return);
+    ifaces_[i]->getNullRange(_return);
     return;
   }
 
-  void clang_getRange( ::clang::thrift::CXSourceRange& _return, const  ::clang::thrift::CXSourceLocation& sourceBegin, const  ::clang::thrift::CXSourceLocation& sourceEnd) {
+  void getRange( ::clad::CXSourceRange& _return, const  ::clad::CXSourceLocation& sourceBegin, const  ::clad::CXSourceLocation& sourceEnd) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getRange(_return, sourceBegin, sourceEnd);
+      ifaces_[i]->getRange(_return, sourceBegin, sourceEnd);
     }
-    ifaces_[i]->clang_getRange(_return, sourceBegin, sourceEnd);
+    ifaces_[i]->getRange(_return, sourceBegin, sourceEnd);
     return;
   }
 
-   ::clang::thrift::u32 clang_equalRanges(const  ::clang::thrift::CXSourceRange& range1, const  ::clang::thrift::CXSourceRange& range2) {
+   ::clad::u32 equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_equalRanges(range1, range2);
+      ifaces_[i]->equalRanges(range1, range2);
     }
-    return ifaces_[i]->clang_equalRanges(range1, range2);
+    return ifaces_[i]->equalRanges(range1, range2);
   }
 
-  int32_t clang_Range_isNull(const  ::clang::thrift::CXSourceRange& range) {
+  int32_t Range_isNull(const  ::clad::CXSourceRange& range) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_Range_isNull(range);
+      ifaces_[i]->Range_isNull(range);
     }
-    return ifaces_[i]->clang_Range_isNull(range);
+    return ifaces_[i]->Range_isNull(range);
   }
 
-  void clang_getExpansionLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location) {
+  void getExpansionLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getExpansionLocation(_return, location);
+      ifaces_[i]->getExpansionLocation(_return, location);
     }
-    ifaces_[i]->clang_getExpansionLocation(_return, location);
+    ifaces_[i]->getExpansionLocation(_return, location);
     return;
   }
 
-  void clang_getPresumedLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location) {
+  void getPresumedLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getPresumedLocation(_return, location);
+      ifaces_[i]->getPresumedLocation(_return, location);
     }
-    ifaces_[i]->clang_getPresumedLocation(_return, location);
+    ifaces_[i]->getPresumedLocation(_return, location);
     return;
   }
 
-  void clang_getInstantiationLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location) {
+  void getInstantiationLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getInstantiationLocation(_return, location);
+      ifaces_[i]->getInstantiationLocation(_return, location);
     }
-    ifaces_[i]->clang_getInstantiationLocation(_return, location);
+    ifaces_[i]->getInstantiationLocation(_return, location);
     return;
   }
 
-  void clang_getSpellingLocation( ::clang::thrift::CXSourcePosition& _return, const  ::clang::thrift::CXSourceLocation& location) {
+  void getSpellingLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getSpellingLocation(_return, location);
+      ifaces_[i]->getSpellingLocation(_return, location);
     }
-    ifaces_[i]->clang_getSpellingLocation(_return, location);
+    ifaces_[i]->getSpellingLocation(_return, location);
     return;
   }
 
-  void clang_getRangeStart( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXSourceRange& range) {
+  void getRangeStart( ::clad::CXSourceLocation& _return, const  ::clad::CXSourceRange& range) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getRangeStart(_return, range);
+      ifaces_[i]->getRangeStart(_return, range);
     }
-    ifaces_[i]->clang_getRangeStart(_return, range);
+    ifaces_[i]->getRangeStart(_return, range);
     return;
   }
 
-  void clang_getRangeEnd( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXSourceRange& range) {
+  void getRangeEnd( ::clad::CXSourceLocation& _return, const  ::clad::CXSourceRange& range) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getRangeEnd(_return, range);
+      ifaces_[i]->getRangeEnd(_return, range);
     }
-    ifaces_[i]->clang_getRangeEnd(_return, range);
+    ifaces_[i]->getRangeEnd(_return, range);
     return;
   }
 
-   ::clang::thrift::u32 clang_getNumDiagnosticsInSet(const  ::clang::thrift::CXDiagnosticSet diags) {
+   ::clad::u32 getNumDiagnosticsInSet(const  ::clad::CXDiagnosticSet diags) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getNumDiagnosticsInSet(diags);
+      ifaces_[i]->getNumDiagnosticsInSet(diags);
     }
-    return ifaces_[i]->clang_getNumDiagnosticsInSet(diags);
+    return ifaces_[i]->getNumDiagnosticsInSet(diags);
   }
 
-   ::clang::thrift::CXDiagnostic clang_getDiagnosticInSet(const  ::clang::thrift::CXDiagnosticSet diags, const  ::clang::thrift::u32 index) {
+   ::clad::CXDiagnostic getDiagnosticInSet(const  ::clad::CXDiagnosticSet diags, const  ::clad::u32 index) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticInSet(diags, index);
+      ifaces_[i]->getDiagnosticInSet(diags, index);
     }
-    return ifaces_[i]->clang_getDiagnosticInSet(diags, index);
+    return ifaces_[i]->getDiagnosticInSet(diags, index);
   }
 
-   ::clang::thrift::CXDiagnosticSet clang_loadDiagnostics(const std::string& filename) {
+   ::clad::CXDiagnosticSet loadDiagnostics(const std::string& filename) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_loadDiagnostics(filename);
+      ifaces_[i]->loadDiagnostics(filename);
     }
-    return ifaces_[i]->clang_loadDiagnostics(filename);
+    return ifaces_[i]->loadDiagnostics(filename);
   }
 
-  void clang_disposeDiagnosticSet(const  ::clang::thrift::CXDiagnosticSet diagnosticSet) {
+  void disposeDiagnosticSet(const  ::clad::CXDiagnosticSet diagnosticSet) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_disposeDiagnosticSet(diagnosticSet);
+      ifaces_[i]->disposeDiagnosticSet(diagnosticSet);
     }
-    ifaces_[i]->clang_disposeDiagnosticSet(diagnosticSet);
+    ifaces_[i]->disposeDiagnosticSet(diagnosticSet);
   }
 
-   ::clang::thrift::CXDiagnosticSet clang_getChildDiagnostics(const  ::clang::thrift::CXDiagnostic diagnostic) {
+   ::clad::CXDiagnosticSet getChildDiagnostics(const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getChildDiagnostics(diagnostic);
+      ifaces_[i]->getChildDiagnostics(diagnostic);
     }
-    return ifaces_[i]->clang_getChildDiagnostics(diagnostic);
+    return ifaces_[i]->getChildDiagnostics(diagnostic);
   }
 
-   ::clang::thrift::u32 clang_getNumDiagnostics(const  ::clang::thrift::CXTranslationUnit unit) {
+   ::clad::u32 getNumDiagnostics(const  ::clad::CXTranslationUnit unit) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getNumDiagnostics(unit);
+      ifaces_[i]->getNumDiagnostics(unit);
     }
-    return ifaces_[i]->clang_getNumDiagnostics(unit);
+    return ifaces_[i]->getNumDiagnostics(unit);
   }
 
-   ::clang::thrift::CXDiagnostic clang_getDiagnostic(const  ::clang::thrift::CXTranslationUnit unit, const  ::clang::thrift::u32 index) {
+   ::clad::CXDiagnostic getDiagnostic(const  ::clad::CXTranslationUnit unit, const  ::clad::u32 index) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnostic(unit, index);
+      ifaces_[i]->getDiagnostic(unit, index);
     }
-    return ifaces_[i]->clang_getDiagnostic(unit, index);
+    return ifaces_[i]->getDiagnostic(unit, index);
   }
 
-   ::clang::thrift::CXDiagnosticSet clang_getDiagnosticSetFromTU(const  ::clang::thrift::CXTranslationUnit unit) {
+   ::clad::CXDiagnosticSet getDiagnosticSetFromTU(const  ::clad::CXTranslationUnit unit) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticSetFromTU(unit);
+      ifaces_[i]->getDiagnosticSetFromTU(unit);
     }
-    return ifaces_[i]->clang_getDiagnosticSetFromTU(unit);
+    return ifaces_[i]->getDiagnosticSetFromTU(unit);
   }
 
-  void clang_disposeDiagnostic(const  ::clang::thrift::CXDiagnostic diagnostic) {
+  void disposeDiagnostic(const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_disposeDiagnostic(diagnostic);
+      ifaces_[i]->disposeDiagnostic(diagnostic);
     }
-    ifaces_[i]->clang_disposeDiagnostic(diagnostic);
+    ifaces_[i]->disposeDiagnostic(diagnostic);
   }
 
-  void clang_formatDiagnostic(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 options) {
+  void formatDiagnostic(std::string& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 options) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_formatDiagnostic(_return, diagnostic, options);
+      ifaces_[i]->formatDiagnostic(_return, diagnostic, options);
     }
-    ifaces_[i]->clang_formatDiagnostic(_return, diagnostic, options);
+    ifaces_[i]->formatDiagnostic(_return, diagnostic, options);
     return;
   }
 
-   ::clang::thrift::u32 clang_defaultDiagnosticDisplayOptions() {
+   ::clad::u32 defaultDiagnosticDisplayOptions() {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_defaultDiagnosticDisplayOptions();
+      ifaces_[i]->defaultDiagnosticDisplayOptions();
     }
-    return ifaces_[i]->clang_defaultDiagnosticDisplayOptions();
+    return ifaces_[i]->defaultDiagnosticDisplayOptions();
   }
 
-   ::clang::thrift::CXDiagnosticSeverity::type clang_getDiagnosticSeverity(const  ::clang::thrift::CXDiagnostic diagnostic) {
+   ::clad::CXDiagnosticSeverity::type getDiagnosticSeverity(const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticSeverity(diagnostic);
+      ifaces_[i]->getDiagnosticSeverity(diagnostic);
     }
-    return ifaces_[i]->clang_getDiagnosticSeverity(diagnostic);
+    return ifaces_[i]->getDiagnosticSeverity(diagnostic);
   }
 
-  void clang_getDiagnosticLocation( ::clang::thrift::CXSourceLocation& _return, const  ::clang::thrift::CXDiagnostic diagnostic) {
+  void getDiagnosticLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticLocation(_return, diagnostic);
+      ifaces_[i]->getDiagnosticLocation(_return, diagnostic);
     }
-    ifaces_[i]->clang_getDiagnosticLocation(_return, diagnostic);
+    ifaces_[i]->getDiagnosticLocation(_return, diagnostic);
     return;
   }
 
-  void clang_getDiagnosticSpelling(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic) {
+  void getDiagnosticSpelling(std::string& _return, const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticSpelling(_return, diagnostic);
+      ifaces_[i]->getDiagnosticSpelling(_return, diagnostic);
     }
-    ifaces_[i]->clang_getDiagnosticSpelling(_return, diagnostic);
+    ifaces_[i]->getDiagnosticSpelling(_return, diagnostic);
     return;
   }
 
-  void clang_getDiagnosticOption( ::clang::thrift::CXDiagnosticOption& _return, const  ::clang::thrift::CXDiagnostic diagnostic) {
+  void getDiagnosticOption( ::clad::CXDiagnosticOption& _return, const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticOption(_return, diagnostic);
+      ifaces_[i]->getDiagnosticOption(_return, diagnostic);
     }
-    ifaces_[i]->clang_getDiagnosticOption(_return, diagnostic);
+    ifaces_[i]->getDiagnosticOption(_return, diagnostic);
     return;
   }
 
-   ::clang::thrift::u32 clang_getDiagnosticCategory(const  ::clang::thrift::CXDiagnostic diagnostic) {
+   ::clad::u32 getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticCategory(diagnostic);
+      ifaces_[i]->getDiagnosticCategory(diagnostic);
     }
-    return ifaces_[i]->clang_getDiagnosticCategory(diagnostic);
+    return ifaces_[i]->getDiagnosticCategory(diagnostic);
   }
 
-  void clang_getDiagnosticCategoryName(std::string& _return, const  ::clang::thrift::u32 category) {
+  void getDiagnosticCategoryName(std::string& _return, const  ::clad::u32 category) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticCategoryName(_return, category);
+      ifaces_[i]->getDiagnosticCategoryName(_return, category);
     }
-    ifaces_[i]->clang_getDiagnosticCategoryName(_return, category);
+    ifaces_[i]->getDiagnosticCategoryName(_return, category);
     return;
   }
 
-  void clang_getDiagnosticCategoryText(std::string& _return, const  ::clang::thrift::CXDiagnostic diagnostic) {
+  void getDiagnosticCategoryText(std::string& _return, const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticCategoryText(_return, diagnostic);
+      ifaces_[i]->getDiagnosticCategoryText(_return, diagnostic);
     }
-    ifaces_[i]->clang_getDiagnosticCategoryText(_return, diagnostic);
+    ifaces_[i]->getDiagnosticCategoryText(_return, diagnostic);
     return;
   }
 
-   ::clang::thrift::u32 clang_getDiagnosticNumRanges(const  ::clang::thrift::CXDiagnostic diagnostic) {
+   ::clad::u32 getDiagnosticNumRanges(const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticNumRanges(diagnostic);
+      ifaces_[i]->getDiagnosticNumRanges(diagnostic);
     }
-    return ifaces_[i]->clang_getDiagnosticNumRanges(diagnostic);
+    return ifaces_[i]->getDiagnosticNumRanges(diagnostic);
   }
 
-  void clang_getDiagnosticRange( ::clang::thrift::CXSourceRange& _return, const  ::clang::thrift::CXDiagnostic diagnostic, const  ::clang::thrift::u32 range) {
+  void getDiagnosticRange( ::clad::CXSourceRange& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 range) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticRange(_return, diagnostic, range);
+      ifaces_[i]->getDiagnosticRange(_return, diagnostic, range);
     }
-    ifaces_[i]->clang_getDiagnosticRange(_return, diagnostic, range);
+    ifaces_[i]->getDiagnosticRange(_return, diagnostic, range);
     return;
   }
 
-   ::clang::thrift::u32 clang_getDiagnosticNumFixIts(const  ::clang::thrift::CXDiagnostic diagnostic) {
+   ::clad::u32 getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticNumFixIts(diagnostic);
+      ifaces_[i]->getDiagnosticNumFixIts(diagnostic);
     }
-    return ifaces_[i]->clang_getDiagnosticNumFixIts(diagnostic);
+    return ifaces_[i]->getDiagnosticNumFixIts(diagnostic);
   }
 
-  void clang_getDiagnosticFixIt( ::clang::thrift::CXDiagnosticFixIt& _return, const  ::clang::thrift::CXDiagnostic Diagnostic, const  ::clang::thrift::u32 FixIt) {
+  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->clang_getDiagnosticFixIt(_return, Diagnostic, FixIt);
+      ifaces_[i]->getDiagnosticFixIt(_return, Diagnostic, FixIt);
     }
-    ifaces_[i]->clang_getDiagnosticFixIt(_return, Diagnostic, FixIt);
+    ifaces_[i]->getDiagnosticFixIt(_return, Diagnostic, FixIt);
     return;
   }
 
 };
 
-}} // namespace
+} // namespace
 
 #endif

@@ -16,10 +16,10 @@
 #include "TranslationUnit_types.h"
 
 
-namespace clang { namespace thrift {
+namespace clad {
 
-typedef  ::clang::thrift::ResourceId CXFile;
+typedef  ::clad::ResourceId CXFile;
 
-}} // namespace
+} // namespace
 
 #endif

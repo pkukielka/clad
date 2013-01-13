@@ -9,7 +9,7 @@
 
 #include "Location_types.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 class LocationConstants {
  public:
@@ -19,6 +19,6 @@ class LocationConstants {
 
 extern const LocationConstants g_Location_constants;
 
-}} // namespace
+} // namespace
 
 #endif

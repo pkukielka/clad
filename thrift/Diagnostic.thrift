@@ -1,4 +1,4 @@
-namespace * clang.thrift
+namespace * clad
 
 /**
  * Diagnostic reporting

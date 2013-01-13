@@ -6,12 +6,12 @@
  */
 #include "Types_constants.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 const TypesConstants g_Types_constants;
 
 TypesConstants::TypesConstants() {
 }
 
-}} // namespace
+} // namespace
 

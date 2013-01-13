@@ -8,6 +8,6 @@
 
 #include <algorithm>
 
-namespace clang { namespace thrift {
+namespace clad {
 
-}} // namespace
+} // namespace

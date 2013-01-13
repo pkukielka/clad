@@ -15,7 +15,7 @@
 #include "Types_types.h"
 
 
-namespace clang { namespace thrift {
+namespace clad {
 
 struct CXAvailabilityKind {
   enum type {
@@ -39,9 +39,9 @@ struct CXGlobalOptFlags {
 
 extern const std::map<int, const char*> _CXGlobalOptFlags_VALUES_TO_NAMES;
 
-typedef  ::clang::thrift::ResourceId CXIndex;
+typedef  ::clad::ResourceId CXIndex;
 
-typedef  ::clang::thrift::ResourceId CXClientData;
+typedef  ::clad::ResourceId CXClientData;
 
 typedef struct _CXVersion__isset {
   _CXVersion__isset() : Major(false), Minor(false), Subminor(false) {}
@@ -102,6 +102,6 @@ class CXVersion {
 
 void swap(CXVersion &a, CXVersion &b);
 
-}} // namespace
+} // namespace
 
 #endif

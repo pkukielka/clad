@@ -1,4 +1,4 @@
-namespace * clang.thrift
+namespace * clad
 
 include "Types.thrift"
 include "Index.thrift"
@@ -45,32 +45,32 @@ service Clang {
    *
    * \code
    *   // excludeDeclsFromPCH = 1, displayDiagnostics=1
-   *   Idx = clang_createIndex(1, 1);
+   *   Idx = createIndex(1, 1);
    *
    *   // IndexTest.pch was produced with the following command:
    *   // "clang -x c IndexTest.h -emit-ast -o IndexTest.pch"
-   *   TU = clang_createTranslationUnit(Idx, "IndexTest.pch");
+   *   TU = createTranslationUnit(Idx, "IndexTest.pch");
    *
    *   // This will load all the symbols from 'IndexTest.pch'
-   *   clang_visitChildren(clang_getTranslationUnitCursor(TU),
+   *   visitChildren(clang_getTranslationUnitCursor(TU),
    *                       TranslationUnitVisitor, 0);
-   *   clang_disposeTranslationUnit(TU);
+   *   disposeTranslationUnit(TU);
    *
    *   // This will load all the symbols from 'IndexTest.c', excluding symbols
    *   // from 'IndexTest.pch'.
    *   char *args[] = { "-Xclang", "-include-pch=IndexTest.pch" };
-   *   TU = clang_createTranslationUnitFromSourceFile(Idx, "IndexTest.c", 2, args,
+   *   TU = createTranslationUnitFromSourceFile(Idx, "IndexTest.c", 2, args,
    *                                                  0, 0);
-   *   clang_visitChildren(clang_getTranslationUnitCursor(TU),
+   *   visitChildren(clang_getTranslationUnitCursor(TU),
    *                       TranslationUnitVisitor, 0);
-   *   clang_disposeTranslationUnit(TU);
+   *   disposeTranslationUnit(TU);
    * \endcode
    *
    * This process of creating the 'pch', loading it separately, and using it (via
    * -include-pch) allows 'excludeDeclsFromPCH' to remove redundant callbacks
    * (which gives the indexer the same performance benefit as the compiler).
    */
-  Index.CXIndex clang_createIndex(
+  Index.CXIndex createIndex(
                         1: i32 excludeDeclarationsFromPCH, 
                         2: i32 displayDiagnostics),
 
@@ -80,7 +80,7 @@ service Clang {
    * The index must not be destroyed until all of the translation units created
    * within that index have been destroyed.
    */
-  void clang_disposeIndex(1: Index.CXIndex index),
+  void disposeIndex(1: Index.CXIndex index),
 
   /**
    * \brief Sets general options associated with a CXIndex.
@@ -88,14 +88,14 @@ service Clang {
    * For example:
    * \code
    * CXIndex idx = ...;
-   * clang_CXIndex_setGlobalOptions(idx,
-   *     clang_CXIndex_getGlobalOptions(idx) |
+   * CXIndex_setGlobalOptions(idx,
+   *     CXIndex_getGlobalOptions(idx) |
    *     CXGlobalOpt_ThreadBackgroundPriorityForIndexing);
    * \endcode
    *
    * \param options A bitmask of options, a bitwise OR of CXGlobalOpt_XXX flags.
    */
-  void clang_CXIndex_setGlobalOptions(
+  void CXIndex_setGlobalOptions(
                         1: Index.CXIndex index, 
                         2: Index.CXGlobalOptFlags options),
 
@@ -105,7 +105,7 @@ service Clang {
    * \returns A bitmask of options, a bitwise OR of CXGlobalOpt_XXX flags that
    * are associated with the given CXIndex object.
    */
-  Index.CXGlobalOptFlags clang_CXIndex_getGlobalOptions(1: Index.CXIndex index),
+  Index.CXGlobalOptFlags CXIndex_getGlobalOptions(1: Index.CXIndex index),
 
 
 
@@ -129,7 +129,7 @@ service Clang {
   /**
    * \brief Get the original translation unit source file name.
    */
-  string clang_getTranslationUnitSpelling(1: TranslationUnit.CXTranslationUnit unit),
+  string getTranslationUnitSpelling(1: TranslationUnit.CXTranslationUnit unit),
 
   /**
    * \brief Return the CXTranslationUnit for a given source file and the provided
@@ -151,9 +151,9 @@ service Clang {
    * associated.
    *
    * \param source_filename The name of the source file to load, or empty if the
-   * source file is included in \p clang_command_line_args.
+   * source file is included in \p command_line_args.
    *
-   * \param clang_command_line_args The command-line arguments that would be
+   * \param command_line_args The command-line arguments that would be
    * passed to the \c clang executable if it were being invoked out-of-process.
    * These command-line options will be parsed and will affect how the translation
    * unit is parsed. Note that the following options are ignored: '-c',
@@ -165,16 +165,16 @@ service Clang {
    * CXUnsavedFile) are copied when necessary, so the client only needs to
    * guarantee their validity until the call to this function returns.
    */
-  TranslationUnit.CXTranslationUnit clang_createTranslationUnitFromSourceFile(
+  TranslationUnit.CXTranslationUnit createTranslationUnitFromSourceFile(
                         1: Index.CXIndex idx,
                         2: string source_filename,
-                        3: list<string> clang_command_line_args,
+                        3: list<string> command_line_args,
                         4: list<TranslationUnit.CXUnsavedFile> unsaved_files),
 
   /**
    * \brief Create a translation unit from an AST file (-emit-ast).
    */
-  TranslationUnit.CXTranslationUnit clang_createTranslationUnit(
+  TranslationUnit.CXTranslationUnit createTranslationUnit(
                         1: Index.CXIndex idx,
                         2: string ast_filename),
 
@@ -182,15 +182,15 @@ service Clang {
    * \brief Returns the set of flags that is suitable for parsing a translation
    * unit that is being edited.
    *
-   * The set of flags returned provide options for \c clang_parseTranslationUnit()
+   * The set of flags returned provide options for \c parseTranslationUnit()
    * to indicate that the translation unit is likely to be reparsed many times,
-   * either explicitly (via \c clang_reparseTranslationUnit()) or implicitly
-   * (e.g., by code completion (\c clang_codeCompletionAt())). The returned flag
+   * either explicitly (via \c reparseTranslationUnit()) or implicitly
+   * (e.g., by code completion (\c codeCompletionAt())). The returned flag
    * set contains an unspecified set of optimizations (e.g., the precompiled 
    * preamble) geared toward improving the performance of these routines. The
    * set of optimizations enabled may change from one version to the next.
    */
-  Types.u32 clang_defaultEditingTranslationUnitOptions(),
+  Types.u32 defaultEditingTranslationUnitOptions(),
     
   /**
    * \brief Parse the given source file and the translation unit corresponding
@@ -228,7 +228,7 @@ service Clang {
    * any diagnostics produced by the compiler. If there is a failure from which
    * the compiler cannot recover, returns NULL.
    */
-  TranslationUnit.CXTranslationUnit clang_parseTranslationUnit(
+  TranslationUnit.CXTranslationUnit parseTranslationUnit(
                         1: Index.CXIndex idx,
                         2: string source_filename,
                         3: list<string> command_line_args,
@@ -240,11 +240,11 @@ service Clang {
    * unit.
    *
    * The set of flags returned provide options for
-   * \c clang_saveTranslationUnit() by default. The returned flag
+   * \c saveTranslationUnit() by default. The returned flag
    * set contains an unspecified set of options that save translation units with
    * the most commonly-requested data.
    */
-  Types.u32 clang_defaultSaveOptions(1: TranslationUnit.CXTranslationUnit unit),
+  Types.u32 defaultSaveOptions(1: TranslationUnit.CXTranslationUnit unit),
 
   /**
    * \brief Saves a translation unit into a serialized representation of
@@ -252,7 +252,7 @@ service Clang {
    *
    * Any translation unit that was parsed without error can be saved
    * into a file. The translation unit can then be deserialized into a
-   * new \c CXTranslationUnit with \c clang_createTranslationUnit() or,
+   * new \c CXTranslationUnit with \c createTranslationUnit() or,
    * if it is an incomplete translation unit that corresponds to a
    * header, used as a precompiled header when parsing other translation
    * units.
@@ -269,26 +269,26 @@ service Clang {
    * enumeration. Zero (CXSaveError_None) indicates that the translation unit was 
    * saved successfully, while a non-zero value indicates that a problem occurred.
    */
-  TranslationUnit.CXSaveError clang_saveTranslationUnit(
+  TranslationUnit.CXSaveError saveTranslationUnit(
                         1: TranslationUnit.CXTranslationUnit unit,
                         2: string filename,
                         3: Types.u32 options),
   /**
    * \brief Destroy the specified CXTranslationUnit object.
    */
-  void clang_disposeTranslationUnit(1: TranslationUnit.CXTranslationUnit unit),
+  void disposeTranslationUnit(1: TranslationUnit.CXTranslationUnit unit),
    
   /**
    * \brief Returns the set of flags that is suitable for reparsing a translation
    * unit.
    *
    * The set of flags returned provide options for
-   * \c clang_reparseTranslationUnit() by default. The returned flag
+   * \c reparseTranslationUnit() by default. The returned flag
    * set contains an unspecified set of optimizations geared toward common uses
    * of reparsing. The set of optimizations enabled may change from one version 
    * to the next.
    */
-  Types.u32 clang_defaultReparseOptions(1: TranslationUnit.CXTranslationUnit unit),
+  Types.u32 defaultReparseOptions(1: TranslationUnit.CXTranslationUnit unit),
 
   /**
    * \brief Reparse the source files that produced this translation unit.
@@ -308,7 +308,7 @@ service Clang {
    *
    * \param unit The translation unit whose contents will be re-parsed. The
    * translation unit must originally have been built with 
-   * \c clang_createTranslationUnitFromSourceFile().
+   * \c createTranslationUnitFromSourceFile().
    *
    * \param unsaved_files The files that have not yet been saved to disk
    * but may be required for parsing, including the contents of
@@ -317,15 +317,15 @@ service Clang {
    * guarantee their validity until the call to this function returns.
    * 
    * \param options A bitset of options composed of the flags in CXReparse_Flags.
-   * The function \c clang_defaultReparseOptions() produces a default set of
+   * The function \c defaultReparseOptions() produces a default set of
    * options recommended for most uses, based on the translation unit.
    *
    * \returns 0 if the sources could be reparsed. A non-zero value will be
    * returned if reparsing was impossible, such that the translation unit is
    * invalid. In such cases, the only valid call for \p TU is 
-   * \c clang_disposeTranslationUnit(TU).
+   * \c disposeTranslationUnit(TU).
    */
-  i32 clang_reparseTranslationUnit(
+  i32 reparseTranslationUnit(
                         1: TranslationUnit.CXTranslationUnit unit,
                         2: list<TranslationUnit.CXUnsavedFile> unsaved_files,
                         3: Types.u32 options),
@@ -334,17 +334,17 @@ service Clang {
     * \brief Returns the human-readable string that represents the name 
     *  of the memory category.
     */
-  string clang_getTUResourceUsageName(
+  string getTUResourceUsageName(
                         1: TranslationUnit.CXTUResourceUsageKind kind),
 
   /**
     * \brief Return the memory usage of a translation unit.  This object
-    *  should be released with clang_disposeCXTUResourceUsage().
+    *  should be released with disposeCXTUResourceUsage().
     */
-  TranslationUnit.CXTUResourceUsage clang_getCXTUResourceUsage(
+  TranslationUnit.CXTUResourceUsage getCXTUResourceUsage(
                         1: TranslationUnit.CXTranslationUnit unit),
 
-  void clang_disposeCXTUResourceUsage(
+  void disposeCXTUResourceUsage(
                         1: TranslationUnit.CXTUResourceUsage usage),
 
 
@@ -365,19 +365,19 @@ service Clang {
   /**
    * \brief Retrieve the complete file and path name of the given file.
    */
-  string clang_getFileName(1: File.CXFile file),
+  string getFileName(1: File.CXFile file),
 
   /**
    * \brief Retrieve the last modification time of the given file.
    */
-  Types.t64 clang_getFileTime(1: File.CXFile file),
+  Types.t64 getFileTime(1: File.CXFile file),
 
   /**
    * \brief Determine whether the given header is guarded against
    * multiple inclusions, either with the conventional
    * \#ifndef/\#define/\#endif macro guards or with \#pragma once.
    */
-  Types.u32 clang_isFileMultipleIncludeGuarded(
+  Types.u32 isFileMultipleIncludeGuarded(
                         1: TranslationUnit.CXTranslationUnit unit, 
                         2: File.CXFile file),
 
@@ -391,7 +391,7 @@ service Clang {
    * \returns the file handle for the named file in the translation unit \p tu,
    * or a NULL file handle if the file was not a part of this translation unit.
    */
-  File.CXFile clang_getFile(
+  File.CXFile getFile(
                         1: TranslationUnit.CXTranslationUnit unit,
                         2: string filename),
 
@@ -421,7 +421,7 @@ service Clang {
   /**
    * \brief Retrieve a NULL (invalid) source location.
    */
-  Location.CXSourceLocation clang_getNullLocation(),
+  Location.CXSourceLocation getNullLocation(),
 
   /**
    * \brief Determine whether two source locations, which must refer into
@@ -431,7 +431,7 @@ service Clang {
    * \returns non-zero if the source locations refer to the same location, zero
    * if they refer to different locations.
    */
-  Types.u32 clang_equalLocations(
+  Types.u32 equalLocations(
                         1: Location.CXSourceLocation loc1, 
                         2: Location.CXSourceLocation loc2),
 
@@ -439,7 +439,7 @@ service Clang {
    * \brief Retrieves the source location associated with a given file/line/column
    * in a particular translation unit.
    */
-  Location.CXSourceLocation clang_getLocation(
+  Location.CXSourceLocation getLocation(
                         1: TranslationUnit.CXTranslationUnit tu, 
                         2: File.CXFile file,
                         3: Types.u32 line,
@@ -448,7 +448,7 @@ service Clang {
    * \brief Retrieves the source location associated with a given character offset
    * in a particular translation unit.
    */
-  Location.CXSourceLocation clang_getLocationForOffset(
+  Location.CXSourceLocation getLocationForOffset(
                         1: TranslationUnit.CXTranslationUnit tu, 
                         2: File.CXFile file,
                         3: Types.u32 offset),
@@ -456,13 +456,13 @@ service Clang {
   /**
    * \brief Retrieve a NULL (invalid) source range.
    */
-  Location.CXSourceRange clang_getNullRange(),
+  Location.CXSourceRange getNullRange(),
 
   /**
    * \brief Retrieve a source range given the beginning and ending source
    * locations.
    */
-  Location.CXSourceRange clang_getRange(
+  Location.CXSourceRange getRange(
                         1: Location.CXSourceLocation sourceBegin, 
                         2: Location.CXSourceLocation sourceEnd),
 
@@ -471,14 +471,14 @@ service Clang {
    *
    * \returns non-zero if the ranges are the same, zero if they differ.
    */
-  Types.u32 clang_equalRanges(
+  Types.u32 equalRanges(
                         1: Location.CXSourceRange range1, 
                         2: Location.CXSourceRange range2),
 
   /**
    * \brief Returns non-zero if \p range is null.
    */
-  i32 clang_Range_isNull(1: Location.CXSourceRange range),
+  i32 Range_isNull(1: Location.CXSourceRange range),
 
   /**
    * \brief Retrieve the file, line, column, and offset represented by
@@ -487,7 +487,7 @@ service Clang {
    * If the location refers into a macro expansion, retrieves the
    * location of the macro expansion.
    */
-  Location.CXSourcePosition clang_getExpansionLocation(
+  Location.CXSourcePosition getExpansionLocation(
                         1: Location.CXSourceLocation location),
 
   /**
@@ -509,14 +509,14 @@ service Clang {
    *
    * File: dummy.c Line: 124 Column: 12
    *
-   * whereas clang_getExpansionLocation would have returned
+   * whereas getExpansionLocation would have returned
    *
    * File: somefile.c Line: 3 Column: 12
    *
    * \param location the location within a source file that will be decomposed
    * into its parts.
    */
-  Location.CXSourcePosition clang_getPresumedLocation(
+  Location.CXSourcePosition getPresumedLocation(
                         1: Location.CXSourceLocation location),
 
   /**
@@ -527,7 +527,7 @@ service Clang {
    * #clang_getExpansionLocation(). See that interface's documentation for
    * details.
    */
-  Location.CXSourcePosition clang_getInstantiationLocation(
+  Location.CXSourcePosition getInstantiationLocation(
                         1: Location.CXSourceLocation location),
 
   /**
@@ -537,21 +537,21 @@ service Clang {
    * If the location refers into a macro instantiation, return where the
    * location was originally spelled in the source file.
    */
-  Location.CXSourcePosition clang_getSpellingLocation(
+  Location.CXSourcePosition getSpellingLocation(
                         1: Location.CXSourceLocation location),
 
   /**
    * \brief Retrieve a source location representing the first character within a
    * source range.
    */
-  Location.CXSourceLocation clang_getRangeStart(
+  Location.CXSourceLocation getRangeStart(
                         1: Location.CXSourceRange range),
 
   /**
    * \brief Retrieve a source location representing the last character within a
    * source range.
    */
-  Location.CXSourceLocation clang_getRangeEnd(
+  Location.CXSourceLocation getRangeEnd(
                         1: Location.CXSourceRange range),
 
 
@@ -573,7 +573,7 @@ service Clang {
   /**
    * \brief Determine the number of diagnostics in a CXDiagnosticSet.
    */
-  Types.u32 clang_getNumDiagnosticsInSet(1: Diagnostic.CXDiagnosticSet diags),
+  Types.u32 getNumDiagnosticsInSet(1: Diagnostic.CXDiagnosticSet diags),
 
   /**
    * \brief Retrieve a diagnostic associated with the given CXDiagnosticSet.
@@ -582,9 +582,9 @@ service Clang {
    * \param dndex the zero-based diagnostic number to retrieve.
    *
    * \returns the requested diagnostic. This diagnostic must be freed
-   * via a call to \c clang_disposeDiagnostic().
+   * via a call to \c disposeDiagnostic().
    */
-  Diagnostic.CXDiagnostic clang_getDiagnosticInSet(
+  Diagnostic.CXDiagnostic getDiagnosticInSet(
                         1: Diagnostic.CXDiagnosticSet diags,
                         2: Types.u32 index),
 
@@ -595,30 +595,30 @@ service Clang {
    * \param file The name of the file to deserialize.
    *
    * \returns A loaded CXDiagnosticSet if successful, and NULL otherwise.  These
-   * diagnostics should be released using clang_disposeDiagnosticSet().
+   * diagnostics should be released using disposeDiagnosticSet().
    */
-  Diagnostic.CXDiagnosticSet clang_loadDiagnostics(1: string filename) 
+  Diagnostic.CXDiagnosticSet loadDiagnostics(1: string filename) 
                         throws (1: Diagnostic.CXLoadDiagException e),
 
   /**
    * \brief Release a CXDiagnosticSet and all of its contained diagnostics.
    */
-  void clang_disposeDiagnosticSet(1: Diagnostic.CXDiagnosticSet diagnosticSet),
+  void disposeDiagnosticSet(1: Diagnostic.CXDiagnosticSet diagnosticSet),
 
   /**
    * \brief Retrieve the child diagnostics of a CXDiagnostic. 
    *
    * This CXDiagnosticSet does not need to be released by
-   * clang_diposeDiagnosticSet.
+   * diposeDiagnosticSet.
    */
-  Diagnostic.CXDiagnosticSet clang_getChildDiagnostics(
+  Diagnostic.CXDiagnosticSet getChildDiagnostics(
                         1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
    * \brief Determine the number of diagnostics produced for the given
    * translation unit.
    */
-  Types.u32 clang_getNumDiagnostics(1: TranslationUnit.CXTranslationUnit unit),
+  Types.u32 getNumDiagnostics(1: TranslationUnit.CXTranslationUnit unit),
 
   /**
    * \brief Retrieve a diagnostic associated with the given translation unit.
@@ -627,9 +627,9 @@ service Clang {
    * \param Index the zero-based diagnostic number to retrieve.
    *
    * \returns the requested diagnostic. This diagnostic must be freed
-   * via a call to \c clang_disposeDiagnostic().
+   * via a call to \c disposeDiagnostic().
    */
-  Diagnostic.CXDiagnostic clang_getDiagnostic(
+  Diagnostic.CXDiagnostic getDiagnostic(
                         1: TranslationUnit.CXTranslationUnit unit,
                         2: Types.u32 index),
 
@@ -639,20 +639,20 @@ service Clang {
    *
    * \param Unit the translation unit to query.
    */
-  Diagnostic.CXDiagnosticSet clang_getDiagnosticSetFromTU(
+  Diagnostic.CXDiagnosticSet getDiagnosticSetFromTU(
                         1: TranslationUnit.CXTranslationUnit unit),
 
   /**
    * \brief Destroy a diagnostic.
    */
-  void clang_disposeDiagnostic(1: Diagnostic.CXDiagnostic diagnostic),
+  void disposeDiagnostic(1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
    * \brief Format the given diagnostic in a manner that is suitable for display.
    *
    * This routine will format the given diagnostic to a string, rendering
    * the diagnostic according to the various options given. The
-   * \c clang_defaultDiagnosticDisplayOptions() function returns the set of
+   * \c defaultDiagnosticDisplayOptions() function returns the set of
    * options that most closely mimics the behavior of the clang compiler.
    *
    * \param diagnostic The diagnostic to print.
@@ -662,7 +662,7 @@ service Clang {
    *
    * \returns A new string containing for formatted diagnostic.
    */
-  string clang_formatDiagnostic(
+  string formatDiagnostic(
                         1: Diagnostic.CXDiagnostic diagnostic,
                         2: Types.u32 options),
 
@@ -671,14 +671,14 @@ service Clang {
    * default behavior of the clang compiler.
    *
    * \returns A set of display options suitable for use with \c
-   * clang_displayDiagnostic().
+   * displayDiagnostic().
    */
-  Types.u32 clang_defaultDiagnosticDisplayOptions(),
+  Types.u32 defaultDiagnosticDisplayOptions(),
 
   /**
    * \brief Determine the severity of the given diagnostic.
    */
-  Diagnostic.CXDiagnosticSeverity clang_getDiagnosticSeverity(
+  Diagnostic.CXDiagnosticSeverity getDiagnosticSeverity(
                         1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
@@ -687,13 +687,13 @@ service Clang {
    * This location is where Clang would print the caret ('^') when
    * displaying the diagnostic on the command line.
    */
-  Location.CXSourceLocation clang_getDiagnosticLocation(
+  Location.CXSourceLocation getDiagnosticLocation(
                         1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
    * \brief Retrieve the text of the given diagnostic.
    */
-  string clang_getDiagnosticSpelling(
+  string getDiagnosticSpelling(
                         1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
@@ -705,7 +705,7 @@ service Clang {
    *
    * \returns CXDiagnosticOption structure containing diagnostics options
    */
-  Diagnostic.CXDiagnosticOption clang_getDiagnosticOption(
+  Diagnostic.CXDiagnosticOption getDiagnosticOption(
                         1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
@@ -718,33 +718,33 @@ service Clang {
    * \returns The number of the category that contains this diagnostic, or zero
    * if this diagnostic is uncategorized.
    */
-  Types.u32 clang_getDiagnosticCategory(
+  Types.u32 getDiagnosticCategory(
                         1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
    * \brief Retrieve the name of a particular diagnostic category.  This
-   *  is now deprecated.  Use clang_getDiagnosticCategoryText()
+   *  is now deprecated.  Use getDiagnosticCategoryText()
    *  instead.
    *
    * \param category A diagnostic category number, as returned by 
-   * \c clang_getDiagnosticCategory().
+   * \c getDiagnosticCategory().
    *
    * \returns The name of the given diagnostic category.
    */
-  string clang_getDiagnosticCategoryName(1: Types.u32 category),
+  string getDiagnosticCategoryName(1: Types.u32 category),
 
   /**
    * \brief Retrieve the diagnostic category text for a given diagnostic.
    *
    * \returns The text of the given diagnostic category.
    */
-  string clang_getDiagnosticCategoryText(1: Diagnostic.CXDiagnostic diagnostic),
+  string getDiagnosticCategoryText(1: Diagnostic.CXDiagnostic diagnostic),
     
   /**
    * \brief Determine the number of source ranges associated with the given
    * diagnostic.
    */
-  Types.u32 clang_getDiagnosticNumRanges(1: Diagnostic.CXDiagnostic diagnostic),
+  Types.u32 getDiagnosticNumRanges(1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
    * \brief Retrieve a source range associated with the diagnostic.
@@ -759,7 +759,7 @@ service Clang {
    *
    * \returns the requested source range.
    */
-   Location.CXSourceRange clang_getDiagnosticRange(
+   Location.CXSourceRange getDiagnosticRange(
                         1: Diagnostic.CXDiagnostic diagnostic,
                         2: Types.u32 range),
 
@@ -767,7 +767,7 @@ service Clang {
    * \brief Determine the number of fix-it hints associated with the
    * given diagnostic.
    */
-  Types.u32 clang_getDiagnosticNumFixIts(
+  Types.u32 getDiagnosticNumFixIts(
                         1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
@@ -789,7 +789,7 @@ service Clang {
    *
    * \returns Structure containing replacement range and text
    */
-  Diagnostic.CXDiagnosticFixIt clang_getDiagnosticFixIt(
+  Diagnostic.CXDiagnosticFixIt getDiagnosticFixIt(
                         1: Diagnostic.CXDiagnostic Diagnostic,
                         2: Types.u32 FixIt)
 }

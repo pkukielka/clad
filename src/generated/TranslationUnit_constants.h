@@ -9,7 +9,7 @@
 
 #include "TranslationUnit_types.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 class TranslationUnitConstants {
  public:
@@ -19,6 +19,6 @@ class TranslationUnitConstants {
 
 extern const TranslationUnitConstants g_TranslationUnit_constants;
 
-}} // namespace
+} // namespace
 
 #endif

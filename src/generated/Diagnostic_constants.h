@@ -9,7 +9,7 @@
 
 #include "Diagnostic_types.h"
 
-namespace clang { namespace thrift {
+namespace clad {
 
 class DiagnosticConstants {
  public:
@@ -19,6 +19,6 @@ class DiagnosticConstants {
 
 extern const DiagnosticConstants g_Diagnostic_constants;
 
-}} // namespace
+} // namespace
 
 #endif

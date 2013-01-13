@@ -16,7 +16,7 @@
 #include "Index_types.h"
 
 
-namespace clang { namespace thrift {
+namespace clad {
 
 struct CXTranslationUnit_Flags {
   enum type {
@@ -86,7 +86,7 @@ struct CXTUResourceUsageKind {
 
 extern const std::map<int, const char*> _CXTUResourceUsageKind_VALUES_TO_NAMES;
 
-typedef  ::clang::thrift::ResourceId CXTranslationUnit;
+typedef  ::clad::ResourceId CXTranslationUnit;
 
 typedef struct _CXUnsavedFile__isset {
   _CXUnsavedFile__isset() : Filename(false), Contents(false), Length(false) {}
@@ -108,7 +108,7 @@ class CXUnsavedFile {
 
   std::string Filename;
   std::string Contents;
-   ::clang::thrift::u32 Length;
+   ::clad::u32 Length;
 
   _CXUnsavedFile__isset __isset;
 
@@ -120,7 +120,7 @@ class CXUnsavedFile {
     Contents = val;
   }
 
-  void __set_Length(const  ::clang::thrift::u32 val) {
+  void __set_Length(const  ::clad::u32 val) {
     Length = val;
   }
 
@@ -165,7 +165,7 @@ class CXTUResourceUsageEntry {
   virtual ~CXTUResourceUsageEntry() throw() {}
 
   CXTUResourceUsageKind::type kind;
-   ::clang::thrift::u64 amount;
+   ::clad::u64 amount;
 
   _CXTUResourceUsageEntry__isset __isset;
 
@@ -173,7 +173,7 @@ class CXTUResourceUsageEntry {
     kind = val;
   }
 
-  void __set_amount(const  ::clang::thrift::u64 val) {
+  void __set_amount(const  ::clad::u64 val) {
     amount = val;
   }
 
@@ -215,12 +215,12 @@ class CXTUResourceUsage {
 
   virtual ~CXTUResourceUsage() throw() {}
 
-   ::clang::thrift::ResourceId data;
+   ::clad::ResourceId data;
   std::vector<CXTUResourceUsageEntry>  entries;
 
   _CXTUResourceUsage__isset __isset;
 
-  void __set_data(const  ::clang::thrift::ResourceId val) {
+  void __set_data(const  ::clad::ResourceId val) {
     data = val;
   }
 
@@ -249,6 +249,6 @@ class CXTUResourceUsage {
 
 void swap(CXTUResourceUsage &a, CXTUResourceUsage &b);
 
-}} // namespace
+} // namespace
 
 #endif
