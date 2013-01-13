@@ -13,7 +13,8 @@ To build Clad you need to have:
 - CMake 2.6
 - Thrift
   
-You don't need to have full Clang installation but CMake must be able to find libclang 3.2 headers and library. Thrift compiler is needed only if you want to change thrift files or generate client API.  
+You don't need to have full Clang installation but CMake must be able to find libclang 3.2 headers and library.  
+Thrift compiler is needed only if you want to change thrift files or generate client API.  
 Building Clad is pretty straightforward:
 ```
 git clone https://github.com/pkukielka/clad.git  
