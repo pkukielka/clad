@@ -148,171 +148,197 @@ class ClangHandler : virtual public ::clad::ClangIf {
     return clang_equalLocations(convert(loc1), convert(loc2));
   }
 
-  void getLocation(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit tu, const ::clad::CXFile file, const ::clad::u32 line, const ::clad::u32 column) {
-    /* TODO: make names of CXTranslationUnit parameters consistent*/
+  void getLocation(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit tu,
+    const ::clad::CXFile file, const ::clad::u32 line, const ::clad::u32 column)
+  {
+    /* TODO: make names of CXTranslationUnit parameters consistent */
     _return = convert(clang_getLocation(getResource<CXTranslationUnit>(tu), getResource(file), line, column));
   }
 
-  void getLocationForOffset(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit tu, const ::clad::CXFile file, const ::clad::u32 offset) {
+  void getLocationForOffset(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit tu,
+    const ::clad::CXFile file, const ::clad::u32 offset)
+  {
      _return = convert(clang_getLocationForOffset(getResource<CXTranslationUnit>(tu), getResource(file), offset));
   }
 
   void getNullRange(::clad::CXSourceRange& _return) {
+    _return = convert(clang_getNullRange());
   }
 
   void getRange(::clad::CXSourceRange& _return, const ::clad::CXSourceLocation& sourceBegin, const ::clad::CXSourceLocation& sourceEnd) {
-    // Your implementation goes here
-    printf("getRange\n");
+    _return = convert(clang_getRange(convert(sourceBegin), convert(sourceEnd)));
   }
 
   ::clad::u32 equalRanges(const ::clad::CXSourceRange& range1, const ::clad::CXSourceRange& range2) {
-    // Your implementation goes here
-    printf("equalRanges\n");
+    return clang_equalRanges(convert(range1), convert(range2));
   }
 
   int32_t Range_isNull(const ::clad::CXSourceRange& range) {
-    // Your implementation goes here
-    printf("Range_isNull\n");
+    /* TODO: change name to lower case, most likely it's typo in the CLang API */
+    return clang_Range_isNull(convert(range));
   }
 
   void getExpansionLocation(::clad::CXSourcePosition& _return, const ::clad::CXSourceLocation& location) {
-    // Your implementation goes here
-    printf("getExpansionLocation\n");
+    CXFile file;
+    unsigned int line, column, offset;
+
+    clang_getExpansionLocation(convert(location), &file, &line, &column, &offset);
+
+    _return.__set_file(saveResource(file));
+    _return.__set_line(line);
+    _return.__set_column(column);
+    _return.__set_offset(offset);
   }
 
   void getPresumedLocation(::clad::CXSourcePosition& _return, const ::clad::CXSourceLocation& location) {
-    // Your implementation goes here
-    printf("getPresumedLocation\n");
+    CXString filename;
+    unsigned line, column;
+
+    clang_getPresumedLocation(convert(location), &filename, &line, &column);
+
+    _return.__set_filename(convert(filename));
+    _return.__set_line(line);
+    _return.__set_column(column);
   }
 
   void getInstantiationLocation(::clad::CXSourcePosition& _return, const ::clad::CXSourceLocation& location) {
-    // Your implementation goes here
-    printf("getInstantiationLocation\n");
+    CXFile file;
+    unsigned int line, column, offset;
+
+    clang_getInstantiationLocation(convert(location), &file, &line, &column, &offset);
+
+    _return.__set_file(saveResource(file));
+    _return.__set_line(line);
+    _return.__set_column(column);
+    _return.__set_offset(offset);
   }
 
   void getSpellingLocation(::clad::CXSourcePosition& _return, const ::clad::CXSourceLocation& location) {
-    // Your implementation goes here
-    printf("getSpellingLocation\n");
+    CXFile file;
+    unsigned int line, column, offset;
+
+    clang_getSpellingLocation(convert(location), &file, &line, &column, &offset);
+
+    _return.__set_file(saveResource(file));
+    _return.__set_line(line);
+    _return.__set_column(column);
+    _return.__set_offset(offset);
   }
 
   void getRangeStart(::clad::CXSourceLocation& _return, const ::clad::CXSourceRange& range) {
-    // Your implementation goes here
-    printf("getRangeStart\n");
+    _return = convert(clang_getRangeStart(convert(range)));
   }
 
   void getRangeEnd(::clad::CXSourceLocation& _return, const ::clad::CXSourceRange& range) {
-    // Your implementation goes here
-    printf("getRangeEnd\n");
+    _return = convert(clang_getRangeEnd(convert(range)));
   }
 
   ::clad::u32 getNumDiagnosticsInSet(const ::clad::CXDiagnosticSet diags) {
-    // Your implementation goes here
-    printf("getNumDiagnosticsInSet\n");
+    return clang_getNumDiagnosticsInSet(getResource(diags));
   }
 
   ::clad::CXDiagnostic getDiagnosticInSet(const ::clad::CXDiagnosticSet diags, const ::clad::u32 index) {
-    // Your implementation goes here
-    printf("getDiagnosticInSet\n");
+    return saveResource(clang_getDiagnosticInSet(getResource(diags), index));
   }
 
   ::clad::CXDiagnosticSet loadDiagnostics(const std::string& filename) {
-    // Your implementation goes here
-    printf("loadDiagnostics\n");
+    enum CXLoadDiag_Error error;
+    CXString errorString;
+
+    CXDiagnosticSet diagnostic_set = clang_loadDiagnostics(filename.c_str(), &error, &errorString);
+
+    if (error != CXLoadDiag_None) {
+      ::clad::CXLoadDiagException ex;
+      ex.__set_Error(static_cast<::clad::CXLoadDiag_Error::type>(error));
+      ex.__set_ErrorString(convert(errorString));
+      throw ex;
+    }
+
+    return saveResource(diagnostic_set);
   }
 
   void disposeDiagnosticSet(const ::clad::CXDiagnosticSet diagnosticSet) {
-    // Your implementation goes here
-    printf("disposeDiagnosticSet\n");
+    clang_disposeDiagnostic(getResource(diagnosticSet));
   }
 
   ::clad::CXDiagnosticSet getChildDiagnostics(const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getChildDiagnostics\n");
+    return saveResource(clang_getChildDiagnostics(getResource(diagnostic)));
   }
 
   ::clad::u32 getNumDiagnostics(const ::clad::CXTranslationUnit unit) {
-    // Your implementation goes here
-    printf("getNumDiagnostics\n");
+    return clang_getNumDiagnostics(getResource<CXTranslationUnit>(unit));
   }
 
   ::clad::CXDiagnostic getDiagnostic(const ::clad::CXTranslationUnit unit, const ::clad::u32 index) {
-    // Your implementation goes here
-    printf("getDiagnostic\n");
+    return saveResource(clang_getDiagnostic(getResource<CXTranslationUnit>(unit), index));
   }
 
   ::clad::CXDiagnosticSet getDiagnosticSetFromTU(const ::clad::CXTranslationUnit unit) {
-    // Your implementation goes here
-    printf("getDiagnosticSetFromTU\n");
+    return saveResource(clang_getDiagnosticSetFromTU(getResource<CXTranslationUnit>(unit)));
   }
 
   void disposeDiagnostic(const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("disposeDiagnostic\n");
+    clang_disposeDiagnostic(getResource(diagnostic));
   }
 
   void formatDiagnostic(std::string& _return, const ::clad::CXDiagnostic diagnostic, const ::clad::u32 options) {
-    // Your implementation goes here
-    printf("formatDiagnostic\n");
+    _return = convert(clang_formatDiagnostic(getResource(diagnostic), options));
   }
 
   ::clad::u32 defaultDiagnosticDisplayOptions() {
-    // Your implementation goes here
-    printf("defaultDiagnosticDisplayOptions\n");
+    return clang_defaultDiagnosticDisplayOptions();
   }
 
   ::clad::CXDiagnosticSeverity::type getDiagnosticSeverity(const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getDiagnosticSeverity\n");
+    return static_cast<::clad::CXDiagnosticSeverity::type>(clang_getDiagnosticSeverity(getResource(diagnostic)));
   }
 
   void getDiagnosticLocation(::clad::CXSourceLocation& _return, const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getDiagnosticLocation\n");
+    _return = convert(clang_getDiagnosticLocation(getResource(diagnostic)));
   }
 
   void getDiagnosticSpelling(std::string& _return, const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getDiagnosticSpelling\n");
+    _return = convert(clang_getDiagnosticSpelling(getResource(diagnostic)));
   }
 
   void getDiagnosticOption(::clad::CXDiagnosticOption& _return, const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getDiagnosticOption\n");
+    CXString enable, disable;
+    enable = clang_getDiagnosticOption(getResource(diagnostic), &disable);
+
+    _return.__set_Enable(convert(enable));
+    _return.__set_Disable(convert(disable));
   }
 
   ::clad::u32 getDiagnosticCategory(const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getDiagnosticCategory\n");
+    return clang_getDiagnosticCategory(getResource(diagnostic));
   }
 
   void getDiagnosticCategoryName(std::string& _return, const ::clad::u32 category) {
-    // Your implementation goes here
-    printf("getDiagnosticCategoryName\n");
+    /* TODO: Remove this, clang_getDiagnosticCategoryName is deprecated */
   }
 
   void getDiagnosticCategoryText(std::string& _return, const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getDiagnosticCategoryText\n");
+    _return = convert(clang_getDiagnosticCategoryText(getResource(diagnostic)));
   }
 
   ::clad::u32 getDiagnosticNumRanges(const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getDiagnosticNumRanges\n");
+    return clang_getDiagnosticNumRanges(getResource(diagnostic));
   }
 
   void getDiagnosticRange(::clad::CXSourceRange& _return, const ::clad::CXDiagnostic diagnostic, const ::clad::u32 range) {
-    // Your implementation goes here
-    printf("getDiagnosticRange\n");
+    _return = convert(clang_getDiagnosticRange(getResource(diagnostic), range));
   }
 
   ::clad::u32 getDiagnosticNumFixIts(const ::clad::CXDiagnostic diagnostic) {
-    // Your implementation goes here
-    printf("getDiagnosticNumFixIts\n");
+    return clang_getDiagnosticNumFixIts(getResource(diagnostic));
   }
 
-  void getDiagnosticFixIt(::clad::CXDiagnosticFixIt& _return, const ::clad::CXDiagnostic Diagnostic, const ::clad::u32 FixIt) {
-    // Your implementation goes here
-    printf("getDiagnosticFixIt\n");
+  void getDiagnosticFixIt(::clad::CXDiagnosticFixIt& _return, const ::clad::CXDiagnostic diagnostic, const ::clad::u32 fix_it) {
+    /* TODO: Fix parameters names cases inside thrift file */
+    CXSourceRange replacement_range;
+    CXString replacement_text = clang_getDiagnosticFixIt(getResource(diagnostic), fix_it, &replacement_range);
+    _return.__set_ReplacementText(convert(replacement_text));
+    _return.__set_ReplacementRange(convert(replacement_range));
   }
 
 private:
@@ -343,9 +369,34 @@ private:
 
   CXSourceLocation convert(const ::clad::CXSourceLocation& location) {
     CXSourceLocation result;
+
     result.int_data = location.int_data;
     result.ptr_data[0] = getResource(location.ptr_data[0]);
     result.ptr_data[1] = getResource(location.ptr_data[1]);
+
+    return result;
+  }
+
+  ::clad::CXSourceRange convert(const CXSourceRange& range) {
+    ::clad::CXSourceRange result;
+
+    result.__set_begin_int_data(range.begin_int_data);
+    result.__set_end_int_data(range.end_int_data);
+    result.__set_ptr_data(std::vector<::clad::ResourceId>{
+      saveResource(range.ptr_data[0]), saveResource(range.ptr_data[1])
+    });
+
+    return result;
+  }
+
+  CXSourceRange convert(const ::clad::CXSourceRange& range) {
+    CXSourceRange result;
+
+    result.begin_int_data = range.begin_int_data;
+    result.end_int_data = range.end_int_data;
+    result.ptr_data[0] = getResource(range.ptr_data[0]);
+    result.ptr_data[1] = getResource(range.ptr_data[1]);
+
     return result;
   }
 };
