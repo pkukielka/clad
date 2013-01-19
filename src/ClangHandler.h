@@ -30,15 +30,15 @@ public:
   ::clad::CXTranslationUnit       createTranslationUnit               (const ::clad::CXIndex idx, const std::string& ast_filename);
   ::clad::u32                     defaultEditingTranslationUnitOptions();
   ::clad::CXTranslationUnit       parseTranslationUnit                (const ::clad::CXIndex idx, const std::string& source_filename,
-                                                                       const std::vector<std::string> & command_line_args,
-                                                                       const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const ::clad::u32 options);
+                                                                       const std::vector<std::string>& command_line_args,
+                                                                       const std::vector< ::clad::CXUnsavedFile>& unsaved_files, const ::clad::u32 options);
   ::clad::u32                     defaultSaveOptions                  (const ::clad::CXTranslationUnit unit);
   ::clad::CXSaveError::type       saveTranslationUnit                 (const ::clad::CXTranslationUnit unit, const std::string& filename,
                                                                        const ::clad::u32 options);
   void                            disposeTranslationUnit              (const ::clad::CXTranslationUnit unit);
   ::clad::u32                     defaultReparseOptions               (const ::clad::CXTranslationUnit unit);
   int32_t                         reparseTranslationUnit              (const ::clad::CXTranslationUnit unit,
-                                                                       const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const ::clad::u32 options);
+                                                                       const std::vector< ::clad::CXUnsavedFile>& unsaved_files, const ::clad::u32 options);
   void                            getTUResourceUsageName              (std::string& _return, const ::clad::CXTUResourceUsageKind::type kind);
   void                            getCXTUResourceUsage                (::clad::CXTUResourceUsage& _return, const ::clad::CXTranslationUnit unit);
   void                            disposeCXTUResourceUsage            (const ::clad::CXTUResourceUsage& usage);

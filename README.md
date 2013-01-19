@@ -38,7 +38,7 @@ Clients APIs are not part of the Clad distribution because of two reasons:
 - it's very easy to generate all the files:
 
 ```bash
-~/clad/build$ thrift -r --gen java thrift/Clang.thrift
+~/clad/build$ thrift -r --gen java ../thrift/Clang.thrift
 ```
 
 This will generate full API for java. To see list of all available generators open terminal and type:
