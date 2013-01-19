@@ -40,7 +40,7 @@ file (GLOB THRIFT_SOURCES "${GENERATED_FILES_DIR}/*.cpp")
 #================================================
 # Server executable
 #================================================
-add_executable (${PROJECT_NAME} ${THRIFT_SOURCES} "${SRC_DIR}/ClangServ.cpp" "${SRC_DIR}/ClangHandler.cpp")
+add_executable (${PROJECT_NAME} ${THRIFT_SOURCES} "${SRC_DIR}/Clad.cpp" "${SRC_DIR}/ClangHandler.cpp")
 
 target_link_libraries(${PROJECT_NAME} thrift clang)
 
