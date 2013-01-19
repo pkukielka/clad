@@ -27,7 +27,6 @@ set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Weverything -std=c++11 -DHAVE_INT
 set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Wno-weak-vtables -Wno-padded -Wno-global-constructors -Wno-c++98-compat")
 set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Wno-missing-variable-declarations -Wno-exit-time-destructors")
 
-
 #================================================
 # Auto-generation of server using Thift
 #================================================
@@ -44,3 +43,10 @@ file (GLOB THRIFT_SOURCES "${GENERATED_FILES_DIR}/*.cpp")
 add_executable (${PROJECT_NAME} ${THRIFT_SOURCES} "${SRC_DIR}/ClangServ.cpp")
 
 target_link_libraries(${PROJECT_NAME} thrift clang)
+
+#================================================
+# Enable testing
+#===============================================
+enable_testing ()
+
+add_test (test "${CMAKE_CURRENT_BINARY_DIR}/test/clad_test")
