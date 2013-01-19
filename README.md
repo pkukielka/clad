@@ -9,19 +9,27 @@ This should significantly simplify process of building stateless commandline uti
   
 ## Building the server
 To build Clad you need to have:
-- Clang 3.2 
+- Clang 3.2
 - CMake 2.6
-- Thrift
+- Thrift 0.9
+- GTest 1.6
   
-You don't need to have full Clang installation but CMake must be able to find libclang 3.2 headers and library.  
-Thrift compiler is needed only if you want to change thrift files or generate client API.  
+You don't need to have full Clang installation but CMake must be able to find libclang 3.2 headers and library.
+If you will try to use other Clang version there is high chance that it wont compile or will break on runtime.  
+Your Thrift and GTest versions can be different, but I cannot guarantee that it will work then.  
 Building Clad is pretty straightforward:
 
+```bash
+~/$ git clone https://github.com/pkukielka/clad.git  
+~/$ cd clad && mkdir build && cd build  
+~/clad/build$ cmake ..  
+~/clad/build$ make
 ```
-git clone https://github.com/pkukielka/clad.git  
-cd clad && mkdir build && cd build  
-cmake ..  
-make  
+
+You can also run tests to ensure that everything works as intended:
+
+```bash
+~/clad/build$ make test
 ```
 
 ## Client API
@@ -29,9 +37,8 @@ Clients APIs are not part of the Clad distribution because of two reasons:
 - there is ~14 languages supported, a it too many to manage them easily (you can find full list inside Thrift documentation: http://thrift.apache.org/docs/features/)
 - it's very easy to generate all the files:
 
-```
-cd clad/build
-thrift -r --gen java thrift/Clang.thrift
+```bash
+~/clad/build$ thrift -r --gen java thrift/Clang.thrift
 ```
 
 This will generate full API for java. To see list of all available generators open terminal and type:
