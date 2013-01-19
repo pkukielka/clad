@@ -31,7 +31,7 @@ set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Wno-missing-variable-declarations
 # Auto-generation of server using Thift
 #================================================
 add_custom_target (       gen-serv
-  COMMAND                 rm -Rf "${GENERATED_FILES_DIR}/*"	
+  COMMAND                 rm -Rf "${GENERATED_FILES_DIR}/*"
   COMMAND                 thrift -r --gen cpp -out "${GENERATED_FILES_DIR}" "${THRIFT_DIR}/Clang.thrift"
 )
 
@@ -40,7 +40,7 @@ file (GLOB THRIFT_SOURCES "${GENERATED_FILES_DIR}/*.cpp")
 #================================================
 # Server executable
 #================================================
-add_executable (${PROJECT_NAME} ${THRIFT_SOURCES} "${SRC_DIR}/ClangServ.cpp")
+add_executable (${PROJECT_NAME} ${THRIFT_SOURCES} "${SRC_DIR}/ClangServ.cpp" "${SRC_DIR}/ClangHandler.cpp")
 
 target_link_libraries(${PROJECT_NAME} thrift clang)
 

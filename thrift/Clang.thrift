@@ -10,9 +10,9 @@ include "Diagnostic.thrift"
 service Clang {
 
   /**
-   * ==========================================================================
-   *                     libclang: C Interface to Clang
-   * ==========================================================================
+   * ==================================================================================================================
+   *                                     libclang: C Interface to Clang
+   * ==================================================================================================================
    *
    * The C Interface to Clang provides a relatively small API that exposes
    * facilities for parsing source code into an abstract syntax tree (AST),
@@ -71,7 +71,7 @@ service Clang {
    * (which gives the indexer the same performance benefit as the compiler).
    */
   Index.CXIndex createIndex(
-                        1: i32 excludeDeclarationsFromPCH, 
+                        1: i32 excludeDeclarationsFromPCH,
                         2: i32 displayDiagnostics),
 
   /**
@@ -96,7 +96,7 @@ service Clang {
    * \param options A bitmask of options, a bitwise OR of CXGlobalOpt_XXX flags.
    */
   void CXIndex_setGlobalOptions(
-                        1: Index.CXIndex index, 
+                        1: Index.CXIndex index,
                         2: Index.CXGlobalOptFlags options),
 
   /**
@@ -107,19 +107,10 @@ service Clang {
    */
   Index.CXGlobalOptFlags CXIndex_getGlobalOptions(1: Index.CXIndex index),
 
-
-
-
-
-
-
-
-
-
   /**
-   * ===========================================================================
-   *                        Translation unit manipulation
-   * ===========================================================================
+   * ==================================================================================================================
+   *                                      Translation unit manipulation
+   * ==================================================================================================================
    *
    * The routines in this group provide the ability to create and destroy
    * translation units from files, either by parsing the contents of the files or
@@ -186,12 +177,12 @@ service Clang {
    * to indicate that the translation unit is likely to be reparsed many times,
    * either explicitly (via \c reparseTranslationUnit()) or implicitly
    * (e.g., by code completion (\c codeCompletionAt())). The returned flag
-   * set contains an unspecified set of optimizations (e.g., the precompiled 
+   * set contains an unspecified set of optimizations (e.g., the precompiled
    * preamble) geared toward improving the performance of these routines. The
    * set of optimizations enabled may change from one version to the next.
    */
   Types.u32 defaultEditingTranslationUnitOptions(),
-    
+
   /**
    * \brief Parse the given source file and the translation unit corresponding
    * to that file.
@@ -202,7 +193,7 @@ service Clang {
    * command-line arguments so that the compilation can be configured in the same
    * way that the compiler is configured on the command line.
    *
-   * \param idx The index object with which the translation unit will be 
+   * \param idx The index object with which the translation unit will be
    * associated.
    *
    * \param source_filename The name of the source file to load, or NULL if the
@@ -211,7 +202,7 @@ service Clang {
    * \param command_line_args The command-line arguments that would be
    * passed to the \c clang executable if it were being invoked out-of-process.
    * These command-line options will be parsed and will affect how the translation
-   * unit is parsed. Note that the following options are ignored: '-c', 
+   * unit is parsed. Note that the following options are ignored: '-c',
    * '-emit-ast', '-fsyntax-only' (which is the default), and '-o \<output file>'.
    *
    * \param unsaved_files the files that have not yet been saved to disk
@@ -266,7 +257,7 @@ service Clang {
    * CXSaveTranslationUnit_XXX flags.
    *
    * \returns A value that will match one of the enumerators of the CXSaveError
-   * enumeration. Zero (CXSaveError_None) indicates that the translation unit was 
+   * enumeration. Zero (CXSaveError_None) indicates that the translation unit was
    * saved successfully, while a non-zero value indicates that a problem occurred.
    */
   TranslationUnit.CXSaveError saveTranslationUnit(
@@ -277,7 +268,7 @@ service Clang {
    * \brief Destroy the specified CXTranslationUnit object.
    */
   void disposeTranslationUnit(1: TranslationUnit.CXTranslationUnit unit),
-   
+
   /**
    * \brief Returns the set of flags that is suitable for reparsing a translation
    * unit.
@@ -285,7 +276,7 @@ service Clang {
    * The set of flags returned provide options for
    * \c reparseTranslationUnit() by default. The returned flag
    * set contains an unspecified set of optimizations geared toward common uses
-   * of reparsing. The set of optimizations enabled may change from one version 
+   * of reparsing. The set of optimizations enabled may change from one version
    * to the next.
    */
   Types.u32 defaultReparseOptions(1: TranslationUnit.CXTranslationUnit unit),
@@ -297,17 +288,17 @@ service Clang {
    * created the given translation unit, for example because those source files
    * have changed (either on disk or as passed via \p unsaved_files). The
    * source code will be reparsed with the same command-line options as it
-   * was originally parsed. 
+   * was originally parsed.
    *
    * Reparsing a translation unit invalidates all cursors and source locations
    * that refer into that translation unit. This makes reparsing a translation
    * unit semantically equivalent to destroying the translation unit and then
    * creating a new translation unit with the same command-line arguments.
-   * However, it may be more efficient to reparse a translation 
+   * However, it may be more efficient to reparse a translation
    * unit using this routine.
    *
    * \param unit The translation unit whose contents will be re-parsed. The
-   * translation unit must originally have been built with 
+   * translation unit must originally have been built with
    * \c createTranslationUnitFromSourceFile().
    *
    * \param unsaved_files The files that have not yet been saved to disk
@@ -315,14 +306,14 @@ service Clang {
    * those files.  The contents and name of these files (as specified by
    * CXUnsavedFile) are copied when necessary, so the client only needs to
    * guarantee their validity until the call to this function returns.
-   * 
+   *
    * \param options A bitset of options composed of the flags in CXReparse_Flags.
    * The function \c defaultReparseOptions() produces a default set of
    * options recommended for most uses, based on the translation unit.
    *
    * \returns 0 if the sources could be reparsed. A non-zero value will be
    * returned if reparsing was impossible, such that the translation unit is
-   * invalid. In such cases, the only valid call for \p TU is 
+   * invalid. In such cases, the only valid call for \p TU is
    * \c disposeTranslationUnit(TU).
    */
   i32 reparseTranslationUnit(
@@ -331,7 +322,7 @@ service Clang {
                         3: Types.u32 options),
 
   /**
-    * \brief Returns the human-readable string that represents the name 
+    * \brief Returns the human-readable string that represents the name
     *  of the memory category.
     */
   string getTUResourceUsageName(
@@ -347,19 +338,10 @@ service Clang {
   void disposeCXTUResourceUsage(
                         1: TranslationUnit.CXTUResourceUsage usage),
 
-
-
-
-
-
-
-
-
-
   /**
-   * ==========================================================================
-   *                         File manipulation routines
-   * ==========================================================================
+   * ==================================================================================================================
+   *                                         File manipulation routines
+   * ==================================================================================================================
    */
 
   /**
@@ -378,7 +360,7 @@ service Clang {
    * \#ifndef/\#define/\#endif macro guards or with \#pragma once.
    */
   Types.u32 isFileMultipleIncludeGuarded(
-                        1: TranslationUnit.CXTranslationUnit unit, 
+                        1: TranslationUnit.CXTranslationUnit unit,
                         2: File.CXFile file),
 
   /**
@@ -395,20 +377,10 @@ service Clang {
                         1: TranslationUnit.CXTranslationUnit unit,
                         2: string filename),
 
-
-
-
-
-
-
-
-
-
-
   /**
-   * ==========================================================================
-   *                        Physical source locations
-   * ==========================================================================
+   * ==================================================================================================================
+   *                                          Physical source locations
+   * ==================================================================================================================
    *
    * Clang represents physical source locations in its abstract syntax tree in
    * great detail, with file, line, and column information for the majority of
@@ -432,7 +404,7 @@ service Clang {
    * if they refer to different locations.
    */
   Types.u32 equalLocations(
-                        1: Location.CXSourceLocation loc1, 
+                        1: Location.CXSourceLocation loc1,
                         2: Location.CXSourceLocation loc2),
 
   /**
@@ -440,7 +412,7 @@ service Clang {
    * in a particular translation unit.
    */
   Location.CXSourceLocation getLocation(
-                        1: TranslationUnit.CXTranslationUnit tu, 
+                        1: TranslationUnit.CXTranslationUnit tu,
                         2: File.CXFile file,
                         3: Types.u32 line,
                         4: Types.u32 column),
@@ -449,7 +421,7 @@ service Clang {
    * in a particular translation unit.
    */
   Location.CXSourceLocation getLocationForOffset(
-                        1: TranslationUnit.CXTranslationUnit tu, 
+                        1: TranslationUnit.CXTranslationUnit tu,
                         2: File.CXFile file,
                         3: Types.u32 offset),
 
@@ -463,7 +435,7 @@ service Clang {
    * locations.
    */
   Location.CXSourceRange getRange(
-                        1: Location.CXSourceLocation sourceBegin, 
+                        1: Location.CXSourceLocation sourceBegin,
                         2: Location.CXSourceLocation sourceEnd),
 
   /**
@@ -472,7 +444,7 @@ service Clang {
    * \returns non-zero if the ranges are the same, zero if they differ.
    */
   Types.u32 equalRanges(
-                        1: Location.CXSourceRange range1, 
+                        1: Location.CXSourceRange range1,
                         2: Location.CXSourceRange range2),
 
   /**
@@ -554,20 +526,10 @@ service Clang {
   Location.CXSourceLocation getRangeEnd(
                         1: Location.CXSourceRange range),
 
-
-
-
-
-
-
-
-
-
-
   /**
-   * ==========================================================================
-   *                         Diagnostic reporting
-   * ==========================================================================
+   * ==================================================================================================================
+   *                                          Diagnostic reporting
+   * ==================================================================================================================
    */
 
   /**
@@ -597,7 +559,7 @@ service Clang {
    * \returns A loaded CXDiagnosticSet if successful, and NULL otherwise.  These
    * diagnostics should be released using disposeDiagnosticSet().
    */
-  Diagnostic.CXDiagnosticSet loadDiagnostics(1: string filename) 
+  Diagnostic.CXDiagnosticSet loadDiagnostics(1: string filename)
                         throws (1: Diagnostic.CXLoadDiagException e),
 
   /**
@@ -606,7 +568,7 @@ service Clang {
   void disposeDiagnosticSet(1: Diagnostic.CXDiagnosticSet diagnosticSet),
 
   /**
-   * \brief Retrieve the child diagnostics of a CXDiagnostic. 
+   * \brief Retrieve the child diagnostics of a CXDiagnostic.
    *
    * This CXDiagnosticSet does not need to be released by
    * diposeDiagnosticSet.
@@ -712,7 +674,7 @@ service Clang {
    * \brief Retrieve the category number for this diagnostic.
    *
    * Diagnostics can be categorized into groups along with other, related
-   * diagnostics (e.g., diagnostics under the same warning flag). This routine 
+   * diagnostics (e.g., diagnostics under the same warning flag). This routine
    * retrieves the category number for the given diagnostic.
    *
    * \returns The number of the category that contains this diagnostic, or zero
@@ -726,7 +688,7 @@ service Clang {
    *  is now deprecated.  Use getDiagnosticCategoryText()
    *  instead.
    *
-   * \param category A diagnostic category number, as returned by 
+   * \param category A diagnostic category number, as returned by
    * \c getDiagnosticCategory().
    *
    * \returns The name of the given diagnostic category.
@@ -739,7 +701,7 @@ service Clang {
    * \returns The text of the given diagnostic category.
    */
   string getDiagnosticCategoryText(1: Diagnostic.CXDiagnostic diagnostic),
-    
+
   /**
    * \brief Determine the number of source ranges associated with the given
    * diagnostic.
