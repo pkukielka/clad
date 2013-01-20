@@ -4,9 +4,9 @@ ClangHandler::ClangHandler() {
 }
 
 /*
- * ==========================================================================
- * Index
- * ==========================================================================
+ * ====================================================================================================================
+ *                                                        Index
+ * ====================================================================================================================
  */
 ::clad::CXIndex ClangHandler::createIndex(const int32_t excludeDeclarationsFromPCH, const int32_t displayDiagnostics) {
   return saveResource(clang_createIndex(excludeDeclarationsFromPCH, displayDiagnostics));
@@ -27,9 +27,9 @@ void ClangHandler::CXIndex_setGlobalOptions(const ::clad::CXIndex index, const :
 }
 
 /*
- * ==========================================================================
- * Translation Unit
- * ==========================================================================
+ * ====================================================================================================================
+ *                                                 Translation Unit
+ * ====================================================================================================================
  */
 void ClangHandler::getTranslationUnitSpelling(std::string& _return, const ::clad::CXTranslationUnit unit) {
   _return = convert(clang_getTranslationUnitSpelling(getResource<CXTranslationUnit>(unit)));
@@ -72,7 +72,8 @@ void ClangHandler::getTranslationUnitSpelling(std::string& _return, const ::clad
   return static_cast< ::clad::u32>(clang_defaultSaveOptions(getResource<CXTranslationUnit>(unit)));
 }
 
-::clad::CXSaveError::type ClangHandler::saveTranslationUnit(const ::clad::CXTranslationUnit unit, const std::string& filename, const ::clad::u32 options) {
+::clad::CXSaveError::type ClangHandler::saveTranslationUnit(const ::clad::CXTranslationUnit unit,
+                                                            const std::string& filename, const ::clad::u32 options) {
   return static_cast< ::clad::CXSaveError::type>(
     clang_saveTranslationUnit(getResource<CXTranslationUnit>(unit), filename.c_str(), static_cast<unsigned int>(options))
   );
@@ -86,7 +87,8 @@ void ClangHandler::disposeTranslationUnit(const ::clad::CXTranslationUnit unit) 
   return static_cast<::clad::u32>(clang_defaultReparseOptions(getResource<CXTranslationUnit>(unit)));
 }
 
-int32_t ClangHandler::reparseTranslationUnit(const ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const ::clad::u32 options) {
+int32_t ClangHandler::reparseTranslationUnit(const ::clad::CXTranslationUnit unit,
+                                             const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const ::clad::u32 options) {
   return clang_reparseTranslationUnit(
     getResource<CXTranslationUnit>(unit),
     static_cast<unsigned int>(unsaved_files.size()), NULL /* TODO */,
@@ -115,9 +117,9 @@ void ClangHandler::getCXTUResourceUsage(::clad::CXTUResourceUsage& _return, cons
 }
 
 /*
- * ==========================================================================
- * Files
- * ==========================================================================
+ * ====================================================================================================================
+ *                                         File manipulation routines
+ * ====================================================================================================================
  */
 void ClangHandler::getFileName(std::string& _return, const ::clad::CXFile file) {
   _return= convert(clang_getFileName(getResource<CXFile>(file)));
@@ -138,9 +140,9 @@ void ClangHandler::getFileName(std::string& _return, const ::clad::CXFile file) 
 }
 
 /*
- * ==========================================================================
- * Physical source locations
- * ==========================================================================
+ * ====================================================================================================================
+ *                                          Physical source locations
+ * ====================================================================================================================
  */
 void ClangHandler::getNullLocation(::clad::CXSourceLocation& _return) {
   _return = convert(clang_getNullLocation());
@@ -153,7 +155,9 @@ void ClangHandler::getNullLocation(::clad::CXSourceLocation& _return) {
 void ClangHandler::getLocation(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit unit,
   const ::clad::CXFile file, const ::clad::u32 line, const ::clad::u32 column)
 {
-  _return = convert(clang_getLocation(getResource<CXTranslationUnit>(unit), getResource(file), static_cast<unsigned int>(line), static_cast<unsigned int>(column)));
+  _return = convert(clang_getLocation(
+    getResource<CXTranslationUnit>(unit), getResource(file), static_cast<unsigned int>(line), static_cast<unsigned int>(column))
+  );
 }
 
 void ClangHandler::getLocationForOffset(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit unit,
@@ -234,9 +238,9 @@ void ClangHandler::getRangeEnd(::clad::CXSourceLocation& _return, const ::clad::
 }
 
 /**
- * ==========================================================================
- *                         Diagnostic reporting
- * ==========================================================================
+ * ====================================================================================================================
+ *                                               Diagnostic reporting
+ * ====================================================================================================================
  */
 ::clad::u32 ClangHandler::getNumDiagnosticsInSet(const ::clad::CXDiagnosticSet diags) {
   return static_cast<::clad::u32>(clang_getNumDiagnosticsInSet(getResource(diags)));
@@ -342,9 +346,9 @@ void ClangHandler::getDiagnosticFixIt(::clad::CXDiagnosticFixIt& _return, const 
 }
 
 /**
- * ==========================================================================
- *                         Utility methods
- * ==========================================================================
+ * ====================================================================================================================
+ *                                                Utility methods
+ * ====================================================================================================================
  */
 template <typename Out, typename In>
 Out ClangHandler::getResource(In resourceId) {

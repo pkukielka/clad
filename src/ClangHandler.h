@@ -111,11 +111,11 @@ private:
   template <typename Out = ::clad::ResourceId, typename In = void*>
   Out                             saveResource              (In pAddress);
 
-  std::string                     convert                     (const CXString& src);
-  ::clad::CXSourceLocation        convert                     (const CXSourceLocation& location);
-  CXSourceLocation                convert                     (const ::clad::CXSourceLocation& location);
-  ::clad::CXSourceRange           convert                     (const CXSourceRange& range);
-  CXSourceRange                   convert                     (const ::clad::CXSourceRange& range);
+  std::string                     convert                             (const CXString& src);
+  ::clad::CXSourceLocation        convert                             (const CXSourceLocation& location);
+  CXSourceLocation                convert                             (const ::clad::CXSourceLocation& location);
+  ::clad::CXSourceRange           convert                             (const CXSourceRange& range);
+  CXSourceRange                   convert                             (const ::clad::CXSourceRange& range);
 };
 
 #endif // CLAD_SRC_CLANG_HANDLER
