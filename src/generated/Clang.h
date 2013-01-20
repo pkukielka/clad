@@ -31,19 +31,18 @@ class ClangIf {
   virtual int32_t reparseTranslationUnit(const  ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const  ::clad::u32 options) = 0;
   virtual void getTUResourceUsageName(std::string& _return, const  ::clad::CXTUResourceUsageKind::type kind) = 0;
   virtual void getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return, const  ::clad::CXTranslationUnit unit) = 0;
-  virtual void disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage) = 0;
   virtual void getFileName(std::string& _return, const  ::clad::CXFile file) = 0;
   virtual  ::clad::t64 getFileTime(const  ::clad::CXFile file) = 0;
   virtual  ::clad::u32 isFileMultipleIncludeGuarded(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file) = 0;
   virtual  ::clad::CXFile getFile(const  ::clad::CXTranslationUnit unit, const std::string& filename) = 0;
   virtual void getNullLocation( ::clad::CXSourceLocation& _return) = 0;
   virtual  ::clad::u32 equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2) = 0;
-  virtual void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column) = 0;
-  virtual void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset) = 0;
+  virtual void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column) = 0;
+  virtual void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file, const  ::clad::u32 offset) = 0;
   virtual void getNullRange( ::clad::CXSourceRange& _return) = 0;
   virtual void getRange( ::clad::CXSourceRange& _return, const  ::clad::CXSourceLocation& sourceBegin, const  ::clad::CXSourceLocation& sourceEnd) = 0;
   virtual  ::clad::u32 equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2) = 0;
-  virtual int32_t Range_isNull(const  ::clad::CXSourceRange& range) = 0;
+  virtual int32_t isRangeNull(const  ::clad::CXSourceRange& range) = 0;
   virtual void getExpansionLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) = 0;
   virtual void getPresumedLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) = 0;
   virtual void getInstantiationLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) = 0;
@@ -66,12 +65,11 @@ class ClangIf {
   virtual void getDiagnosticSpelling(std::string& _return, const  ::clad::CXDiagnostic diagnostic) = 0;
   virtual void getDiagnosticOption( ::clad::CXDiagnosticOption& _return, const  ::clad::CXDiagnostic diagnostic) = 0;
   virtual  ::clad::u32 getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic) = 0;
-  virtual void getDiagnosticCategoryName(std::string& _return, const  ::clad::u32 category) = 0;
   virtual void getDiagnosticCategoryText(std::string& _return, const  ::clad::CXDiagnostic diagnostic) = 0;
   virtual  ::clad::u32 getDiagnosticNumRanges(const  ::clad::CXDiagnostic diagnostic) = 0;
   virtual void getDiagnosticRange( ::clad::CXSourceRange& _return, const  ::clad::CXDiagnostic diagnostic, const  ::clad::u32 range) = 0;
   virtual  ::clad::u32 getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic) = 0;
-  virtual void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt) = 0;
+  virtual void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic siagnostic, const  ::clad::u32 fix_it) = 0;
 };
 
 class ClangIfFactory {
@@ -159,9 +157,6 @@ class ClangNull : virtual public ClangIf {
   void getCXTUResourceUsage( ::clad::CXTUResourceUsage& /* _return */, const  ::clad::CXTranslationUnit /* unit */) {
     return;
   }
-  void disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& /* usage */) {
-    return;
-  }
   void getFileName(std::string& /* _return */, const  ::clad::CXFile /* file */) {
     return;
   }
@@ -184,10 +179,10 @@ class ClangNull : virtual public ClangIf {
      ::clad::u32 _return = 0;
     return _return;
   }
-  void getLocation( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXTranslationUnit /* tu */, const  ::clad::CXFile /* file */, const  ::clad::u32 /* line */, const  ::clad::u32 /* column */) {
+  void getLocation( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXTranslationUnit /* unit */, const  ::clad::CXFile /* file */, const  ::clad::u32 /* line */, const  ::clad::u32 /* column */) {
     return;
   }
-  void getLocationForOffset( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXTranslationUnit /* tu */, const  ::clad::CXFile /* file */, const  ::clad::u32 /* offset */) {
+  void getLocationForOffset( ::clad::CXSourceLocation& /* _return */, const  ::clad::CXTranslationUnit /* unit */, const  ::clad::CXFile /* file */, const  ::clad::u32 /* offset */) {
     return;
   }
   void getNullRange( ::clad::CXSourceRange& /* _return */) {
@@ -200,7 +195,7 @@ class ClangNull : virtual public ClangIf {
      ::clad::u32 _return = 0;
     return _return;
   }
-  int32_t Range_isNull(const  ::clad::CXSourceRange& /* range */) {
+  int32_t isRangeNull(const  ::clad::CXSourceRange& /* range */) {
     int32_t _return = 0;
     return _return;
   }
@@ -280,9 +275,6 @@ class ClangNull : virtual public ClangIf {
      ::clad::u32 _return = 0;
     return _return;
   }
-  void getDiagnosticCategoryName(std::string& /* _return */, const  ::clad::u32 /* category */) {
-    return;
-  }
   void getDiagnosticCategoryText(std::string& /* _return */, const  ::clad::CXDiagnostic /* diagnostic */) {
     return;
   }
@@ -297,7 +289,7 @@ class ClangNull : virtual public ClangIf {
      ::clad::u32 _return = 0;
     return _return;
   }
-  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& /* _return */, const  ::clad::CXDiagnostic /* Diagnostic */, const  ::clad::u32 /* FixIt */) {
+  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& /* _return */, const  ::clad::CXDiagnostic /* siagnostic */, const  ::clad::u32 /* fix_it */) {
     return;
   }
 };
@@ -2082,94 +2074,6 @@ class Clang_getCXTUResourceUsage_presult {
 
 };
 
-typedef struct _Clang_disposeCXTUResourceUsage_args__isset {
-  _Clang_disposeCXTUResourceUsage_args__isset() : usage(false) {}
-  bool usage;
-} _Clang_disposeCXTUResourceUsage_args__isset;
-
-class Clang_disposeCXTUResourceUsage_args {
- public:
-
-  Clang_disposeCXTUResourceUsage_args() {
-  }
-
-  virtual ~Clang_disposeCXTUResourceUsage_args() throw() {}
-
-   ::clad::CXTUResourceUsage usage;
-
-  _Clang_disposeCXTUResourceUsage_args__isset __isset;
-
-  void __set_usage(const  ::clad::CXTUResourceUsage& val) {
-    usage = val;
-  }
-
-  bool operator == (const Clang_disposeCXTUResourceUsage_args & rhs) const
-  {
-    if (!(usage == rhs.usage))
-      return false;
-    return true;
-  }
-  bool operator != (const Clang_disposeCXTUResourceUsage_args &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_disposeCXTUResourceUsage_args & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-
-class Clang_disposeCXTUResourceUsage_pargs {
- public:
-
-
-  virtual ~Clang_disposeCXTUResourceUsage_pargs() throw() {}
-
-  const  ::clad::CXTUResourceUsage* usage;
-
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-
-class Clang_disposeCXTUResourceUsage_result {
- public:
-
-  Clang_disposeCXTUResourceUsage_result() {
-  }
-
-  virtual ~Clang_disposeCXTUResourceUsage_result() throw() {}
-
-
-  bool operator == (const Clang_disposeCXTUResourceUsage_result & /* rhs */) const
-  {
-    return true;
-  }
-  bool operator != (const Clang_disposeCXTUResourceUsage_result &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_disposeCXTUResourceUsage_result & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-
-class Clang_disposeCXTUResourceUsage_presult {
- public:
-
-
-  virtual ~Clang_disposeCXTUResourceUsage_presult() throw() {}
-
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-
-};
-
 typedef struct _Clang_getFileName_args__isset {
   _Clang_getFileName_args__isset() : file(false) {}
   bool file;
@@ -2832,8 +2736,8 @@ class Clang_equalLocations_presult {
 };
 
 typedef struct _Clang_getLocation_args__isset {
-  _Clang_getLocation_args__isset() : tu(false), file(false), line(false), column(false) {}
-  bool tu;
+  _Clang_getLocation_args__isset() : unit(false), file(false), line(false), column(false) {}
+  bool unit;
   bool file;
   bool line;
   bool column;
@@ -2842,20 +2746,20 @@ typedef struct _Clang_getLocation_args__isset {
 class Clang_getLocation_args {
  public:
 
-  Clang_getLocation_args() : tu(0), file(0), line(0), column(0) {
+  Clang_getLocation_args() : unit(0), file(0), line(0), column(0) {
   }
 
   virtual ~Clang_getLocation_args() throw() {}
 
-   ::clad::CXTranslationUnit tu;
+   ::clad::CXTranslationUnit unit;
    ::clad::CXFile file;
    ::clad::u32 line;
    ::clad::u32 column;
 
   _Clang_getLocation_args__isset __isset;
 
-  void __set_tu(const  ::clad::CXTranslationUnit val) {
-    tu = val;
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
+    unit = val;
   }
 
   void __set_file(const  ::clad::CXFile val) {
@@ -2872,7 +2776,7 @@ class Clang_getLocation_args {
 
   bool operator == (const Clang_getLocation_args & rhs) const
   {
-    if (!(tu == rhs.tu))
+    if (!(unit == rhs.unit))
       return false;
     if (!(file == rhs.file))
       return false;
@@ -2900,7 +2804,7 @@ class Clang_getLocation_pargs {
 
   virtual ~Clang_getLocation_pargs() throw() {}
 
-  const  ::clad::CXTranslationUnit* tu;
+  const  ::clad::CXTranslationUnit* unit;
   const  ::clad::CXFile* file;
   const  ::clad::u32* line;
   const  ::clad::u32* column;
@@ -2967,8 +2871,8 @@ class Clang_getLocation_presult {
 };
 
 typedef struct _Clang_getLocationForOffset_args__isset {
-  _Clang_getLocationForOffset_args__isset() : tu(false), file(false), offset(false) {}
-  bool tu;
+  _Clang_getLocationForOffset_args__isset() : unit(false), file(false), offset(false) {}
+  bool unit;
   bool file;
   bool offset;
 } _Clang_getLocationForOffset_args__isset;
@@ -2976,19 +2880,19 @@ typedef struct _Clang_getLocationForOffset_args__isset {
 class Clang_getLocationForOffset_args {
  public:
 
-  Clang_getLocationForOffset_args() : tu(0), file(0), offset(0) {
+  Clang_getLocationForOffset_args() : unit(0), file(0), offset(0) {
   }
 
   virtual ~Clang_getLocationForOffset_args() throw() {}
 
-   ::clad::CXTranslationUnit tu;
+   ::clad::CXTranslationUnit unit;
    ::clad::CXFile file;
    ::clad::u32 offset;
 
   _Clang_getLocationForOffset_args__isset __isset;
 
-  void __set_tu(const  ::clad::CXTranslationUnit val) {
-    tu = val;
+  void __set_unit(const  ::clad::CXTranslationUnit val) {
+    unit = val;
   }
 
   void __set_file(const  ::clad::CXFile val) {
@@ -3001,7 +2905,7 @@ class Clang_getLocationForOffset_args {
 
   bool operator == (const Clang_getLocationForOffset_args & rhs) const
   {
-    if (!(tu == rhs.tu))
+    if (!(unit == rhs.unit))
       return false;
     if (!(file == rhs.file))
       return false;
@@ -3027,7 +2931,7 @@ class Clang_getLocationForOffset_pargs {
 
   virtual ~Clang_getLocationForOffset_pargs() throw() {}
 
-  const  ::clad::CXTranslationUnit* tu;
+  const  ::clad::CXTranslationUnit* unit;
   const  ::clad::CXFile* file;
   const  ::clad::u32* offset;
 
@@ -3420,38 +3324,38 @@ class Clang_equalRanges_presult {
 
 };
 
-typedef struct _Clang_Range_isNull_args__isset {
-  _Clang_Range_isNull_args__isset() : range(false) {}
+typedef struct _Clang_isRangeNull_args__isset {
+  _Clang_isRangeNull_args__isset() : range(false) {}
   bool range;
-} _Clang_Range_isNull_args__isset;
+} _Clang_isRangeNull_args__isset;
 
-class Clang_Range_isNull_args {
+class Clang_isRangeNull_args {
  public:
 
-  Clang_Range_isNull_args() {
+  Clang_isRangeNull_args() {
   }
 
-  virtual ~Clang_Range_isNull_args() throw() {}
+  virtual ~Clang_isRangeNull_args() throw() {}
 
    ::clad::CXSourceRange range;
 
-  _Clang_Range_isNull_args__isset __isset;
+  _Clang_isRangeNull_args__isset __isset;
 
   void __set_range(const  ::clad::CXSourceRange& val) {
     range = val;
   }
 
-  bool operator == (const Clang_Range_isNull_args & rhs) const
+  bool operator == (const Clang_isRangeNull_args & rhs) const
   {
     if (!(range == rhs.range))
       return false;
     return true;
   }
-  bool operator != (const Clang_Range_isNull_args &rhs) const {
+  bool operator != (const Clang_isRangeNull_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_Range_isNull_args & ) const;
+  bool operator < (const Clang_isRangeNull_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -3459,11 +3363,11 @@ class Clang_Range_isNull_args {
 };
 
 
-class Clang_Range_isNull_pargs {
+class Clang_isRangeNull_pargs {
  public:
 
 
-  virtual ~Clang_Range_isNull_pargs() throw() {}
+  virtual ~Clang_isRangeNull_pargs() throw() {}
 
   const  ::clad::CXSourceRange* range;
 
@@ -3471,58 +3375,58 @@ class Clang_Range_isNull_pargs {
 
 };
 
-typedef struct _Clang_Range_isNull_result__isset {
-  _Clang_Range_isNull_result__isset() : success(false) {}
+typedef struct _Clang_isRangeNull_result__isset {
+  _Clang_isRangeNull_result__isset() : success(false) {}
   bool success;
-} _Clang_Range_isNull_result__isset;
+} _Clang_isRangeNull_result__isset;
 
-class Clang_Range_isNull_result {
+class Clang_isRangeNull_result {
  public:
 
-  Clang_Range_isNull_result() : success(0) {
+  Clang_isRangeNull_result() : success(0) {
   }
 
-  virtual ~Clang_Range_isNull_result() throw() {}
+  virtual ~Clang_isRangeNull_result() throw() {}
 
   int32_t success;
 
-  _Clang_Range_isNull_result__isset __isset;
+  _Clang_isRangeNull_result__isset __isset;
 
   void __set_success(const int32_t val) {
     success = val;
   }
 
-  bool operator == (const Clang_Range_isNull_result & rhs) const
+  bool operator == (const Clang_isRangeNull_result & rhs) const
   {
     if (!(success == rhs.success))
       return false;
     return true;
   }
-  bool operator != (const Clang_Range_isNull_result &rhs) const {
+  bool operator != (const Clang_isRangeNull_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const Clang_Range_isNull_result & ) const;
+  bool operator < (const Clang_isRangeNull_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
 };
 
-typedef struct _Clang_Range_isNull_presult__isset {
-  _Clang_Range_isNull_presult__isset() : success(false) {}
+typedef struct _Clang_isRangeNull_presult__isset {
+  _Clang_isRangeNull_presult__isset() : success(false) {}
   bool success;
-} _Clang_Range_isNull_presult__isset;
+} _Clang_isRangeNull_presult__isset;
 
-class Clang_Range_isNull_presult {
+class Clang_isRangeNull_presult {
  public:
 
 
-  virtual ~Clang_Range_isNull_presult() throw() {}
+  virtual ~Clang_isRangeNull_presult() throw() {}
 
   int32_t* success;
 
-  _Clang_Range_isNull_presult__isset __isset;
+  _Clang_isRangeNull_presult__isset __isset;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
@@ -5887,114 +5791,6 @@ class Clang_getDiagnosticCategory_presult {
 
 };
 
-typedef struct _Clang_getDiagnosticCategoryName_args__isset {
-  _Clang_getDiagnosticCategoryName_args__isset() : category(false) {}
-  bool category;
-} _Clang_getDiagnosticCategoryName_args__isset;
-
-class Clang_getDiagnosticCategoryName_args {
- public:
-
-  Clang_getDiagnosticCategoryName_args() : category(0) {
-  }
-
-  virtual ~Clang_getDiagnosticCategoryName_args() throw() {}
-
-   ::clad::u32 category;
-
-  _Clang_getDiagnosticCategoryName_args__isset __isset;
-
-  void __set_category(const  ::clad::u32 val) {
-    category = val;
-  }
-
-  bool operator == (const Clang_getDiagnosticCategoryName_args & rhs) const
-  {
-    if (!(category == rhs.category))
-      return false;
-    return true;
-  }
-  bool operator != (const Clang_getDiagnosticCategoryName_args &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_getDiagnosticCategoryName_args & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-
-class Clang_getDiagnosticCategoryName_pargs {
- public:
-
-
-  virtual ~Clang_getDiagnosticCategoryName_pargs() throw() {}
-
-  const  ::clad::u32* category;
-
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-typedef struct _Clang_getDiagnosticCategoryName_result__isset {
-  _Clang_getDiagnosticCategoryName_result__isset() : success(false) {}
-  bool success;
-} _Clang_getDiagnosticCategoryName_result__isset;
-
-class Clang_getDiagnosticCategoryName_result {
- public:
-
-  Clang_getDiagnosticCategoryName_result() : success() {
-  }
-
-  virtual ~Clang_getDiagnosticCategoryName_result() throw() {}
-
-  std::string success;
-
-  _Clang_getDiagnosticCategoryName_result__isset __isset;
-
-  void __set_success(const std::string& val) {
-    success = val;
-  }
-
-  bool operator == (const Clang_getDiagnosticCategoryName_result & rhs) const
-  {
-    if (!(success == rhs.success))
-      return false;
-    return true;
-  }
-  bool operator != (const Clang_getDiagnosticCategoryName_result &rhs) const {
-    return !(*this == rhs);
-  }
-
-  bool operator < (const Clang_getDiagnosticCategoryName_result & ) const;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
-
-};
-
-typedef struct _Clang_getDiagnosticCategoryName_presult__isset {
-  _Clang_getDiagnosticCategoryName_presult__isset() : success(false) {}
-  bool success;
-} _Clang_getDiagnosticCategoryName_presult__isset;
-
-class Clang_getDiagnosticCategoryName_presult {
- public:
-
-
-  virtual ~Clang_getDiagnosticCategoryName_presult() throw() {}
-
-  std::string* success;
-
-  _Clang_getDiagnosticCategoryName_presult__isset __isset;
-
-  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
-
-};
-
 typedef struct _Clang_getDiagnosticCategoryText_args__isset {
   _Clang_getDiagnosticCategoryText_args__isset() : diagnostic(false) {}
   bool diagnostic;
@@ -6437,37 +6233,37 @@ class Clang_getDiagnosticNumFixIts_presult {
 };
 
 typedef struct _Clang_getDiagnosticFixIt_args__isset {
-  _Clang_getDiagnosticFixIt_args__isset() : Diagnostic(false), FixIt(false) {}
-  bool Diagnostic;
-  bool FixIt;
+  _Clang_getDiagnosticFixIt_args__isset() : siagnostic(false), fix_it(false) {}
+  bool siagnostic;
+  bool fix_it;
 } _Clang_getDiagnosticFixIt_args__isset;
 
 class Clang_getDiagnosticFixIt_args {
  public:
 
-  Clang_getDiagnosticFixIt_args() : Diagnostic(0), FixIt(0) {
+  Clang_getDiagnosticFixIt_args() : siagnostic(0), fix_it(0) {
   }
 
   virtual ~Clang_getDiagnosticFixIt_args() throw() {}
 
-   ::clad::CXDiagnostic Diagnostic;
-   ::clad::u32 FixIt;
+   ::clad::CXDiagnostic siagnostic;
+   ::clad::u32 fix_it;
 
   _Clang_getDiagnosticFixIt_args__isset __isset;
 
-  void __set_Diagnostic(const  ::clad::CXDiagnostic val) {
-    Diagnostic = val;
+  void __set_siagnostic(const  ::clad::CXDiagnostic val) {
+    siagnostic = val;
   }
 
-  void __set_FixIt(const  ::clad::u32 val) {
-    FixIt = val;
+  void __set_fix_it(const  ::clad::u32 val) {
+    fix_it = val;
   }
 
   bool operator == (const Clang_getDiagnosticFixIt_args & rhs) const
   {
-    if (!(Diagnostic == rhs.Diagnostic))
+    if (!(siagnostic == rhs.siagnostic))
       return false;
-    if (!(FixIt == rhs.FixIt))
+    if (!(fix_it == rhs.fix_it))
       return false;
     return true;
   }
@@ -6489,8 +6285,8 @@ class Clang_getDiagnosticFixIt_pargs {
 
   virtual ~Clang_getDiagnosticFixIt_pargs() throw() {}
 
-  const  ::clad::CXDiagnostic* Diagnostic;
-  const  ::clad::u32* FixIt;
+  const  ::clad::CXDiagnostic* siagnostic;
+  const  ::clad::u32* fix_it;
 
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
 
@@ -6621,9 +6417,6 @@ class ClangClient : virtual public ClangIf {
   void getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return, const  ::clad::CXTranslationUnit unit);
   void send_getCXTUResourceUsage(const  ::clad::CXTranslationUnit unit);
   void recv_getCXTUResourceUsage( ::clad::CXTUResourceUsage& _return);
-  void disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage);
-  void send_disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage);
-  void recv_disposeCXTUResourceUsage();
   void getFileName(std::string& _return, const  ::clad::CXFile file);
   void send_getFileName(const  ::clad::CXFile file);
   void recv_getFileName(std::string& _return);
@@ -6642,11 +6435,11 @@ class ClangClient : virtual public ClangIf {
    ::clad::u32 equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2);
   void send_equalLocations(const  ::clad::CXSourceLocation& loc1, const  ::clad::CXSourceLocation& loc2);
    ::clad::u32 recv_equalLocations();
-  void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column);
-  void send_getLocation(const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column);
+  void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column);
+  void send_getLocation(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column);
   void recv_getLocation( ::clad::CXSourceLocation& _return);
-  void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset);
-  void send_getLocationForOffset(const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset);
+  void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file, const  ::clad::u32 offset);
+  void send_getLocationForOffset(const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file, const  ::clad::u32 offset);
   void recv_getLocationForOffset( ::clad::CXSourceLocation& _return);
   void getNullRange( ::clad::CXSourceRange& _return);
   void send_getNullRange();
@@ -6657,9 +6450,9 @@ class ClangClient : virtual public ClangIf {
    ::clad::u32 equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2);
   void send_equalRanges(const  ::clad::CXSourceRange& range1, const  ::clad::CXSourceRange& range2);
    ::clad::u32 recv_equalRanges();
-  int32_t Range_isNull(const  ::clad::CXSourceRange& range);
-  void send_Range_isNull(const  ::clad::CXSourceRange& range);
-  int32_t recv_Range_isNull();
+  int32_t isRangeNull(const  ::clad::CXSourceRange& range);
+  void send_isRangeNull(const  ::clad::CXSourceRange& range);
+  int32_t recv_isRangeNull();
   void getExpansionLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location);
   void send_getExpansionLocation(const  ::clad::CXSourceLocation& location);
   void recv_getExpansionLocation( ::clad::CXSourcePosition& _return);
@@ -6726,9 +6519,6 @@ class ClangClient : virtual public ClangIf {
    ::clad::u32 getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic);
   void send_getDiagnosticCategory(const  ::clad::CXDiagnostic diagnostic);
    ::clad::u32 recv_getDiagnosticCategory();
-  void getDiagnosticCategoryName(std::string& _return, const  ::clad::u32 category);
-  void send_getDiagnosticCategoryName(const  ::clad::u32 category);
-  void recv_getDiagnosticCategoryName(std::string& _return);
   void getDiagnosticCategoryText(std::string& _return, const  ::clad::CXDiagnostic diagnostic);
   void send_getDiagnosticCategoryText(const  ::clad::CXDiagnostic diagnostic);
   void recv_getDiagnosticCategoryText(std::string& _return);
@@ -6741,8 +6531,8 @@ class ClangClient : virtual public ClangIf {
    ::clad::u32 getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic);
   void send_getDiagnosticNumFixIts(const  ::clad::CXDiagnostic diagnostic);
    ::clad::u32 recv_getDiagnosticNumFixIts();
-  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt);
-  void send_getDiagnosticFixIt(const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt);
+  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic siagnostic, const  ::clad::u32 fix_it);
+  void send_getDiagnosticFixIt(const  ::clad::CXDiagnostic siagnostic, const  ::clad::u32 fix_it);
   void recv_getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return);
  protected:
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> piprot_;
@@ -6775,7 +6565,6 @@ class ClangProcessor : public ::apache::thrift::TDispatchProcessor {
   void process_reparseTranslationUnit(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getTUResourceUsageName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_disposeCXTUResourceUsage(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getFileName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getFileTime(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_isFileMultipleIncludeGuarded(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
@@ -6787,7 +6576,7 @@ class ClangProcessor : public ::apache::thrift::TDispatchProcessor {
   void process_getNullRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_equalRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_Range_isNull(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_isRangeNull(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getExpansionLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getPresumedLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getInstantiationLocation(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
@@ -6810,7 +6599,6 @@ class ClangProcessor : public ::apache::thrift::TDispatchProcessor {
   void process_getDiagnosticSpelling(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getDiagnosticOption(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getDiagnosticCategory(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
-  void process_getDiagnosticCategoryName(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getDiagnosticCategoryText(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getDiagnosticNumRanges(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_getDiagnosticRange(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
@@ -6835,7 +6623,6 @@ class ClangProcessor : public ::apache::thrift::TDispatchProcessor {
     processMap_["reparseTranslationUnit"] = &ClangProcessor::process_reparseTranslationUnit;
     processMap_["getTUResourceUsageName"] = &ClangProcessor::process_getTUResourceUsageName;
     processMap_["getCXTUResourceUsage"] = &ClangProcessor::process_getCXTUResourceUsage;
-    processMap_["disposeCXTUResourceUsage"] = &ClangProcessor::process_disposeCXTUResourceUsage;
     processMap_["getFileName"] = &ClangProcessor::process_getFileName;
     processMap_["getFileTime"] = &ClangProcessor::process_getFileTime;
     processMap_["isFileMultipleIncludeGuarded"] = &ClangProcessor::process_isFileMultipleIncludeGuarded;
@@ -6847,7 +6634,7 @@ class ClangProcessor : public ::apache::thrift::TDispatchProcessor {
     processMap_["getNullRange"] = &ClangProcessor::process_getNullRange;
     processMap_["getRange"] = &ClangProcessor::process_getRange;
     processMap_["equalRanges"] = &ClangProcessor::process_equalRanges;
-    processMap_["Range_isNull"] = &ClangProcessor::process_Range_isNull;
+    processMap_["isRangeNull"] = &ClangProcessor::process_isRangeNull;
     processMap_["getExpansionLocation"] = &ClangProcessor::process_getExpansionLocation;
     processMap_["getPresumedLocation"] = &ClangProcessor::process_getPresumedLocation;
     processMap_["getInstantiationLocation"] = &ClangProcessor::process_getInstantiationLocation;
@@ -6870,7 +6657,6 @@ class ClangProcessor : public ::apache::thrift::TDispatchProcessor {
     processMap_["getDiagnosticSpelling"] = &ClangProcessor::process_getDiagnosticSpelling;
     processMap_["getDiagnosticOption"] = &ClangProcessor::process_getDiagnosticOption;
     processMap_["getDiagnosticCategory"] = &ClangProcessor::process_getDiagnosticCategory;
-    processMap_["getDiagnosticCategoryName"] = &ClangProcessor::process_getDiagnosticCategoryName;
     processMap_["getDiagnosticCategoryText"] = &ClangProcessor::process_getDiagnosticCategoryText;
     processMap_["getDiagnosticNumRanges"] = &ClangProcessor::process_getDiagnosticNumRanges;
     processMap_["getDiagnosticRange"] = &ClangProcessor::process_getDiagnosticRange;
@@ -7051,15 +6837,6 @@ class ClangMultiface : virtual public ClangIf {
     return;
   }
 
-  void disposeCXTUResourceUsage(const  ::clad::CXTUResourceUsage& usage) {
-    size_t sz = ifaces_.size();
-    size_t i = 0;
-    for (; i < (sz - 1); ++i) {
-      ifaces_[i]->disposeCXTUResourceUsage(usage);
-    }
-    ifaces_[i]->disposeCXTUResourceUsage(usage);
-  }
-
   void getFileName(std::string& _return, const  ::clad::CXFile file) {
     size_t sz = ifaces_.size();
     size_t i = 0;
@@ -7116,23 +6893,23 @@ class ClangMultiface : virtual public ClangIf {
     return ifaces_[i]->equalLocations(loc1, loc2);
   }
 
-  void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column) {
+  void getLocation( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file, const  ::clad::u32 line, const  ::clad::u32 column) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->getLocation(_return, tu, file, line, column);
+      ifaces_[i]->getLocation(_return, unit, file, line, column);
     }
-    ifaces_[i]->getLocation(_return, tu, file, line, column);
+    ifaces_[i]->getLocation(_return, unit, file, line, column);
     return;
   }
 
-  void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit tu, const  ::clad::CXFile file, const  ::clad::u32 offset) {
+  void getLocationForOffset( ::clad::CXSourceLocation& _return, const  ::clad::CXTranslationUnit unit, const  ::clad::CXFile file, const  ::clad::u32 offset) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->getLocationForOffset(_return, tu, file, offset);
+      ifaces_[i]->getLocationForOffset(_return, unit, file, offset);
     }
-    ifaces_[i]->getLocationForOffset(_return, tu, file, offset);
+    ifaces_[i]->getLocationForOffset(_return, unit, file, offset);
     return;
   }
 
@@ -7165,13 +6942,13 @@ class ClangMultiface : virtual public ClangIf {
     return ifaces_[i]->equalRanges(range1, range2);
   }
 
-  int32_t Range_isNull(const  ::clad::CXSourceRange& range) {
+  int32_t isRangeNull(const  ::clad::CXSourceRange& range) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->Range_isNull(range);
+      ifaces_[i]->isRangeNull(range);
     }
-    return ifaces_[i]->Range_isNull(range);
+    return ifaces_[i]->isRangeNull(range);
   }
 
   void getExpansionLocation( ::clad::CXSourcePosition& _return, const  ::clad::CXSourceLocation& location) {
@@ -7382,16 +7159,6 @@ class ClangMultiface : virtual public ClangIf {
     return ifaces_[i]->getDiagnosticCategory(diagnostic);
   }
 
-  void getDiagnosticCategoryName(std::string& _return, const  ::clad::u32 category) {
-    size_t sz = ifaces_.size();
-    size_t i = 0;
-    for (; i < (sz - 1); ++i) {
-      ifaces_[i]->getDiagnosticCategoryName(_return, category);
-    }
-    ifaces_[i]->getDiagnosticCategoryName(_return, category);
-    return;
-  }
-
   void getDiagnosticCategoryText(std::string& _return, const  ::clad::CXDiagnostic diagnostic) {
     size_t sz = ifaces_.size();
     size_t i = 0;
@@ -7430,13 +7197,13 @@ class ClangMultiface : virtual public ClangIf {
     return ifaces_[i]->getDiagnosticNumFixIts(diagnostic);
   }
 
-  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic Diagnostic, const  ::clad::u32 FixIt) {
+  void getDiagnosticFixIt( ::clad::CXDiagnosticFixIt& _return, const  ::clad::CXDiagnostic siagnostic, const  ::clad::u32 fix_it) {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->getDiagnosticFixIt(_return, Diagnostic, FixIt);
+      ifaces_[i]->getDiagnosticFixIt(_return, siagnostic, fix_it);
     }
-    ifaces_[i]->getDiagnosticFixIt(_return, Diagnostic, FixIt);
+    ifaces_[i]->getDiagnosticFixIt(_return, siagnostic, fix_it);
     return;
   }
 

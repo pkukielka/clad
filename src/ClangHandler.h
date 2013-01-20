@@ -68,7 +68,7 @@ public:
   void                            getRange                            (::clad::CXSourceRange& _return, const ::clad::CXSourceLocation& sourceBegin,
                                                                        const ::clad::CXSourceLocation& sourceEnd);
   ::clad::u32                     equalRanges                         (const ::clad::CXSourceRange& range1, const ::clad::CXSourceRange& range2);
-  int32_t                         Range_isNull                        (const ::clad::CXSourceRange& range);
+  int32_t                         isRangeNull                         (const ::clad::CXSourceRange& range);
   void                            getExpansionLocation                (::clad::CXSourcePosition& _return, const ::clad::CXSourceLocation& location);
   void                            getPresumedLocation                 (::clad::CXSourcePosition& _return, const ::clad::CXSourceLocation& location);
   void                            getInstantiationLocation            (::clad::CXSourcePosition& _return, const ::clad::CXSourceLocation& location);

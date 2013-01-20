@@ -234,10 +234,6 @@ struct CXTUResourceUsageEntry {
   * \brief The memory usage of a CXTranslationUnit, broken into categories.
   */
 struct CXTUResourceUsage {
-  /* \brief Private data member, used for queries. */
-  1: Types.ResourceId data,
-
-  /* \brief An array of key-value pairs, representing the breakdown of memory
-            usage. */
-  2: list<CXTUResourceUsageEntry> entries
+  /* \brief An array of key-value pairs, representing the breakdown of memory usage. */
+  1: list<CXTUResourceUsageEntry> entries
 }

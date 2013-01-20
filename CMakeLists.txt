@@ -23,9 +23,9 @@ add_subdirectory (${TEST_DIR})
 #================================================
 set (CMAKE_C_COMPILER     "clang")
 set (CMAKE_CXX_COMPILER   "clang++")
-set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Weverything -std=c++11 -DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H")
+set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Weverything -Werror -std=c++11 -DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H")
 set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Wno-weak-vtables -Wno-padded -Wno-global-constructors -Wno-c++98-compat")
-set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Wno-missing-variable-declarations -Wno-exit-time-destructors")
+set (CMAKE_CXX_FLAGS      "${CMAKE_CXX_FLAGS} -Wno-missing-variable-declarations -Wno-exit-time-destructors -Wno-unused-macros")
 
 #================================================
 # Auto-generation of server using Thift

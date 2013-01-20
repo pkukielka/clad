@@ -199,30 +199,24 @@ class CXTUResourceUsageEntry {
 void swap(CXTUResourceUsageEntry &a, CXTUResourceUsageEntry &b);
 
 typedef struct _CXTUResourceUsage__isset {
-  _CXTUResourceUsage__isset() : data(false), entries(false) {}
-  bool data;
+  _CXTUResourceUsage__isset() : entries(false) {}
   bool entries;
 } _CXTUResourceUsage__isset;
 
 class CXTUResourceUsage {
  public:
 
-  static const char* ascii_fingerprint; // = "458A44B0FD0112BE746A8E4B68F24C77";
-  static const uint8_t binary_fingerprint[16]; // = {0x45,0x8A,0x44,0xB0,0xFD,0x01,0x12,0xBE,0x74,0x6A,0x8E,0x4B,0x68,0xF2,0x4C,0x77};
+  static const char* ascii_fingerprint; // = "03821A51CA7A94FCEDF0645AB86FBAC4";
+  static const uint8_t binary_fingerprint[16]; // = {0x03,0x82,0x1A,0x51,0xCA,0x7A,0x94,0xFC,0xED,0xF0,0x64,0x5A,0xB8,0x6F,0xBA,0xC4};
 
-  CXTUResourceUsage() : data(0) {
+  CXTUResourceUsage() {
   }
 
   virtual ~CXTUResourceUsage() throw() {}
 
-   ::clad::ResourceId data;
   std::vector<CXTUResourceUsageEntry>  entries;
 
   _CXTUResourceUsage__isset __isset;
-
-  void __set_data(const  ::clad::ResourceId val) {
-    data = val;
-  }
 
   void __set_entries(const std::vector<CXTUResourceUsageEntry> & val) {
     entries = val;
@@ -230,8 +224,6 @@ class CXTUResourceUsage {
 
   bool operator == (const CXTUResourceUsage & rhs) const
   {
-    if (!(data == rhs.data))
-      return false;
     if (!(entries == rhs.entries))
       return false;
     return true;

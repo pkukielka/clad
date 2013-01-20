@@ -271,8 +271,8 @@ void swap(CXTUResourceUsageEntry &a, CXTUResourceUsageEntry &b) {
   swap(a.__isset, b.__isset);
 }
 
-const char* CXTUResourceUsage::ascii_fingerprint = "458A44B0FD0112BE746A8E4B68F24C77";
-const uint8_t CXTUResourceUsage::binary_fingerprint[16] = {0x45,0x8A,0x44,0xB0,0xFD,0x01,0x12,0xBE,0x74,0x6A,0x8E,0x4B,0x68,0xF2,0x4C,0x77};
+const char* CXTUResourceUsage::ascii_fingerprint = "03821A51CA7A94FCEDF0645AB86FBAC4";
+const uint8_t CXTUResourceUsage::binary_fingerprint[16] = {0x03,0x82,0x1A,0x51,0xCA,0x7A,0x94,0xFC,0xED,0xF0,0x64,0x5A,0xB8,0x6F,0xBA,0xC4};
 
 uint32_t CXTUResourceUsage::read(::apache::thrift::protocol::TProtocol* iprot) {
 
@@ -295,14 +295,6 @@ uint32_t CXTUResourceUsage::read(::apache::thrift::protocol::TProtocol* iprot) {
     switch (fid)
     {
       case 1:
-        if (ftype == ::apache::thrift::protocol::T_I64) {
-          xfer += iprot->readI64(this->data);
-          this->__isset.data = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 2:
         if (ftype == ::apache::thrift::protocol::T_LIST) {
           {
             this->entries.clear();
@@ -338,11 +330,7 @@ uint32_t CXTUResourceUsage::write(::apache::thrift::protocol::TProtocol* oprot) 
   uint32_t xfer = 0;
   xfer += oprot->writeStructBegin("CXTUResourceUsage");
 
-  xfer += oprot->writeFieldBegin("data", ::apache::thrift::protocol::T_I64, 1);
-  xfer += oprot->writeI64(this->data);
-  xfer += oprot->writeFieldEnd();
-
-  xfer += oprot->writeFieldBegin("entries", ::apache::thrift::protocol::T_LIST, 2);
+  xfer += oprot->writeFieldBegin("entries", ::apache::thrift::protocol::T_LIST, 1);
   {
     xfer += oprot->writeListBegin(::apache::thrift::protocol::T_STRUCT, static_cast<uint32_t>(this->entries.size()));
     std::vector<CXTUResourceUsageEntry> ::const_iterator _iter6;
@@ -361,7 +349,6 @@ uint32_t CXTUResourceUsage::write(::apache::thrift::protocol::TProtocol* oprot) 
 
 void swap(CXTUResourceUsage &a, CXTUResourceUsage &b) {
   using ::std::swap;
-  swap(a.data, b.data);
   swap(a.entries, b.entries);
   swap(a.__isset, b.__isset);
 }

@@ -11,7 +11,7 @@
     "tab_size": 2,
     "translate_tabs_to_spaces": true,
 
-    "sublimeclang_hide_output_when_empty": false,
+    "sublimeclang_hide_output_when_empty": true,
     "sublimeclang_options":
     [
       "-I$project_path/src",
@@ -20,12 +20,14 @@
 
       "-std=c++11",
       "-Weverything",
+      "-Werror",
       "-Wno-weak-vtables",
       "-Wno-padded",
       "-Wno-global-constructors",
       "-Wno-c++98-compat",
       "-Wno-missing-variable-declarations",
-      "-Wno-exit-time-destructors"
+      "-Wno-exit-time-destructors",
+      "-Wno-unused-macros"
     ]
   }
 }

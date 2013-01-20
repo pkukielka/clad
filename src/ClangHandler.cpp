@@ -114,10 +114,6 @@ void ClangHandler::getCXTUResourceUsage(::clad::CXTUResourceUsage& _return, cons
   clang_disposeCXTUResourceUsage(resource_usage);
 }
 
-void ClangHandler::disposeCXTUResourceUsage(const ::clad::CXTUResourceUsage&) {
-  /* TODO: Not needed, remove from API together with CXTUResourceUsage::data member */
-}
-
 /*
  * ==========================================================================
  * Files
@@ -154,17 +150,16 @@ void ClangHandler::getNullLocation(::clad::CXSourceLocation& _return) {
   return static_cast<::clad::u32>(clang_equalLocations(convert(loc1), convert(loc2)));
 }
 
-void ClangHandler::getLocation(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit tu,
+void ClangHandler::getLocation(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit unit,
   const ::clad::CXFile file, const ::clad::u32 line, const ::clad::u32 column)
 {
-  /* TODO: make names of CXTranslationUnit parameters consistent */
-  _return = convert(clang_getLocation(getResource<CXTranslationUnit>(tu), getResource(file), static_cast<unsigned int>(line), static_cast<unsigned int>(column)));
+  _return = convert(clang_getLocation(getResource<CXTranslationUnit>(unit), getResource(file), static_cast<unsigned int>(line), static_cast<unsigned int>(column)));
 }
 
-void ClangHandler::getLocationForOffset(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit tu,
+void ClangHandler::getLocationForOffset(::clad::CXSourceLocation& _return, const ::clad::CXTranslationUnit unit,
   const ::clad::CXFile file, const ::clad::u32 offset)
 {
-   _return = convert(clang_getLocationForOffset(getResource<CXTranslationUnit>(tu), getResource(file), static_cast<unsigned int>(offset)));
+   _return = convert(clang_getLocationForOffset(getResource<CXTranslationUnit>(unit), getResource(file), static_cast<unsigned int>(offset)));
 }
 
 void ClangHandler::getNullRange(::clad::CXSourceRange& _return) {
@@ -179,8 +174,7 @@ void ClangHandler::getRange(::clad::CXSourceRange& _return, const ::clad::CXSour
   return static_cast<::clad::u32>(clang_equalRanges(convert(range1), convert(range2)));
 }
 
-int32_t ClangHandler::Range_isNull(const ::clad::CXSourceRange& range) {
-  /* TODO: change name to lower case, most likely it's typo in the CLang API */
+int32_t ClangHandler::isRangeNull(const ::clad::CXSourceRange& range) {
   return clang_Range_isNull(convert(range));
 }
 
@@ -324,10 +318,6 @@ void ClangHandler::getDiagnosticOption(::clad::CXDiagnosticOption& _return, cons
   return static_cast<::clad::u32>(clang_getDiagnosticCategory(getResource(diagnostic)));
 }
 
-void ClangHandler::getDiagnosticCategoryName(std::string&, const ::clad::u32) {
-  /* TODO: Remove this, clang_getDiagnosticCategoryName is deprecated */
-}
-
 void ClangHandler::getDiagnosticCategoryText(std::string& _return, const ::clad::CXDiagnostic diagnostic) {
   _return = convert(clang_getDiagnosticCategoryText(getResource(diagnostic)));
 }
@@ -345,7 +335,6 @@ void ClangHandler::getDiagnosticRange(::clad::CXSourceRange& _return, const ::cl
 }
 
 void ClangHandler::getDiagnosticFixIt(::clad::CXDiagnosticFixIt& _return, const ::clad::CXDiagnostic diagnostic, const ::clad::u32 fix_it) {
-  /* TODO: Fix parameters names cases inside thrift file */
   CXSourceRange replacement_range;
   CXString replacement_text = clang_getDiagnosticFixIt(getResource(diagnostic), static_cast<unsigned int>(fix_it), &replacement_range);
   _return.__set_ReplacementText(convert(replacement_text));

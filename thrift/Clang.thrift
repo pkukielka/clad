@@ -335,9 +335,6 @@ service Clang {
   TranslationUnit.CXTUResourceUsage getCXTUResourceUsage(
                         1: TranslationUnit.CXTranslationUnit unit),
 
-  void disposeCXTUResourceUsage(
-                        1: TranslationUnit.CXTUResourceUsage usage),
-
   /**
    * ==================================================================================================================
    *                                         File manipulation routines
@@ -412,7 +409,7 @@ service Clang {
    * in a particular translation unit.
    */
   Location.CXSourceLocation getLocation(
-                        1: TranslationUnit.CXTranslationUnit tu,
+                        1: TranslationUnit.CXTranslationUnit unit,
                         2: File.CXFile file,
                         3: Types.u32 line,
                         4: Types.u32 column),
@@ -421,7 +418,7 @@ service Clang {
    * in a particular translation unit.
    */
   Location.CXSourceLocation getLocationForOffset(
-                        1: TranslationUnit.CXTranslationUnit tu,
+                        1: TranslationUnit.CXTranslationUnit unit,
                         2: File.CXFile file,
                         3: Types.u32 offset),
 
@@ -450,7 +447,7 @@ service Clang {
   /**
    * \brief Returns non-zero if \p range is null.
    */
-  i32 Range_isNull(1: Location.CXSourceRange range),
+  i32 isRangeNull(1: Location.CXSourceRange range),
 
   /**
    * \brief Retrieve the file, line, column, and offset represented by
@@ -684,18 +681,6 @@ service Clang {
                         1: Diagnostic.CXDiagnostic diagnostic),
 
   /**
-   * \brief Retrieve the name of a particular diagnostic category.  This
-   *  is now deprecated.  Use getDiagnosticCategoryText()
-   *  instead.
-   *
-   * \param category A diagnostic category number, as returned by
-   * \c getDiagnosticCategory().
-   *
-   * \returns The name of the given diagnostic category.
-   */
-  string getDiagnosticCategoryName(1: Types.u32 category),
-
-  /**
    * \brief Retrieve the diagnostic category text for a given diagnostic.
    *
    * \returns The text of the given diagnostic category.
@@ -752,6 +737,6 @@ service Clang {
    * \returns Structure containing replacement range and text
    */
   Diagnostic.CXDiagnosticFixIt getDiagnosticFixIt(
-                        1: Diagnostic.CXDiagnostic Diagnostic,
-                        2: Types.u32 FixIt)
+                        1: Diagnostic.CXDiagnostic siagnostic,
+                        2: Types.u32 fix_it)
 }
