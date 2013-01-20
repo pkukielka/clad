@@ -99,8 +99,8 @@ void ClangHandler::getTranslationUnitSpelling(std::string& _return, const ::clad
   return saveResource(
     clang_createTranslationUnitFromSourceFile(
       getResource(idx), source_filename.c_str(),
-      command_line_args.size(), NULL /* TODO */,
-      unsaved_files.size(),     NULL /* TODO */
+      static_cast<int>(command_line_args.size()),   NULL /* TODO */,
+      static_cast<unsigned>(unsaved_files.size()),  NULL /* TODO */
     )
   );
 }
@@ -119,8 +119,8 @@ void ClangHandler::getTranslationUnitSpelling(std::string& _return, const ::clad
   return saveResource(
     clang_parseTranslationUnit(
       getResource(idx), source_filename.c_str(),
-      NULL /* TODO */, command_line_args.size(),
-      NULL /* TODO */, unsaved_files.size(),
+      NULL /* TODO */, static_cast<int>(command_line_args.size()),
+      NULL /* TODO */, static_cast<unsigned>(unsaved_files.size()),
       options
     )
   );
@@ -147,7 +147,7 @@ void ClangHandler::disposeTranslationUnit(const ::clad::CXTranslationUnit unit) 
 int32_t ClangHandler::reparseTranslationUnit(const ::clad::CXTranslationUnit unit, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const ::clad::u32 options) {
   return clang_reparseTranslationUnit(
     getResource<CXTranslationUnit>(unit),
-    unsaved_files.size(), NULL /* TODO */,
+    static_cast<unsigned int>(unsaved_files.size()), NULL /* TODO */,
     options
   );
 }
@@ -172,7 +172,7 @@ void ClangHandler::getCXTUResourceUsage(::clad::CXTUResourceUsage& _return, cons
   clang_disposeCXTUResourceUsage(resource_usage);
 }
 
-void ClangHandler::disposeCXTUResourceUsage(const ::clad::CXTUResourceUsage& usage) {
+void ClangHandler::disposeCXTUResourceUsage(const ::clad::CXTUResourceUsage&) {
   /* TODO: Not needed, remove from API together with CXTUResourceUsage::data member */
 }
 
@@ -382,7 +382,7 @@ void ClangHandler::getDiagnosticOption(::clad::CXDiagnosticOption& _return, cons
   return clang_getDiagnosticCategory(getResource(diagnostic));
 }
 
-void ClangHandler::getDiagnosticCategoryName(std::string& _return, const ::clad::u32 category) {
+void ClangHandler::getDiagnosticCategoryName(std::string&, const ::clad::u32) {
   /* TODO: Remove this, clang_getDiagnosticCategoryName is deprecated */
 }
 
