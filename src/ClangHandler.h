@@ -116,6 +116,8 @@ private:
   CXSourceLocation                convert                             (const ::clad::CXSourceLocation& location);
   ::clad::CXSourceRange           convert                             (const CXSourceRange& range);
   CXSourceRange                   convert                             (const ::clad::CXSourceRange& range);
+  void                            convert                             (const std::vector< ::clad::CXUnsavedFile>& unsaved_files_in,
+                                                                             std::vector<         CXUnsavedFile>& unsaved_files_out);
 };
 
 #endif // CLAD_SRC_CLANG_HANDLER
