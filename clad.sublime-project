@@ -14,7 +14,7 @@
     "sublimeclang_hide_output_when_empty": true,
     "sublimeclang_options":
     [
-      "-I$project_path/src",
+      "-I${folder:${project_path:clad.sublime-project}}/src",
       "-DHAVE_INTTYPES_H",
       "-DHAVE_NETINET_IN_H",
 
