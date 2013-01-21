@@ -89,26 +89,24 @@ extern const std::map<int, const char*> _CXTUResourceUsageKind_VALUES_TO_NAMES;
 typedef  ::clad::ResourceId CXTranslationUnit;
 
 typedef struct _CXUnsavedFile__isset {
-  _CXUnsavedFile__isset() : Filename(false), Contents(false), Length(false) {}
+  _CXUnsavedFile__isset() : Filename(false), Contents(false) {}
   bool Filename;
   bool Contents;
-  bool Length;
 } _CXUnsavedFile__isset;
 
 class CXUnsavedFile {
  public:
 
-  static const char* ascii_fingerprint; // = "343DA57F446177400B333DC49B037B0C";
-  static const uint8_t binary_fingerprint[16]; // = {0x34,0x3D,0xA5,0x7F,0x44,0x61,0x77,0x40,0x0B,0x33,0x3D,0xC4,0x9B,0x03,0x7B,0x0C};
+  static const char* ascii_fingerprint; // = "07A9615F837F7D0A952B595DD3020972";
+  static const uint8_t binary_fingerprint[16]; // = {0x07,0xA9,0x61,0x5F,0x83,0x7F,0x7D,0x0A,0x95,0x2B,0x59,0x5D,0xD3,0x02,0x09,0x72};
 
-  CXUnsavedFile() : Filename(), Contents(), Length(0) {
+  CXUnsavedFile() : Filename(), Contents() {
   }
 
   virtual ~CXUnsavedFile() throw() {}
 
   std::string Filename;
   std::string Contents;
-   ::clad::u32 Length;
 
   _CXUnsavedFile__isset __isset;
 
@@ -120,17 +118,11 @@ class CXUnsavedFile {
     Contents = val;
   }
 
-  void __set_Length(const  ::clad::u32 val) {
-    Length = val;
-  }
-
   bool operator == (const CXUnsavedFile & rhs) const
   {
     if (!(Filename == rhs.Filename))
       return false;
     if (!(Contents == rhs.Contents))
-      return false;
-    if (!(Length == rhs.Length))
       return false;
     return true;
   }

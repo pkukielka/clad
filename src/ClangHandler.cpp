@@ -39,19 +39,19 @@ void ClangHandler::getTranslationUnitSpelling(std::string& _return, const ::clad
 ::clad::CXTranslationUnit ClangHandler::createTranslationUnitFromSourceFile(const ::clad::CXIndex idx, const std::string& source_filename,
   const std::vector<std::string>& command_line_args, const std::vector< ::clad::CXUnsavedFile>& unsaved_files)
 {
-  std::vector<const char *> command_line_args_converted;
-  std::transform(command_line_args.begin(), command_line_args.end(), command_line_args_converted.begin(),
-    [](const std::string& s) -> const char * { return s.c_str(); }
+  std::vector<const char *> args;
+  std::for_each(command_line_args.begin(), command_line_args.end(),
+    [&](const std::string& s) { args.push_back(s.c_str()); }
   );
 
-  std::vector<CXUnsavedFile> unsaved_files_converted;
-  convert(unsaved_files, unsaved_files_converted);
+  std::vector<CXUnsavedFile> files;
+  convert(unsaved_files, files);
 
   return saveResource(
     clang_createTranslationUnitFromSourceFile(
       getResource(idx), source_filename.c_str(),
-      static_cast<int>(command_line_args_converted.size()), &command_line_args_converted[0],
-      static_cast<unsigned>(unsaved_files_converted.size()), &unsaved_files_converted[0]
+      static_cast<int>(args.size()), args.size() > 0 ? &args[0] : NULL,
+      static_cast<unsigned>(files.size()), files.size() > 0 ? &files[0] : NULL
     )
   );
 }
@@ -67,19 +67,19 @@ void ClangHandler::getTranslationUnitSpelling(std::string& _return, const ::clad
 ::clad::CXTranslationUnit ClangHandler::parseTranslationUnit(const ::clad::CXIndex idx, const std::string& source_filename,
   const std::vector<std::string> & command_line_args, const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const ::clad::u32 options)
 {
-  std::vector<const char *> command_line_args_converted;
-  std::transform(command_line_args.begin(), command_line_args.end(), command_line_args_converted.begin(),
-    [](const std::string& s) -> const char * { return s.c_str(); }
+  std::vector<const char *> args;
+  std::for_each(command_line_args.begin(), command_line_args.end(),
+    [&](const std::string& s) { args.push_back(s.c_str()); }
   );
 
-  std::vector<CXUnsavedFile> unsaved_files_converted;
-  convert(unsaved_files, unsaved_files_converted);
+  std::vector<CXUnsavedFile> files;
+  convert(unsaved_files, files);
 
   return saveResource(
     clang_parseTranslationUnit(
       getResource(idx), source_filename.c_str(),
-      &command_line_args_converted[0], static_cast<int>(command_line_args_converted.size()),
-      &unsaved_files_converted[0], static_cast<unsigned>(unsaved_files_converted.size()),
+      args.size() > 0 ? &args[0] : NULL, static_cast<int>(args.size()),
+      files.size() > 0 ? &files[0] : NULL, static_cast<unsigned>(files.size()),
       static_cast<unsigned int>(options)
     )
   );
@@ -106,12 +106,12 @@ void ClangHandler::disposeTranslationUnit(const ::clad::CXTranslationUnit unit) 
 
 int32_t ClangHandler::reparseTranslationUnit(const ::clad::CXTranslationUnit unit,
                                              const std::vector< ::clad::CXUnsavedFile> & unsaved_files, const ::clad::u32 options) {
-  std::vector<CXUnsavedFile> unsaved_files_converted;
-  convert(unsaved_files, unsaved_files_converted);
+  std::vector<CXUnsavedFile> files;
+  convert(unsaved_files, files);
 
   return clang_reparseTranslationUnit(
     getResource<CXTranslationUnit>(unit),
-    static_cast<unsigned int>(unsaved_files_converted.size()), &unsaved_files_converted[0],
+    static_cast<unsigned int>(files.size()), files.size() > 0 ? &files[0] : NULL,
     static_cast<unsigned int>(options)
   );
 }
@@ -429,13 +429,13 @@ CXSourceRange ClangHandler::convert(const ::clad::CXSourceRange& range) {
 }
 
 void ClangHandler::convert(const std::vector< ::clad::CXUnsavedFile> & unsaved_files_in, std::vector<CXUnsavedFile>& unsaved_files_out) {
-  std::transform(unsaved_files_in.begin(), unsaved_files_in.end(), unsaved_files_out.begin(),
-    [](const ::clad::CXUnsavedFile& f) -> CXUnsavedFile {
+  std::for_each(unsaved_files_in.begin(), unsaved_files_in.end(),
+    [&](const ::clad::CXUnsavedFile& f) {
       CXUnsavedFile unsaved_file;
       unsaved_file.Filename = f.Filename.c_str();
       unsaved_file.Contents = f.Contents.c_str();
-      unsaved_file.Length = static_cast<unsigned long>(f.Length);
-      return unsaved_file;
+      unsaved_file.Length = f.Contents.length();
+      unsaved_files_out.push_back(unsaved_file);
     }
   );
 }

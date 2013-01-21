@@ -106,8 +106,8 @@ const char* _kCXTUResourceUsageKindNames[] = {
 };
 const std::map<int, const char*> _CXTUResourceUsageKind_VALUES_TO_NAMES(::apache::thrift::TEnumIterator(18, _kCXTUResourceUsageKindValues, _kCXTUResourceUsageKindNames), ::apache::thrift::TEnumIterator(-1, NULL, NULL));
 
-const char* CXUnsavedFile::ascii_fingerprint = "343DA57F446177400B333DC49B037B0C";
-const uint8_t CXUnsavedFile::binary_fingerprint[16] = {0x34,0x3D,0xA5,0x7F,0x44,0x61,0x77,0x40,0x0B,0x33,0x3D,0xC4,0x9B,0x03,0x7B,0x0C};
+const char* CXUnsavedFile::ascii_fingerprint = "07A9615F837F7D0A952B595DD3020972";
+const uint8_t CXUnsavedFile::binary_fingerprint[16] = {0x07,0xA9,0x61,0x5F,0x83,0x7F,0x7D,0x0A,0x95,0x2B,0x59,0x5D,0xD3,0x02,0x09,0x72};
 
 uint32_t CXUnsavedFile::read(::apache::thrift::protocol::TProtocol* iprot) {
 
@@ -145,14 +145,6 @@ uint32_t CXUnsavedFile::read(::apache::thrift::protocol::TProtocol* iprot) {
           xfer += iprot->skip(ftype);
         }
         break;
-      case 3:
-        if (ftype == ::apache::thrift::protocol::T_I32) {
-          xfer += iprot->readI32(this->Length);
-          this->__isset.Length = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
       default:
         xfer += iprot->skip(ftype);
         break;
@@ -177,10 +169,6 @@ uint32_t CXUnsavedFile::write(::apache::thrift::protocol::TProtocol* oprot) cons
   xfer += oprot->writeString(this->Contents);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("Length", ::apache::thrift::protocol::T_I32, 3);
-  xfer += oprot->writeI32(this->Length);
-  xfer += oprot->writeFieldEnd();
-
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
@@ -190,7 +178,6 @@ void swap(CXUnsavedFile &a, CXUnsavedFile &b) {
   using ::std::swap;
   swap(a.Filename, b.Filename);
   swap(a.Contents, b.Contents);
-  swap(a.Length, b.Length);
   swap(a.__isset, b.__isset);
 }
 

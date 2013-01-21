@@ -26,12 +26,7 @@ struct CXUnsavedFile {
   /**
    * \brief A buffer containing the unsaved contents of this file.
    */
-  2: string Contents,
-
-  /**
-   * \brief The length of the unsaved contents of this buffer.
-   */
-  3: Types.u32 Length
+  2: string Contents
 }
 
 
