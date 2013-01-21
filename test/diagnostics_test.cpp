@@ -30,7 +30,6 @@ TEST(FixItTest, ShowCorrectDiagnostics) {
   EXPECT_EQ(1, Clad.getDiagnosticNumFixIts(diagnostic));
   Clad.disposeDiagnostic(diagnostic);
 
-  Clad.disposeDiagnostic(diagnostic);
   Clad.disposeTranslationUnit(unit);
   Clad.disposeIndex(index);
 }
