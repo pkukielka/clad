@@ -7,6 +7,19 @@ Standalone Clang service for easier integration with various editors and IDEs
 The goal of Clad is to provide platform independent, persistent service which provides API very similar to libclang C API, but can be accessed easily from any programming language without need to write C bindings.  
 This should significantly simplify process of building stateless commandline utilities based on Clang (state is moved to service instead, you don't need to reparse all files every time you run your tool) as well as testing Clang using other languages, even exotic ones.  
   
+## Demo
+In the 'example' directory you can find demo of in-browser C++ editor built with Clad and javascript client.  
+To run it you need to compile and run Clad server, and then start  web server in the 'example' directory:  
+
+```bash
+~/clad/build/src$ ./clad_serv &
+~/clad/example$ python -m SimpleHTTPServer 8080
+```
+
+For now functionality is limited to marking errors in the code and showind diagnostic messages,  
+but I'm planning to add fix-its and live-completion as well. So far it looks like this:  
+![alt text](https://github.com/pkukielka/clad/raw/master/example/img/editor.png "Simple editor build with Clad")  
+
 ## Building the server
 To build Clad you need to have:
 - Clang 3.2
