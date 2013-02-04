@@ -16,6 +16,17 @@
                 padding-top: 60px;
                 padding-bottom: 40px;
             }
+            #editor {
+                top:40px;
+                right: 0;
+                left: 0px;
+                bottom: 0px;
+            }
+            .ace_marker-layer .error {
+                position: absolute;
+                z-index: 4;
+                background: rgb(130, 50, 50);\
+            }
         </style>
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -39,34 +50,77 @@
                     </a>
                     <a class="brand" href="#">Clad</a>
                     <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Demo</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="editor" style="top: 40px; right: 0; left: 0px; bottom: 0px"></div>
+        <div id="editor">#include &lt;iostream&gt;
+
+using namespace std;
+
+void main() {
+  cout << "Hello World!" << endl;
+}       </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/vendor/thrift.js"></script>
+        <script src="js/clad/Clang_types.js"></script>
+        <script src="js/clad/Diagnostic_types.js"></script>
+        <script src="js/clad/File_types.js"></script>
+        <script src="js/clad/Index_types.js"></script>
+        <script src="js/clad/Location_types.js"></script>
+        <script src="js/clad/TranslationUnit_types.js"></script>
+        <script src="js/clad/Types_types.js"></script>
         <script src="js/clad/Clang.js"></script>
 
         <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/main.js"></script>
         <script>
+            var Range = ace.require('ace/range').Range
             var editor = ace.edit("editor");
             editor.setTheme("ace/theme/monokai");
             editor.setFontSize("16px");
             editor.getSession().setMode("ace/mode/c_cpp");
-        </script>
 
-        <script src="js/main.js"></script>
+            var timer, timeout = 500;
+            var client = initThrift();
+
+            function parseText() {
+                var warnings = parse(client);
+                editor.getSession().setAnnotations(warnings);
+
+                var markers = editor.getSession().getMarkers();
+                for (m in markers) {
+                    if (markers[m].type == "error") {
+                        editor.getSession().removeMarker(markers[m].id);
+                    }
+                }
+
+                for (w in warnings) {
+                    var range = new Range(warnings[w].row, warnings[w].column, warnings[w].row, warnings[w].column + warnings[w].offset);
+                    editor.getSession().addMarker(range, "error", "error");
+                }
+            }
+
+            parseText();
+
+            editor.getSession().on('change', function(e) {
+                if (typeof timer != undefined) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(parseText, timeout);
+            });
+
+            editor.on("guttermousedown", function(e){
+                var target = e.domEvent.target;
+                if (target.className.indexOf("ace_gutter-cell") != -1) {
+                    // TBD: implement fix-it for clicked e.getDocumentPosition().row
+                }
+            })
+        </script>
     </body>
 </html>
-
-</head>
-<body>
