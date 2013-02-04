@@ -59,3 +59,13 @@ This will generate full API for java. To see list of all available generators op
 ```
 thrift -help
 ```
+
+##Roadmap
+Plan for now looks like that:  
+
+* Finish demo of using Clad with javascript
+* Add missing libclang API functions (like for cursors)
+* Cover existing Clad API with tests; also do some performance checks
+* Experiment with libtooling, clang refactoring tools, etc.
+
+I would say it can take another month to cover first 3 points.
