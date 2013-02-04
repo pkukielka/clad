@@ -67,60 +67,7 @@ void main() {
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/vendor/thrift.js"></script>
-        <script src="js/clad/Clang_types.js"></script>
-        <script src="js/clad/Diagnostic_types.js"></script>
-        <script src="js/clad/File_types.js"></script>
-        <script src="js/clad/Index_types.js"></script>
-        <script src="js/clad/Location_types.js"></script>
-        <script src="js/clad/TranslationUnit_types.js"></script>
-        <script src="js/clad/Types_types.js"></script>
-        <script src="js/clad/Clang.js"></script>
-
         <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="js/main.js"></script>
-        <script>
-            var Range = ace.require('ace/range').Range
-            var editor = ace.edit("editor");
-            editor.setTheme("ace/theme/monokai");
-            editor.setFontSize("16px");
-            editor.getSession().setMode("ace/mode/c_cpp");
-
-            var timer, timeout = 500;
-            var client = initThrift();
-
-            function parseText() {
-                var warnings = parse(client);
-                editor.getSession().setAnnotations(warnings);
-
-                var markers = editor.getSession().getMarkers();
-                for (m in markers) {
-                    if (markers[m].type == "error") {
-                        editor.getSession().removeMarker(markers[m].id);
-                    }
-                }
-
-                for (w in warnings) {
-                    var range = new Range(warnings[w].row, warnings[w].column, warnings[w].row, warnings[w].column + warnings[w].offset);
-                    editor.getSession().addMarker(range, "error", "error");
-                }
-            }
-
-            parseText();
-
-            editor.getSession().on('change', function(e) {
-                if (typeof timer != undefined) {
-                    clearTimeout(timer);
-                }
-                timer = setTimeout(parseText, timeout);
-            });
-
-            editor.on("guttermousedown", function(e){
-                var target = e.domEvent.target;
-                if (target.className.indexOf("ace_gutter-cell") != -1) {
-                    // TBD: implement fix-it for clicked e.getDocumentPosition().row
-                }
-            })
-        </script>
+        <script src="js/editor.js"></script>
     </body>
 </html>
