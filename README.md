@@ -67,5 +67,6 @@ Plan for now looks like that:
 * Add missing libclang API functions (like for cursors)
 * Cover existing Clad API with tests; also do some performance checks
 * Experiment with libtooling, clang refactoring tools, etc.
+* Add posibility to dynamically load C/C++ scripts to the server (so you can add refactorings on the fly)
 
 I would say it can take another month to cover first 3 points.
